@@ -4,56 +4,128 @@
   font-style: normal
   src: url("src/fonts/Ubuntu-Light.woff2") format('woff2'), url("src/fonts/Ubuntu-Light.woff") format('woff')
 
+@font-face
+  font-family: 'Ubuntu'
+  font-weight: 400
+  font-style: normal
+  src: url("src/fonts/Ubuntu-Regular.woff2") format('woff2'), url("src/fonts/Ubuntu-Regular.woff") format('woff')
 
-//@font-face
-//  font-family: 'Ubuntu'
-//  font-weight: 400
-//  font-style: normal
-//  src: url("src/fonts/Ubuntu-Regular.woff2") format('woff2'), url("src/fonts/Ubuntu-Regular.woff") format('woff')
+@font-face
+  font-family: 'Ubuntu'
+  font-weight: 500
+  font-style: normal
+  src: url("src/fonts/Ubuntu-Regular.woff2") format('woff2'), url("src/fonts/Ubuntu-Regular.woff") format('woff')
 
+@font-face
+  font-family: 'Ubuntu'
+  font-weight: 700
+  font-style: normal
+  src: url("src/fonts/Ubuntu-Bold.woff2") format('woff2'), url("src/fonts/Ubuntu-Bold.woff") format('woff')
+
+@font-face
+  font-family: 'Artico-ExtraCond'
+  font-weight: 500
+  font-style: normal
+  src: url("src/fonts/Artico-ExtraCond-Medium.otf") format('otf')
 
 
 
 html
   font-size: clamp(6px, calc(6px + (16 - 6) * ((100vw - 1024px) / (1920 - 1024))), 16px)
-  line-height: 1.36
-  font-weight: 300
+  line-height: 1.6
+  font-weight: 400
   font-family: 'Ubuntu', sans-serif
   text-size-adjust: none
   -webkit-text-size-adjust: none
 
+// 180px
 .font-s-1
   font-size: clamp(24px, calc(24px + (180 - 24) * ((100vw - 1024px) / (1920 - 1024))), 180px)
   line-height: 1
   font-weight: 500
+  letter-spacing: 0.06em
 
+//60px
 .font-s-2
-  font-size: clamp(24px, calc(24px + (56 - 24) * ((100vw - 1024px) / (1920 - 1024))), 56px)
-  line-height: 1.36
+  font-size: clamp(24px, calc(24px + (60 - 24) * ((100vw - 1024px) / (1920 - 1024))), 60px)
+  line-height: 1.25
+  font-weight: 500
+  letter-spacing: 0.08em
 
+//38px
 .font-s-3
-  font-size: clamp(18px, calc(18px + (44 - 18) * ((100vw - 1024px) / (1920 - 1024))), 44px)
-  line-height: 1.36
+  font-size: clamp(18px, calc(18px + (38 - 18) * ((100vw - 1024px) / (1920 - 1024))), 38px)
+  line-height: 1
+  font-weight: 400
+  letter-spacing: 0.06em
 
+//34px
 .font-s-4
-  font-size: clamp(18px, calc(18px + (36 - 18) * ((100vw - 1024px) / (1920 - 1024))), 36px)
-  line-height: 1.36
+  font-size: clamp(18px, calc(18px + (34 - 18) * ((100vw - 1024px) / (1920 - 1024))), 34px)
+  line-height: 1.25
+  font-weight: 500
+  letter-spacing: 0.08em
 
+//30px
 .font-s-5
-  font-size: clamp(18px, calc(18px + (32 - 18) * ((100vw - 1024px) / (1920 - 1024))), 32px)
-  line-height: 1.375
+  font-size: clamp(18px, calc(18px + (30 - 18) * ((100vw - 1024px) / (1920 - 1024))), 30px)
+  line-height: 1.1
+  font-weight: 500
 
+//24px
 .font-s-6
-  font-size: clamp(16px, calc(16px + (24 - 16) * ((100vw - 1024px) / (1920 - 1024))), 24px)
-  line-height: 1.41
+  font-size: clamp(18px, calc(18px + (24 - 18) * ((100vw - 1024px) / (1920 - 1024))), 24px)
+  line-height: 1.1
+  font-weight: 500
 
+//22px
 .font-s-7
-  font-size: clamp(14px, calc(14px + (20 - 14) * ((100vw - 1024px) / (1920 - 1024))), 20px)
-  line-height: 1.44
+  font-size: clamp(18px, calc(18px + (22 - 18) * ((100vw - 1024px) / (1920 - 1024))), 22px)
+  line-height: 1.2
+  font-weight: 500
 
+//20px
 .font-s-8
+  font-size: clamp(16px, calc(16px + (20 - 16) * ((100vw - 1024px) / (1920 - 1024))), 20px)
+  line-height: 1.2
+  font-weight: 500
+
+//18px
+.font-s-9
+  font-size: clamp(14px, calc(14px + (18 - 14) * ((100vw - 1024px) / (1920 - 1024))), 18px)
+  line-height: 1.4
+  font-weight: 400
+
+//17px
+.font-s-10
+  font-size: clamp(14px, calc(14px + (17 - 14) * ((100vw - 1024px) / (1920 - 1024))), 17px)
+  line-height: 1.25
+  font-weight: 500
+
+//16px
+.font-s-11
   font-size: clamp(12px, calc(12px + (16 - 12) * ((100vw - 1024px) / (1920 - 1024))), 16px)
-  line-height: 1.375
+  line-height: 1.6
+  font-weight: 400
+
+//15px
+.font-s-12
+  font-size: clamp(18px, calc(18px + (15 - 18) * ((100vw - 1024px) / (1920 - 1024))), 15px)
+  line-height: 1.25
+  font-weight: 700
+  letter-spacing: 0.06em
+
+//14px
+.font-s-13
+  font-size: clamp(12px, calc(12px + (14 - 12) * ((100vw - 1024px) / (1920 - 1024))), 14px)
+  line-height: 1.4
+  font-weight: 400
+
+//14px (bold)
+.font-s-14
+  font-size: clamp(12px, calc(12px + (14 - 12) * ((100vw - 1024px) / (1920 - 1024))), 14px)
+  line-height: 1
+  font-weight: 700
 
 
 
