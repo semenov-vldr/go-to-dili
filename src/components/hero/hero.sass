@@ -1,0 +1,34 @@
+.hero
+  position: relative
+  background-image: linear-gradient(to top, rgba(16, 46, 34, 0.2)), url('/assets/img/hero-img.png')
+  height: 960px
+  background-position: top -240px center
+  background-repeat: no-repeat
+  background-size: cover
+  text-align: center
+  color: #fff
+
+  &::after
+    position: absolute
+    content: ""
+    background-image: url('/assets/img/hero-decor.svg')
+    height: 870px
+    width: 100%
+    background-position: center
+    background-repeat: no-repeat
+    background-size: cover
+    bottom: -450px
+    left: 0
+
+  h1
+    font-size: 180px
+    line-height: 1
+    padding-top: 15rem
+    margin-bottom: 1rem
+
+
+  span, p
+    font-size: 38px
+    line-height: 1
+    font-weight: 400
+

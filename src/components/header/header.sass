@@ -1,0 +1,112 @@
+.header
+  position: fixed
+  min-height: 124px
+  width: 100%
+  padding: 12px 0
+  color: #fff
+  transition: $transition
+  z-index: 100
+
+  &__container
+    display: flex
+    justify-content: space-between
+    align-items: center
+    //column-gap: 30px
+
+    .header__nav
+      display: flex
+      flex-wrap: wrap
+      flex-direction: column
+      align-items: center
+      row-gap: 25px
+      max-width: 675px
+
+      &-row
+        display: flex
+        flex-wrap: wrap
+        align-items: center
+
+        .header__drop-list
+          display: flex
+          align-items: center
+          flex-direction: column
+          gap: 10px
+
+      &-row-1
+        flex-direction: row
+        column-gap: 56px
+        font-size: 16px
+
+      &-row-2
+        position: relative
+        flex-direction: row
+        column-gap: 56px
+        font-size: 17px
+        font-weight: 500
+        &::after
+          content: ""
+          position: absolute
+          width: 100%
+          background-color: rgba(#fff, 0.1)
+          height: 1px
+          top: -14px
+
+      &--contacts
+        display: flex
+        flex-direction: row
+        flex-wrap: nowrap
+        column-gap: 65px
+
+        .header__phone
+          display: flex
+          gap: 7px
+          font-size: 22px
+          font-weight: 500
+
+    .header__nav-right
+      display: flex
+      gap: 28px
+      align-items: center
+
+      .header__social
+        display: flex
+        gap: 12px
+
+        &-link svg circle:hover
+          //fill: var(--c-green)
+          //fill-opacity: 1
+
+      .header__lang-list
+        color: inherit
+        appearance: none
+        height: min-content
+        background-color: transparent
+        border: none
+        cursor: pointer
+
+      .header__button
+        display: flex
+        align-items: center
+        font-weight: 700
+        text-align: center
+        font-size: 14px
+        text-transform: uppercase
+        min-height: 58px
+        padding: 10px 34px
+        border-radius: 100px
+        background-color: var(--c-green)
+
+.header.scrolled
+  background-color: var(--c-green)
+
+.header__logo svg.scrolled
+  fill: var(--c-black)
+
+.header__button.scrolled
+  outline: 1px solid #fff
+
+.header__phone svg.scrolled
+  fill: rgba(#fff, 0.5)
+
+
+

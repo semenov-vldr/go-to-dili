@@ -1,0 +1,57 @@
+header.header
+  .container.header__container
+    nav.header__nav
+      .header__nav-row.header__nav-row-1
+        a.header__link(href='/') О проекте
+        a.header__link(href='/') Для партнеров
+        a.header__link(href='/') Важная информация
+        a.header__link(href='/') Контакты
+      .header__nav-row.header__nav-row-2
+        a.header__link(href='/') Туры
+        a.header__link(href='/') Что делать?
+        a.header__link(href='/') События
+
+        ul.header__drop-list
+          li.header__drop-item
+            a.header__drop-link(href='/') Окрестности
+          //li
+          //  a.header__drop-link(href='/') Окрестности
+          //li
+          //  a.header__drop-link(href='/') Окрестности
+
+        a.header__link(href='/') История
+        a.header__link(href='/') Блог
+
+
+    a.header__logo(href='/')
+      <svg width="86" height="99" fill="#8CB110">
+        <use href="assets/img/sprite.svg#header-logo"></use>
+      </svg>
+    nav.header__nav.header__nav--contacts
+      a.header__phone(href='tel:+78522560000')
+        <svg width="17" height="20" fill="#8CB110">
+          <use href="assets/img/sprite.svg#header-phone"></use>
+        </svg>
+        | +7 852 256 00 00
+      .header__nav-right
+        ul.header__social
+          li.header__social-item
+            a.header__social-link(href='/')
+              <svg width="30" height="30">
+                <use href="assets/img/sprite.svg#header-instagram"></use>
+              </svg>
+
+          li.header__social-item
+            a.header__social-link(href='/')
+              <svg width="30" height="30" >
+                <use href="assets/img/sprite.svg#header-vk"></use>
+              </svg>
+          li.header__social-item
+            a.header__social-link(href='/')
+              <svg width="30" height="30" >
+                <use href="assets/img/sprite.svg#header-facebook"></use>
+              </svg>
+        select.header__lang-list
+          option En
+          option Ru
+        a.header__button(href='/') Туры по Дилижану
