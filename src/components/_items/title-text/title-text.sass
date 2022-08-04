@@ -1,0 +1,18 @@
+.title-text
+  & > *:first-child
+    @extend .font-s-2
+    margin-bottom: 2rem
+  p, span, ul, li
+    @extend .font-s-9
+    font-weight: 400
+    color: rgba(var(--c-black), 0.7)
+  & > *:not(:last-child)
+    margin-bottom: 1rem
+
+  &--small
+    & > *:first-child
+      @extend .font-s-5
+      margin-bottom: 1.5rem
+
+
+

@@ -1,28 +1,27 @@
 .footer
   position: relative
-  z-index: 100
-  min-height: 426px
-  background-color: #323232
+  width: 100%
   color: #fff
-
-  &__container
-    max-width: 1355px
-    margin: 0 auto
+  background-color: #323232
+  z-index: 100
 
   &__top
-    display: flex
-    justify-content: space-between
-    width: 100%
     padding: 77px 0 100px
 
   &__bottom
     position: relative
-    display: flex
-    align-items: center
-    justify-content: space-between
-    width: 100%
+    padding: 23px 0
     background-color: var(--c-black)
-    padding: 25px 0
+
+  &__container
+    display: flex
+    justify-content: space-between
+    margin: 0 auto
+    width: 100%
+    &--top
+      max-width: 1355px
+    &--bottom
+      max-width: 1600px
 
   &-nav
     display: flex
@@ -32,6 +31,8 @@
     display: flex
     flex-direction: column
     gap: 20px
+    & a:hover
+      color: var(--c-green)
 
   &__col-right
     display: flex
@@ -40,23 +41,21 @@
     gap: 30px
 
   &__link-pdf
-    position: relative
-    &::before
-      position: absolute
-      content: ""
-      background-image: url('/assets/img/icon-pdf.svg')
-      height: 30px
-      width: 26px
-      background-position: center
-      background-repeat: no-repeat
-      background-size: cover
-      top: 0
-      left: -15px
-      transform: translateX(-100%)
+    @extend .font-s-12
+    display: flex
+    align-items: center
+    justify-content: center
+    gap: 1rem
+    &:hover
+      text-decoration: underline
 
+  .footer-social
+    display: flex
+    align-items: center
+    gap: 17px
 
-    .footer-social
-      display: flex
-      align-items: center
-      gap: 17px
+    &-link:hover svg circle
+      fill: var(--c-green)
+      fill-opacity: 1
+
 

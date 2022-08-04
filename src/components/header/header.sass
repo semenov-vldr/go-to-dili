@@ -1,24 +1,23 @@
 .header
-  position: fixed
+  position: absolute
+  @extend .font-s-10
   min-height: 124px
   width: 100%
   padding: 12px 0
   color: #fff
   transition: $transition
-  z-index: 100
-  @extend .font-s-10
+  z-index: 1000
+
 
   &__container
     display: flex
     justify-content: space-between
     align-items: center
-    //column-gap: 30px
 
     .header__nav
       display: flex
       flex-wrap: wrap
       flex-direction: column
-      align-items: center
       row-gap: 25px
       max-width: 675px
 
@@ -40,11 +39,11 @@
         font-size: 16px
 
       &-row-2
+        @extend .font-s-9
         position: relative
         flex-direction: row
-        column-gap: 56px
+        column-gap: 46px
         row-gap: 0.5rem
-        @extend .font-s-9
         &::after
           content: ""
           position: absolute
@@ -83,7 +82,6 @@
         g
           opacity: 1
 
-
       .header__lang-list
         color: inherit
         appearance: none
@@ -93,25 +91,21 @@
         cursor: pointer
 
       .header__button
-        display: flex
-        align-items: center
+        outline: 1px solid transparent
         font-weight: 700
-        text-align: center
-        font-size: 14px
-        text-transform: uppercase
-        min-height: 58px
-        padding: 10px 34px
-        border-radius: 100px
-        background-color: var(--c-green)
+
+      .header__button:hover
+      .header__button.scrolled
+        outline-color: #fff
 
 .header.scrolled
+  position: fixed
   background-color: var(--c-green)
+  z-index: 1000
 
 .header__logo svg.scrolled
   fill: var(--c-black)
 
-.header__button.scrolled
-  outline: 1px solid #fff
 
 .header__phone svg.scrolled
   fill: rgba(#fff, 0.5)

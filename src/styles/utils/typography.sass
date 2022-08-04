@@ -26,7 +26,7 @@
   font-family: 'Artico-ExtraCond'
   font-weight: 500
   font-style: normal
-  src: url("src/fonts/Artico-ExtraCond-Medium.otf") format('otf')
+  src: url("src/fonts/Artico-ExtraCond-Medium.otf") format('opentype')
 
 
 
@@ -108,21 +108,27 @@ html
   line-height: 1.6
   font-weight: 400
 
-//15px
+//16px (medium)
 .font-s-12
+  font-size: clamp(12px, calc(12px + (16 - 12) * ((100vw - 1024px) / (1920 - 1024))), 16px)
+  line-height: 1.25
+  font-weight: 500
+
+//15px
+.font-s-13
   font-size: clamp(18px, calc(18px + (15 - 18) * ((100vw - 1024px) / (1920 - 1024))), 15px)
   line-height: 1.25
   font-weight: 700
   letter-spacing: 0.06em
 
 //14px
-.font-s-13
+.font-s-14
   font-size: clamp(12px, calc(12px + (14 - 12) * ((100vw - 1024px) / (1920 - 1024))), 14px)
   line-height: 1.4
   font-weight: 400
 
 //14px (bold)
-.font-s-14
+.font-s-15
   font-size: clamp(12px, calc(12px + (14 - 12) * ((100vw - 1024px) / (1920 - 1024))), 14px)
   line-height: 1
   font-weight: 700

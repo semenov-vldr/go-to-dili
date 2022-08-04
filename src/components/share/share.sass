@@ -1,0 +1,54 @@
+.share
+  background-image: url("../img/share/share-bg-decor.svg")
+  height: 960px
+  background-position: center
+  background-repeat: no-repeat
+  background-size: cover
+  padding: 110px 0 180px
+  .container
+    align-items: center
+    grid-gap: 20px
+  &__content-text
+    grid-column: span 4
+    grid-row: span 2
+  &__social
+    margin-top: 52px
+    color: rgba(var(--c-black), 0.7)
+    &-button svg
+      margin-right: 10px
+    &-more
+      display: flex
+      flex-wrap: wrap
+      align-items: center
+      gap: 24px
+      margin-top: 36px
+    &-links
+      display: flex
+      flex-wrap: wrap
+      gap: 13px
+
+  &__images-wrapper
+    overflow: hidden
+    height: 250px
+    grid-template-rows: 250px
+    &:nth-child(2)
+      grid-column: 6 / span 2
+    &:nth-child(3)
+      grid-column: 8 / span 2
+    &:nth-child(4)
+      grid-column: 10 / span 3
+    &:nth-child(5)
+      grid-column: 6 / span 3
+    &:nth-child(6)
+      grid-column: 9 / span 2
+    &:nth-child(7)
+      grid-column: 11 / span 2
+
+
+    img
+      width: 100%
+      height: 100%
+      border-radius: 16px
+      object-fit: cover
+
+

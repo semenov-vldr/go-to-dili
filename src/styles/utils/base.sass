@@ -3,10 +3,12 @@ html
   overflow-x: hidden
   max-width: 100vw
   scroll-behavior: smooth
+  background-color: #F7F7F7
+  color: var(--c-black)
 
 main
-  @media(max-width: 560px)
-    padding-top: 76px
+  //@media(max-width: 560px)
+  //  padding-top: 76px
 
 .page
   min-height: 100%
@@ -20,11 +22,67 @@ main
   flex-direction: column
 
 main
+  position: relative
   flex: 1 1 auto
   -webkit-box-flex: 1
   -ms-flex: 1 1 auto
+  z-index: 100
+  &::after
+    position: absolute
+    content: ""
+    background-image: url('/assets/img/page-bottom-decor.svg')
+    height: 170px
+    width: 100%
+    background-position: center
+    background-repeat: repeat
+    background-size: 733px 170px
+    bottom: -20px
+    left: 0px
+    z-index: -1
 
 .container
   max-width: 1600px
   padding: 0 160px
   margin: 0 auto
+  box-sizing: content-box
+
+
+.grid
+  display: grid
+  grid-template-columns: repeat(12, 1fr)
+
+
+h1
+  @extend .font-s-1
+  font-family: 'Artico-ExtraCond', sans-serif
+
+h2
+  @extend .font-s-2
+  font-family: 'Artico-ExtraCond', sans-serif
+
+h3
+  @extend .font-s-4
+
+h4
+  @extend .font-s-5
+
+a
+  transition: $transition
+
+.button
+  @extend .font-s-14
+  transition: $transition
+  display: inline-flex
+  align-items: center
+  text-align: center
+  text-transform: uppercase
+  min-height: 56px
+  padding: 10px 34px
+  border-radius: 100px
+  background-color: var(--c-green)
+  color: #fff
+  cursor: pointer
+  font-weight: 500
+  &:hover
+    box-shadow: 0px 20px 50px rgba(116, 147, 13, 0.3)
+
