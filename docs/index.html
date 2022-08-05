@@ -28,13 +28,14 @@
                 <!--  a.header__drop-link(href='/') Окрестности-->
               </ul><a class="header__link" href="/">История</a><a class="header__link" href="/">Блог</a>
             </div>
-          </nav><a class="header__logo" href="/"><svg width="86" height="99" fill="#8CB110">
-<use href="assets/img/sprite.svg#header-logo"></use>
-</svg></a>
+          </nav><a class="header__logo" href="/">
+            <svg width="86" height="99" fill="#8CB110">
+              <use href="assets/img/sprite.svg#header-logo"></use>
+            </svg></a>
           <nav class="header__nav header__nav--contacts"><a class="header__phone" href="tel:+78522560000">
               <svg width="17" height="20" fill="#8CB110">
-<use href="assets/img/sprite.svg#header-phone"></use>
-</svg>+7 852 256 00 00</a>
+                <use href="assets/img/sprite.svg#header-phone"></use>
+              </svg>+7 852 256 00 00</a>
             <div class="header__nav-right">
               <ul class="header__social">
                 <li class="header__social-item"><a class="header__social-link" href="/"><svg class="header__social-icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
@@ -84,11 +85,68 @@
                 </div>
               </div>
               <div class="about-project__images">
-                <div class="about-project__images-wrapper about-project__images-wrapper-1"><img class="about-project__image" src="/assets/img/about/about-1.jpg" alt="">
+                <div class="about-project__images-wrapper"><img class="about-project__image" src="/assets/img/about/about-1.jpg" alt="img">
+                  <div class="about-project__icons"><img src="./assets/img/icon-card-decor.svg" alt="icon"></div>
                   <p>Для большой компании</p>
                 </div>
-                <div class="about-project__images-wrapper about-project__images-wrapper-2"><img class="about-project__image" src="/assets/img/about/about-2.jpg" alt="">
+                <div class="about-project__images-wrapper"><img class="about-project__image" src="/assets/img/about/about-2.jpg" alt="img">
+                  <div class="about-project__icons"><img src="./assets/img/icon-card-decor-02.svg" alt="icon"></div>
                   <p>Для частных поездок</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="what-to-do">
+            <div class="container">
+              <h2 class="what-to-do__title"></h2>
+              <div class="what-to-do__nav what-to-do-nav">
+                <div class="js active-mark what-to-do-nav__item">
+                  <svg class="what-to-do-nav__icon" width="50" height="50" fill="#D8DAD1">
+                    <use href="assets/img/sprite.svg#eat"></use>
+                  </svg><span class="what-to-do-nav__name">Еда</span>
+                </div>
+                <div class="what-to-do-nav__item">
+                  <svg class="what-to-do-nav__icon" width="50" height="50" fill="#D8DAD1">
+                    <use href="assets/img/sprite.svg#hotel"></use>
+                  </svg><span class="what-to-do-nav__name">Отели</span>
+                </div>
+                <div class="what-to-do-nav__item">
+                  <svg class="what-to-do-nav__icon" width="50" height="50" fill="#D8DAD1">
+                    <use href="assets/img/sprite.svg#hotel"></use>
+                  </svg><span class="what-to-do-nav__name">Отели</span>
+                </div>
+                <div class="what-to-do-nav__item">
+                  <svg class="what-to-do-nav__icon" width="50" height="50" fill="#D8DAD1">
+                    <use href="assets/img/sprite.svg#route"></use>
+                  </svg><span class="what-to-do-nav__name">Маршруты</span>
+                </div>
+                <div class="what-to-do-nav__item">
+                  <svg class="what-to-do-nav__icon" width="50" height="50" fill="#D8DAD1">
+                    <use href="assets/img/sprite.svg#place"></use>
+                  </svg><span class="what-to-do-nav__name">Места</span>
+                </div>
+                <div class="what-to-do-nav__item">
+                  <svg class="what-to-do-nav__icon" width="50" height="50" fill="#D8DAD1">
+                    <use href="assets/img/sprite.svg#event"></use>
+                  </svg><span class="what-to-do-nav__name">События</span>
+                </div>
+              </div>
+              <div class="what-to-do__card-wrapper"><span>Card</span></div>
+              <div class="what-to-do__new-events new-events">
+                <h3 class="new-events__title">Новые мероприятия</h3>
+                <div class="new-events__list grid--3col">
+                  <div class="new-events__item new-events-item"><img class="new-events-item__image" href="">
+                    <h4 class="new-events-item__title">10 лучших ресторанов Дилижана</h4>
+                    <p class="new-events-item__text">После насыщенного дня и осмотра достопримечательностей Дилижана</p>
+                  </div>
+                  <div class="new-events__item new-events-item"><img class="new-events-item__image" href="">
+                    <h4 class="new-events-item__title">Искусство плюс вино — в Амфитеатре Дилижана</h4>
+                    <p class="new-events-item__text">Организация Eventtоura организовала красочное мероприятие в самом</p>
+                  </div>
+                  <div class="new-events__item new-events-item"><img class="new-events-item__image" href="">
+                    <h4 class="new-events-item__title">Достопримечательности Дилижана</h4>
+                    <p class="new-events-item__text">Дилижан расположен на северо-востоке Армянского нагорья.</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -150,35 +208,43 @@
               </div>
               <div class="tours__list grid--4col"><a class="tour-item" href="/">
                   <div class="tour-item__body">
-                    <div class="tour-item__image-wrapper"><img src="./assets/img/events/01.jpg" alt="event-image"></div>
+                    <div class="tour-item__image-wrapper"><img class="tour-item__image" src="./assets/img/events/01.jpg" alt="event-image">
+                      <div class="tour-item__icons"><img src="./assets/img/icon-card-decor.svg" alt="icon"><img src="./assets/img/icon-card-decor-02.svg" alt="icon"></div>
+                    </div>
                     <div class="tour-item__text-content">
-                      <h4>Фестиваль красного вина</h4>
+                      <h4 class="tour-item__title">Фестиваль красного вина</h4>
                       <p class="tour-item__text">Почти у каждого популярного продукта есть свой памятный день. В этом плане больше всего повезло вину – у него есть собственные праздники для</p>
-                      <p class="tour-item__options"><span>Длительность:<b>10 дней</b></span><span>Расстояние:<b>528 км</b></span></p>
+                      <p class="tour-item__options"><span>Длительность:<b class="tour-item__options-value">10 дней</b></span><span>Расстояние:<b class="tour-item__options-value">528 км</b></span></p>
                     </div>
                   </div></a><a class="tour-item" href="/">
                   <div class="tour-item__body">
-                    <div class="tour-item__image-wrapper"><img src="./assets/img/events/01.jpg" alt="event-image"></div>
+                    <div class="tour-item__image-wrapper"><img class="tour-item__image" src="./assets/img/events/01.jpg" alt="event-image">
+                      <div class="tour-item__icons"><img src="./assets/img/icon-card-decor.svg" alt="icon"><img src="./assets/img/icon-card-decor-02.svg" alt="icon"></div>
+                    </div>
                     <div class="tour-item__text-content">
-                      <h4>Фестиваль красного вина</h4>
+                      <h4 class="tour-item__title">Фестиваль красного вина</h4>
                       <p class="tour-item__text">Почти у каждого популярного продукта есть свой памятный день. В этом плане больше всего повезло вину – у него есть собственные праздники для</p>
-                      <p class="tour-item__options"><span>Длительность:<b>10 дней</b></span><span>Расстояние:<b>528 км</b></span></p>
+                      <p class="tour-item__options"><span>Длительность:<b class="tour-item__options-value">10 дней</b></span><span>Расстояние:<b class="tour-item__options-value">528 км</b></span></p>
                     </div>
                   </div></a><a class="tour-item" href="/">
                   <div class="tour-item__body">
-                    <div class="tour-item__image-wrapper"><img src="./assets/img/events/01.jpg" alt="event-image"></div>
+                    <div class="tour-item__image-wrapper"><img class="tour-item__image" src="./assets/img/events/01.jpg" alt="event-image">
+                      <div class="tour-item__icons"><img src="./assets/img/icon-card-decor.svg" alt="icon"><img src="./assets/img/icon-card-decor-02.svg" alt="icon"></div>
+                    </div>
                     <div class="tour-item__text-content">
-                      <h4>Фестиваль красного вина</h4>
+                      <h4 class="tour-item__title">Фестиваль красного вина</h4>
                       <p class="tour-item__text">Почти у каждого популярного продукта есть свой памятный день. В этом плане больше всего повезло вину – у него есть собственные праздники для</p>
-                      <p class="tour-item__options"><span>Длительность:<b>10 дней</b></span><span>Расстояние:<b>528 км</b></span></p>
+                      <p class="tour-item__options"><span>Длительность:<b class="tour-item__options-value">10 дней</b></span><span>Расстояние:<b class="tour-item__options-value">528 км</b></span></p>
                     </div>
                   </div></a><a class="tour-item" href="/">
                   <div class="tour-item__body">
-                    <div class="tour-item__image-wrapper"><img src="./assets/img/events/01.jpg" alt="event-image"></div>
+                    <div class="tour-item__image-wrapper"><img class="tour-item__image" src="./assets/img/events/01.jpg" alt="event-image">
+                      <div class="tour-item__icons"><img src="./assets/img/icon-card-decor.svg" alt="icon"><img src="./assets/img/icon-card-decor-02.svg" alt="icon"></div>
+                    </div>
                     <div class="tour-item__text-content">
-                      <h4>Фестиваль красного вина</h4>
+                      <h4 class="tour-item__title">Фестиваль красного вина</h4>
                       <p class="tour-item__text">Почти у каждого популярного продукта есть свой памятный день. В этом плане больше всего повезло вину – у него есть собственные праздники для</p>
-                      <p class="tour-item__options"><span>Длительность:<b>10 дней</b></span><span>Расстояние:<b>528 км</b></span></p>
+                      <p class="tour-item__options"><span>Длительность:<b class="tour-item__options-value">10 дней</b></span><span>Расстояние:<b class="tour-item__options-value">528 км</b></span></p>
                     </div>
                   </div></a></div>
             </div>

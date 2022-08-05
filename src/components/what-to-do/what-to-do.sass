@@ -1,0 +1,28 @@
+.what-to-do
+  margin: 300px 0
+  &-nav
+    display: flex
+    gap: 20px
+    &__item
+      padding: 10px 40px 10px 0
+      display: flex
+      align-items: center
+      gap: 20px
+      height: 50px
+      min-width: 145px
+      color: #D8DAD1
+      border: 1px solid currentColor
+      border-radius: 25px / 50%
+      cursor: pointer
+      transition: $transition
+      .what-to-do-nav__icon
+        transition: $transition
+      &:hover,
+      &.js.active-mark
+        color: var(--c-black)
+        border-color: var(--c-green)
+      &:hover .what-to-do-nav__icon,
+      &.js.active-mark .what-to-do-nav__icon
+        fill: var(--c-green)
+
+

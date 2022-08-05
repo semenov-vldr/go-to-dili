@@ -3,22 +3,36 @@
   overflow: hidden
   background-color: #fff
   //height: 570px
+  &:hover .tour-item__title,
+  &:hover .tour-item__options-value
+    color: var(--c-green)
   &__body
     display: flex
     flex-direction: column
 
   &__image-wrapper
+    position: relative
     height: 280px
-    img
+    .tour-item__image
       width: 100%
       height: 100%
       object-fit: cover
+    .tour-item__icons
+      display: flex
+      gap: 10px
+      position: absolute
+      top: 25px
+      left: 30px
+
+
 
   &__text-content
     display: flex
     flex-direction: column
     gap: 25px
     padding: 25px
+    & > *:first-child, h4
+      transition: $transition
   &__options
     display: flex
     flex-direction: column
@@ -28,7 +42,7 @@
     & span, p
       @extend .font-s-14
       color: $black
-      b
+      b, .tour-item__options-value
         @extend .font-s-12
         color: rgba($black, 0.8)
         margin-left: 15px
