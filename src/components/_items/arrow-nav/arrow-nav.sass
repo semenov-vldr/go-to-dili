@@ -1,0 +1,16 @@
+.arrow-nav
+  display: flex
+  align-items: center
+  gap: 12px
+  svg
+    transition: $transition
+    cursor: pointer
+    &:hover,
+    &.js-arrow-active
+      fill: var(--c-green)
+      stroke: var(--c-green)
+      opacity: 1
+    &:first-child:hover
+      transform: translateX(-6px)
+    &:nth-child(2):hover
+      transform: translateX(6px)

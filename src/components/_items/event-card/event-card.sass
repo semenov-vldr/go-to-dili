@@ -1,0 +1,33 @@
+.events-item
+  border-radius: 16px
+  overflow: hidden
+  background-color: #fff
+  height: 550px
+  &__body
+    display: flex
+    flex-direction: column
+
+  &__image-wrapper
+    height: 300px
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+
+  &__text-content
+    display: flex
+    flex-direction: column
+    gap: 25px
+    padding: 25px
+    & > p, span
+      @extend .font-s-9
+      color: rgba($black, 0.75)
+    &:first-child
+      @extend .font-s-6
+    & > *:last-child
+      @extend .font-s-11
+      color: rgba($black, 0.5)
+      display: flex
+      gap: 10px
+
+

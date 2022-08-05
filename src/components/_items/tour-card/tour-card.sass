@@ -1,0 +1,35 @@
+.tour-item
+  border-radius: 16px
+  overflow: hidden
+  background-color: #fff
+  //height: 570px
+  &__body
+    display: flex
+    flex-direction: column
+
+  &__image-wrapper
+    height: 280px
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+
+  &__text-content
+    display: flex
+    flex-direction: column
+    gap: 25px
+    padding: 25px
+  &__options
+    display: flex
+    flex-direction: column
+    gap: 5px
+    border-top: 1px solid #EDEDED
+    padding-top: 18px
+    & span, p
+      @extend .font-s-14
+      color: $black
+      b
+        @extend .font-s-12
+        color: rgba($black, 0.8)
+        margin-left: 15px
+        font-weight: 500
