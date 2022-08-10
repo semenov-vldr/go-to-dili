@@ -12,24 +12,45 @@
     <link rel="stylesheet" type="text/css" href="assets/css/libs.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/main.css"><!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script><![endif]-->
+<!-- Yandex map script -->
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=dad86943-dfef-45bd-9c5e-c404323cb093&amp;lang=ru_RU" type="text/javascript"></script>
   </head>
   <body>
     <div class="page">
       <header class="header">
+        <!--mobile menu-->
+        <div class="header-mobile__container">
+          <nav class="header-mobile"><a class="header-mobile__logo" href="/">
+              <svg width="34" height="34" fill="#8CB110">
+                <use href="assets/img/sprite.svg#header-logo"></use>
+              </svg></a><a class="header-mobile__phone" href="tel:+78522560000">
+              <svg width="34" height="34" fill="#8CB110">
+                <use href="assets/img/sprite.svg#phone-mobile"></use>
+              </svg></a>
+            <div class="header-mobile__nav-right">
+              <select class="header-mobile__lang-list">
+                <option>En</option>
+                <option>Ru</option>
+              </select>
+              <div class="header__burger-icon"><span></span></div>
+            </div>
+          </nav>
+        </div>
         <div class="container header__container">
           <nav class="header__nav">
             <div class="header__nav-row header__nav-row-1"><a class="header__link" href="/">О проекте</a><a class="header__link" href="/">Для партнеров</a><a class="header__link" href="/">Важная информация</a><a class="header__link" href="/">Контакты</a></div>
             <div class="header__nav-row header__nav-row-2"><a class="header__link" href="/">Туры</a><a class="header__link" href="/">Что делать?</a><a class="header__link" href="/">События</a>
-              <ul class="header__drop-list">
-                <li class="header__drop-item"><a class="header__drop-link" href="/">Окрестности</a></li>
-                <!--li-->
-                <!--  a.header__drop-link(href='/') Окрестности-->
-                <!--li-->
-                <!--  a.header__drop-link(href='/') Окрестности-->
-              </ul><a class="header__link" href="/">История</a><a class="header__link" href="/">Блог</a>
+              <div class="header-select">
+                <div class="header-select__header"><span class="header-select__current">Окрестности</span>
+                  <svg width="10" height="6" fill="white">
+                    <use href="assets/img/sprite.svg#arrow-select"></use>
+                  </svg>
+                </div>
+                <div class="header-select__list"><a class="header-select__item" href="##">Техут</a><a class="header-select__item" href="##">Село Агарцин</a><a class="header-select__item" href="##">Село Гош</a><a class="header-select__item" href="##">Село Агавнаванк</a><a class="header-select__item" href="##">Ховк</a><a class="header-select__item" href="##">Хачардзан</a></div>
+              </div><a class="header__link" href="/">История</a><a class="header__link" href="/">Блог</a>
             </div>
           </nav><a class="header__logo" href="/">
-            <svg width="86" height="99" fill="#8CB110">
+            <svg fill="#8CB110">
               <use href="assets/img/sprite.svg#header-logo"></use>
             </svg></a>
           <nav class="header__nav header__nav--contacts"><a class="header__phone" href="tel:+78522560000">
@@ -38,14 +59,14 @@
               </svg>+7 852 256 00 00</a>
             <div class="header__nav-right">
               <ul class="header__social">
-                <li class="header__social-item"><a class="header__social-link" href="/"><svg class="header__social-icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                <li class="header__social-item"><a class="header__social-link" href="/"><svg class="header__social-icon" width="30" height="30" viewBox="0 0 30 30" fill="none">
 <circle cx="15" cy="15" r="15" fill="white" fill-opacity="0.15"/>
 <g opacity="0.5">
 <path d="M21.878 12.1579C21.8702 11.5753 21.7612 10.9985 21.5557 10.4533C21.3775 9.99339 21.1053 9.57573 20.7566 9.22699C20.4079 8.87824 19.9902 8.60608 19.5303 8.42788C18.9921 8.22585 18.4235 8.11661 17.8488 8.10481C17.1088 8.07173 16.8742 8.0625 14.9957 8.0625C13.1172 8.0625 12.8765 8.0625 12.1419 8.10481C11.5674 8.1167 10.999 8.22594 10.4611 8.42788C10.0011 8.60595 9.58341 8.87807 9.23465 9.22683C8.88589 9.57559 8.61377 9.99331 8.4357 10.4533C8.23326 10.9911 8.12425 11.5595 8.11339 12.134C8.08031 12.8748 8.07031 13.1094 8.07031 14.9879C8.07031 16.8663 8.07031 17.1063 8.11339 17.8417C8.12493 18.4171 8.23339 18.9848 8.4357 19.524C8.61406 19.9839 8.88639 20.4014 9.23526 20.75C9.58414 21.0986 10.0019 21.3706 10.4619 21.5487C10.9983 21.7588 11.5668 21.8759 12.1426 21.8948C12.8834 21.9279 13.118 21.9379 14.9965 21.9379C16.8749 21.9379 17.1157 21.9379 17.8503 21.8948C18.425 21.8835 18.9937 21.7745 19.5319 21.5725C19.9916 21.3941 20.4092 21.1219 20.7579 20.7731C21.1066 20.4244 21.3788 20.0069 21.5572 19.5471C21.7595 19.0087 21.868 18.441 21.8795 17.8648C21.9126 17.1248 21.9226 16.8902 21.9226 15.011C21.9211 13.1325 21.9211 12.894 21.878 12.1579ZM14.9911 18.5402C13.0265 18.5402 11.4349 16.9487 11.4349 14.984C11.4349 13.0194 13.0265 11.4279 14.9911 11.4279C15.9342 11.4279 16.8388 11.8026 17.5057 12.4695C18.1726 13.1364 18.5472 14.0409 18.5472 14.984C18.5472 15.9272 18.1726 16.8317 17.5057 17.4986C16.8388 18.1655 15.9342 18.5402 14.9911 18.5402ZM18.6888 12.1256C18.5799 12.1257 18.472 12.1043 18.3713 12.0627C18.2707 12.021 18.1792 11.9599 18.1022 11.8829C18.0252 11.8059 17.9641 11.7145 17.9225 11.6138C17.8808 11.5131 17.8594 11.4053 17.8595 11.2963C17.8595 11.1875 17.881 11.0797 17.9226 10.9792C17.9643 10.8786 18.0253 10.7872 18.1023 10.7103C18.1793 10.6333 18.2706 10.5722 18.3712 10.5306C18.4718 10.4889 18.5795 10.4675 18.6884 10.4675C18.7972 10.4675 18.905 10.4889 19.0056 10.5306C19.1061 10.5722 19.1975 10.6333 19.2745 10.7103C19.3514 10.7872 19.4125 10.8786 19.4541 10.9792C19.4958 11.0797 19.5172 11.1875 19.5172 11.2963C19.5172 11.7548 19.1465 12.1256 18.6888 12.1256Z" fill="white"/>
 <path d="M14.9897 17.2938C16.2655 17.2938 17.2997 16.2596 17.2997 14.9838C17.2997 13.7081 16.2655 12.6738 14.9897 12.6738C13.7139 12.6738 12.6797 13.7081 12.6797 14.9838C12.6797 16.2596 13.7139 17.2938 14.9897 17.2938Z" fill="white"/>
 </g>
 </svg></a></li>
-                <li class="header__social-item"><a class="header__social-link" href="/"><svg class="header__social-icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                <li class="header__social-item"><a class="header__social-link" href="/"><svg class="header__social-icon" width="30" height="30" viewBox="0 0 30 30">
 <circle cx="14.9999" cy="14.9999" r="14.9999" fill="white" fill-opacity="0.15"/>
 <g opacity="0.5" clip-path="url(#clip0_326_1702)">
 <path d="M16.3485 20.7693C10.4352 20.7693 7.06241 16.8712 6.92188 10.3848H9.88394C9.98124 15.1456 12.1649 17.1623 13.8946 17.5781V10.3848H16.6838V14.4908C18.3918 14.314 20.1862 12.443 20.7915 10.3848H23.5807C23.1158 12.9211 21.17 14.7922 19.7862 15.5614C21.17 16.1851 23.3862 17.8171 24.2294 20.7693H21.1591C20.4997 18.7943 18.8567 17.2662 16.6838 17.0583V20.7693H16.3485Z" fill="white"/>
@@ -56,7 +77,7 @@
 </clipPath>
 </defs>
 </svg></a></li>
-                <li class="header__social-item"><a class="header__social-link" href="/"><svg class="header__social-icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                <li class="header__social-item"><a class="header__social-link" href="/"><svg class="header__social-icon" width="30" height="30" viewBox="0 0 30 30">
 <circle cx="15" cy="15" r="15" fill="white" fill-opacity="0.15"/>
 <g opacity="0.5">
 <path d="M13.883 21.8578H16.2375V15.6007H18.2063L18.5036 13.1664H16.2375V11.6064C16.2375 10.9036 16.4223 10.4236 17.3705 10.4236H18.5839V8.23784C18.375 8.21213 17.6598 8.14355 16.8241 8.14355C15.0723 8.14355 13.883 9.28355 13.883 11.3664V13.1664H11.9062V15.6007H13.883V21.8578Z" fill="#F7F7F7"/>
@@ -98,56 +119,68 @@
           </div>
           <div class="what-to-do">
             <div class="container">
-              <h2 class="what-to-do__title"></h2>
+              <h2 class="what-to-do__title">Что делать в городе?</h2>
               <div class="what-to-do__nav what-to-do-nav">
-                <div class="js active-mark what-to-do-nav__item">
+                <div class="js-active-mark what-to-do-nav__item nav-item-eat">
                   <svg class="what-to-do-nav__icon" width="50" height="50" fill="#D8DAD1">
                     <use href="assets/img/sprite.svg#eat"></use>
                   </svg><span class="what-to-do-nav__name">Еда</span>
                 </div>
-                <div class="what-to-do-nav__item">
+                <div class="what-to-do-nav__item nav-item-hotel">
                   <svg class="what-to-do-nav__icon" width="50" height="50" fill="#D8DAD1">
                     <use href="assets/img/sprite.svg#hotel"></use>
                   </svg><span class="what-to-do-nav__name">Отели</span>
                 </div>
-                <div class="what-to-do-nav__item">
-                  <svg class="what-to-do-nav__icon" width="50" height="50" fill="#D8DAD1">
-                    <use href="assets/img/sprite.svg#hotel"></use>
-                  </svg><span class="what-to-do-nav__name">Отели</span>
-                </div>
-                <div class="what-to-do-nav__item">
+                <div class="what-to-do-nav__item nav-item-route">
                   <svg class="what-to-do-nav__icon" width="50" height="50" fill="#D8DAD1">
                     <use href="assets/img/sprite.svg#route"></use>
                   </svg><span class="what-to-do-nav__name">Маршруты</span>
                 </div>
-                <div class="what-to-do-nav__item">
+                <div class="what-to-do-nav__item nav-item-place">
                   <svg class="what-to-do-nav__icon" width="50" height="50" fill="#D8DAD1">
                     <use href="assets/img/sprite.svg#place"></use>
                   </svg><span class="what-to-do-nav__name">Места</span>
                 </div>
-                <div class="what-to-do-nav__item">
+                <div class="what-to-do-nav__item nav-item-event">
                   <svg class="what-to-do-nav__icon" width="50" height="50" fill="#D8DAD1">
                     <use href="assets/img/sprite.svg#event"></use>
                   </svg><span class="what-to-do-nav__name">События</span>
                 </div>
               </div>
-              <div class="what-to-do__card-wrapper"><span>Card</span></div>
+              <div class="map">
+                <div class="map__item" id="map"></div>
+              </div>
+              <!--.balloon-->
+              <!--  .balloon__wrapper-->
+              <!--    .balloon__close X-->
+              <!--    .balloon__image-wrapper-->
+              <!--      img.balloon__image(src='./01.jpg' alt='')-->
+              <!--    .balloon__content-text-->
+              <!--      p.balloon__title Dilijazz Restaurant-->
+              <!--      .balloon__kitchen-->
+              <!--        span.balloon__kitchen-title Кухня:-->
+              <!--        .balloon__kitchen-list-->
+              <!--          span.balloon__kitchen-name Американская-->
+              <!--          span.balloon__kitchen-name Средиземноморская-->
+              <!--          span.balloon__kitchen-name Европейская-->
+              <!--      p.balloon__address-->
+              <!--        img(src='./ballon-location.svg' alt='')-->
+              <!--        | 1/1 2nd St., T’eghut, Дилижан 3902 Армения-->
               <div class="what-to-do__new-events new-events">
                 <h3 class="new-events__title">Новые мероприятия</h3>
-                <div class="new-events__list grid--3col">
-                  <div class="new-events__item new-events-item"><img class="new-events-item__image" href="">
-                    <h4 class="new-events-item__title">10 лучших ресторанов Дилижана</h4>
-                    <p class="new-events-item__text">После насыщенного дня и осмотра достопримечательностей Дилижана</p>
-                  </div>
-                  <div class="new-events__item new-events-item"><img class="new-events-item__image" href="">
-                    <h4 class="new-events-item__title">Искусство плюс вино — в Амфитеатре Дилижана</h4>
-                    <p class="new-events-item__text">Организация Eventtоura организовала красочное мероприятие в самом</p>
-                  </div>
-                  <div class="new-events__item new-events-item"><img class="new-events-item__image" href="">
-                    <h4 class="new-events-item__title">Достопримечательности Дилижана</h4>
-                    <p class="new-events-item__text">Дилижан расположен на северо-востоке Армянского нагорья.</p>
-                  </div>
-                </div>
+                <div class="new-events__list grid--3col"><a class="new-events__item new-events-item" href="/"><img src="./assets/img/what-to-do/01.jpg" alt="image">
+                    <div class="new-events-item__content">
+                      <p class="new-events-item__title">10 лучших ресторанов Дилижана</p>
+                      <p class="new-events-item__text">После насыщенного дня и осмотра достопримечательностей Дилижана</p>
+                    </div></a><a class="new-events__item new-events-item" href="/"><img src="./assets/img/what-to-do/02.jpg" alt="image">
+                    <div class="new-events-item__content">
+                      <p class="new-events-item__title">Искусство плюс вино — в Амфитеатре Дилижана</p>
+                      <p class="new-events-item__text">Организация Eventtоura организовала красочное мероприятие в самом</p>
+                    </div></a><a class="new-events__item new-events-item" href="/"><img src="./assets/img/what-to-do/01.jpg" alt="image">
+                    <div class="new-events-item__content">
+                      <p class="new-events-item__title">Достопримечательности Дилижана</p>
+                      <p class="new-events-item__text">Дилижан расположен на северо-востоке Армянского нагорья.</p>
+                    </div></a></div>
               </div>
             </div>
           </div>
@@ -196,6 +229,77 @@
                       </p>
                     </div>
                   </div></a></div>
+            </div>
+          </div>
+          <div class="places">
+            <div class="container">
+              <div class="places__header">
+                <h2>Ключевые окрестности города</h2>
+                <div class="places__nav">
+                  <div class="arrow-nav">
+                    <svg class="arrow-nav__prev" width="32" height="29" fill="#565654" stroke="#565654" opacity="0.35">
+                      <use href="./assets/img/sprite.svg#arrow-nav-prev"></use>
+                    </svg>
+                    <svg class="arrow-nav__next" width="32" height="29" fill="#565654" stroke="#565654" opacity="0.35">
+                      <use href="./assets/img/sprite.svg#arrow-nav-next"></use>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div class="js-history-active places__item grid">
+                <div class="places__image"><img src="./assets/img/05.jpg" alt="img"></div>
+                <div class="places__content places-content">
+                  <h3 class="places-content__title">Техут</h3>
+                  <p class="places-content__subtitle">На перекрестке Дилижана и Иджевана</p>
+                  <p class="places-content__text">Техут – небольшое село в Тавушской области в нескольких километрах на северо-восток от Дилижана, расположенное на левом берегу реки Агстев.  Техутская община была основана в 1925 г. переселенцами из с. Джархеч (ныне Агарцин), а 5 ноября 1993 г. Техут стал самостоятельным селом, отделившись от Агарцина.</p>
+                  <div class="places-content__bottom"><img src="assets/img/address-decor.svg" alt="decor">
+                    <div class="places-content__values">
+                      <div class="places-content__value">
+                        <svg width="18" height="33" fill="#8CB110">
+                          <use href="assets/img/sprite.svg#icon-height"></use>
+                        </svg>
+                        <p class="places-content__value-text">Высота над уровнем моря:<b>1550 м.</b></p>
+                      </div>
+                      <div class="places-content__value">
+                        <svg width="18" height="37" fill="#CCDB9A">
+                          <use href="assets/img/sprite.svg#icon-temp"></use>
+                        </svg>
+                        <p class="places-content__value-text">Средняя температура летом:<b>+19, +25 C, зимой: -2, -7 C.</b></p>
+                      </div>
+                    </div><a class="places-content__link" href="##">Подробнее
+                      <svg width="14" height="14" fill="#8CB110" stroke="#8CB110">
+                        <use href="assets/img/sprite.svg#arrow-link"></use>
+                      </svg></a>
+                  </div>
+                </div>
+              </div>
+              <div class="places__item grid">
+                <div class="places__image"><img src="./assets/img/hero-img.png" alt="img"></div>
+                <div class="places__content places-content">
+                  <h3 class="places-content__title">Техут 2</h3>
+                  <p class="places-content__subtitle">На перекрестке Дилижана и Иджевана</p>
+                  <p class="places-content__text">Техут – небольшое село в Тавушской области в нескольких километрах на северо-восток от Дилижана, расположенное на левом берегу реки Агстев.  Техутская община была основана в 1925 г. переселенцами из с. Джархеч (ныне Агарцин), а 5 ноября 1993 г. Техут стал самостоятельным селом, отделившись от Агарцина.</p>
+                  <div class="places-content__bottom"><img src="assets/img/address-decor.svg" alt="decor">
+                    <div class="places-content__values">
+                      <div class="places-content__value">
+                        <svg width="18" height="33" fill="#8CB110">
+                          <use href="assets/img/sprite.svg#icon-height"></use>
+                        </svg>
+                        <p class="places-content__value-text">Высота над уровнем моря:<b>1000 м.</b></p>
+                      </div>
+                      <div class="places-content__value">
+                        <svg width="18" height="37" fill="#CCDB9A">
+                          <use href="assets/img/sprite.svg#icon-temp"></use>
+                        </svg>
+                        <p class="places-content__value-text">Средняя температура летом:<b>+19, +25 C, зимой: -2, -7 C.</b></p>
+                      </div>
+                    </div><a class="places-content__link" href="##">Подробнее
+                      <svg width="14" height="14" fill="#8CB110" stroke="#8CB110">
+                        <use href="assets/img/sprite.svg#arrow-link"></use>
+                      </svg></a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="tours">
@@ -398,7 +502,8 @@
                   <div class="feedback-form__sending">
                     <button class="button feedback-form__button" type="submit">Отправить&nbsp;заявку</button>
                     <label>
-                      <input type="checkbox" checked><span class="feedback-form__checkbox"></span>Нажав на кнопку, вы соглашаетесь на обработку<a href=""> персональных данных</a>
+                      <input type="checkbox" checked><span class="feedback-form__checkbox"></span>Нажав на кнопку, вы соглашаетесь на обработку
+                      <!--a(href='')  персональных данных-->
                     </label>
                   </div>
                 </form>
@@ -409,39 +514,28 @@
       </main>
       <footer class="footer">
         <div class="footer__top">
-          <div class="footer__container footer__container--top"><a href="/">
-              <svg width="86" height="99" fill="#8CB110">
+          <div class="footer__container footer__container--top"><a class="footer__logo" href="/">
+              <svg width="77" height="90" fill="#8CB110">
                 <use href="assets/img/sprite.svg#header-logo"></use>
               </svg></a>
             <nav class="footer__nav footer-nav">
-              <div class="footer-nav__col footer-nav__col-1"><a href="/">Что делать в городе?</a><a href="/">События</a><a href="/">Ключевые окрестности</a><a href="/">История Дилижана</a></div>
-              <div class="footer-nav__col footer-nav__col-2"><a href="/">Важная информация</a><a href="/">О проекте</a><a href="/">Карта города</a><a href="/">Для партнеров</a><a href="/">Контакты</a></div>
-              <div class="footer-nav__col footer-nav__col-3"><a href="mailto:info@go2dili.com">info@go2dili.com</a><a href="tel:+78528560000">+7 852 856 00 00</a><a href="/">Адрес GO2DILI</a><a href="/">Время работы с указанием GTM</a></div>
+              <div class="footer-nav__col footer-nav__col-1"><a href="/">Что делать в городе?</a><a href="/">События</a><a href="/">Ключевые окрестности</a><a href="/">История Дилижана</a><a href="/">Блог</a></div>
+              <div class="footer-nav__col footer-nav__col-2"><a href="/">О проекте</a><a href="/">Важная информация</a><a href="/">Для партнеров</a><a href="/">Карта города</a><a href="/">Контакты</a></div>
+              <div class="footer-nav__col footer-nav__col-3"><a href="mailto:info@go2dili.com">info@go2dili.com</a><a href="tel:+78528560000">+7 852 856 00 00</a><span>197882, г. Москва,<br>пр. Чкаловский, д.87, лит.А, оф.420</span><span class="footer-nav__working-hours">Часы работы: с 09.00 до 18.00</span></div>
             </nav>
             <div class="footer__col-right"><a class="footer__link-pdf" href="/">
                 <svg width="26" height="30">
                   <use href="assets/img/sprite.svg#footer-pdf"></use>
                 </svg>Всё о городе</a>
               <div class="footer-social"><a class="footer-social-link" href="/">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewbox="0 0 34 34" fill="none">
-                    <circle cx="17" cy="17" r="17" fill="white" fill-opacity="0.19"></circle>
-                    <path d="M24.7972 13.7783C24.7884 13.118 24.6648 12.4643 24.4319 11.8464C24.2299 11.3252 23.9215 10.8518 23.5262 10.4566C23.131 10.0613 22.6576 9.7529 22.1364 9.55094C21.5265 9.32197 20.8821 9.19816 20.2307 9.18479C19.392 9.1473 19.1261 9.13684 16.9972 9.13684C14.8683 9.13684 14.5954 9.13684 13.7628 9.18479C13.1118 9.19826 12.4677 9.32207 11.858 9.55094C11.3367 9.75275 10.8633 10.0612 10.468 10.4564C10.0728 10.8517 9.76435 11.3251 9.56254 11.8464C9.33311 12.4559 9.20957 13.1001 9.19726 13.7513C9.15977 14.5908 9.14844 14.8567 9.14844 16.9856C9.14844 19.1145 9.14844 19.3865 9.19726 20.22C9.21033 20.8721 9.33326 21.5155 9.56254 22.1266C9.76469 22.6477 10.0733 23.1209 10.4687 23.516C10.8641 23.9111 11.3376 24.2194 11.8588 24.4212C12.4669 24.6593 13.1111 24.792 13.7637 24.8135C14.6033 24.8509 14.8692 24.8623 16.9981 24.8623C19.127 24.8623 19.3999 24.8623 20.2324 24.8135C20.8838 24.8006 21.5282 24.6771 22.1382 24.4482C22.6592 24.246 23.1325 23.9375 23.5277 23.5422C23.9229 23.147 24.2314 22.6738 24.4336 22.1527C24.6629 21.5425 24.7858 20.8991 24.7989 20.2461C24.8364 19.4075 24.8477 19.1416 24.8477 17.0118C24.846 14.8828 24.846 14.6126 24.7972 13.7783ZM16.992 21.0116C14.7654 21.0116 12.9617 19.2078 12.9617 16.9813C12.9617 14.7547 14.7654 12.9509 16.992 12.9509C18.0609 12.9509 19.086 13.3756 19.8418 14.1314C20.5977 14.8872 21.0223 15.9123 21.0223 16.9813C21.0223 18.0502 20.5977 19.0753 19.8418 19.8311C19.086 20.5869 18.0609 21.0116 16.992 21.0116ZM21.1827 13.7417C21.0592 13.7418 20.937 13.7175 20.8229 13.6704C20.7088 13.6232 20.6052 13.5539 20.5179 13.4667C20.4306 13.3794 20.3614 13.2757 20.3142 13.1616C20.267 13.0476 20.2428 12.9253 20.2429 12.8019C20.2429 12.6785 20.2672 12.5564 20.3144 12.4424C20.3616 12.3284 20.4308 12.2249 20.518 12.1376C20.6053 12.0504 20.7088 11.9812 20.8228 11.934C20.9368 11.8868 21.0589 11.8625 21.1823 11.8625C21.3056 11.8625 21.4278 11.8868 21.5417 11.934C21.6557 11.9812 21.7593 12.0504 21.8465 12.1376C21.9337 12.2249 22.0029 12.3284 22.0501 12.4424C22.0973 12.5564 22.1216 12.6785 22.1216 12.8019C22.1216 13.3215 21.7014 13.7417 21.1827 13.7417Z" fill="white"></path>
-                    <path d="M16.993 19.5994C18.4389 19.5994 19.611 18.4273 19.611 16.9814C19.611 15.5355 18.4389 14.3634 16.993 14.3634C15.5471 14.3634 14.375 15.5355 14.375 16.9814C14.375 18.4273 15.5471 19.5994 16.993 19.5994Z" fill="white"></path>
+                  <svg width="34" height="34" fill="#595959">
+                    <use href="assets/img/sprite.svg#instagram"></use>
                   </svg></a><a class="footer-social-link" href="/">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewbox="0 0 34 34" fill="none">
-                    <circle cx="16.9999" cy="16.9999" r="16.9999" fill="white" fill-opacity="0.19"></circle>
-                    <g clip-path="url(#clip0_326_696)">
-                      <path d="M18.5273 23.5385C11.8255 23.5385 8.00302 19.1207 7.84375 11.7694H11.2008C11.311 17.1651 13.7858 19.4506 15.7461 19.9218V11.7694H18.9072V16.4229C20.843 16.2226 22.8766 14.102 23.5627 11.7694H26.7237C26.1969 14.644 23.9916 16.7645 22.4233 17.6363C23.9916 18.3432 26.5033 20.1928 27.459 23.5385H23.9793C23.232 21.3002 21.3699 19.5684 18.9072 19.3328V23.5385H18.5273Z" fill="white"></path>
-                    </g>
-                    <defs>
-                      <clippath id="clip0_326_696">
-                        <rect width="20.9229" height="20.9229" fill="white" transform="translate(6.53906 6.53894)"></rect>
-                      </clippath>
-                    </defs>
+                  <svg width="34" height="34" fill="#595959">
+                    <use href="assets/img/sprite.svg#vk"></use>
                   </svg></a><a class="footer-social-link" href="/">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewbox="0 0 34 34" fill="none">
-                    <circle cx="17" cy="17" r="17" fill="white" fill-opacity="0.19"></circle>
-                    <path d="M15.7404 24.7714H18.4088V17.6799H20.64L20.977 14.9211H18.4088V13.1531C18.4088 12.3565 18.6182 11.8125 19.6929 11.8125H21.068V9.33537C20.8313 9.30623 20.0207 9.22852 19.0736 9.22852C17.0882 9.22852 15.7404 10.5205 15.7404 12.8811V14.9211H13.5V17.6799H15.7404V24.7714Z" fill="white"></path>
+                  <svg width="34" height="34" fill="#595959">
+                    <use href="assets/img/sprite.svg#vk"></use>
                   </svg></a></div>
             </div>
           </div>
@@ -451,7 +545,7 @@
         </div>
       </footer>
     </div>
-    <script src="assets/js/libs.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/libs.min.js" type="module"></script>
+    <script src="assets/js/main.js" type="module"></script>
   </body>
 </html>

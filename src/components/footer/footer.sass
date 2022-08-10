@@ -16,16 +16,30 @@
   &__container
     display: flex
     justify-content: space-between
-    margin: 0 auto
-    width: 100%
+    //margin: 0 auto
+    padding: 0 10rem
+    box-sizing: content-box
+    column-gap: 40px
     &--top
       max-width: 1355px
+      @media (max-width: 768px)
+        flex-direction: column
+        justify-content: center
+        text-align: center
+
     &--bottom
       max-width: 1600px
+
+  &__logo svg
+    width: clamp(57px, calc(57px + (77 - 57) * ((100vw - 1024px) / (1920 - 1024))), 77px)
 
   &-nav
     display: flex
     column-gap: 90px
+    @media (max-width: 1300px)
+      column-gap: 40px
+      @media (max-width: 768px)
+        flex-direction: column
 
   &-nav__col
     display: flex
@@ -33,6 +47,13 @@
     gap: 20px
     & a:hover
       color: var(--c-green)
+    @media (max-width: 768px)
+      display: inline-flex
+      border-bottom: 1px solid rgba(#fff, 0.5)
+      padding: 40px 0
+
+  &-nav__working-hours
+    opacity: 0.5
 
   &__col-right
     display: flex
@@ -41,7 +62,6 @@
     gap: 30px
 
   &__link-pdf
-    @extend .font-s-12
     display: flex
     align-items: center
     justify-content: center
@@ -54,8 +74,7 @@
     align-items: center
     gap: 17px
 
-    &-link:hover svg circle
+    &-link:hover svg
       fill: var(--c-green)
-      fill-opacity: 1
 
 

@@ -1,30 +1,116 @@
 .header
   position: absolute
   @extend .font-s-10
-  min-height: 124px
   width: 100%
   padding: 12px 0
   color: #fff
   transition: $transition
   z-index: 1000
+  user-select: none
+
+  &-mobile__container
+    display: none
+    padding: 0 20px
+    @media (max-width: 767px)
+      display: block
+
+      .header-mobile
+        display: none
+        align-items: center
+        justify-content: space-between
+        height: 50px
+        width: 100%
+        &__nav-right
+          display: flex
+          gap: 30px
+        &__logo svg
+          position: relative
+          z-index: 5
+          width: 44px
+          height: 100%
+        &__lang-list
+          position: relative
+          z-index: 5
+          color: inherit
+          appearance: none
+          height: min-content
+          background-color: transparent
+          border: none
+          cursor: pointer
+
+        @media (max-width: 767px)
+          display: flex
+
+        .header__burger-icon
+          display: none
+          @media (max-width: 767px)
+            display: block
+            position: relative
+            z-index: 5
+            width: 30px
+            height: 14px
+            cursor: pointer
+            & span,
+            &::before,
+            &::after
+              content: ""
+              position: absolute
+              left: 0
+              height: 2px
+              width: 100%
+              transition: $transition
+              background-color: #fff
+            &::before
+              top: 0
+            &::after
+              bottom: 0
+            & span
+              top: 50%
+              transform: scale(1) translateY(-50%)
 
 
   &__container
     display: flex
     justify-content: space-between
     align-items: center
+    gap: 20px
+    min-height: 124px
+    @media (max-width: 767px)
+      //display: none
+      position: fixed
+      flex-direction: column
+      justify-content: start
+      gap: 76px
+      top: 0
+      left: -100%
+      width: 100%
+      height: 100%
+      background-color: var(--c-green)
+      padding: 80px 20px
+      transition: left 0.3s ease 0s
+      overflow: auto
+      &.js-active-menu
+        left: 0
 
     .header__nav
       display: flex
       flex-wrap: wrap
       flex-direction: column
       row-gap: 25px
-      max-width: 675px
+      width: 42%
+      @media (max-width: 767px)
+        row-gap: 76px
 
       &-row
+        position: relative
         display: flex
         flex-wrap: wrap
         align-items: center
+        gap: 15px
+        justify-content: space-between
+        @media (max-width: 767px)
+          flex-direction: column
+          row-gap: 28px
 
         .header__drop-list
           display: flex
@@ -33,38 +119,57 @@
           gap: 10px
 
       &-row-1
-        flex-direction: row
-        column-gap: 56px
-        row-gap: 0.5rem
-        font-size: 16px
+        font-size: clamp(14px, calc(14px + (16 - 14) * ((100vw - 1024px) / (1920 - 1024))), 16px)
+        &::after
+          display: none
 
       &-row-2
-        @extend .font-s-9
-        position: relative
-        flex-direction: row
-        column-gap: 46px
-        row-gap: 0.5rem
+        font-size: clamp(14px, calc(14px + (17 - 14) * ((100vw - 1024px) / (1920 - 1024))), 17px)
         &::after
-          content: ""
-          position: absolute
-          width: 100%
-          background-color: rgba(#fff, 0.1)
-          height: 1px
-          top: -14px
+          display: block
+
+      &-row-1::after,
+      &-row-2::after
+        content: ""
+        position: absolute
+        width: 100%
+        background-color: rgba(#fff, 0.1)
+        height: 1px
+        top: -14px
+
+
+
+      @media (max-width: 768px)
+        &-row-1,
+        &-row-2
+          font-size: 16px
+          &::after
+            display: block
+            top: initial
+            bottom: -38px
+
 
       &--contacts
         display: flex
         flex-direction: row
         flex-wrap: nowrap
-        column-gap: 65px
+        column-gap: 15px
+        justify-content: space-between
+        width: 42%
+        @media (max-width: 767px)
+          flex-direction: column
+          .header__nav-right
+            flex-direction: column
 
         .header__phone
           display: flex
           gap: 7px
           align-items: center
+          justify-content: center
           white-space: nowrap
-          font-size: 22px
+          font-size: clamp(20px, calc(20px + (22 - 20) * ((100vw - 1024px) / (1920 - 1024))), 22px)
           font-weight: 500
+          line-height: 1.25
 
     .header__nav-right
       display: flex
@@ -75,12 +180,21 @@
         display: flex
         gap: 12px
 
-      .header__social-link:hover .header__social-icon
-        circle
-          fill: var(--c-green)
-          fill-opacity: 1
-        g
-          opacity: 1
+        &-link:hover .header__social-icon
+          circle
+            fill: var(--c-green)
+            fill-opacity: 1
+          g
+            opacity: 1
+
+        @media (max-width: 767px)
+          &-link
+            circle
+              fill: rgba(#fff, 0.3)
+              fill-opacity: 1
+            g
+              opacity: 1
+
 
       .header__lang-list
         color: inherit
@@ -91,24 +205,73 @@
         cursor: pointer
 
       .header__button
+        font-size: 14px
         outline: 1px solid transparent
         font-weight: 700
+        &:hover,
+        &.scrolled
+          outline-color: #fff
 
-      .header__button:hover
-      .header__button.scrolled
-        outline-color: #fff
+        @media (max-width: 767px)
+          background-color: rgba(#fff, 0.3)
+          outline: none
 
-.header.scrolled
-  position: fixed
-  background-color: var(--c-green)
-  z-index: 1000
+  //&.scrolled
+  //  position: fixed
+  //  background-color: var(--c-green)
+  //  z-index: 1000
 
-.header__logo svg.scrolled
-  fill: var(--c-black)
+  @media (max-width: 767px)
+    .header__logo,
+    .header__lang-list
+      display: none
+
+  &__logo svg
+    width: clamp(44px, calc(44px + (85 - 44) * ((100vw - 1024px) / (1920 - 1024))), 85px)
+
+  &__logo svg.scrolled
+    fill: var(--c-black)
+
+  @media (min-width: 767px)
+    &__phone svg.scrolled
+      fill: rgba(#fff, 0.5)
+
+  @media (max-width: 767px)
+    &__phone svg
+      fill: #fff
 
 
-.header__phone svg.scrolled
-  fill: rgba(#fff, 0.5)
-
+  &-select
+    position: relative
+    display: flex
+    flex-direction: column
+    cursor: pointer
+    &.js-active-select .header-select__list
+      display: flex
+      background-color: #fff
+    &__header
+      display: flex
+      align-items: center
+      gap: 7px
+    &__current
+    &__list
+      display: none
+      position: absolute
+      left: 0
+      right: 0
+      top: 30px
+      width: 190px
+      flex-direction: column
+      gap: 15px
+      border-radius: 8px
+      overflow: hidden
+      border: 1px solid var(--c-light-grey)
+      color: rgba(0, 0, 0, 0.55)
+      padding: 20px
+    &__item
+      font-size: 15px
+      font-weight: 400
+      &:hover
+        color: #000
 
 

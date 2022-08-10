@@ -25,12 +25,14 @@ html(lang="ru-RU")
     <!--[if lt IE 9]>
     script(src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js")
     <![endif]-->
+    <!-- Yandex map script -->
+    script(src="https://api-maps.yandex.ru/2.1/?apikey=dad86943-dfef-45bd-9c5e-c404323cb093&lang=ru_RU" type="text/javascript")
   body(class=pageClass)
     .page
       include ../components/header/header
       main
         block content
       include ../components/footer/footer
-    script(src="assets/js/libs.min.js")
-    script(src="assets/js/main.js")
+    script(src="assets/js/libs.min.js" type="module")
+    script(src="assets/js/main.js" type="module")
     block script

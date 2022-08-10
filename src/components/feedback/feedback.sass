@@ -12,6 +12,9 @@
     flex-direction: column
     row-gap: 2.5rem
 
+  &__col-right
+    max-width: 540px
+
     & input
       @extend .font-s-11
       display: block
@@ -41,7 +44,7 @@
       -moz-appearance: none
       &:checked + .feedback-form__checkbox
         background-color: var(--c-green)
-        background-image: url('/assets/img/check.svg')
+        background-image: url('./assets/img/check.svg')
         background-position: center
         background-repeat: no-repeat
 
