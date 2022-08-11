@@ -18,6 +18,11 @@ function scrollHeader() {
   }
 };
 
+// burger
+
+const burger = document.querySelector('.header__burger-icon');
+
+
 
 // select
 const select = document.querySelector('.header-select');
