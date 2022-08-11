@@ -7,28 +7,48 @@
 
   &__top
     padding: 77px 0 100px
+    @media (max-width: 768px)
+      padding: 30px 0 80px
 
   &__bottom
     position: relative
-    padding: 23px 0
+    padding: 24px 0
     background-color: var(--c-black)
+    @media (max-width: 768px)
+      padding: 16px 0
 
   &__container
     display: flex
     justify-content: space-between
-    //margin: 0 auto
     padding: 0 10rem
     box-sizing: content-box
     column-gap: 40px
+    @media (max-width: 1000px)
+      padding: 0 3rem
+    @media (max-width: 768px)
+      padding: 0 20px
+    @media (max-width: 500px)
+      align-items: start
+
     &--top
       max-width: 1355px
       @media (max-width: 768px)
         flex-direction: column
         justify-content: center
-        text-align: center
+        align-items: center
+      @media (max-width: 500px)
+        align-items: start
 
     &--bottom
       max-width: 1600px
+      @media (max-width: 768px)
+        flex-direction: column
+        align-items: center
+        row-gap: 32px
+        opacity: 0.7
+        font-size: 12px
+      @media (max-width: 500px)
+        align-items: start
 
   &__logo svg
     width: clamp(57px, calc(57px + (77 - 57) * ((100vw - 1024px) / (1920 - 1024))), 77px)
@@ -49,17 +69,24 @@
       color: var(--c-green)
     @media (max-width: 768px)
       display: inline-flex
-      border-bottom: 1px solid rgba(#fff, 0.5)
       padding: 40px 0
+      &:not(:last-child)
+        border-bottom: 1px solid rgba(#fff, 0.5)
 
   &-nav__working-hours
     opacity: 0.5
+  &__address,
+  &__email
+    opacity: 0.8
 
   &__col-right
     display: flex
     flex-direction: column
     align-items: center
     gap: 30px
+    @media (max-width: 768px)
+      align-items: start
+
 
   &__link-pdf
     display: flex
@@ -69,12 +96,28 @@
     &:hover
       text-decoration: underline
 
-  .footer-social
+  &-social
     display: flex
     align-items: center
     gap: 17px
 
     &-link:hover svg
       fill: var(--c-green)
+
+  &__phone
+    display: none
+    @media (max-width: 768px)
+      display: flex
+      gap: 5px
+      align-items: center
+      justify-content: center
+      white-space: nowrap
+      font-size: clamp(16px, calc(16px + (22 - 16) * ((100vw - 1024px) / (1920 - 1024))), 22px)
+      font-weight: 500
+      & svg
+        fill: currentColor
+
+
+
 
 

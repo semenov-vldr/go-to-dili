@@ -1,22 +1,29 @@
 .feedback
   .feedback__container
+
     .feedback__col-left
       include ../_items/title-text/title-text
       img(src='/assets/img/form-decor.svg' alt='decor')
+
     .feedback__col-right
       form.feedback__form.feedback-form(method='POST' action='')
-        label
-          input(type='text' placeholder="Имя" required)
-        label
-          input#phone(type='tel' placeholder="Телефон" data-tel-input='' name='user_phone' maxlength='18' autocomplete='off' pattern='.{18,}' required)
-        label
-          input(type='email' placeholder="E-mail")
-        label
-          input(placeholder="Сообщение")
-        div.feedback-form__sending
+        .feedback-form__input-container
+          input#name(type='text' placeholder=" "  required )
+          label(for='name') Имя*
+        .feedback-form__input-container
+          input#phone(type='tel' placeholder=" " dat-tel-input='' name='user_phone' maxlength='18' autocomplete='off' pattern='.{18,}' required)
+          label(for='phone') Телефон*
+        .feedback-form__input-container
+          input(type='email' placeholder=" ")
+          label(for='phone') E-mail*
+        .feedback-form__input-container
+          input#email(placeholder=" ")
+          label(for='email') Сообщение*
+
+        .feedback-form__sending
           button.button.feedback-form__button(type='submit') Отправить&nbsp;заявку
           label
             input(type='checkbox' checked)
             span.feedback-form__checkbox
             | Нажав на кнопку, вы соглашаетесь на обработку
-            //a(href='')  персональных данных
+            a(href='')  персональных данных

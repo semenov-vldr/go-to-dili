@@ -19,48 +19,57 @@ function scrollHeader() {
 };
 
 // burger
-
 const burger = document.querySelector('.header__burger-icon');
+if (burger) {
+  const menu = document.querySelector('.header__container');
+  const logo_mobile = document.querySelector('.header-mobile__logo');
+  burger.addEventListener('click', () => {
+    document.body.classList.toggle('js-lock-scroll');
+    burger.classList.toggle('js-active-menu');
+    menu.classList.toggle('js-active-menu');
+    logo_mobile.classList.toggle('js-active-menu');
+  });
+}
 
 
 
 // select
-const select = document.querySelector('.header-select');
-const selectHeader = select.querySelectorAll('.header-select__header');
-const selectItems = select.querySelectorAll('.header-select__item');
-const selectCurrent = select.querySelector('.header-select__current');
-
-function selectToggle () {
-  this.parentElement.classList.toggle('js-active-select');
-};
-
-function selectChoose () {
-  selectCurrent.innerText = this.innerHTML;
-  select.classList.remove('js-active-select');
-};
-
-selectHeader.forEach(item => {
-  item.addEventListener('click', selectToggle);
-});
-
-selectItems.forEach(item => {
-  item.addEventListener('click', selectChoose);
-});
-
-
-// Клик снаружи выпадающего списка, закрытие списка
-  document.addEventListener('click', (evt) => {
-    if ( evt.target !== selectCurrent ) {
-      select.classList.remove('js-active-select');
-    };
-  });
-
-// Клик по кнопке Tab или Esc, закрытие списка
-  document.addEventListener('keydown', (evt) => {
-    if ( evt.key === 'Tab' || evt.key === 'Escape' ) {
-      select.classList.remove('js-active-select');
-    };
-  });
+// const select = document.querySelector('.header-select');
+// const selectHeader = select.querySelectorAll('.header-select__header');
+// const selectItems = select.querySelectorAll('.header-select__item');
+// const selectCurrent = select.querySelector('.header-select__current');
+//
+// function selectToggle () {
+//   this.parentElement.classList.toggle('js-active-select');
+// };
+//
+// function selectChoose () {
+//   selectCurrent.innerText = this.innerHTML;
+//   select.classList.remove('js-active-select');
+// };
+//
+// selectHeader.forEach(item => {
+//   item.addEventListener('click', selectToggle);
+// });
+//
+// selectItems.forEach(item => {
+//   item.addEventListener('click', selectChoose);
+// });
+//
+//
+// // Клик снаружи выпадающего списка, закрытие списка
+//   document.addEventListener('click', (evt) => {
+//     if ( evt.target !== selectCurrent ) {
+//       select.classList.remove('js-active-select');
+//     };
+//   });
+//
+// // Клик по кнопке Tab или Esc, закрытие списка
+//   document.addEventListener('keydown', (evt) => {
+//     if ( evt.key === 'Tab' || evt.key === 'Escape' ) {
+//       select.classList.remove('js-active-select');
+//     };
+//   });
 
 
 

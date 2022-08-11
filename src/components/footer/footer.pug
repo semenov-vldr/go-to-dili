@@ -2,8 +2,9 @@ footer.footer
   .footer__top
     .footer__container.footer__container--top
       a.footer__logo(href='/')
-        svg(width='77' height='90' fill='#8CB110')
-          use(href='assets/img/sprite.svg#header-logo')
+        //svg(width='77' height='90' fill='#8CB110')
+        //  use(href='assets/img/sprite.svg#header-logo')
+        include ../../img/logo.svg
       nav.footer__nav.footer-nav
         .footer-nav__col.footer-nav__col-1
           a(href='/') Что делать в городе?
@@ -18,9 +19,9 @@ footer.footer
           a(href='/') Карта города
           a(href='/') Контакты
         .footer-nav__col.footer-nav__col-3
-          a(href='mailto:info@go2dili.com') info@go2dili.com
+          a.footer__email(href='mailto:info@go2dili.com') info@go2dili.com
           a(href='tel:+78528560000') +7 852 856 00 00
-          span
+          span.footer__address
             | 197882, г. Москва,
             br
             | пр. Чкаловский, д.87, лит.А, оф.420
@@ -40,7 +41,13 @@ footer.footer
               use(href='assets/img/sprite.svg#vk')
           a.footer-social-link(href='/')
             svg(width="34" height="34" fill="#595959")
-              use(href='assets/img/sprite.svg#vk')
+              use(href='assets/img/sprite.svg#facebook')
+
+        a.footer__phone(href='tel:+78522560000')
+          svg(width='17' height='20' fill='#8CB110')
+            use(href='assets/img/sprite.svg#header-phone')
+          span +7 852 256 00 00
+
   .footer__bottom
     .footer__container.footer__container--bottom
       a(href='/') Реквизиты ИНН, ОРГН, юр. адрес

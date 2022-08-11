@@ -1,4 +1,95 @@
 
+const phoneInputs = document.querySelectorAll('input[data-tel-input]');
+
+const getInputNumbersValue = (input) => {
+  return input.value.replace(/\D/g,"");
+};
+
+const onPhoneInput = (evt) => {
+  const input = evt.target;
+  let inputNumbersValue = getInputNumbersValue(input);
+  let formattedInputValue = "";
+  let selectionStart = input.selectionStart;
+
+  if ( !inputNumbersValue ) input.value = "";
+
+
+  if ( input.value.length != selectionStart ) {
+    if ( evt.data && /\D/g.test(evt.data) ) {
+      input.value = formattedInputValue;
+    }
+    return;
+  }
+
+  if ( ["7", "8", "9"].indexOf(inputNumbersValue[0]) > -1 ) {
+    // Российские номера
+    if (inputNumbersValue[0] == "9") inputNumbersValue = "7" + inputNumbersValue;
+    let firstSymbols = (inputNumbersValue[0] == "8") ? "8" : "+7";
+    formattedInputValue = firstSymbols + " ";
+
+    if (inputNumbersValue[0] == "8") {
+      phoneInputs[0].setAttribute("pattern", ".{17,}");
+      console.log(phoneInputs[0].getAttribute("pattern"));
+    }
+
+    if (inputNumbersValue.length > 1) {
+      formattedInputValue += "(" + inputNumbersValue.slice(1, 4);
+    }
+
+    if (inputNumbersValue.length >= 5) {
+      formattedInputValue += ") " + inputNumbersValue.slice(4, 7);
+    }
+
+    if (inputNumbersValue.length >= 8) {
+      formattedInputValue += "-" + inputNumbersValue.slice(7, 9);
+    }
+
+    if (inputNumbersValue.length >= 10) {
+      formattedInputValue += "-" + inputNumbersValue.slice(9, 11);
+    }
+
+// Не российские номера
+  } else formattedInputValue = "+" + inputNumbersValue;
+
+  input.value = formattedInputValue;
+};
+
+// Стирание первого символа
+const onPhoneKeyDown = (evt) => {
+  const input = evt.target;
+  if (evt.keyCode == 8 && getInputNumbersValue(input).length == 1) {
+    input.value = "";
+  }
+};
+
+// Вставка цифр в любое место
+const onPhonePaste = (evt) => {
+  const pasted = evt.clipboardData || window.clipboardData;
+  const input = evt.target;
+  const inputNumbersValue = getInputNumbersValue(input);
+
+  if (pasted) {
+    const pastedText = pasted.getData("Text");
+    if ( /\D/g.test(pastedText) ) {
+      input.value = inputNumbersValue;
+    }
+  }
+};
+
+phoneInputs.forEach(input => {
+  input.addEventListener('input', onPhoneInput);
+  input.addEventListener("keydown", onPhoneKeyDown);
+  input.addEventListener("paste", onPhonePaste);
+});
+
+
+// Ввод в поле ИМЯ только русские буквы
+const input_name = document.querySelector('#name');
+input_name.addEventListener('input', function () {
+  this.value = this.value.replace(/[^А-Яа-яЁё\s]+$/, '');
+});
+
+
 window.addEventListener("scroll", scrollHeader);
 
 function scrollHeader() {
@@ -20,48 +111,57 @@ function scrollHeader() {
 };
 
 // burger
-
 const burger = document.querySelector('.header__burger-icon');
+if (burger) {
+  const menu = document.querySelector('.header__container');
+  const logo_mobile = document.querySelector('.header-mobile__logo');
+  burger.addEventListener('click', () => {
+    document.body.classList.toggle('js-lock-scroll');
+    burger.classList.toggle('js-active-menu');
+    menu.classList.toggle('js-active-menu');
+    logo_mobile.classList.toggle('js-active-menu');
+  });
+}
 
 
 
 // select
-const select = document.querySelector('.header-select');
-const selectHeader = select.querySelectorAll('.header-select__header');
-const selectItems = select.querySelectorAll('.header-select__item');
-const selectCurrent = select.querySelector('.header-select__current');
-
-function selectToggle () {
-  this.parentElement.classList.toggle('js-active-select');
-};
-
-function selectChoose () {
-  selectCurrent.innerText = this.innerHTML;
-  select.classList.remove('js-active-select');
-};
-
-selectHeader.forEach(item => {
-  item.addEventListener('click', selectToggle);
-});
-
-selectItems.forEach(item => {
-  item.addEventListener('click', selectChoose);
-});
-
-
-// Клик снаружи выпадающего списка, закрытие списка
-  document.addEventListener('click', (evt) => {
-    if ( evt.target !== selectCurrent ) {
-      select.classList.remove('js-active-select');
-    };
-  });
-
-// Клик по кнопке Tab или Esc, закрытие списка
-  document.addEventListener('keydown', (evt) => {
-    if ( evt.key === 'Tab' || evt.key === 'Escape' ) {
-      select.classList.remove('js-active-select');
-    };
-  });
+// const select = document.querySelector('.header-select');
+// const selectHeader = select.querySelectorAll('.header-select__header');
+// const selectItems = select.querySelectorAll('.header-select__item');
+// const selectCurrent = select.querySelector('.header-select__current');
+//
+// function selectToggle () {
+//   this.parentElement.classList.toggle('js-active-select');
+// };
+//
+// function selectChoose () {
+//   selectCurrent.innerText = this.innerHTML;
+//   select.classList.remove('js-active-select');
+// };
+//
+// selectHeader.forEach(item => {
+//   item.addEventListener('click', selectToggle);
+// });
+//
+// selectItems.forEach(item => {
+//   item.addEventListener('click', selectChoose);
+// });
+//
+//
+// // Клик снаружи выпадающего списка, закрытие списка
+//   document.addEventListener('click', (evt) => {
+//     if ( evt.target !== selectCurrent ) {
+//       select.classList.remove('js-active-select');
+//     };
+//   });
+//
+// // Клик по кнопке Tab или Esc, закрытие списка
+//   document.addEventListener('keydown', (evt) => {
+//     if ( evt.key === 'Tab' || evt.key === 'Escape' ) {
+//       select.classList.remove('js-active-select');
+//     };
+//   });
 
 
 

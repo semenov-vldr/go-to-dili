@@ -1,11 +1,20 @@
 .feedback
   padding: 60px 0 40px
+
   &__container
     display: grid
     grid-template-columns: 1fr 1fr
     column-gap: 100px
     max-width: 1230px
     margin: 0 auto
+    @media (max-width: 1000px)
+      grid-template-columns: 1fr
+
+  &__col-left
+    margin: 0 auto
+    display: flex
+    flex-direction: column
+    justify-content: space-between
 
   &__form
     display: flex
@@ -14,6 +23,11 @@
 
   &__col-right
     max-width: 540px
+    margin: 0 auto
+
+  &-form__input-container
+    position: relative
+    width: 100%
 
     & input
       @extend .font-s-11
@@ -24,47 +38,69 @@
       opacity: 0.5
       background-color: transparent
       padding: 8px 8px 8px 0
+      &:focus + label,
+      &:not(:placeholder-shown) + label
+        top: -10px
+        font-size: 12px
+
       &:focus
         outline: none
         border-bottom: 1px solid var(--c-black)
         opacity: 1
+        caret-color: var(--c-black)
+      &:required:valid
+        border-color: var(--c-green)
+        caret-color: var(--c-green)
+      &:required:invalid
+        border-color: var(--c-red)
+        caret-color: var(--c-red)
+      &:required:invalid:placeholder-shown
+        border-color: var(--c-black)
+
+    & label
+      color: rgba($black, 0.3)
+      pointer-events: none
+      position: absolute
+      transition: all 200ms
+      top: 12px
+      left: 0px
+
 
   &-form__sending
     display: flex
     align-items: center
     justify-content: center
     gap: 40px
-    & input[type="checkbox"]
-      position: absolute
-      display: inline-block
-      width: auto
-      border: none
-      appearance: none
-      -webkit-appearance: none
-      -moz-appearance: none
-      &:checked + .feedback-form__checkbox
-        background-color: var(--c-green)
-        background-image: url('./assets/img/check.svg')
-        background-position: center
-        background-repeat: no-repeat
 
-    label
-      display: inline-block
-      padding-left: 1.5em
-      & a
-        color: var(--c-green)
+  &-form__sending input[type="checkbox"]
+    position: absolute
+    display: inline-block
+    width: auto
+    border: none
+    appearance: none
+    -webkit-appearance: none
+    -moz-appearance: none
 
-    .feedback-form__checkbox
-      position: absolute
-      width: 17px
-      height: 17px
-      border-radius: 2px
-      background-color: lightgrey
-      border: 1px solid var(--c-green)
-      margin-left: -1.5em
-      vertical-align: middle
-      cursor: pointer
+  &__sending input[type="checkbox"]:checked + .feedback-form__checkbox
+    background-color: var(--c-green)
+    background-image: url("./assets/img/check.svg")
+    background-position: center
+    background-repeat: no-repeat
 
+  &-form__sending label
+    display: inline-block
+    padding-left: 1.5em
 
+  &-form__sending label a
+    color: var(--c-green)
 
-
+  &-form__sending .feedback-form__checkbox
+    position: absolute
+    width: 17px
+    height: 17px
+    border-radius: 2px
+    background-color: lightgrey
+    border: 1px solid var(--c-green)
+    margin-left: -1.5em
+    vertical-align: middle
+    cursor: pointer
