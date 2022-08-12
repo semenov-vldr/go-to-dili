@@ -49,6 +49,10 @@ main
   padding: 0 160px
   margin: 0 auto
   box-sizing: content-box
+  @media (max-width: 1000px)
+    padding: 0 50px
+  @media (max-width: 768px)
+    padding: 0 20px
 
 
 .grid
@@ -73,11 +77,11 @@ h2
   @extend .font-s-2
   font-family: 'Artico-ExtraCond', sans-serif
 
-h3
-  @extend .font-s-4
-
-h4
-  @extend .font-s-5
+//h3
+//  @extend .font-s-4
+//
+//h4
+//  @extend .font-s-5
 
 a
   transition: $transition

@@ -24,15 +24,19 @@
     transform: translateY(100%)
     z-index: -1
 
-  .container
+  &__container
     display: grid
     grid-gap: 70px
     grid-template-columns: 1fr 1fr
+    @media (max-width: 1400px)
+      grid-template-columns: 1fr
 
   &__images
     display: grid
     grid-template-columns: 1fr 1fr
     grid-gap: 20px
+    @media (max-width: 768px)
+      grid-template-columns: 1fr
     &-wrapper
       display: flex
       align-items: flex-end
@@ -44,10 +48,14 @@
 
       & p,
       & span
-        @extend .font-s-6
+        font-size: clamp(18px, calc(18px + (24 - 18) * ((100vw - 1024px) / (1920 - 1024))), 24px)
         position: relative
         color: #fff
+        font-weight: 500
         padding: 25px 30px
+        @media (max-width: 768px)
+          padding: 20px
+
 
   &__image
     position: absolute

@@ -1,20 +1,21 @@
 .tour-item
-  border-radius: 16px
-  overflow: hidden
-  background-color: #fff
   &:hover
     filter: $drop-shadow
-  //height: 570px
   &:hover .tour-item__title,
   &:hover .tour-item__options-value
     color: var(--c-green)
   &__body
     display: flex
     flex-direction: column
+    border-radius: 16px
+    overflow: hidden
+    @media (max-width: 768px)
+      border-radius: 10px
 
   &__image-wrapper
     position: relative
-    height: 280px
+    aspect-ratio: 11 / 8
+    overflow: hidden
     .tour-item__image
       width: 100%
       height: 100%
@@ -23,29 +24,46 @@
       display: flex
       gap: 10px
       position: absolute
-      top: 25px
-      left: 30px
-
-
+      top: 20px
+      left: 20px
+      & img, & svg
+        width: 40px
+        height: 40px
+        @media (max-width: 768px)
+          width: 34px
+          height: 34px
 
   &__text-content
     display: flex
     flex-direction: column
     gap: 25px
     padding: 25px
+    background-color: #fff
     & > *:first-child, h4
       transition: $transition
+      font-size: clamp(16px, calc(16px + (24 - 16) * ((100vw - 1024px) / (1920 - 1024))), 24px)
+      font-weight: 500
+    .tour-item__text
+      font-size: clamp(14px, calc(14px + (16 - 14) * ((100vw - 1024px) / (1920 - 1024))), 16px)
+    @media (max-width: 768px)
+      gap: 15px
+      padding: 25px 18px 18px
+
+
   &__options
     display: flex
     flex-direction: column
     gap: 5px
     border-top: 1px solid #EDEDED
     padding-top: 18px
+    @media (max-width: 768px)
+      padding-top: 13px
+
     & span, p
-      @extend .font-s-14
+      font-size: clamp(12px, calc(12px + (14 - 12) * ((100vw - 1024px) / (1920 - 1024))), 14px)
       color: $black
       b, .tour-item__options-value
-        @extend .font-s-12
+        font-size: clamp(14px, calc(14px + (16 - 14) * ((100vw - 1024px) / (1920 - 1024))), 16px)
         color: rgba($black, 0.8)
         margin-left: 15px
         font-weight: 500

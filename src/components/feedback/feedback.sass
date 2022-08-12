@@ -7,27 +7,38 @@
     column-gap: 100px
     max-width: 1230px
     margin: 0 auto
-    @media (max-width: 1000px)
+    @media (max-width: 1400px)
+      column-gap: 40px
+    @media (max-width: 1200px)
       grid-template-columns: 1fr
+      row-gap: 35px
 
   &__col-left
     margin: 0 auto
     display: flex
     flex-direction: column
     justify-content: space-between
+    img
+      width: 100%
+    @media (max-width: 1200px)
+      gap: 40px
+    @media (max-width: 768px)
+      gap: 20px
 
   &__form
     display: flex
     flex-direction: column
-    row-gap: 2.5rem
+    row-gap: 2rem
 
   &__col-right
-    max-width: 540px
+    width: 100%
     margin: 0 auto
 
   &-form__input-container
     position: relative
     width: 100%
+    max-width: 570px
+    margin: 0 auto
 
     & input
       @extend .font-s-11
@@ -37,7 +48,7 @@
       border-bottom: 1px solid var(--c-black)
       opacity: 0.5
       background-color: transparent
-      padding: 8px 8px 8px 0
+      padding: 8px 8px 10px 0
       &:focus + label,
       &:not(:placeholder-shown) + label
         top: -10px
@@ -71,6 +82,12 @@
     align-items: center
     justify-content: center
     gap: 40px
+    max-width: 570px
+    @media (max-width: 1200px)
+      margin: 0 auto
+    @media (max-width: 768px)
+      flex-direction: column
+      gap: 25px
 
   &-form__sending input[type="checkbox"]
     position: absolute
@@ -99,8 +116,8 @@
     width: 17px
     height: 17px
     border-radius: 2px
-    background-color: lightgrey
-    border: 1px solid var(--c-green)
+    background-color: #fff
+    border: 1px solid #8D8D8D
     margin-left: -1.5em
     vertical-align: middle
     cursor: pointer

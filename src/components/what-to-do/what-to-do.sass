@@ -2,10 +2,16 @@
   margin: 100px 0
   h2
     margin-bottom: 50px
+    @media (max-width: 768px)
+      margin-bottom: 35px
   &-nav
     display: flex
     gap: 20px
+    flex-wrap: wrap
     margin-bottom: 40px
+    @media (max-width: 768px)
+      gap: 10px
+      margin-bottom: 25px
     &__item
       padding: 10px 40px 10px 0
       display: flex
@@ -18,8 +24,21 @@
       border-radius: 25px / 50%
       cursor: pointer
       transition: $transition
+      @media (max-width: 768px)
+        border-radius: 18px / 50%
+        padding: 10px 20px 10px 0
+        gap: 10px
       .what-to-do-nav__icon
         transition: $transition
+        @media (max-width: 768px)
+          width: 35px
+          height: 35px
+      .what-to-do-nav__name
+        font-size: clamp(14px, calc(14px + (16 - 14) * ((100vw - 1024px) / (1920 - 1024))), 16px)
+      @media (max-width: 768px)
+        min-width: 90px
+        height: 35px
+
       &:active
         filter: $drop-shadow
       &:hover,
@@ -37,31 +56,55 @@
     margin-bottom: 33px
     border-radius: 16px
 
-  .new-events
-    padding: 0 40px
-    h3
-      font-family: 'Artico-ExtraCond', sans-serif
-    &__list
-      margin-top: 28px
-      grid-gap: 45px
-    &-item
-      display: flex
-      align-items: center
-      gap: 20px
-      &:hover .new-events-item__title
-        color: var(--c-green)
-      img
-        width: 160px
-        height: 120px
-        object-fit: cover
-        border-radius: 8px
+.new-events
+  padding: 0 40px
+  @media (max-width: 1200px)
+    padding: 0 20px
+  @media (max-width: 768px)
+    padding: 0 0 0 20px
+  h3
+    font-family: 'Artico-ExtraCond', sans-serif
+    @extend .font-s-4
+  &__list
+    margin-top: 28px
+    grid-gap: 45px
+    @media (max-width: 1700px)
+      grid-template-columns: repeat(2, 1fr)
+    @media (max-width: 1200px)
+      grid-template-columns: 1fr
+  &-item
+    display: flex
+    align-items: center
+    gap: 20px
+    &:hover .new-events-item__title
+      color: var(--c-green)
+    @media (max-width: 768px)
+      display: grid
+      grid-template-columns: 1fr 2fr
 
-      &__content
-        display: flex
-        flex-direction: column
-        gap: 10px
-      &__title
-        @extend .font-s-8
-        transition: $transition
+  &-item__image
+    width: 160px
+    height: 120px
+    border-radius: 8px
+    overflow: hidden
+    @media (max-width: 768px)
+      width: 100%
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+
+
+  &-item__content
+    display: flex
+    flex-direction: column
+    gap: 10px
+  &-item__title
+    transition: $transition
+    font-size: clamp(15px, calc(15px + (20 - 15) * ((100vw - 1024px) / (1920 - 1024))), 20px)
+    font-weight: 500
+  &-item__text
+    @media (max-width: 768px)
+      display: none
 
 

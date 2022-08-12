@@ -1,8 +1,15 @@
 .tours
   .container
     include ../_items/title-link/title-link
-    .tours__list.grid--4col
-      include ../_items/tour-card/tour-card
-      include ../_items/tour-card/tour-card
-      include ../_items/tour-card/tour-card
-      include ../_items/tour-card/tour-card
+    .tours__list.swiper
+      .swiper-wrapper
+        .swiper-slide
+          include ../_items/tour-card/tour-card
+        .swiper-slide
+          include ../_items/tour-card/tour-card
+        .swiper-slide
+          include ../_items/tour-card/tour-card
+        .swiper-slide
+          include ../_items/tour-card/tour-card
+
+      .swiper-pagination
