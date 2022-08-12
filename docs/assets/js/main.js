@@ -1,4 +1,43 @@
 
+new Swiper('.about-people__list', {
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+
+  slidesPerView: 3,
+
+  // Откл функционала, если слайдов меньше, чем нужно
+  watchOverflow: true,
+
+  // Отступ между слайдами
+  spaceBetween: 15,
+
+  // Активный слайд по центру
+  initialSlides: false,
+  // Стартовый слайд
+  initialSlide: 0,
+
+  // Брейк поинты (адаптив)
+  // Ширина экрана
+  breakpoints: {
+    320: {
+      slidesPerView: 1.1
+    },
+    480: {
+      slidesPerView: 2.2
+    },
+    768: {
+      slidesPerView: 3.2
+    },
+    1400: {
+      slidesPerView: 4
+    },
+  }
+
+});
+
+
 const phoneInputs = document.querySelectorAll('input[data-tel-input]');
 
 const getInputNumbersValue = (input) => {
@@ -265,7 +304,7 @@ dots.forEach((dot, indexDot) => {
 
 if (document.documentElement.clientWidth < 768) {
 
-  new Swiper('.share', {
+  new Swiper('.share__images', {
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
@@ -304,16 +343,6 @@ if (document.documentElement.clientWidth < 768) {
 }
 
 
-const whatToDo = document.querySelector('.what-to-do'); // блок "Что делать в городе?"
-
-const navItems = whatToDo.querySelectorAll('.what-to-do-nav__item');
-
-navItems.forEach(item => {
-  item.addEventListener('click', () => {
-    item.classList.add('js-active-mark');
-  })
-});
-
 new Swiper('.tours__list', {
   pagination: {
     el: '.swiper-pagination',
@@ -350,6 +379,16 @@ new Swiper('.tours__list', {
     },
   }
 
+});
+
+const whatToDo = document.querySelector('.what-to-do'); // блок "Что делать в городе?"
+
+const navItems = whatToDo.querySelectorAll('.what-to-do-nav__item');
+
+navItems.forEach(item => {
+  item.addEventListener('click', () => {
+    item.classList.add('js-active-mark');
+  })
 });
 
 // const url_icon = './assets/img/map/mark-hotel.svg';

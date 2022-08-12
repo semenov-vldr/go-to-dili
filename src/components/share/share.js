@@ -1,6 +1,6 @@
 if (document.documentElement.clientWidth < 768) {
 
-  new Swiper('.share', {
+  new Swiper('.share__images', {
     pagination: {
       el: '.swiper-pagination',
       clickable: true,

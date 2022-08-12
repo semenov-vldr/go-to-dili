@@ -1,33 +1,15 @@
 .about-people
   .container
-    .about-people__header
-      include ../_items/title-link/title-link
-    .about-people__list.grid--4col
-      a.about-people__item.about-people-item(href='')
-        .about-people-item__wrapper
-          .about-people-item__image-wrapper
-            img(src='assets/img/about-people/01.jpg' alt='photo')
-          .about-people-item__content
-            p.about-people-item__name Сукиасян Варужан Гарсеванович
-            p.about-people-item__position Футболист и чемпион Армении
-      a.about-people__item.about-people-item(href='')
-        .about-people-item__wrapper
-          .about-people-item__image-wrapper
-            img(src='assets/img/about-people/02.jpg' alt='photo')
-          .about-people-item__content
-            p.about-people-item__name Саркисян Армен Темурович
-            p.about-people-item__position Мэр города Дилижан
-      a.about-people__item.about-people-item(href='')
-        .about-people-item__wrapper
-          .about-people-item__image-wrapper
-            img(src='assets/img/about-people/03.png' alt='photo')
-          .about-people-item__content
-            p.about-people-item__name Сукиасян Варужан Гарсеванович
-            p.about-people-item__position Футболист и чемпион Армении
-      a.about-people__item.about-people-item(href='')
-        .about-people-item__wrapper
-          .about-people-item__image-wrapper
-            img(src='assets/img/about-people/04.jpg' alt='photo')
-          .about-people-item__content
-            p.about-people-item__name Саркисян Армен Темурович
-            p.about-people-item__position Мэр города Дилижан
+    include ../_items/title-link/title-link
+    .about-people__list
+      .swiper-wrapper
+        .swiper-slide
+          include ../_items/people-card/people-card
+        .swiper-slide
+          include ../_items/people-card/people-card
+        .swiper-slide
+          include ../_items/people-card/people-card
+        .swiper-slide
+          include ../_items/people-card/people-card
+
+      .swiper-pagination
