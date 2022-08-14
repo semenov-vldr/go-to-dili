@@ -525,21 +525,21 @@
                 </div><img src="/assets/img/form-decor.svg" alt="decor">
               </div>
               <div class="feedback__col-right">
-                <form class="feedback__form feedback-form" method="POST" action="">
+                <form class="feedback__form feedback-form" method="POST" action="https://25.javascript.pages.academy/keksobooking" enctype="multipart/form-data" autocomplete="off">
                   <div class="feedback-form__input-container">
-                    <input id="name" type="text" placeholder=" " required>
-                    <label for="name">Имя*</label>
+                    <input id="name" type="text" placeholder=" " name="name" pattern="^[А-Яа-яЁёs]+$" required autocomplete="off">
+                    <label for="name">Имя*</label><span class="feedback-form__error"></span>
                   </div>
                   <div class="feedback-form__input-container">
-                    <input id="phone" type="tel" placeholder=" " data-tel-input="" name="user_phone" maxlength="18" autocomplete="off" pattern=".{18,}" required>
-                    <label for="phone">Телефон*</label>
+                    <input id="phone" type="tel" placeholder=" " data-tel-input="" name="phone" maxlength="18" autocomplete="off" pattern=".{18,}" required>
+                    <label for="phone">Телефон*</label><span class="feedback-form__error"></span>
                   </div>
                   <div class="feedback-form__input-container">
-                    <input type="email" placeholder=" ">
-                    <label for="phone">E-mail*</label>
+                    <input id="email" type="email" name="email" placeholder=" ">
+                    <label for="phone">E-mail*</label><span class="feedback-form__error"></span>
                   </div>
                   <div class="feedback-form__input-container">
-                    <input id="email" placeholder=" " required>
+                    <input placeholder=" " name="message" required>
                     <label for="email">Сообщение</label>
                   </div>
                   <div class="feedback-form__sending">
@@ -549,6 +549,14 @@
                     </label>
                   </div>
                 </form>
+              </div>
+            </div>
+            <div class="feedback__popup popup">
+              <div class="popup__body">
+                <div class="popup__content"><a class="popup__close" href="">&#10006;</a><img class="popup__icon" src="assets/img/check-popup.svg" alt="icon">
+                  <p class="popup__title">Ваша заявка успешно отправлена!</p>
+                  <p class="popup__text">В течении 24 часов мы с вами свяжемся</p>
+                </div>
               </div>
             </div>
           </div>

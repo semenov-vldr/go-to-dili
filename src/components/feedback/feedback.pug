@@ -6,18 +6,25 @@
       img(src='/assets/img/form-decor.svg' alt='decor')
 
     .feedback__col-right
-      form.feedback__form.feedback-form(method='POST' action='')
+      form.feedback__form.feedback-form(method='POST' action='https://25.javascript.pages.academy/keksobooking' enctype="multipart/form-data" autocomplete="off")
+
         .feedback-form__input-container
-          input#name(type='text' placeholder=" "  required )
+          input#name(type='text' placeholder=" " name="name" pattern="^[А-Яа-яЁё\s]+$" required autocomplete="off")
           label(for='name') Имя*
+          span.feedback-form__error
         .feedback-form__input-container
-          input#phone(type='tel' placeholder=" " data-tel-input='' name='user_phone' maxlength='18' autocomplete='off' pattern='.{18,}' required)
+
+          input#phone(type='tel' placeholder=" " data-tel-input='' name='phone' maxlength='18' autocomplete='off' pattern='.{18,}' required)
           label(for='phone') Телефон*
+          span.feedback-form__error
+
         .feedback-form__input-container
-          input(type='email' placeholder=" ")
+          input#email(type='email' name="email" placeholder=" ")
           label(for='phone') E-mail*
+          span.feedback-form__error
+
         .feedback-form__input-container
-          input#email(placeholder=" " required)
+          input(placeholder=" " name="message" required)
           label(for='email') Сообщение
 
         .feedback-form__sending
@@ -27,3 +34,11 @@
             span.feedback-form__checkbox
             | Нажав на кнопку, вы соглашаетесь на обработку
             a(href='') персональных данных
+
+  .feedback__popup.popup
+    .popup__body
+      .popup__content
+        a.popup__close(href="") &#10006;
+        img.popup__icon(src="assets/img/check-popup.svg", alt="icon")
+        p.popup__title Ваша заявка успешно отправлена!
+        p.popup__text В течении 24 часов мы с вами свяжемся

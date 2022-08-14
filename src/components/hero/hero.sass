@@ -10,10 +10,15 @@
   user-select: none
   @media (max-width: 1440px)
     background-position: top -150px center
+  @media (max-width: 768px)
+    height: 550px
+    background-position: top right
 
   h1
     padding-top: 15rem
     margin-bottom: 1rem
+    @media (max-width: 768px)
+      padding-top: 14rem
 
   span, p
     @extend .font-s-3

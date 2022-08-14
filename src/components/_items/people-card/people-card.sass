@@ -14,6 +14,10 @@
     @media (max-width: 1400px)
       width: 140px
       height: 140px
+      top: 50px
+    @media (max-width: 768px)
+      width: 100px
+      height: 100px
 
 
     &::before,
@@ -24,14 +28,6 @@
       background-repeat: no-repeat
       background-size: cover
 
-    &::after
-      background-image: url('/assets/img/about-people/decor-triangle.svg')
-      width: 28px
-      height: 32px
-      bottom: -12px
-      left: 18px
-      @media (max-width: 1400px)
-        bottom: -22px
 
     & img
       width: 100%
@@ -41,21 +37,26 @@
 
   &__content
     width: 100%
-    min-height: 210px
+    height: 210px
     background-color: #fff
     border-radius: 16px
     padding: 87px 22px 25px
+    @media (max-width: 768px)
+      height: 176px
+      padding: 75px 22px 35px
+
 
   &__name,
   & p:first-child,
   & span:first-child
-    @extend .font-s-6
+    font-weight: 500
+    font-size: clamp(16px, calc(16px + (24 - 16) * ((100vw - 1024px) / (1920 - 1024))), 24px)
     margin-bottom: 13px
     transition: $transition
 
     & + p,
     & + span
-      @extend .font-s-11
+      font-size: clamp(13px, calc(13px + (16 - 13) * ((100vw - 1024px) / (1920 - 1024))), 16px)
       color: var(--c-black)
       opacity: 0.75
 
@@ -67,6 +68,11 @@
       height: 50px
       top: -15px
       right: -20px
+      @media (max-width: 768px)
+        width: 32px
+        height: 26px
+        top: -17px
+        right: -6px
 
     &:nth-child(even) .people-card__image-wrapper::before
       background-image: url('/assets/img/about-people/decor-forest.svg')
@@ -74,3 +80,41 @@
       height: 44px
       top: -43px
       right: 40px
+      @media (max-width: 768px)
+        width: 20px
+        height: 22px
+        top: -20px
+        right: 12px
+
+
+    &:nth-child(odd) .people-card__image-wrapper::after
+      background-image: url('/assets/img/about-people/decor-triangle.svg')
+      width: 28px
+      height: 32px
+      bottom: -12px
+      left: 18px
+      @media (max-width: 1400px)
+        bottom: -22px
+      @media (max-width: 768px)
+        width: 20px
+        height: 24px
+        bottom: -15px
+        left: 10px
+
+    &:nth-child(even) .people-card__image-wrapper::after
+      background-image: url('/assets/img/about-people/decor-triangle.svg')
+      width: 28px
+      height: 32px
+      bottom: -12px
+      right: 13px
+      transform: scale(1, -1)
+      transform: scale(-1, 1)
+      transform: rotate(300deg)
+      @media (max-width: 1400px)
+        bottom: -13px
+        right: 4px
+      @media (max-width: 768px)
+        width: 20px
+        height: 24px
+        bottom: -9px
+        right: 4px

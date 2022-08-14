@@ -1,3 +1,5 @@
+"use strict";
+
 const phoneInputs = document.querySelectorAll('input[data-tel-input]');
 
 const getInputNumbersValue = (input) => {
@@ -28,7 +30,6 @@ const onPhoneInput = (evt) => {
 
     if (inputNumbersValue[0] == "8") {
       phoneInputs[0].setAttribute("pattern", ".{17,}");
-      console.log(phoneInputs[0].getAttribute("pattern"));
     }
 
     if (inputNumbersValue.length > 1) {
@@ -83,8 +84,75 @@ phoneInputs.forEach(input => {
 
 
 // Ввод в поле ИМЯ только русские буквы
-const input_name = document.querySelector('#name');
-input_name.addEventListener('input', function () {
-  this.value = this.value.replace(/[^А-Яа-яЁё\s]+$/, '');
-});
+// const input_name = document.querySelector('#name');
+// input_name.addEventListener('input', function () {
+//   this.value = this.value.replace(/[^А-Яа-яЁё\s]+$/, '');
+// });
 
+
+
+
+// Сообщение об ошибки валидации
+
+const form = document.querySelector('.feedback__form');
+const inputName = form.querySelector('#name');
+const inputPhone = form.querySelector('#phone');
+const inputEmail = form.querySelector('#email');
+
+const nameError = form.querySelector('#name ~ span');
+const phoneError = form.querySelector('#phone ~ span');
+
+function showError(input, error) {
+  if ( !input.checkValidity() ) {
+    error.textContent = 'Введите ваше имя на кириллице'
+  }
+  else  error.textContent = '';
+
+  if (!input.value) {
+    error.textContent = '';
+    console.log(input.value + ' Пусто')
+  } else {
+    console.log(input.value)
+  }
+};
+
+inputName.addEventListener('input', () => showError(inputName, nameError));
+
+inputPhone.addEventListener('input', () => showError(inputPhone, phoneError));
+
+
+// --------pop-up--------------
+const ButtonForm = form.querySelector('.feedback-form__button');
+const popup = document.querySelector('.feedback__popup');
+const popupContent = popup.querySelector('.popup__content');
+const closeButton = popup.querySelector('.popup__close');
+
+const isPressedEscapeKey = (evt) => evt.key === 'Escape';
+
+const closePopup = () => {
+  popup.classList.remove('js-popup-active');
+}
+
+function onDocumentEscKeydown(evt) {
+  if (isPressedEscapeKey(evt)) closePopup();
+};
+
+function onDocumentClick(evt) {
+  const click = evt.composedPath().includes(popupContent);
+  if (!click) closePopup();
+};
+
+function submitForm(evt) {
+  evt.preventDefault();
+  popup.classList.add('js-popup-active');
+  form.reset();
+};
+
+
+form.addEventListener('submit', submitForm);
+
+closeButton.addEventListener('click', closePopup);
+
+document.addEventListener('click', onDocumentClick);
+
+document.addEventListener('keydown', onDocumentEscKeydown);
