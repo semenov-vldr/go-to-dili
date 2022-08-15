@@ -1,5 +1,3 @@
-"use strict";
-
 const phoneInputs = document.querySelectorAll('input[data-tel-input]');
 
 const getInputNumbersValue = (input) => {
@@ -50,7 +48,6 @@ const onPhoneInput = (evt) => {
 
 // Не российские номера
   } else formattedInputValue = "+" + inputNumbersValue;
-
   input.value = formattedInputValue;
 };
 
@@ -67,58 +64,52 @@ const onPhonePaste = (evt) => {
   const pasted = evt.clipboardData || window.clipboardData;
   const input = evt.target;
   const inputNumbersValue = getInputNumbersValue(input);
-
   if (pasted) {
     const pastedText = pasted.getData("Text");
-    if ( /\D/g.test(pastedText) ) {
-      input.value = inputNumbersValue;
-    }
+    if ( /\D/g.test(pastedText) ) input.value = inputNumbersValue;
   }
 };
 
-phoneInputs.forEach(input => {
-  input.addEventListener('input', onPhoneInput);
-  input.addEventListener("keydown", onPhoneKeyDown);
-  input.addEventListener("paste", onPhonePaste);
-});
-
-
-// Ввод в поле ИМЯ только русские буквы
-// const input_name = document.querySelector('#name');
-// input_name.addEventListener('input', function () {
-//   this.value = this.value.replace(/[^А-Яа-яЁё\s]+$/, '');
+// phoneInputs.forEach(input => {
+//   input.addEventListener('input', onPhoneInput);
+//   input.addEventListener("keydown", onPhoneKeyDown);
+//   input.addEventListener("paste", onPhonePaste);
 // });
-
-
-
-
-// Сообщение об ошибки валидации
 
 const form = document.querySelector('.feedback__form');
 const inputName = form.querySelector('#name');
 const inputPhone = form.querySelector('#phone');
 const inputEmail = form.querySelector('#email');
 
-const nameError = form.querySelector('#name ~ span');
-const phoneError = form.querySelector('#phone ~ span');
+// Ввод в поле ИМЯ только русские буквы
+// inputName.addEventListener('input', function () {
+//   this.value = this.value.replace(/[^A-Za-zА-Яа-яЁё\s]+$/, '');
+//  });
 
-function showError(input, error) {
+// Ввод в поле ТЕЛЕФОН только цифр
+// inputPhone.addEventListener('input', function () {
+//   this.value = this.value.replace(/[^\d]/g, "");
+// });
+
+
+// Сообщение об ошибки валидации
+const nameError = form.querySelector('#name ~ span');
+const nameErrorMessage = 'Вы ввели неверное имя';
+const phoneError = form.querySelector('#phone ~ span');
+const phoneErrorMessage = 'Вы ввели неверный номер';
+
+
+
+function showError(input, error, message) {
   if ( !input.checkValidity() ) {
-    error.textContent = 'Введите ваше имя на кириллице'
+    error.textContent = message;
   }
   else  error.textContent = '';
-
-  if (!input.value) {
-    error.textContent = '';
-    console.log(input.value + ' Пусто')
-  } else {
-    console.log(input.value)
-  }
+  if (!input.value) error.textContent = '';
 };
 
-inputName.addEventListener('input', () => showError(inputName, nameError));
-
-inputPhone.addEventListener('input', () => showError(inputPhone, phoneError));
+inputName.addEventListener('input', () => showError(inputName, nameError, nameErrorMessage));
+inputPhone.addEventListener('input', () => showError(inputPhone, phoneError, phoneErrorMessage));
 
 
 // --------pop-up--------------
@@ -150,9 +141,6 @@ function submitForm(evt) {
 
 
 form.addEventListener('submit', submitForm);
-
 closeButton.addEventListener('click', closePopup);
-
 document.addEventListener('click', onDocumentClick);
-
 document.addEventListener('keydown', onDocumentEscKeydown);

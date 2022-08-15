@@ -5,61 +5,13 @@
       .places__nav
         include ../_items/arrow-nav/arrow-nav
 
-    .js-history-active.places__item.grid
-      .places__image
-        img(src='./assets/img/05.jpg' alt='img')
-      .places__content.places-content
-        h3.places-content__title Техут
-        p.places-content__subtitle На перекрестке Дилижана и Иджевана
-        p.places-content__text Техут – небольшое село в Тавушской области в нескольких километрах на северо-восток от Дилижана, расположенное на левом берегу реки Агстев.  Техутская община была основана в 1925 г. переселенцами из с. Джархеч (ныне Агарцин), а 5 ноября 1993 г. Техут стал самостоятельным селом, отделившись от Агарцина.
+    .places__list
+      .swiper-wrapper
+        .swiper-slide
+          include ../_items/place-card/place-card
+        .swiper-slide
+          include ../_items/place-card/place-card
 
-        .places-content__bottom
-          img(src='assets/img/address-decor.svg' alt='decor')
-          .places-content__values
-            .places-content__value
-              svg(width="18" height="33" fill="#8CB110")
-                use(href='assets/img/sprite.svg#icon-height')
-              p.places-content__value-text
-                | Высота над уровнем моря:
-                b 1550 м.
-            .places-content__value
-              svg(width="18" height="37" fill="#CCDB9A")
-                use(href='assets/img/sprite.svg#icon-temp')
-              p.places-content__value-text
-                | Средняя температура летом:
-                b +19, +25 C, зимой: -2, -7 C.
+      .swiper-pagination
 
-          a.places-content__link(href='##')
-            | Подробнее
-            svg(width='14' height='14' fill='#8CB110' stroke='#8CB110')
-              use(href='assets/img/sprite.svg#arrow-link')
-
-    .places__item.grid
-      .places__image
-        img(src='./assets/img/hero-img.png' alt='img')
-      .places__content.places-content
-        h3.places-content__title Техут 2
-        p.places-content__subtitle На перекрестке Дилижана и Иджевана
-        p.places-content__text Техут – небольшое село в Тавушской области в нескольких километрах на северо-восток от Дилижана, расположенное на левом берегу реки Агстев.  Техутская община была основана в 1925 г. переселенцами из с. Джархеч (ныне Агарцин), а 5 ноября 1993 г. Техут стал самостоятельным селом, отделившись от Агарцина.
-
-        .places-content__bottom
-          img(src='assets/img/address-decor.svg' alt='decor')
-          .places-content__values
-            .places-content__value
-              svg(width="18" height="33" fill="#8CB110")
-                use(href='assets/img/sprite.svg#icon-height')
-              p.places-content__value-text
-                | Высота над уровнем моря:
-                b 1000 м.
-            .places-content__value
-              svg(width="18" height="37" fill="#CCDB9A")
-                use(href='assets/img/sprite.svg#icon-temp')
-              p.places-content__value-text
-                | Средняя температура летом:
-                b +19, +25 C, зимой: -2, -7 C.
-
-          a.places-content__link(href='##')
-            | Подробнее
-            svg(width='14' height='14' fill='#8CB110' stroke='#8CB110')
-              use(href='assets/img/sprite.svg#arrow-link')
 

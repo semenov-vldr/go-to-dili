@@ -1,5 +1,5 @@
 
-new Swiper('.about-people__list', {
+new Swiper('.events__list', {
   pagination: {
     el: '.swiper-pagination',
     clickable: true,
@@ -25,20 +25,17 @@ new Swiper('.about-people__list', {
       slidesPerView: 1.1
     },
     480: {
-      slidesPerView: 2.2
+      slidesPerView: 1.5
     },
     768: {
-      slidesPerView: 3.2
+      slidesPerView: 2.5
     },
-    1400: {
-      slidesPerView: 4
+    1100: {
+      slidesPerView: 3
     },
   }
 
 });
-
-
-"use strict";
 
 const phoneInputs = document.querySelectorAll('input[data-tel-input]');
 
@@ -90,7 +87,6 @@ const onPhoneInput = (evt) => {
 
 // Не российские номера
   } else formattedInputValue = "+" + inputNumbersValue;
-
   input.value = formattedInputValue;
 };
 
@@ -107,58 +103,52 @@ const onPhonePaste = (evt) => {
   const pasted = evt.clipboardData || window.clipboardData;
   const input = evt.target;
   const inputNumbersValue = getInputNumbersValue(input);
-
   if (pasted) {
     const pastedText = pasted.getData("Text");
-    if ( /\D/g.test(pastedText) ) {
-      input.value = inputNumbersValue;
-    }
+    if ( /\D/g.test(pastedText) ) input.value = inputNumbersValue;
   }
 };
 
-phoneInputs.forEach(input => {
-  input.addEventListener('input', onPhoneInput);
-  input.addEventListener("keydown", onPhoneKeyDown);
-  input.addEventListener("paste", onPhonePaste);
-});
-
-
-// Ввод в поле ИМЯ только русские буквы
-// const input_name = document.querySelector('#name');
-// input_name.addEventListener('input', function () {
-//   this.value = this.value.replace(/[^А-Яа-яЁё\s]+$/, '');
+// phoneInputs.forEach(input => {
+//   input.addEventListener('input', onPhoneInput);
+//   input.addEventListener("keydown", onPhoneKeyDown);
+//   input.addEventListener("paste", onPhonePaste);
 // });
-
-
-
-
-// Сообщение об ошибки валидации
 
 const form = document.querySelector('.feedback__form');
 const inputName = form.querySelector('#name');
 const inputPhone = form.querySelector('#phone');
 const inputEmail = form.querySelector('#email');
 
-const nameError = form.querySelector('#name ~ span');
-const phoneError = form.querySelector('#phone ~ span');
+// Ввод в поле ИМЯ только русские буквы
+// inputName.addEventListener('input', function () {
+//   this.value = this.value.replace(/[^A-Za-zА-Яа-яЁё\s]+$/, '');
+//  });
 
-function showError(input, error) {
+// Ввод в поле ТЕЛЕФОН только цифр
+// inputPhone.addEventListener('input', function () {
+//   this.value = this.value.replace(/[^\d]/g, "");
+// });
+
+
+// Сообщение об ошибки валидации
+const nameError = form.querySelector('#name ~ span');
+const nameErrorMessage = 'Вы ввели неверное имя';
+const phoneError = form.querySelector('#phone ~ span');
+const phoneErrorMessage = 'Вы ввели неверный номер';
+
+
+
+function showError(input, error, message) {
   if ( !input.checkValidity() ) {
-    error.textContent = 'Введите ваше имя на кириллице'
+    error.textContent = message;
   }
   else  error.textContent = '';
-
-  if (!input.value) {
-    error.textContent = '';
-    console.log(input.value + ' Пусто')
-  } else {
-    console.log(input.value)
-  }
+  if (!input.value) error.textContent = '';
 };
 
-inputName.addEventListener('input', () => showError(inputName, nameError));
-
-inputPhone.addEventListener('input', () => showError(inputPhone, phoneError));
+inputName.addEventListener('input', () => showError(inputName, nameError, nameErrorMessage));
+inputPhone.addEventListener('input', () => showError(inputPhone, phoneError, phoneErrorMessage));
 
 
 // --------pop-up--------------
@@ -190,12 +180,48 @@ function submitForm(evt) {
 
 
 form.addEventListener('submit', submitForm);
-
 closeButton.addEventListener('click', closePopup);
-
 document.addEventListener('click', onDocumentClick);
-
 document.addEventListener('keydown', onDocumentEscKeydown);
+
+new Swiper('.about-people__list', {
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+
+  slidesPerView: 3,
+
+  // Откл функционала, если слайдов меньше, чем нужно
+  watchOverflow: true,
+
+  // Отступ между слайдами
+  spaceBetween: 15,
+
+  // Активный слайд по центру
+  initialSlides: false,
+  // Стартовый слайд
+  initialSlide: 0,
+
+  // Брейк поинты (адаптив)
+  // Ширина экрана
+  breakpoints: {
+    320: {
+      slidesPerView: 1.1
+    },
+    480: {
+      slidesPerView: 2.2
+    },
+    768: {
+      slidesPerView: 3.2
+    },
+    1400: {
+      slidesPerView: 4
+    },
+  }
+
+});
+
 
 window.addEventListener("scroll", scrollHeader);
 
@@ -326,90 +352,89 @@ dots.forEach((dot, indexDot) => {
   });
 });
 
-{
-  const places_block = document.querySelector('.places');
-  const prev = places_block.querySelector('.arrow-nav__prev');
-  const next = places_block.querySelector('.arrow-nav__next');
-  const slides = places_block.querySelectorAll('.places__item');
+new Swiper('.places__list', {
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '.arrow-nav__next',
+    prevEl: '.arrow-nav__prev',
+  },
 
-// const dots = history_block.querySelectorAll('.history-years-line__item'); // год(а) как кнопка
+  slidesPerView: 3,
 
-  let index = 0;
+  // Откл функционала, если слайдов меньше, чем нужно
+  watchOverflow: true,
 
-  const activeSlide = (num) => {
-    slides.forEach(slide => slide.classList.remove('js-history-active'));
-    slides[num].classList.add('js-history-active');
-  };
+  // Отступ между слайдами
+  spaceBetween: 15,
 
-  const currentSlide = (idx) => {
-    activeSlide(idx);
-  };
+  // Активный слайд по центру
+  initialSlides: false,
+  // Стартовый слайд
+  initialSlide: 0,
 
-  const nextSlide = () => {
-    if (index == slides.length - 1) {
-      index = 0;
-      currentSlide(index);
-    } else {
-      index++;
-      currentSlide(index);
-    }
-  };
-
-  const prevSlide = () => {
-    if (index == 0) {
-      index = slides.length - 1
-      currentSlide(index);
-    } else {
-      index--;
-      currentSlide(index);
-    }
-  };
-
-  next.addEventListener("click", nextSlide);
-  prev.addEventListener("click", prevSlide);
-
-}
-
-if (document.documentElement.clientWidth < 768) {
-
-  new Swiper('.share__images', {
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
+  // Брейк поинты (адаптив)
+  // Ширина экрана
+  breakpoints: {
+    320: {
+      slidesPerView: 1.1
     },
-
-    slidesPerView: 3,
-
-    // Откл функционала, если слайдов меньше, чем нужно
-    watchOverflow: true,
-
-    // Отступ между слайдами
-    spaceBetween: 15,
-
-    // Активный слайд по центру
-    initialSlides: false,
-    // Стартовый слайд
-    initialSlide: 0,
-
-    // Брейк поинты (адаптив)
-    // Ширина экрана
-    breakpoints: {
-      320: {
-        slidesPerView: 1.1
-      },
-      480: {
-        slidesPerView: 2.2
-      },
-      768: {
-        slidesPerView: 4
-      },
+    768: {
+      slidesPerView: 1
     },
+  }
 
-  });
+});
 
 
-}
-
+// {
+//   const places_block = document.querySelector('.places');
+//   const prev = places_block.querySelector('.arrow-nav__prev');
+//   const next = places_block.querySelector('.arrow-nav__next');
+//   const slides = places_block.querySelectorAll('.place-card');
+//
+// // const dots = history_block.querySelectorAll('.history-years-line__item'); // год(а) как кнопка
+//
+//   slides[0].classList.add('js-place-active');
+//   let index = 0;
+//
+//   const activeSlide = (num) => {
+//     slides.forEach(slide => slide.classList.remove('js-place-active'));
+//     slides[num].classList.add('js-place-active');
+//   };
+//
+//   const currentSlide = (idx) => {
+//     activeSlide(idx);
+//   };
+//
+//   const nextSlide = () => {
+//     if (index == slides.length - 1) {
+//       index = 0;
+//       currentSlide(index);
+//     } else {
+//       index++;
+//       currentSlide(index);
+//     }
+//   };
+//
+//   const prevSlide = () => {
+//     if (index == 0) {
+//       index = slides.length - 1
+//       currentSlide(index);
+//     } else {
+//       index--;
+//       currentSlide(index);
+//     }
+//   };
+//
+//   next.addEventListener("click", nextSlide);
+//   prev.addEventListener("click", prevSlide);
+//
+// }
+//
+//
 
 new Swiper('.tours__list', {
   pagination: {
@@ -458,6 +483,47 @@ navItems.forEach(item => {
     item.classList.add('js-active-mark');
   })
 });
+
+if (document.documentElement.clientWidth < 768) {
+
+  new Swiper('.share__images', {
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+
+    slidesPerView: 3,
+
+    // Откл функционала, если слайдов меньше, чем нужно
+    watchOverflow: true,
+
+    // Отступ между слайдами
+    spaceBetween: 15,
+
+    // Активный слайд по центру
+    initialSlides: false,
+    // Стартовый слайд
+    initialSlide: 0,
+
+    // Брейк поинты (адаптив)
+    // Ширина экрана
+    breakpoints: {
+      320: {
+        slidesPerView: 1.1
+      },
+      480: {
+        slidesPerView: 2.2
+      },
+      768: {
+        slidesPerView: 4
+      },
+    },
+
+  });
+
+
+}
+
 
 // const url_icon = './assets/img/map/mark-hotel.svg';
 
