@@ -1,7 +1,5 @@
 /* Map Yandex */
 
-// import {restaurants} from "./restaurants";
-
 const map = document.querySelector('#map');
 
 if ( map ) {
@@ -66,8 +64,10 @@ if ( map ) {
 
     renderMarks (restaurants);
 
-    const navItems = whatToDo.querySelectorAll('.what-to-do-nav__item'); // Все элементы навигации
 
+
+
+    const navItems = whatToDo.querySelectorAll('.what-to-do-nav__item'); // Все элементы навигации
     const navItem_eat = whatToDo.querySelector('.nav-item-eat');     // Еда
     const navItem_hotel = whatToDo.querySelector('.nav-item-hotel'); // Отели
     const navItem_route = whatToDo.querySelector('.nav-item-route'); // Маршруты
@@ -87,7 +87,7 @@ if ( map ) {
       });
     };
 
-    // В аргументы функции добавляем название элемента навигации и массив данных для меток
+    // В аргумент функции добавляем название элемента навигации и массив данных для меток
     itemActive ( navItem_eat, restaurants);
     itemActive ( navItem_hotel, hotels);
     itemActive ( navItem_route, routes);
@@ -95,6 +95,7 @@ if ( map ) {
     itemActive ( navItem_event, routes);
 
   };
+
 
 }
 

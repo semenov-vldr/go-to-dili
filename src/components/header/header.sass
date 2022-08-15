@@ -132,28 +132,25 @@
     width: 47%
     @media (max-width: 1000px)
       flex-direction: column
+      gap: 1.5rem
 
   &__phone
     display: flex
-    gap: 5px
+    gap: 8px
     align-items: center
     justify-content: center
     white-space: nowrap
     font-size: clamp(16px, calc(16px + (22 - 16) * ((100vw - 1024px) / (1920 - 1024))), 22px)
     font-weight: 500
+    @media (min-width: 1000px) and (max-width: 1400px)
+      display: none
     &--mobile
       display: none
-    @media (max-width: 1400px)
-      display: none
-      &--mobile
+      gap: 5px
+      align-items: center
+      justify-content: center
+      @media (min-width: 1000px) and (max-width: 1400px)
         display: flex
-        gap: 5px
-        align-items: center
-        justify-content: center
-    @media (min-width: 1400px)
-      display: flex
-      &--mobile
-        display: none
 
   &__nav-right
     display: flex
@@ -172,12 +169,12 @@
     display: flex
     align-items: flex-start
     border-radius: 100%
-    background-color: rgba(255,255,255, .1)
+    background-color: rgba(#fff, .2)
     transition: none
     &:hover
       background-color: var(--c-green)
-      .header__social-icon
-        opacity: 1
+    &:hover .header__social-icon
+      opacity: 1
 
   &__social-icon
     opacity: .5

@@ -73,6 +73,7 @@
 
     & label
       color: rgba($black, 0.3)
+      font-size: clamp(11px, calc(11px + (16 - 11) * ((100vw - 768px) / (1920 - 768))), 16px)
       pointer-events: none
       position: absolute
       transition: all 200ms
@@ -80,6 +81,7 @@
       left: 0px
 
     .feedback-form__error
+      font-size: clamp(10px, calc(10px + (12 - 10) * ((100vw - 768px) / (1920 - 768))), 12px)
       color: var(--c-red)
       display: inline-block
       padding-top: 5px

@@ -28,12 +28,11 @@ html(lang="ru-RU")
     <!-- Yandex map script -->
     script(src="https://api-maps.yandex.ru/2.1/?apikey=dad86943-dfef-45bd-9c5e-c404323cb093&lang=ru_RU" type="text/javascript")
   body(class=pageClass)
-    script(src="https://kit.fontawesome.com/8931a0c927.js" crossorigin="anonymous")
     .page
       include ../components/header/header
       main
         block content
       include ../components/footer/footer
-    script(src="assets/js/libs.min.js" type="module")
+    script(src="assets/js/libs.min.js")
     script(src="assets/js/main.js" type="module")
     block script

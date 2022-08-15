@@ -1,4 +1,43 @@
 
+new Swiper('.about-people__list', {
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+
+  slidesPerView: 3,
+
+  // Откл функционала, если слайдов меньше, чем нужно
+  watchOverflow: true,
+
+  // Отступ между слайдами
+  spaceBetween: 15,
+
+  // Активный слайд по центру
+  initialSlides: false,
+  // Стартовый слайд
+  initialSlide: 0,
+
+  // Брейк поинты (адаптив)
+  // Ширина экрана
+  breakpoints: {
+    320: {
+      slidesPerView: 1.1
+    },
+    480: {
+      slidesPerView: 2.2
+    },
+    768: {
+      slidesPerView: 3.2
+    },
+    1400: {
+      slidesPerView: 4
+    },
+  }
+
+});
+
+
 new Swiper('.events__list', {
   pagination: {
     el: '.swiper-pagination',
@@ -183,45 +222,6 @@ form.addEventListener('submit', submitForm);
 closeButton.addEventListener('click', closePopup);
 document.addEventListener('click', onDocumentClick);
 document.addEventListener('keydown', onDocumentEscKeydown);
-
-new Swiper('.about-people__list', {
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-
-  slidesPerView: 3,
-
-  // Откл функционала, если слайдов меньше, чем нужно
-  watchOverflow: true,
-
-  // Отступ между слайдами
-  spaceBetween: 15,
-
-  // Активный слайд по центру
-  initialSlides: false,
-  // Стартовый слайд
-  initialSlide: 0,
-
-  // Брейк поинты (адаптив)
-  // Ширина экрана
-  breakpoints: {
-    320: {
-      slidesPerView: 1.1
-    },
-    480: {
-      slidesPerView: 2.2
-    },
-    768: {
-      slidesPerView: 3.2
-    },
-    1400: {
-      slidesPerView: 4
-    },
-  }
-
-});
-
 
 window.addEventListener("scroll", scrollHeader);
 
@@ -436,6 +436,47 @@ new Swiper('.places__list', {
 //
 //
 
+if (document.documentElement.clientWidth < 768) {
+
+  new Swiper('.share__images', {
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+
+    slidesPerView: 3,
+
+    // Откл функционала, если слайдов меньше, чем нужно
+    watchOverflow: true,
+
+    // Отступ между слайдами
+    spaceBetween: 15,
+
+    // Активный слайд по центру
+    initialSlides: false,
+    // Стартовый слайд
+    initialSlide: 0,
+
+    // Брейк поинты (адаптив)
+    // Ширина экрана
+    breakpoints: {
+      320: {
+        slidesPerView: 1.1
+      },
+      480: {
+        slidesPerView: 2.2
+      },
+      768: {
+        slidesPerView: 4
+      },
+    },
+
+  });
+
+
+}
+
+
 new Swiper('.tours__list', {
   pagination: {
     el: '.swiper-pagination',
@@ -484,47 +525,6 @@ navItems.forEach(item => {
   })
 });
 
-if (document.documentElement.clientWidth < 768) {
-
-  new Swiper('.share__images', {
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-
-    slidesPerView: 3,
-
-    // Откл функционала, если слайдов меньше, чем нужно
-    watchOverflow: true,
-
-    // Отступ между слайдами
-    spaceBetween: 15,
-
-    // Активный слайд по центру
-    initialSlides: false,
-    // Стартовый слайд
-    initialSlide: 0,
-
-    // Брейк поинты (адаптив)
-    // Ширина экрана
-    breakpoints: {
-      320: {
-        slidesPerView: 1.1
-      },
-      480: {
-        slidesPerView: 2.2
-      },
-      768: {
-        slidesPerView: 4
-      },
-    },
-
-  });
-
-
-}
-
-
 // const url_icon = './assets/img/map/mark-hotel.svg';
 
 const hotels = [
@@ -551,8 +551,6 @@ const hotels = [
 export { hotels }
 
 /* Map Yandex */
-
-// import {restaurants} from "./restaurants";
 
 const map = document.querySelector('#map');
 
@@ -618,8 +616,10 @@ if ( map ) {
 
     renderMarks (restaurants);
 
-    const navItems = whatToDo.querySelectorAll('.what-to-do-nav__item'); // Все элементы навигации
 
+
+
+    const navItems = whatToDo.querySelectorAll('.what-to-do-nav__item'); // Все элементы навигации
     const navItem_eat = whatToDo.querySelector('.nav-item-eat');     // Еда
     const navItem_hotel = whatToDo.querySelector('.nav-item-hotel'); // Отели
     const navItem_route = whatToDo.querySelector('.nav-item-route'); // Маршруты
@@ -639,7 +639,7 @@ if ( map ) {
       });
     };
 
-    // В аргументы функции добавляем название элемента навигации и массив данных для меток
+    // В аргумент функции добавляем название элемента навигации и массив данных для меток
     itemActive ( navItem_eat, restaurants);
     itemActive ( navItem_hotel, hotels);
     itemActive ( navItem_route, routes);
@@ -647,6 +647,7 @@ if ( map ) {
     itemActive ( navItem_event, routes);
 
   };
+
 
 }
 
