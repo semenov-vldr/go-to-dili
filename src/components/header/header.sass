@@ -2,7 +2,6 @@
   position: absolute
   @extend .font-s-10
   width: 100%
-  padding: 1rem 0
   color: #fff
   transition: $transition
   z-index: 1001
@@ -10,12 +9,11 @@
   &.scrolled
     position: fixed
     background-color: var(--c-green)
-    z-index: 1000
+    z-index: 1001
   &.scrolled .header__logo svg
     fill: var(--c-black)
-  @media (max-width: 1000px)
-    padding: 0.5rem 0
-
+  &.scrolled .promo-discount
+    border-bottom: 1px solid rgba(#fff, 0.3)
 
   &__link
     white-space: nowrap
@@ -32,15 +30,15 @@
 
   &__container
     width: 100%
-    padding: 0 7%
+    padding: 1rem 7%
     display: flex
     justify-content: space-between
     align-items: center
     gap: 20px
     @media (max-width: 1600px)
-      padding: 0 5%
+      padding: 1rem 5%
     @media (max-width: 1200px)
-      padding: 0 1rem
+      padding: 1rem
     @media (max-width: 1000px)
       position: fixed
       flex-direction: column
@@ -56,7 +54,8 @@
       overflow: auto
       &.js-active-menu
         left: 0
-
+    @media (max-width: 400px)
+      align-items: flex-start
 
 
   &__nav
@@ -69,6 +68,9 @@
       align-items: center
       text-align: center
       gap: 70px
+      width: auto
+    @media (max-width: 400px)
+      text-align: left
 
   &__nav-row
     position: relative
@@ -79,6 +81,10 @@
     @media (max-width: 1000px)
       flex-direction: column
       row-gap: 28px
+    &::after
+      content: ""
+      position: absolute
+
 
   &__nav-row-1
     font-size: clamp(12px, calc(12px + (16 - 12) * ((100vw - 1024px) / (1920 - 1024))), 16px)
@@ -86,7 +92,6 @@
     @media (max-width: 1000px)
       font-size: 16px
       &::after
-        content: ""
         display: block
         position: absolute
         width: 100%
@@ -99,8 +104,6 @@
   &__nav-row-2
     font-size: clamp(13px, calc(13px + (17 - 13) * ((100vw - 1024px) / (1920 - 1024))), 17px)
     &::after
-      content: ''
-      position: absolute
       left: 0
       right: 0
       top: -10px
@@ -109,9 +112,7 @@
     @media (max-width: 1000px)
       font-size: 16px
       &::after
-        content: ""
         display: block
-        position: absolute
         width: 100%
         background-color: rgba(#fff, 0.1)
         height: 1px
@@ -133,6 +134,9 @@
     @media (max-width: 1000px)
       flex-direction: column
       gap: 1.5rem
+      width: auto
+    @media (max-width: 400px)
+      align-items: flex-start
 
   &__phone
     display: flex
@@ -158,6 +162,8 @@
     align-items: center
     @media (max-width: 1000px)
       flex-direction: column
+    @media (max-width: 400px)
+      align-items: flex-start
 
   &__social
     display: flex
@@ -171,6 +177,8 @@
     border-radius: 100%
     background-color: rgba(#fff, .2)
     transition: none
+    @media (max-width: 1000px)
+      background-color: rgba(#fff, .3)
     &:hover
       background-color: var(--c-green)
     &:hover .header__social-icon
@@ -178,6 +186,8 @@
 
   &__social-icon
     opacity: .5
+    @media (max-width: 1000px)
+      opacity: 1
 
   &__lang-list
     color: inherit
@@ -186,6 +196,8 @@
     background-color: transparent
     border: none
     cursor: pointer
+    @media (max-width: 1000px)
+      display: none
 
   &__button
     font-size: clamp(12px, calc(12px + (16 - 12) * ((100vw - 1024px) / (1920 - 1024))), 16px)
@@ -202,11 +214,9 @@
       padding: 10px 34px
       font-size: 14px
       width: 100%
-
   @media (min-width: 1000px)
     &__phone svg.scrolled
       fill: rgba(#fff, 0.5)
-
   @media (max-width: 1000px)
     &__phone svg
       fill: #fff
@@ -216,46 +226,83 @@
   display: flex
   align-items: center
   gap: 7px
+  @media (max-width: 1000px)
+    flex-direction: column
+    gap: 0
+  @media (max-width: 400px)
+    align-items: flex-start
+
   & svg
     fill: currentColor
+    transition: $transition
+  &:hover .header-select__list
+    @media (min-width: 1000px)
+      display: flex
+  &.js-select-active
+    gap: 20px
+  &.js-select-active .header__link-icon
+    transform: scale(1, -1)
+
+  &::after
+    position: absolute
+    content: ""
+    width: 100%
+    height: 15px
+    bottom: 0
+    left: 0
+    transform: translateY(100%)
+    cursor: pointer
+    @media (max-width: 1000px)
+      display: none
+
+  &__list
+    display: none
+    flex-direction: column
+    gap: 15px
+    position: absolute
+    left: 0px
+    top: 30px
+    width: 187px
+    border-radius: 8px
+    overflow: hidden
+    background-color: #fff
+    padding: 20px
+    @media (max-width: 1000px)
+      display: flex
+      gap: 22px
+      position: relative
+      padding: 0px
+      top: 0
+      background-color: transparent
+      max-height: 0
+      transition: max-height 0.2s ease-out
+
   &__item
+    color: rgba(#000, 0.55)
     font-size: 15px
     font-weight: 400
     &:hover
       color: #000
+    @media (max-width: 1000px)
+      color: rgba(#fff, 0.8)
+      font-size: 16px
 
-.header-select__list
-  display: none
-  position: absolute
-  left: 0
-  top: 30px
-  width: 190px
-  flex-direction: column
-  gap: 15px
-  border-radius: 8px
-  overflow: hidden
-  background-color: tomato
-  border: 1px solid var(--c-light-grey)
-  color: rgba(0, 0, 0, 0.55)
-  padding: 20px
-
-    //.header-select:hover .header-select__list
-    //  display: flex
 
 
 // ----------mobile----------
 .header-mobile__wrapper
   display: none
-  padding: 0 20px
+  padding: 7px 20px
   @media (max-width: 1000px)
     display: block
 
     .header-mobile
-      display: none
+      display: flex
       align-items: center
       justify-content: space-between
       height: 50px
-      width: 100%
+      &.js-active-menu .header-mobile__logo svg
+        fill: var(--c-black)
 
       &__nav-right
         display: flex
@@ -276,11 +323,9 @@
         background-color: transparent
         border: none
         cursor: pointer
-        @media (max-width: 1000px)
+        @media (min-width: 1000px)
           display: none
 
-      @media (max-width: 1000px)
-        display: flex
 
       .header__burger-icon
         display: none

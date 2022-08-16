@@ -1,5 +1,5 @@
 header.header
-
+  include ../_items/promo-discount/promo-discount
   //mobile menu
   .header-mobile__wrapper
     nav.header-mobile
@@ -26,22 +26,12 @@ header.header
         a.header__link(href='/') Туры
         a.header__link(href='/') Что делать?
         a.header__link(href='/') События
-        //.header-select
-        //  .header-select__header
-        //    span.header-select__current Окрестности
-        //    svg(width="10" height="6" fill="white")
-        //      use(href='assets/img/sprite.svg#arrow-select')
-        //  .header-select__list
-        //    a.header-select__item(href="##") Техут
-        //    a.header-select__item(href="##") Село Агарцин
-        //    a.header-select__item(href="##") Село Гош
-        //    a.header-select__item(href="##") Село Агавнаванк
-        //    a.header-select__item(href="##") Ховк
-        //    a.header-select__item(href="##") Хачардзан
 
-        a.header-link__item.header-select(href="##") Окрестности
-          svg(width="10" height="6" fill="white")
-            use(href='./assets/img/sprite.svg#arrow-select')
+        .header-select
+          a.header__link(href="##")
+            | Окрестности
+            svg.header__link-icon(width="10" height="6" fill="white")
+              use(href='./assets/img/sprite.svg#arrow-select')
           .header-select__list
             a.header-select__item(href="##") Техут
             a.header-select__item(href="##") Село Агарцин
@@ -49,6 +39,7 @@ header.header
             a.header-select__item(href="##") Село Агавнаванк
             a.header-select__item(href="##") Ховк
             a.header-select__item(href="##") Хачардзан
+
         a.header__link(href='/') История
         a.header__link(href='/') Блог
 

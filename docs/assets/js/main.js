@@ -38,44 +38,6 @@ new Swiper('.about-people__list', {
 });
 
 
-new Swiper('.events__list', {
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-
-  slidesPerView: 3,
-
-  // Откл функционала, если слайдов меньше, чем нужно
-  watchOverflow: true,
-
-  // Отступ между слайдами
-  spaceBetween: 15,
-
-  // Активный слайд по центру
-  initialSlides: false,
-  // Стартовый слайд
-  initialSlide: 0,
-
-  // Брейк поинты (адаптив)
-  // Ширина экрана
-  breakpoints: {
-    320: {
-      slidesPerView: 1.1
-    },
-    480: {
-      slidesPerView: 1.5
-    },
-    768: {
-      slidesPerView: 2.5
-    },
-    1100: {
-      slidesPerView: 3
-    },
-  }
-
-});
-
 const phoneInputs = document.querySelectorAll('input[data-tel-input]');
 
 const getInputNumbersValue = (input) => {
@@ -230,7 +192,7 @@ function scrollHeader() {
   const logo = document.querySelector(".header__logo svg");
   const button = document.querySelector(".header__button");
   const icon_phone = document.querySelector(".header__phone svg");
-  if (pageYOffset > 100) {
+  if ( scrollY > 50) {
     header.classList.add("scrolled");
     logo.classList.add("scrolled");
     button.classList.add("scrolled");
@@ -245,58 +207,119 @@ function scrollHeader() {
 
 // burger
 const burger = document.querySelector('.header__burger-icon');
+const menu = document.querySelector('.header__container');
+const headerMobile = document.querySelector('.header-mobile');
+const logo_mobile = document.querySelector('.header-mobile__logo');
 if (burger) {
-  const menu = document.querySelector('.header__container');
-  const logo_mobile = document.querySelector('.header-mobile__logo');
   burger.addEventListener('click', () => {
     document.body.classList.toggle('js-lock-scroll');
     burger.classList.toggle('js-active-menu');
+    headerMobile.classList.toggle('js-active-menu');
     menu.classList.toggle('js-active-menu');
     logo_mobile.classList.toggle('js-active-menu');
   });
 }
 
 
-
 // select
-// const select = document.querySelector('.header-select');
-// const selectHeader = select.querySelectorAll('.header-select__header');
-// const selectItems = select.querySelectorAll('.header-select__item');
-// const selectCurrent = select.querySelector('.header-select__current');
-//
-// function selectToggle () {
-//   this.parentElement.classList.toggle('js-active-select');
-// };
-//
-// function selectChoose () {
-//   selectCurrent.innerText = this.innerHTML;
-//   select.classList.remove('js-active-select');
-// };
-//
-// selectHeader.forEach(item => {
-//   item.addEventListener('click', selectToggle);
-// });
-//
-// selectItems.forEach(item => {
-//   item.addEventListener('click', selectChoose);
-// });
-//
-//
-// // Клик снаружи выпадающего списка, закрытие списка
-//   document.addEventListener('click', (evt) => {
-//     if ( evt.target !== selectCurrent ) {
-//       select.classList.remove('js-active-select');
-//     };
-//   });
-//
-// // Клик по кнопке Tab или Esc, закрытие списка
-//   document.addEventListener('keydown', (evt) => {
-//     if ( evt.key === 'Tab' || evt.key === 'Escape' ) {
-//       select.classList.remove('js-active-select');
-//     };
-//   });
+const select = document.querySelector('.header-select');
+const selectList = select.querySelector('.header-select__list');
+
+const accordion = (item) => {
+  if (item.style.maxHeight){
+    item.style.maxHeight = null;
+  } else {
+    item.style.maxHeight = item.scrollHeight + "px";
+  }
+};
+
+select.addEventListener("click",function () {
+  accordion(selectList);
+  this.classList.toggle("js-select-active");
+});
 
 
+
+
+
+
+new Swiper('.events__list', {
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+
+  slidesPerView: 3,
+
+  // Откл функционала, если слайдов меньше, чем нужно
+  watchOverflow: true,
+
+  // Отступ между слайдами
+  spaceBetween: 15,
+
+  // Активный слайд по центру
+  initialSlides: false,
+  // Стартовый слайд
+  initialSlide: 0,
+
+  // Брейк поинты (адаптив)
+  // Ширина экрана
+  breakpoints: {
+    320: {
+      slidesPerView: 1.1
+    },
+    480: {
+      slidesPerView: 1.5
+    },
+    768: {
+      slidesPerView: 2.5
+    },
+    1100: {
+      slidesPerView: 3
+    },
+  }
+
+});
+
+if (document.documentElement.clientWidth < 768) {
+
+  new Swiper('.share__images', {
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+
+    slidesPerView: 3,
+
+    // Откл функционала, если слайдов меньше, чем нужно
+    watchOverflow: true,
+
+    // Отступ между слайдами
+    spaceBetween: 15,
+
+    // Активный слайд по центру
+    initialSlides: false,
+    // Стартовый слайд
+    initialSlide: 0,
+
+    // Брейк поинты (адаптив)
+    // Ширина экрана
+    breakpoints: {
+      320: {
+        slidesPerView: 1.1
+      },
+      480: {
+        slidesPerView: 2.2
+      },
+      768: {
+        slidesPerView: 4
+      },
+    },
+
+  });
+
+
+}
 
 
 const history_block = document.querySelector('.history');
@@ -436,46 +459,15 @@ new Swiper('.places__list', {
 //
 //
 
-if (document.documentElement.clientWidth < 768) {
+const whatToDo = document.querySelector('.what-to-do'); // блок "Что делать в городе?"
 
-  new Swiper('.share__images', {
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
+const navItems = whatToDo.querySelectorAll('.what-to-do-nav__item');
 
-    slidesPerView: 3,
-
-    // Откл функционала, если слайдов меньше, чем нужно
-    watchOverflow: true,
-
-    // Отступ между слайдами
-    spaceBetween: 15,
-
-    // Активный слайд по центру
-    initialSlides: false,
-    // Стартовый слайд
-    initialSlide: 0,
-
-    // Брейк поинты (адаптив)
-    // Ширина экрана
-    breakpoints: {
-      320: {
-        slidesPerView: 1.1
-      },
-      480: {
-        slidesPerView: 2.2
-      },
-      768: {
-        slidesPerView: 4
-      },
-    },
-
-  });
-
-
-}
-
+navItems.forEach(item => {
+  item.addEventListener('click', () => {
+    item.classList.add('js-active-mark');
+  })
+});
 
 new Swiper('.tours__list', {
   pagination: {
@@ -513,16 +505,6 @@ new Swiper('.tours__list', {
     },
   }
 
-});
-
-const whatToDo = document.querySelector('.what-to-do'); // блок "Что делать в городе?"
-
-const navItems = whatToDo.querySelectorAll('.what-to-do-nav__item');
-
-navItems.forEach(item => {
-  item.addEventListener('click', () => {
-    item.classList.add('js-active-mark');
-  })
 });
 
 // const url_icon = './assets/img/map/mark-hotel.svg';
@@ -607,7 +589,9 @@ if ( map ) {
           iconImageHref: `./assets/img/map/${obj.name_icon}.svg`,
           iconImageSize: [49, 59],
           iconImageOffset: [0, -60],
+          balloonPanelMaxMapArea: 1,
         });
+
         map.geoObjects.add(placemark);
       });
       let clusterer = new ymaps.Clusterer({});
@@ -697,3 +681,13 @@ const routes = [
 ];
 
 export { routes }
+
+const promoDiscount = document.querySelector('.promo-discount');
+const closePromoDiscount = promoDiscount.querySelector('.promo-discount__close');
+
+
+
+closePromoDiscount.addEventListener('click', () => {
+  promoDiscount.style.display = "none";
+  console.log(closePromoDiscount);
+})

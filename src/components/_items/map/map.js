@@ -55,7 +55,9 @@ if ( map ) {
           iconImageHref: `./assets/img/map/${obj.name_icon}.svg`,
           iconImageSize: [49, 59],
           iconImageOffset: [0, -60],
+          balloonPanelMaxMapArea: 1,
         });
+
         map.geoObjects.add(placemark);
       });
       let clusterer = new ymaps.Clusterer({});

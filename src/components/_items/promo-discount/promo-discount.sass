@@ -1,0 +1,36 @@
+.promo-discount
+  position: relative
+  display: flex
+  align-items: center
+  justify-content: center
+  background-color: var(--c-green)
+  min-height: 40px
+  line-height: 1.2
+  letter-spacing: 0.06em
+
+  .promo-discount__link, a
+    font-size: clamp(11px, calc(11px + (15 - 11) * ((100vw - 768px) / (1920 - 768))), 15px)
+    color: #fff
+    font-weight: 700
+    padding: 0 75px
+    text-align: center
+    &:hover
+      text-decoration: underline
+
+.promo-discount__close
+  font-size: 12px
+  right: 15px
+  position: absolute
+  width: 22px
+  height: 22px
+  background-color: rgba(#fff, 0.3)
+  border-radius: 50%
+  font-weight: 400
+  display: flex
+  align-items: center
+  justify-content: center
+  cursor: pointer
+  padding: 5px
+  &:hover
+    background-color: rgba(#fff, 0.5)
+
