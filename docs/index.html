@@ -132,27 +132,27 @@
             <div class="container">
               <h2 class="what-to-do__title">Что делать в городе?</h2>
               <div class="what-to-do__nav what-to-do-nav">
-                <div class="js-active-mark what-to-do-nav__item nav-item-eat">
+                <div class="what-to-do-nav__item nav-item-eat" data-type="eat">
                   <svg class="what-to-do-nav__icon" width="50" height="50" fill="#D8DAD1">
                     <use href="assets/img/sprite.svg#eat"></use>
                   </svg><span class="what-to-do-nav__name">Еда</span>
                 </div>
-                <div class="what-to-do-nav__item nav-item-hotel">
+                <div class="what-to-do-nav__item nav-item-hotel" data-type="hotel">
                   <svg class="what-to-do-nav__icon" width="50" height="50" fill="#D8DAD1">
                     <use href="assets/img/sprite.svg#hotel"></use>
                   </svg><span class="what-to-do-nav__name">Отели</span>
                 </div>
-                <div class="what-to-do-nav__item nav-item-route">
+                <div class="what-to-do-nav__item nav-item-route" data-type="route">
                   <svg class="what-to-do-nav__icon" width="50" height="50" fill="#D8DAD1">
                     <use href="assets/img/sprite.svg#route"></use>
                   </svg><span class="what-to-do-nav__name">Маршруты</span>
                 </div>
-                <div class="what-to-do-nav__item nav-item-place">
+                <div class="what-to-do-nav__item nav-item-place" data-type="place">
                   <svg class="what-to-do-nav__icon" width="50" height="50" fill="#D8DAD1">
                     <use href="assets/img/sprite.svg#place"></use>
                   </svg><span class="what-to-do-nav__name">Места</span>
                 </div>
-                <div class="what-to-do-nav__item nav-item-event">
+                <div class="what-to-do-nav__item nav-item-event" data-type="event">
                   <svg class="what-to-do-nav__icon" width="50" height="50" fill="#D8DAD1">
                     <use href="assets/img/sprite.svg#event"></use>
                   </svg><span class="what-to-do-nav__name">События</span>
@@ -161,22 +161,24 @@
               <div class="map">
                 <div class="map__item" id="map"></div>
               </div>
-              <!--.balloon-->
-              <!--  .balloon__wrapper-->
-              <!--    .balloon__close X-->
-              <!--    .balloon__image-wrapper-->
-              <!--      img.balloon__image(src='./01.jpg' alt='')-->
-              <!--    .balloon__content-text-->
-              <!--      p.balloon__title Dilijazz Restaurant-->
-              <!--      .balloon__kitchen-->
-              <!--        span.balloon__kitchen-title Кухня:-->
-              <!--        .balloon__kitchen-list-->
-              <!--          span.balloon__kitchen-name Американская-->
-              <!--          span.balloon__kitchen-name Средиземноморская-->
-              <!--          span.balloon__kitchen-name Европейская-->
-              <!--      p.balloon__address-->
-              <!--        img(src='./ballon-location.svg' alt='')-->
-              <!--        | 1/1 2nd St., T’eghut, Дилижан 3902 Армения-->
+              <template id="balloon-template">
+                <article class="balloon">
+                  <div class="balloon__wrapper">
+                    <div class="balloon__close">X</div>
+                    <div class="balloon__image-wrapper"><img class="balloon__image" src="./assets/img/map/01.jpg" alt=""></div>
+                    <div class="balloon__content-text">
+                      <p class="balloon__title">Dilijazz Restaurant</p>
+                      <div class="balloon__desc">
+                        <div class="balloon__desc-title">Кухня:</div>
+                        <div class="balloon__desc-text">Американская</div>
+                      </div>
+                      <div class="balloon__address"><img src="./assets/img/map/ballon-location.svg" alt="">
+                        <div class="balloon__address-text">1/1 2nd St., T’eghut, Дилижан 3902 Армения</div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </template>
               <div class="what-to-do__new-events new-events">
                 <h3 class="new-events__title">Новые мероприятия</h3>
                 <div class="new-events__list grid--3col"><a class="new-events__item new-events-item" href="/">

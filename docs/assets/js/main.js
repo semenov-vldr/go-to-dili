@@ -281,47 +281,6 @@ new Swiper('.events__list', {
 
 });
 
-if (document.documentElement.clientWidth < 768) {
-
-  new Swiper('.share__images', {
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-
-    slidesPerView: 3,
-
-    // Откл функционала, если слайдов меньше, чем нужно
-    watchOverflow: true,
-
-    // Отступ между слайдами
-    spaceBetween: 15,
-
-    // Активный слайд по центру
-    initialSlides: false,
-    // Стартовый слайд
-    initialSlide: 0,
-
-    // Брейк поинты (адаптив)
-    // Ширина экрана
-    breakpoints: {
-      320: {
-        slidesPerView: 1.1
-      },
-      480: {
-        slidesPerView: 2.2
-      },
-      768: {
-        slidesPerView: 4
-      },
-    },
-
-  });
-
-
-}
-
-
 const history_block = document.querySelector('.history');
 const prev = history_block.querySelector('.arrow-nav__prev');
 const next = history_block.querySelector('.arrow-nav__next');
@@ -459,15 +418,46 @@ new Swiper('.places__list', {
 //
 //
 
-const whatToDo = document.querySelector('.what-to-do'); // блок "Что делать в городе?"
+if (document.documentElement.clientWidth < 768) {
 
-const navItems = whatToDo.querySelectorAll('.what-to-do-nav__item');
+  new Swiper('.share__images', {
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
 
-navItems.forEach(item => {
-  item.addEventListener('click', () => {
-    item.classList.add('js-active-mark');
-  })
-});
+    slidesPerView: 3,
+
+    // Откл функционала, если слайдов меньше, чем нужно
+    watchOverflow: true,
+
+    // Отступ между слайдами
+    spaceBetween: 15,
+
+    // Активный слайд по центру
+    initialSlides: false,
+    // Стартовый слайд
+    initialSlide: 0,
+
+    // Брейк поинты (адаптив)
+    // Ширина экрана
+    breakpoints: {
+      320: {
+        slidesPerView: 1.1
+      },
+      480: {
+        slidesPerView: 2.2
+      },
+      768: {
+        slidesPerView: 4
+      },
+    },
+
+  });
+
+
+}
+
 
 new Swiper('.tours__list', {
   pagination: {
@@ -507,34 +497,146 @@ new Swiper('.tours__list', {
 
 });
 
-// const url_icon = './assets/img/map/mark-hotel.svg';
 
-const hotels = [
+
+
+
+const customJson = [
+  // Eat
   {
-    name_icon: 'mark-hotel',
-    lat: 40.752999618091304,
-    long: 44.87483867944334,
-    url: './assets/components/_items/map/01.jpg',
-    title: "Hotel 1",
-    kitchen_name: 'Американская, Средиземноморская, Европейская',
+    type: "eat",
+    mark_name: "mark-eat",
+    photo_url: "./assets/img/map/01.jpg",
+    title: "Dilijazz Restaurant 1",
+    desc: 'Средиземноморская, Американска, Европейская',
     address: '1/1 2nd St., T’eghut, Дилижан 3902 Армения',
+    location: [40.75826541732117, 44.88379503930662],
+
   },
+
   {
-    name_icon: 'mark-hotel',
-    lat: 40.75626541732117,
-    long: 44.88479503930662,
-    url: './assets/components/_items/map/01.jpg',
-    title: "Hotel 2",
-    kitchen_name: 'Средиземноморская, Европейская',
+    type: "eat",
+    mark_name: "mark-eat",
+    photo_url: "./assets/img/map/01.jpg",
+    title: "Dilijazz Restaurant 2",
+    desc: 'Средиземноморская, Европейская',
     address: '1/1 2nd St., T’eghut, Дилижан 3902 Армения',
+    location: [40.751999618091304, 44.87363867944334],
   },
+
+  // Hotel
+  {
+    type: "hotel",
+    mark_name: "mark-hotel",
+    photo_url: "./assets/img/map/01.jpg",
+    title: "Hilton",
+    desc: 'Описание отеля',
+    address: '1/1 2nd St., T’eghut, Дилижан 3902 Армения',
+    location: [40.75740056093835,44.88809144458006],
+  },
+
+  {
+    type: "hotel",
+    mark_name: "mark-hotel",
+    photo_url: "./assets/img/map/01.jpg",
+    title: "Mriya",
+    desc: 'Описание отеля',
+    address: '1/1 2nd St., T’eghut, Дилижан 3902 Армения',
+    location: [40.75217903445399,44.90439927539061],
+  },
+
+  // Route
+  {
+    type: "route",
+    mark_name: "mark-hotel",
+    photo_url: "./assets/img/map/01.jpg",
+    title: "Маршрут 1",
+    desc: 'По лесу',
+    address: '1/1 2nd St., T’eghut, Дилижан 3902 Армения',
+    location: [40.74525987533819,44.85084092578122],
+  },
+
+  {
+    type: "route",
+    mark_name: "mark-hotel",
+    photo_url: "./assets/img/map/01.jpg",
+    title: "Маршрут 2",
+    desc: 'В горы',
+    address: '1/1 2nd St., T’eghut, Дилижан 3902 Армения',
+    location: [40.73638417553341,44.86307759338689],
+  },
+
+  // Place
+  {
+    type: "place",
+    mark_name: "mark-hotel",
+    photo_url: "./assets/img/map/01.jpg",
+    title: "Место 1",
+    desc: 'Клуб',
+    address: '1/1 2nd St., T’eghut, Дилижан 3902 Армения',
+    location: [40.749309792605956,44.91097111755681],
+  },
+
+  {
+    type: "place",
+    mark_name: "mark-hotel",
+    photo_url: "./assets/img/map/01.jpg",
+    title: "Место 2",
+    desc: 'Площадь',
+    address: '1/1 2nd St., T’eghut, Дилижан 3902 Армения',
+    location: [40.749962534398996,44.90273137146308],
+  },
+
+
+  // Event
+  {
+    type: "event",
+    mark_name: "mark-hotel",
+    photo_url: "./assets/img/map/01.jpg",
+    title: "Событие 1",
+    desc: 'Праздник',
+    address: '1/1 2nd St., T’eghut, Дилижан 3902 Армения',
+    location: [40.78833239918575,44.94719166809392],
+  },
+
+  {
+    type: "event",
+    mark_name: "mark-hotel",
+    photo_url: "./assets/img/map/01.jpg",
+    title: "Событие 2",
+    desc: 'Новый год',
+    address: '1/1 2nd St., T’eghut, Дилижан 3902 Армения',
+    location: [40.7778938307187,44.945475054324405],
+  },
+
 ];
 
-export { hotels }
+
+// let json = JSON.stringify(customJson);
+
 
 /* Map Yandex */
 
 const map = document.querySelector('#map');
+
+const whatToDo = document.querySelector('.what-to-do'); // блок "Что делать в городе?"
+
+// Шаблон для клонирования
+const balloonTemplate = document.querySelector('#balloon-template').content.querySelector('.balloon');
+// Список элементов навигации
+const navItems = whatToDo.querySelectorAll('.what-to-do-nav__item');
+
+// Создание и заполнение данными баллуна
+const createBalloon = (obj) => {
+  const balloon = balloonTemplate.cloneNode(true);
+
+  balloon.querySelector('.balloon__image').rsc = obj.photo_url;
+  balloon.querySelector('.balloon__title').textContent = obj.title;
+  balloon.querySelector('.balloon__desc-text').textContent = obj.desc;
+  balloon.querySelector('.balloon__address-text').textContent = obj.address;
+
+  return balloon.outerHTML;
+};
 
 if ( map ) {
 
@@ -542,33 +644,7 @@ if ( map ) {
 
   const center = [40.74521099740435,44.868688838134744];
 
-  const getBalloon = ( {url, title, kitchen_name, address} ) => {
-    return `
-    <div class="balloon">
-        <div class="balloon__wrapper">
-            <div class="balloon__close">X</div>
-            <div class="balloon__image-wrapper">
-                <img class="balloon__image" src="${url}" alt="">
-            </div>
-            <div class="balloon__content-text">
-                <p class="balloon__title">${title}</p>
-
-                <div class="balloon__kitchen">
-                    <span class="balloon__kitchen-title">Кухня:</span>
-                    <div class="balloon__kitchen-list">
-                        <span class="balloon__kitchen-name">${kitchen_name}</span>
-                    </div>
-                </div>
-                <p class="balloon__address">
-                    <img src="./assets/img/map/ballon-location.svg" alt="">
-                    ${address}
-                </p>
-            </div>
-        </div>
-    </div>`;
-  };
-
-
+  // Инициализация карты
   function init() {
     let map = new ymaps.Map("map", {
       center,
@@ -578,109 +654,50 @@ if ( map ) {
     });
 
 
-    // Формирование баллунов по данным из массива объектов
-    const renderMarks = (array) => {
-      array.forEach( (obj) => {
+      navItems.forEach((navItem) => {
 
-        let placemark = new ymaps.Placemark([obj.lat, obj.long], {
-          balloonContent: getBalloon(obj),
-        }, {
-          iconLayout: 'default#image',
-          iconImageHref: `./assets/img/map/${obj.name_icon}.svg`,
-          iconImageSize: [49, 59],
-          iconImageOffset: [0, -60],
-          balloonPanelMaxMapArea: 1,
-        });
-
-        map.geoObjects.add(placemark);
-      });
-      let clusterer = new ymaps.Clusterer({});
-      map.geoObjects.add(clusterer);
-    };
-
-    renderMarks (restaurants);
-
-
-
-
-    const navItems = whatToDo.querySelectorAll('.what-to-do-nav__item'); // Все элементы навигации
-    const navItem_eat = whatToDo.querySelector('.nav-item-eat');     // Еда
-    const navItem_hotel = whatToDo.querySelector('.nav-item-hotel'); // Отели
-    const navItem_route = whatToDo.querySelector('.nav-item-route'); // Маршруты
-    const navItem_place = whatToDo.querySelector('.nav-item-place'); // Места
-    const navItem_event = whatToDo.querySelector('.nav-item-event'); // События
-
-
-    // Добавление активного класса для элемента навигации и отрисовка нужных меток
-    function itemActive (item, array) {
-      item.addEventListener('click', function() {
-        if (this.classList.contains('js-active-mark')) {
+        navItem.addEventListener('click', function () {
           navItems.forEach(item => item.classList.remove('js-active-mark'));
           map.geoObjects.removeAll();
-          this.classList.add('js-active-mark');
-          renderMarks (array);
-        };
-      });
-    };
+          this.classList.add("js-active-mark");
+          const dataType = this.dataset.type;
 
-    // В аргумент функции добавляем название элемента навигации и массив данных для меток
-    itemActive ( navItem_eat, restaurants);
-    itemActive ( navItem_hotel, hotels);
-    itemActive ( navItem_route, routes);
-    itemActive ( navItem_place, routes);
-    itemActive ( navItem_event, routes);
+          customJson.forEach( (obj) => {
+
+            if (obj.type === dataType) {
+
+              let placemark = new ymaps.Placemark(obj.location, {
+                balloonContent: createBalloon(obj),
+              }, {
+                iconLayout: 'default#image',
+                iconImageHref: `./assets/img/map/${obj.mark_name}.svg`,
+                iconImageSize: [49, 59],
+                iconImageOffset: [0, -60],
+                balloonPanelMaxMapArea: 1,
+              });
+
+              map.geoObjects.add(placemark);
+
+              placemark.addEventListener("hover",() => {
+                map.style.opacity = '0.5';
+              });
+
+              placemark.addEventListener("mouseenter",() => {
+                map.style.opacity = '0.7';
+              });
+
+            };
+          });
+        });
+      });
+
+    let clusterer = new ymaps.Clusterer({});
+    map.geoObjects.add(clusterer);
 
   };
 
-
 }
 
-
-const restaurants = [
-  {
-    name_icon: 'mark-eat',
-    lat: 40.751999618091304,
-    long: 44.87383867944334,
-    url: './assets/img/map/01.jpg',
-    title: "Dilijazz Restaurant 1",
-    kitchen_name: 'Американская, Средиземноморская, Европейская',
-    address: '1/1 2nd St., T’eghut, Дилижан 3902 Армения',
-  },
-  {
-    name_icon: 'mark-eat',
-    lat: 40.75826541732117,
-    long: 44.88379503930662,
-    url: './assets/img/map/01.jpg',
-    title: "Dilijazz Restaurant 2",
-    kitchen_name: 'Средиземноморская, Европейская',
-    address: '1/1 2nd St., T’eghut, Дилижан 3902 Армения',
-  },
-];
-
-export { restaurants }
-
-const routes = [
-  {
-    name_icon: 'mark-eat',
-    lat: 40.752999618091304,
-    long: 44.87483867944334,
-    url: './assets/img/map/01.jpg',
-    title: "Маршрут 1",
-    kitchen_name: 'Американская, Средиземноморская, Европейская',
-    address: '1/1 2nd St., T’eghut, Дилижан 3902 Армения',
-  },
-  {
-    name_icon: 'mark-eat',
-    lat: 40.75726541732117,
-    long: 44.88279503930662,
-    url: './assets/img/map/01.jpg',
-    title: "Маршрут 2",
-    kitchen_name: 'Средиземноморская, Европейская',
-    address: '1/1 2nd St., T’eghut, Дилижан 3902 Армения',
-  },
-];
-
-export { routes }
 
 const promoDiscount = document.querySelector('.promo-discount');
 const closePromoDiscount = promoDiscount.querySelector('.promo-discount__close');
