@@ -37,6 +37,101 @@ new Swiper('.about-people__list', {
 
 });
 
+new Swiper('.events__list', {
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+
+  slidesPerView: 3,
+
+  // Откл функционала, если слайдов меньше, чем нужно
+  watchOverflow: true,
+
+  // Отступ между слайдами
+  spaceBetween: 15,
+
+  // Активный слайд по центру
+  initialSlides: false,
+  // Стартовый слайд
+  initialSlide: 0,
+
+  // Брейк поинты (адаптив)
+  // Ширина экрана
+  breakpoints: {
+    320: {
+      slidesPerView: 1.1
+    },
+    480: {
+      slidesPerView: 1.5
+    },
+    768: {
+      slidesPerView: 2.5
+    },
+    1100: {
+      slidesPerView: 3
+    },
+  }
+
+});
+
+window.addEventListener("scroll", scrollHeader);
+
+function scrollHeader() {
+  const header = document.querySelector(".header");
+  const logo = document.querySelector(".header__logo svg");
+  const button = document.querySelector(".header__button");
+  const icon_phone = document.querySelector(".header__phone svg");
+  if ( scrollY > 50) {
+    header.classList.add("scrolled");
+    logo.classList.add("scrolled");
+    button.classList.add("scrolled");
+    icon_phone.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+    logo.classList.remove("scrolled");
+    button.classList.remove("scrolled");
+    icon_phone.classList.remove("scrolled");
+  }
+};
+
+// burger
+const burger = document.querySelector('.header__burger-icon');
+const menu = document.querySelector('.header__container');
+const headerMobile = document.querySelector('.header-mobile');
+const logo_mobile = document.querySelector('.header-mobile__logo');
+if (burger) {
+  burger.addEventListener('click', () => {
+    document.body.classList.toggle('js-lock-scroll');
+    burger.classList.toggle('js-active-menu');
+    headerMobile.classList.toggle('js-active-menu');
+    menu.classList.toggle('js-active-menu');
+    logo_mobile.classList.toggle('js-active-menu');
+  });
+}
+
+
+// select
+const select = document.querySelector('.header-select');
+const selectList = select.querySelector('.header-select__list');
+
+const accordion = (item) => {
+  if (item.style.maxHeight){
+    item.style.maxHeight = null;
+  } else {
+    item.style.maxHeight = item.scrollHeight + "px";
+  }
+};
+
+select.addEventListener("click",function () {
+  accordion(selectList);
+  this.classList.toggle("js-select-active");
+});
+
+
+
+
+
 
 const phoneInputs = document.querySelectorAll('input[data-tel-input]');
 
@@ -185,154 +280,106 @@ closeButton.addEventListener('click', closePopup);
 document.addEventListener('click', onDocumentClick);
 document.addEventListener('keydown', onDocumentEscKeydown);
 
-window.addEventListener("scroll", scrollHeader);
+const history_block = document.querySelector('.history');
 
-function scrollHeader() {
-  const header = document.querySelector(".header");
-  const logo = document.querySelector(".header__logo svg");
-  const button = document.querySelector(".header__button");
-  const icon_phone = document.querySelector(".header__phone svg");
-  if ( scrollY > 50) {
-    header.classList.add("scrolled");
-    logo.classList.add("scrolled");
-    button.classList.add("scrolled");
-    icon_phone.classList.add("scrolled");
-  } else {
-    header.classList.remove("scrolled");
-    logo.classList.remove("scrolled");
-    button.classList.remove("scrolled");
-    icon_phone.classList.remove("scrolled");
-  }
-};
+if ( history_block ) {
 
-// burger
-const burger = document.querySelector('.header__burger-icon');
-const menu = document.querySelector('.header__container');
-const headerMobile = document.querySelector('.header-mobile');
-const logo_mobile = document.querySelector('.header-mobile__logo');
-if (burger) {
-  burger.addEventListener('click', () => {
-    document.body.classList.toggle('js-lock-scroll');
-    burger.classList.toggle('js-active-menu');
-    headerMobile.classList.toggle('js-active-menu');
-    menu.classList.toggle('js-active-menu');
-    logo_mobile.classList.toggle('js-active-menu');
+  const prev = history_block.querySelector('.arrow-nav__prev');
+  const next = history_block.querySelector('.arrow-nav__next');
+  const slides = history_block.querySelectorAll('.history-info-item');
+  const dots = history_block.querySelectorAll('.history-years-line__item'); // год(а) как кнопка
+
+  let index = 0;
+
+  const activeSlide = (num) => {
+    slides.forEach(slide => slide.classList.remove('js-history-active'));
+    slides[num].classList.add('js-history-active');
+  };
+
+  const activeDot = (num) => {
+    dots.forEach(dot => dot.classList.remove('js-history-active'));
+    dots[num].classList.add('js-history-active');
+  };
+
+  const currentSlide = (idx) => {
+    activeSlide(idx);
+    activeDot(idx);
+  };
+
+  const nextSlide = () => {
+    if (index == slides.length - 1) {
+      index = 0;
+      currentSlide(index);
+    } else {
+      index++;
+      currentSlide(index);
+    }
+  };
+
+  const prevSlide = () => {
+    if (index == 0) {
+      index = slides.length - 1
+      currentSlide(index);
+    } else {
+      index--;
+      currentSlide(index);
+    }
+  };
+
+  next.addEventListener("click", nextSlide);
+  prev.addEventListener("click", prevSlide);
+
+  dots.forEach((dot, indexDot) => {
+    dot.addEventListener("click", () => {
+      index = indexDot;
+      currentSlide(index);
+    });
   });
+
+
 }
 
 
-// select
-const select = document.querySelector('.header-select');
-const selectList = select.querySelector('.header-select__list');
+if (document.documentElement.clientWidth < 768) {
 
-const accordion = (item) => {
-  if (item.style.maxHeight){
-    item.style.maxHeight = null;
-  } else {
-    item.style.maxHeight = item.scrollHeight + "px";
-  }
-};
-
-select.addEventListener("click",function () {
-  accordion(selectList);
-  this.classList.toggle("js-select-active");
-});
-
-
-
-
-
-
-new Swiper('.events__list', {
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-
-  slidesPerView: 3,
-
-  // Откл функционала, если слайдов меньше, чем нужно
-  watchOverflow: true,
-
-  // Отступ между слайдами
-  spaceBetween: 15,
-
-  // Активный слайд по центру
-  initialSlides: false,
-  // Стартовый слайд
-  initialSlide: 0,
-
-  // Брейк поинты (адаптив)
-  // Ширина экрана
-  breakpoints: {
-    320: {
-      slidesPerView: 1.1
+  new Swiper('.share__images', {
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
     },
-    480: {
-      slidesPerView: 1.5
+
+    slidesPerView: 3,
+
+    // Откл функционала, если слайдов меньше, чем нужно
+    watchOverflow: true,
+
+    // Отступ между слайдами
+    spaceBetween: 15,
+
+    // Активный слайд по центру
+    initialSlides: false,
+    // Стартовый слайд
+    initialSlide: 0,
+
+    // Брейк поинты (адаптив)
+    // Ширина экрана
+    breakpoints: {
+      320: {
+        slidesPerView: 1.1
+      },
+      480: {
+        slidesPerView: 2.2
+      },
+      768: {
+        slidesPerView: 4
+      },
     },
-    768: {
-      slidesPerView: 2.5
-    },
-    1100: {
-      slidesPerView: 3
-    },
-  }
 
-});
-
-const history_block = document.querySelector('.history');
-const prev = history_block.querySelector('.arrow-nav__prev');
-const next = history_block.querySelector('.arrow-nav__next');
-const slides = history_block.querySelectorAll('.history-info-item');
-const dots = history_block.querySelectorAll('.history-years-line__item'); // год(а) как кнопка
-
-let index = 0;
-
-const activeSlide = (num) => {
-  slides.forEach(slide => slide.classList.remove('js-history-active'));
-  slides[num].classList.add('js-history-active');
-};
-
-const activeDot = (num) => {
-  dots.forEach(dot => dot.classList.remove('js-history-active'));
-  dots[num].classList.add('js-history-active');
-};
-
-const currentSlide = (idx) => {
-  activeSlide(idx);
-  activeDot(idx);
-};
-
-const nextSlide = () => {
-  if (index == slides.length - 1) {
-    index = 0;
-    currentSlide(index);
-  } else {
-    index++;
-    currentSlide(index);
-  }
-};
-
-const prevSlide = () => {
-  if (index == 0) {
-    index = slides.length - 1
-    currentSlide(index);
-  } else {
-    index--;
-    currentSlide(index);
-  }
-};
-
-next.addEventListener("click", nextSlide);
-prev.addEventListener("click", prevSlide);
-
-dots.forEach((dot, indexDot) => {
-  dot.addEventListener("click", () => {
-    index = indexDot;
-    currentSlide(index);
   });
-});
+
+
+}
+
 
 new Swiper('.places__list', {
   pagination: {
@@ -417,47 +464,6 @@ new Swiper('.places__list', {
 // }
 //
 //
-
-if (document.documentElement.clientWidth < 768) {
-
-  new Swiper('.share__images', {
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-
-    slidesPerView: 3,
-
-    // Откл функционала, если слайдов меньше, чем нужно
-    watchOverflow: true,
-
-    // Отступ между слайдами
-    spaceBetween: 15,
-
-    // Активный слайд по центру
-    initialSlides: false,
-    // Стартовый слайд
-    initialSlide: 0,
-
-    // Брейк поинты (адаптив)
-    // Ширина экрана
-    breakpoints: {
-      320: {
-        slidesPerView: 1.1
-      },
-      480: {
-        slidesPerView: 2.2
-      },
-      768: {
-        slidesPerView: 4
-      },
-    },
-
-  });
-
-
-}
-
 
 new Swiper('.tours__list', {
   pagination: {
@@ -677,14 +683,6 @@ if ( map ) {
               });
 
               map.geoObjects.add(placemark);
-
-              placemark.addEventListener("hover",() => {
-                map.style.opacity = '0.5';
-              });
-
-              placemark.addEventListener("mouseenter",() => {
-                map.style.opacity = '0.7';
-              });
 
             };
           });

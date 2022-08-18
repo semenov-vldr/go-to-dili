@@ -1,6 +1,5 @@
 .share
   background-image: url("../img/share/share-bg-decor.svg")
-  //height: 960px
   background-position: center
   background-repeat: no-repeat
   background-size: cover
@@ -17,6 +16,9 @@
   &__social
     margin-top: 52px
     color: rgba(var(--c-black), 0.7)
+    @media (max-width: 480px)
+      margin-top: 28px
+
     &-button svg
       margin-right: 10px
     &-more
@@ -24,7 +26,12 @@
       flex-wrap: wrap
       align-items: center
       gap: 24px
+      font-size: clamp(14px, calc(14px + (18 - 14) * ((100vw - 1024px) / (1920 - 1024))), 18px)
       margin-top: 36px
+      @media (max-width: 480px)
+        flex-direction: column
+        gap: 14px
+        align-items: flex-start
     &-links
       display: flex
       flex-wrap: wrap

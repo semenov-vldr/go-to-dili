@@ -1,5 +1,7 @@
 .feedback
-  padding: 60px 0 40px
+  padding-top: 20px
+  padding-bottom: clamp(160px, calc(160px + (200 - 160) * ((100vw - 768px) / (1920 - 768))), 200px)
+
 
   &__container
     display: grid
@@ -100,6 +102,7 @@
     @media (max-width: 768px)
       flex-direction: column-reverse
       gap: 25px
+      margin-top: 2rem
 
   &-form__button
     @media (max-width: 768px)

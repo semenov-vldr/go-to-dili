@@ -1,0 +1,12 @@
+extends ../layouts/main
+
+block variables
+  - var title = "Что делать в городе?"
+  - var pageClass = ''
+  - var activePage = 'index'
+
+block content
+  section
+    include ../components/what-to-do/what-to-do
+    include ../components/feedback/feedback
+

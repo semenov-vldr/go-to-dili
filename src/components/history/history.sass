@@ -1,9 +1,16 @@
 .history
   user-select: none
-  .container
 
   &__title
     @extend .font-s-2
+
+  &__nav
+    @media (max-width: 768px)
+      scroll-snap-type: x mandatory
+      overflow-x: scroll
+    &::-webkit-scrollbar
+      width: 0
+
 
   &__arrows
     display: flex
@@ -18,18 +25,16 @@
     background: repeating-linear-gradient(to right,#D8DAD1 0,#D8DAD1 8px,transparent 8px,transparent 12px)
     @media (max-width: 1000px)
       padding: 0 0
+    @media (max-width: 768px)
+      scroll-snap-align: start
 
   &-years-line__items
     display: flex
     justify-content: space-between
-    overflow-y: auto
-    overflow-x: hidden
-    scroll-snap-type: x mandatory
     min-width: 580px
 
 
   &-years-line__item
-    scroll-snap-align: start
     position: relative
     margin-top: 30px
     font-size: clamp(30px, calc(30px + (60 - 30) * ((100vw - 1024px) / (1920 - 1024))), 60px)
@@ -71,6 +76,10 @@
     margin-top: 90px
     &.js-history-active
       display: grid
+    @media (max-width: 768px)
+      grid-template-columns: auto
+      grid-auto-rows: auto
+      margin-top: 45px
 
   &__image-wrapper
     grid-column: span 4
@@ -83,12 +92,21 @@
       object-fit: cover
     @media (max-width: 1200px)
       grid-column: span 5
+    @media (max-width: 768px)
+      grid-column: initial
+      justify-self: center
+      width: 90%
+    @media (max-width: 480px)
+      width: 100%
 
   &-info__content
     grid-column: 5 / span 6
     padding-left: 30px
     @media (max-width: 1200px)
       grid-column: 6 / span 7
+    @media (max-width: 768px)
+      grid-column: initial
+      padding-left: 0
 
   &-info__title
     font-size: clamp(20px, calc(20px + (30 - 20) * ((100vw - 1024px) / (1920 - 1024))), 30px)

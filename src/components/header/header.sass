@@ -1,11 +1,15 @@
 .header
-  position: absolute
+  position: relative
   @extend .font-s-10
   width: 100%
   color: #fff
   transition: $transition
   z-index: 1001
   user-select: none
+  background-color: var(--c-green)
+  &.w-bg-color
+    background-color: transparent
+    position: absolute
   &.scrolled
     position: fixed
     background-color: var(--c-green)
@@ -13,7 +17,7 @@
   &.scrolled .header__logo svg
     fill: var(--c-black)
   &.scrolled .promo-discount
-    border-bottom: 1px solid rgba(#fff, 0.3)
+    background-color: var(--c-black)
 
   &__link
     white-space: nowrap
@@ -59,7 +63,7 @@
 
 
   &__nav
-    display: inline-flex
+    display: flex
     flex-direction: column
     width: 47%
     gap: 20px
@@ -74,7 +78,7 @@
 
   &__nav-row
     position: relative
-    display: inline-flex
+    display: flex
     gap: 2rem
     @media (max-width: 1440px)
       gap: 1rem
@@ -92,31 +96,26 @@
     @media (max-width: 1000px)
       font-size: 16px
       &::after
-        display: block
-        position: absolute
         width: 100%
-        background-color: rgba(#fff, 0.1)
+        background-color: rgba(#fff, 0.3)
         height: 1px
-        top: -35px
-    &::after
-      display: none
+        bottom: -35px
 
   &__nav-row-2
     font-size: clamp(13px, calc(13px + (17 - 13) * ((100vw - 1024px) / (1920 - 1024))), 17px)
+    @media (max-width: 1000px)
+      font-size: 16px
     &::after
       left: 0
       right: 0
       top: -10px
-      height: 2px
+      height: 1px
       background-color: rgba(#fff, 0.1)
-    @media (max-width: 1000px)
-      font-size: 16px
-      &::after
-        display: block
+      @media (max-width: 1000px)
         width: 100%
-        background-color: rgba(#fff, 0.1)
-        height: 1px
-        top: -35px
+        top: initial
+        bottom: -35px
+        background-color: rgba(#fff, 0.3)
 
   &__drop-list
     display: flex
@@ -241,7 +240,8 @@
   &.js-select-active
     gap: 20px
   &.js-select-active .header__link-icon
-    transform: scale(1, -1)
+    @media (max-width: 1000px)
+      transform: scale(1, -1)
 
   &::after
     position: absolute

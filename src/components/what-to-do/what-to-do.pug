@@ -1,6 +1,7 @@
 .what-to-do
   .container
     h2.what-to-do__title Что делать в городе?
+
     .what-to-do__nav.what-to-do-nav
 
       .what-to-do-nav__item.nav-item-eat(data-type="eat")
@@ -32,24 +33,6 @@
     .what-to-do__new-events.new-events
       h3.new-events__title Новые мероприятия
       .new-events__list.grid--3col
-
-        a.new-events__item.new-events-item(href="/")
-          .new-events-item__image
-            img(src="./assets/img/what-to-do/01.jpg" alt="image")
-          .new-events-item__content
-            p.new-events-item__title 10 лучших ресторанов Дилижана
-            p.new-events-item__text После насыщенного дня и осмотра достопримечательностей Дилижана
-
-        a.new-events__item.new-events-item(href="/")
-          .new-events-item__image
-            img(src="./assets/img/what-to-do/02.jpg" alt="image")
-          .new-events-item__content
-            p.new-events-item__title Искусство плюс вино — в Амфитеатре Дилижана
-            p.new-events-item__text Организация Eventtоura организовала красочное мероприятие в самом
-
-        a.new-events__item.new-events-item(href="/")
-          .new-events-item__image
-            img(src="./assets/img/what-to-do/01.jpg" alt="image")
-          .new-events-item__content
-            p.new-events-item__title Достопримечательности Дилижана
-            p.new-events-item__text Дилижан расположен на северо-востоке Армянского нагорья.
+        include ../_items/new-event-item/new-event-item
+        include ../_items/new-event-item/new-event-item
+        include ../_items/new-event-item/new-event-item

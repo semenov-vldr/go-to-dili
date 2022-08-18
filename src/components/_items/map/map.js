@@ -61,14 +61,6 @@ if ( map ) {
 
               map.geoObjects.add(placemark);
 
-              placemark.addEventListener("hover",() => {
-                map.style.opacity = '0.5';
-              });
-
-              placemark.addEventListener("mouseenter",() => {
-                map.style.opacity = '0.7';
-              });
-
             };
           });
         });

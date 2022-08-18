@@ -35,4 +35,3 @@ new Swiper('.about-people__list', {
   }
 
 });
-
