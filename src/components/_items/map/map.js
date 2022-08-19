@@ -60,14 +60,17 @@ if ( map ) {
               });
 
               map.geoObjects.add(placemark);
+              map.setBounds(placemark.getBounds());
 
             };
+
           });
         });
       });
 
     let clusterer = new ymaps.Clusterer({});
     map.geoObjects.add(clusterer);
+
 
   };
 

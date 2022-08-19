@@ -1,5 +1,9 @@
 .what-to-do
-  h2
+  &__container
+    background-color: var(--c-light-green)
+    padding-top: 100px
+    padding-bottom: 45px
+  h2, .what-to-do__title
     margin-bottom: 50px
     @media (max-width: 768px)
       margin-bottom: 35px
@@ -54,6 +58,14 @@
     overflow: hidden
     margin-bottom: 33px
     border-radius: 16px
+
+  &__decor-bottom
+    position: relative
+    object-fit: contain
+    width: 100%
+    height: auto
+    bottom: 0
+
 
 .new-events
   padding: 0 40px
