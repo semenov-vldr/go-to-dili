@@ -45,15 +45,32 @@
         </div>
         <div class="header__container">
           <nav class="header__nav">
-            <div class="header__nav-row header__nav-row-1"><a class="header__link" href="/">О проекте</a><a class="header__link" href="/">Для партнеров</a><a class="header__link" href="/">Важная информация</a><a class="header__link" href="/">Контакты</a></div>
-            <div class="header__nav-row header__nav-row-2"><a class="header__link" href="/">Туры</a><a class="header__link" href="/">Что делать?</a><a class="header__link" href="/">События</a>
-              <div class="header-select"><a class="header__link" href="##">Окрестности
+            <ul class="header__nav-row header__nav-row-1">
+              <li class="header__nav-list-item"><a class="header__link" href="/">О проекте</a></li>
+              <li class="header__nav-list-item"><a class="header__link" href="/">Для партнеров</a></li>
+              <li class="header__nav-list-item"><a class="header__link" href="/">Важная информация</a></li>
+              <li class="header__nav-list-item"><a class="header__link" href="/">Контакты</a></li>
+            </ul>
+            <ul class="header__nav-row header__nav-row-2">
+              <li class="header__nav-list-item"><a class="header__link" href="/">Туры</a></li>
+              <li class="header__nav-list-item"><a class="header__link" href="/">Что делать?</a></li>
+              <li class="header__nav-list-item"><a class="header__link" href="/">События</a></li>
+              <li class="header__nav-list-item"><a class="header__link" href="#">Окрестности
                   <svg class="header__link-icon" width="10" height="6" fill="white">
                     <use href="./assets/img/sprite.svg#arrow-select"></use>
                   </svg></a>
-                <div class="header-select__list"><a class="header-select__item" href="##">Техут</a><a class="header-select__item" href="##">Село Агарцин</a><a class="header-select__item" href="##">Село Гош</a><a class="header-select__item" href="##">Село Агавнаванк</a><a class="header-select__item" href="##">Ховк</a><a class="header-select__item" href="##">Хачардзан</a></div>
-              </div><a class="header__link" href="/">История</a><a class="header__link" href="/">Блог</a>
-            </div>
+                <ul class="header__sub-nav">
+                  <li class="header__nav-list-item"><a class="header__sub-nav-link" href="#">Техут</a></li>
+                  <li class="header__nav-list-item"><a class="header__sub-nav-link" href="#">Село Агарцин</a></li>
+                  <li class="header__nav-list-item"><a class="header__sub-nav-link" href="#">Село Гош</a></li>
+                  <li class="header__nav-list-item"><a class="header__sub-nav-link" href="#">Село Агавнаванк</a></li>
+                  <li class="header__nav-list-item"><a class="header__sub-nav-link" href="#">Ховк</a></li>
+                  <li class="header__nav-list-item"><a class="header__sub-nav-link" href="#">Хачардзан</a></li>
+                </ul>
+              </li>
+              <li class="header__nav-list-item"><a class="header__link" href="/">История</a></li>
+              <li class="header__nav-list-item"><a class="header__link" href="/">Блог</a></li>
+            </ul>
           </nav><a class="header__logo" href="/"><svg viewBox="0 0 86 99" fill="#8CB110">
 <path d="M0.437343 97.7087L0 48.3482L4.00169 48.2748C9.67257 48.1794 14.3157 49.1779 17.9238 51.2777C21.5318 53.3775 24.1413 56.285 25.7376 59.9927C27.0934 63.069 27.6765 66.483 27.4797 70.2422C27.3339 73.6122 26.605 77.0262 25.3003 80.499C23.3104 85.4769 20.4312 89.6178 16.6482 92.9144C12.8652 96.2109 8.76872 97.8335 4.35885 97.7821L0.430054 97.7087H0.437343ZM8.14187 56.6227L8.43343 88.7C10.3723 87.819 12.1508 86.3799 13.7763 84.3756C15.4018 82.3712 16.7211 80.0805 17.7415 77.4888C18.711 74.9557 19.265 72.4154 19.418 69.8751C19.5128 67.3861 19.1483 65.1908 18.3247 63.2819C16.6773 59.5228 13.2806 57.2982 8.14916 56.6153L8.14187 56.6227Z" fill="white"/>
 <path d="M31.2133 48.6924L39.2822 48.9861L37.1028 97.9794L28.9609 97.6123L31.2133 48.6924Z" fill="white"/>
@@ -105,12 +122,12 @@
       </header>
       <main>
         <section>
-          <div class="hero">
+          <div class="hero" style="background-image: url('/assets/img/bg-video-holder.png');">
             <div class="container hero__container">
               <h1 class="hero__title">Дилижан</h1><span class="hero-subtitle">Откроем вам душу города</span>
             </div>
-            <video class="hero__video" preload="auto" autoplay="" muted="" loop="">
-              <source src="/assets/img/hero-video.mp4" type="video">
+            <video class="hero__video" preload="auto" autoplay muted loop>
+              <source src="/assets/video/hero-video.mp4" type="video/mp4">
             </video>
           </div>
           <div class="about-project"><img class="about-project__decor-top" src="/assets/img/decor-bg-top.svg" alt="img">

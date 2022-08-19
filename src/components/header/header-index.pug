@@ -17,34 +17,48 @@ header.header.w-bg-color
 
   .header__container
     nav.header__nav
-      .header__nav-row.header__nav-row-1
-        a.header__link(href='/') О проекте
-        a.header__link(href='/') Для партнеров
-        a.header__link(href='/') Важная информация
-        a.header__link(href='/') Контакты
-      .header__nav-row.header__nav-row-2
-        a.header__link(href='/') Туры
-        a.header__link(href='/') Что делать?
-        a.header__link(href='/') События
+      ul.header__nav-row.header__nav-row-1
+        li.header__nav-list-item
+          a.header__link(href='/') О проекте
+        li.header__nav-list-item
+          a.header__link(href='/') Для партнеров
+        li.header__nav-list-item
+          a.header__link(href='/') Важная информация
+        li.header__nav-list-item
+          a.header__link(href='/') Контакты
 
-        .header-select
-          a.header__link(href="##")
-            | Окрестности
+      ul.header__nav-row.header__nav-row-2
+        li.header__nav-list-item
+          a.header__link(href='/') Туры
+        li.header__nav-list-item
+          a.header__link(href='/') Что делать?
+        li.header__nav-list-item
+          a.header__link(href='/') События
+        li.header__nav-list-item
+          a.header__link(href="#") Окрестности
             svg.header__link-icon(width="10" height="6" fill="white")
               use(href='./assets/img/sprite.svg#arrow-select')
-          .header-select__list
-            a.header-select__item(href="##") Техут
-            a.header-select__item(href="##") Село Агарцин
-            a.header-select__item(href="##") Село Гош
-            a.header-select__item(href="##") Село Агавнаванк
-            a.header-select__item(href="##") Ховк
-            a.header-select__item(href="##") Хачардзан
-
-        a.header__link(href='/') История
-        a.header__link(href='/') Блог
+          ul.header__sub-nav
+            li.header__nav-list-item
+              a.header__sub-nav-link(href="#") Техут
+            li.header__nav-list-item
+              a.header__sub-nav-link(href="#") Село Агарцин
+            li.header__nav-list-item
+              a.header__sub-nav-link(href="#") Село Гош
+            li.header__nav-list-item
+              a.header__sub-nav-link(href="#") Село Агавнаванк
+            li.header__nav-list-item
+              a.header__sub-nav-link(href="#") Ховк
+            li.header__nav-list-item
+              a.header__sub-nav-link(href="#") Хачардзан
+        li.header__nav-list-item
+          a.header__link(href='/') История
+        li.header__nav-list-item
+          a.header__link(href='/') Блог
 
     a.header__logo(href='/')
       include ../../img/logo.svg
+
     nav.header__nav.header__nav-contacts
       a.header__phone(href='tel:+78522560000')
         svg(width='17' height='20' fill='#8CB110')

@@ -68,6 +68,7 @@
     width: 47%
     gap: 20px
     position: relative
+    align-items: flex-start
     @media (max-width: 1000px)
       align-items: center
       text-align: center
@@ -89,7 +90,6 @@
       content: ""
       position: absolute
 
-
   &__nav-row-1
     font-size: clamp(12px, calc(12px + (16 - 12) * ((100vw - 1024px) / (1920 - 1024))), 16px)
     font-weight: lighter
@@ -100,6 +100,46 @@
         background-color: rgba(#fff, 0.3)
         height: 1px
         bottom: -35px
+
+  &__nav-list-item
+    position: relative
+    &:hover
+      >.header__sub-nav
+        display: flex
+
+  &__sub-nav
+    position: absolute
+    top: 100%
+    left: 0
+    min-width: 170px
+    flex-direction: column
+    padding-top: 12px
+    display: none
+
+    .header__nav-list-item
+      background-color: var(--c-light-green)
+      &:first-child
+        border-top-left-radius: 12px
+        border-top-right-radius: 12px
+        padding-top: 12px
+      &:last-child
+        border-bottom-left-radius: 12px
+        border-bottom-right-radius: 12px
+        padding-bottom: 12px
+
+  &__nav-list-item
+    width: 100%
+    display: flex
+
+  &__sub-nav-link
+    width: 100%
+    padding: 8px 20px
+    color: $black
+    font-weight: normal
+    font-size: 0.9rem
+    opacity: .7
+    &:hover
+      opacity: 1
 
   &__nav-row-2
     font-size: clamp(13px, calc(13px + (17 - 13) * ((100vw - 1024px) / (1920 - 1024))), 17px)
@@ -130,6 +170,7 @@
     column-gap: 25px
     justify-content: end
     width: 47%
+    align-items: center
     @media (max-width: 1000px)
       flex-direction: column
       gap: 1.5rem
@@ -219,75 +260,6 @@
   @media (max-width: 1000px)
     &__phone svg
       fill: #fff
-
-.header-select
-  position: relative
-  display: flex
-  align-items: center
-  gap: 7px
-  @media (max-width: 1000px)
-    flex-direction: column
-    gap: 0
-  @media (max-width: 400px)
-    align-items: flex-start
-
-  & svg
-    fill: currentColor
-    transition: $transition
-  &:hover .header-select__list
-    @media (min-width: 1000px)
-      display: flex
-  &.js-select-active
-    gap: 20px
-  &.js-select-active .header__link-icon
-    @media (max-width: 1000px)
-      transform: scale(1, -1)
-
-  &::after
-    position: absolute
-    content: ""
-    width: 100%
-    height: 15px
-    bottom: 0
-    left: 0
-    transform: translateY(100%)
-    cursor: pointer
-    @media (max-width: 1000px)
-      display: none
-
-  &__list
-    display: none
-    flex-direction: column
-    gap: 15px
-    position: absolute
-    left: 0px
-    top: 30px
-    width: 187px
-    border-radius: 8px
-    overflow: hidden
-    background-color: #fff
-    padding: 20px
-    @media (max-width: 1000px)
-      display: flex
-      gap: 22px
-      position: relative
-      padding: 0px
-      top: 0
-      background-color: transparent
-      max-height: 0
-      transition: max-height 0.2s ease-out
-
-  &__item
-    color: rgba(#000, 0.55)
-    font-size: 15px
-    font-weight: 400
-    &:hover
-      color: #000
-    @media (max-width: 1000px)
-      color: rgba(#fff, 0.8)
-      font-size: 16px
-
-
 
 // ----------mobile----------
 .header-mobile__wrapper

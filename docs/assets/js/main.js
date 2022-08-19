@@ -75,64 +75,6 @@ new Swiper('.events__list', {
 
 });
 
-window.addEventListener("scroll", scrollHeader);
-
-function scrollHeader() {
-  const header = document.querySelector(".header");
-  const logo = document.querySelector(".header__logo svg");
-  const button = document.querySelector(".header__button");
-  const icon_phone = document.querySelector(".header__phone svg");
-  if ( scrollY > 50) {
-    header.classList.add("scrolled");
-    logo.classList.add("scrolled");
-    button.classList.add("scrolled");
-    icon_phone.classList.add("scrolled");
-  } else {
-    header.classList.remove("scrolled");
-    logo.classList.remove("scrolled");
-    button.classList.remove("scrolled");
-    icon_phone.classList.remove("scrolled");
-  }
-};
-
-// burger
-const burger = document.querySelector('.header__burger-icon');
-const menu = document.querySelector('.header__container');
-const headerMobile = document.querySelector('.header-mobile');
-const logo_mobile = document.querySelector('.header-mobile__logo');
-if (burger) {
-  burger.addEventListener('click', () => {
-    document.body.classList.toggle('js-lock-scroll');
-    burger.classList.toggle('js-active-menu');
-    headerMobile.classList.toggle('js-active-menu');
-    menu.classList.toggle('js-active-menu');
-    logo_mobile.classList.toggle('js-active-menu');
-  });
-}
-
-
-// select
-const select = document.querySelector('.header-select');
-const selectList = select.querySelector('.header-select__list');
-
-const accordion = (item) => {
-  if (item.style.maxHeight){
-    item.style.maxHeight = null;
-  } else {
-    item.style.maxHeight = item.scrollHeight + "px";
-  }
-};
-
-select.addEventListener("click",function () {
-  accordion(selectList);
-  this.classList.toggle("js-select-active");
-});
-
-
-
-
-
-
 const phoneInputs = document.querySelectorAll('input[data-tel-input]');
 
 const getInputNumbersValue = (input) => {
@@ -280,6 +222,64 @@ closeButton.addEventListener('click', closePopup);
 document.addEventListener('click', onDocumentClick);
 document.addEventListener('keydown', onDocumentEscKeydown);
 
+window.addEventListener("scroll", scrollHeader);
+
+function scrollHeader() {
+  const header = document.querySelector(".header");
+  const logo = document.querySelector(".header__logo svg");
+  const button = document.querySelector(".header__button");
+  const icon_phone = document.querySelector(".header__phone svg");
+  if ( scrollY > 50) {
+    header.classList.add("scrolled");
+    logo.classList.add("scrolled");
+    button.classList.add("scrolled");
+    icon_phone.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+    logo.classList.remove("scrolled");
+    button.classList.remove("scrolled");
+    icon_phone.classList.remove("scrolled");
+  }
+};
+
+// burger
+const burger = document.querySelector('.header__burger-icon');
+const menu = document.querySelector('.header__container');
+const headerMobile = document.querySelector('.header-mobile');
+const logo_mobile = document.querySelector('.header-mobile__logo');
+if (burger) {
+  burger.addEventListener('click', () => {
+    document.body.classList.toggle('js-lock-scroll');
+    burger.classList.toggle('js-active-menu');
+    headerMobile.classList.toggle('js-active-menu');
+    menu.classList.toggle('js-active-menu');
+    logo_mobile.classList.toggle('js-active-menu');
+  });
+}
+
+
+// select
+const select = document.querySelector('.header-select');
+const selectList = select.querySelector('.header-select__list');
+
+const accordion = (item) => {
+  if (item.style.maxHeight){
+    item.style.maxHeight = null;
+  } else {
+    item.style.maxHeight = item.scrollHeight + "px";
+  }
+};
+
+select.addEventListener("click",function () {
+  accordion(selectList);
+  this.classList.toggle("js-select-active");
+});
+
+
+
+
+
+
 const history_block = document.querySelector('.history');
 
 if ( history_block ) {
@@ -381,6 +381,48 @@ if (document.documentElement.clientWidth < 768) {
 }
 
 
+
+
+
+
+new Swiper('.tours__list', {
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+
+  slidesPerView: 3,
+
+  // Откл функционала, если слайдов меньше, чем нужно
+  watchOverflow: true,
+
+  // Отступ между слайдами
+  spaceBetween: 15,
+
+  // Активный слайд по центру
+  initialSlides: false,
+  // Стартовый слайд
+  initialSlide: 0,
+
+  // Брейк поинты (адаптив)
+  // Ширина экрана
+  breakpoints: {
+    320: {
+      slidesPerView: 1.1
+    },
+    480: {
+      slidesPerView: 2.2
+    },
+    768: {
+      slidesPerView: 3.2
+    },
+    1400: {
+      slidesPerView: 4
+    },
+  }
+
+});
+
 new Swiper('.places__list', {
   pagination: {
     el: '.swiper-pagination',
@@ -464,48 +506,6 @@ new Swiper('.places__list', {
 // }
 //
 //
-
-new Swiper('.tours__list', {
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-
-  slidesPerView: 3,
-
-  // Откл функционала, если слайдов меньше, чем нужно
-  watchOverflow: true,
-
-  // Отступ между слайдами
-  spaceBetween: 15,
-
-  // Активный слайд по центру
-  initialSlides: false,
-  // Стартовый слайд
-  initialSlide: 0,
-
-  // Брейк поинты (адаптив)
-  // Ширина экрана
-  breakpoints: {
-    320: {
-      slidesPerView: 1.1
-    },
-    480: {
-      slidesPerView: 2.2
-    },
-    768: {
-      slidesPerView: 3.2
-    },
-    1400: {
-      slidesPerView: 4
-    },
-  }
-
-});
-
-
-
-
 
 const customJson = [
   // Eat
