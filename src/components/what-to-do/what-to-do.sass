@@ -85,3 +85,38 @@
       grid-template-columns: 1fr
 
 
+
+
+
+.popover
+  display: block
+  position: absolute
+  width: 200px
+  background-color: tomato
+  border-radius: 10px
+  top: 10px
+  left: 50%
+  transform: translateX(-50%)
+  box-shadow: 0 5px 10px rgba(0,0,0,0.4)
+  line-height: 1em
+  margin: 0
+  &::before,
+  &::after
+    content: ''
+    position: absolute
+    top: -20px
+    left: 50%
+    transform: translateX(-50%)
+    border: 10px solid transparent
+    border-bottom: 10px solid white
+  &::after
+    border-bottom: 10px solid white
+    top: -19px
+
+.popover .close
+  display: none
+  position: absolute
+  right: 5px
+  top: 1px
+.btn
+  margin-top: 10px
