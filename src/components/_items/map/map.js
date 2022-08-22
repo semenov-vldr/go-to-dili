@@ -1,6 +1,7 @@
 /* Map Yandex */
 
-const map = document.querySelector('#map');
+
+const map__item = document.querySelector('#map');
 
 const whatToDo = document.querySelector('.what-to-do'); // блок "Что делать в городе?"
 
@@ -10,67 +11,84 @@ const balloonTemplate = document.querySelector('#balloon-template').content.quer
 const navItems = whatToDo.querySelectorAll('.what-to-do-nav__item');
 
 // Создание и заполнение данными баллуна
-const createBalloon = (obj) => {
+const createBalloon = ( { photo_url, title, desc, address } ) => {
   const balloon = balloonTemplate.cloneNode(true);
 
-  balloon.querySelector('.balloon__image').rsc = obj.photo_url;
-  balloon.querySelector('.balloon__title').textContent = obj.title;
-  balloon.querySelector('.balloon__desc-text').textContent = obj.desc;
-  balloon.querySelector('.balloon__address-text').textContent = obj.address;
+  balloon.querySelector('.balloon__image').rsc = photo_url;
+  balloon.querySelector('.balloon__title').textContent = title;
+  balloon.querySelector('.balloon__desc-text').textContent = desc;
+  balloon.querySelector('.balloon__address-text').textContent = address;
 
   return balloon.outerHTML;
 };
 
-if ( map ) {
+let map;
+
+// Отрисовка меток на карте
+const renderMark = (navElems, arrObj) => {
+  let dataType;
+
+  navElems.forEach(item => {
+    if ( item.classList.contains('js-active-mark') ) {
+      dataType = item.dataset.type;
+
+      arrObj.forEach(obj => {
+        if (obj.type === dataType) {
+
+          let placemark = new ymaps.Placemark(obj.location, {
+            balloonContent: createBalloon(obj),
+          }, {
+            iconLayout: 'default#image',
+            iconImageHref: `./assets/img/map/${obj.mark_name}.svg`,
+            iconImageSize: [49, 59],
+            iconImageOffset: [0, -60],
+          });
+
+          map.geoObjects.add(placemark);
+
+        }
+      })
+    };
+  })
+};
+
+
+
+if ( map__item ) {
 
   ymaps.ready(init);
-
   const center = [40.74521099740435,44.868688838134744];
 
   // Инициализация карты
   function init() {
-    let map = new ymaps.Map("map", {
+    map = new ymaps.Map("map", {
       center,
       zoom: 13,
       controls: ['routeButtonControl'],
-      behaviours: ['drag'],
+    },
+
+    { //ограничения области просмотра карты
+      restrictMapArea: [
+        [39.874858480470486,42.27403199633786],
+        [41.82876820666636,47.54746949633786]
+      ]
     });
 
 
       navItems.forEach((navItem) => {
 
-        navItem.addEventListener('click', function () {
-          navItems.forEach(item => item.classList.remove('js-active-mark'));
+        renderMark(navItems, customJson);
+
+        navItem.addEventListener('click', () => {
           map.geoObjects.removeAll();
-          this.classList.add("js-active-mark");
-          const dataType = this.dataset.type;
-
-          customJson.forEach( (obj) => {
-
-            if (obj.type === dataType) {
-
-              let placemark = new ymaps.Placemark(obj.location, {
-                balloonContent: createBalloon(obj),
-              }, {
-                iconLayout: 'default#image',
-                iconImageHref: `./assets/img/map/${obj.mark_name}.svg`,
-                iconImageSize: [49, 59],
-                iconImageOffset: [0, -60],
-                balloonPanelMaxMapArea: 1,
-              });
-
-              map.geoObjects.add(placemark);
-              map.setBounds(placemark.getBounds());
-
-            };
-
-          });
-        });
+          navItems.forEach(item => item.classList.remove('js-active-mark'));
+          navItem.classList.add('js-active-mark');
+          renderMark(navItems, customJson);
+        })
       });
 
     let clusterer = new ymaps.Clusterer({});
     map.geoObjects.add(clusterer);
-
 
   };
 
