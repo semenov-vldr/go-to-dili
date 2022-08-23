@@ -54,6 +54,26 @@ if (burger) {
 //   this.classList.toggle("js-select-active");
 // });
 
+const subNavList = document.querySelectorAll('.header__sub-nav') // list sub-nav
+
+subNavList.forEach(subNav => {
+  let parrent = subNav.parentElement; // .header__nav-list-item
+  parrent.addEventListener('click', function () {
+    this.classList.toggle("js-select-active");
+    accordion(subNav);
+  });
+})
+
+
+function accordion (item) {
+  if (item.style.maxHeight){
+    item.style.maxHeight = null;
+  } else {
+    item.style.maxHeight = item.scrollHeight + "px";
+  }
+};
+
+
 
 
 

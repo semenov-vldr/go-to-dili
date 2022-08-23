@@ -8,9 +8,9 @@ const balloonTemplate = document.querySelector('#balloon-template').content.quer
 // Список элементов навигации
 const navItems = whatToDo.querySelectorAll('.what-to-do-nav__item');
 
+
 // Создание и заполнение данными баллуна
 const createBalloon = ( { photo_url, title, desc, address } ) => {
-
   const balloon = balloonTemplate.cloneNode(true);
 
   balloon.querySelector('.balloon__image').rsc = photo_url;
@@ -18,17 +18,9 @@ const createBalloon = ( { photo_url, title, desc, address } ) => {
   balloon.querySelector('.balloon__desc-text').textContent = desc;
   balloon.querySelector('.balloon__address-text').textContent = address;
 
-  return balloon.innerHTML;
+  return balloon.outerHTML
 };
 
-
-//--------------------------------------
-
-
-
-
-
-//--------------------------------------
 
 // Ф-ция отрисовки меток на карте
 const renderMark = (navElems, arrObj) => {
@@ -40,35 +32,51 @@ const renderMark = (navElems, arrObj) => {
       const dataType = item.dataset.type;
 
       arrObj.forEach( obj => {
-        if (obj.type === dataType) {
 
+        const balloonLayout = ymaps.templateLayoutFactory.createClass(createBalloon(obj), {
 
-          let MyBalloonLayout = ymaps.templateLayoutFactory.createClass(
-            '<div class="popover">' +
-            '<a class="close" href="#">&times;</a>' +
-            '<div class="arrow"></div>' +
-            '<div class="popover-inner">' +
-            'options.balloonContent' +
-            '</div>' +
-            '</div>'
-          );
+          build: function () {
+            this.constructor.superclass.build.call(this);
 
-            // Создание вложенного макета содержимого балуна.
-            let MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(
-              '<h3 class="popover-title">properties.balloonHeader</h3>' +
-              '<div class="popover-content">properties.balloonContent</div>'
-            );
+            this._$element = $('.balloon', this.getParentElement());
 
+            //this.applyElementOffset();
 
+            this._$element.find('.balloon__close')
+              .on('click', $.proxy(this.onCloseClick, this));
+            console.log(this._$element);
+            //$('.balloon__close').bind('click', this.onCloseClick);
+          },
 
-          const placemark = new ymaps.Placemark(obj.location, {}, {
-            balloonContent: createBalloon(obj),
-            balloonLayout: MyBalloonLayout,
-            balloonContentLayout:  createBalloon(obj),
+          // clear: function () {
+          //   this._$element.find('.balloon__close').off('click');
+          //
+          //   this.constructor.superclass.clear.call(this);
+          // },
+          //
+          // Закрывает балун при клике на крестик
+          onCloseClick: function (evt) {
+            evt.preventDefault();
+            this.events.fire('userclose');
+          },
+
+        });
+
+        const { type, location, mark_name } = obj;
+
+        if (type === dataType) {
+
+          const placemark = new ymaps.Placemark(location, {
+            balloonContentBody: createBalloon(obj),
+          }, {
+            balloonLayout,
+            hideIconOnBalloonOpen: false,
+            balloonOffset: [-100, -360],
             iconLayout: 'default#image',
-            iconImageHref: `./assets/img/map/${obj.mark_name}.svg`,
+            iconImageHref: `./assets/img/map/${mark_name}.svg`,
             iconImageSize: [49, 59],
             iconImageOffset: [0, -60],
+            //balloonPanelMaxMapArea: 0,
           });
 
           // Добавление метки в коллекцию
@@ -104,8 +112,6 @@ if ( map__item ) {
         ]
       });
 
-
-
     navItems.forEach((navItem) => {
 
       renderMark(navItems, customJson);
@@ -122,6 +128,4 @@ if ( map__item ) {
     map.geoObjects.add(clusterer);
 
   };
-
 }
-

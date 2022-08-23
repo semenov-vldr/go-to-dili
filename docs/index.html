@@ -14,6 +14,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script><![endif]-->
 <!-- Yandex map script -->
     <script src="https://api-maps.yandex.ru/2.1/?apikey=dad86943-dfef-45bd-9c5e-c404323cb093&amp;lang=ru_RU" type="text/javascript"></script>
+    <!--script(src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous")-->
   </head>
   <body>
     <div class="page">
@@ -60,12 +61,12 @@
                     <use href="./assets/img/sprite.svg#arrow-select"></use>
                   </svg></a>
                 <ul class="header__sub-nav">
-                  <li class="header__nav-list-item"><a class="header__sub-nav-link" href="#">Техут</a></li>
-                  <li class="header__nav-list-item"><a class="header__sub-nav-link" href="#">Село Агарцин</a></li>
-                  <li class="header__nav-list-item"><a class="header__sub-nav-link" href="#">Село Гош</a></li>
-                  <li class="header__nav-list-item"><a class="header__sub-nav-link" href="#">Село Агавнаванк</a></li>
-                  <li class="header__nav-list-item"><a class="header__sub-nav-link" href="#">Ховк</a></li>
-                  <li class="header__nav-list-item"><a class="header__sub-nav-link" href="#">Хачардзан</a></li>
+                  <li class="header__sub-nav-item"><a class="header__sub-nav-link" href="#">Техут</a></li>
+                  <li class="header__sub-nav-item"><a class="header__sub-nav-link" href="#">Село Агарцин</a></li>
+                  <li class="header__sub-nav-item"><a class="header__sub-nav-link" href="#">Село Гош</a></li>
+                  <li class="header__sub-nav-item"><a class="header__sub-nav-link" href="#">Село Агавнаванк</a></li>
+                  <li class="header__sub-nav-item"><a class="header__sub-nav-link" href="#">Ховк</a></li>
+                  <li class="header__sub-nav-item"><a class="header__sub-nav-link" href="#">Хачардзан</a></li>
                 </ul>
               </li>
               <li class="header__nav-list-item"><a class="header__link" href="/">История</a></li>
@@ -185,8 +186,7 @@
               </div>
               <template id="balloon-template">
                 <article class="balloon">
-                  <div class="balloon__wrapper">
-                    <div class="balloon__close">X</div>
+                  <div class="balloon__wrapper"><a class="balloon__close" href="##">&times;</a>
                     <div class="balloon__image-wrapper"><img class="balloon__image" src="./assets/img/map/01.jpg" alt=""></div>
                     <div class="balloon__content-text">
                       <p class="balloon__title">Dilijazz Restaurant</p>
@@ -221,9 +221,6 @@
                     </div></a></div>
               </div>
             </div><img class="what-to-do__decor-bottom" src="/assets/img/decor-bg-bottom.svg" alt="decor">
-            <svg class="mark-eat">
-              <use href="assets/img/sprite.svg#mark-eat"></use>
-            </svg>
           </div>
           <div class="events">
             <div class="container">
