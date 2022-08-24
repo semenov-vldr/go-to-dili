@@ -16,8 +16,12 @@
     z-index: 1001
   &.scrolled .header__logo svg
     fill: var(--c-black)
+  &.scrolled .header__social-link:hover
+    background-color: rgba(#fff, 0.3)
   &.scrolled .promo-discount
     background-color: var(--c-black)
+  &.scrolled .header__button
+    background-color: rgba(#fff, 0.3)
 
   &__link
     white-space: nowrap
@@ -69,6 +73,8 @@
     gap: 20px
     position: relative
     align-items: flex-start
+    .header__link:hover
+      color: rgba(#fff, 0.8)
     @media (max-width: 1000px)
       align-items: center
       text-align: center
@@ -214,7 +220,7 @@
     align-items: center
     justify-content: center
     white-space: nowrap
-    font-size: clamp(16px, calc(16px + (22 - 16) * ((100vw - 1024px) / (1920 - 1024))), 22px)
+    font-size: clamp(16px, calc(16px + (18 - 16) * ((100vw - 1024px) / (1920 - 1024))), 18px)
     font-weight: 500
     @media (min-width: 1000px) and (max-width: 1400px)
       display: none
@@ -245,10 +251,10 @@
     display: flex
     align-items: flex-start
     border-radius: 100%
-    background-color: rgba(#fff, .2)
+    background-color: rgba(#fff, 0.2)
     transition: none
     @media (max-width: 1000px)
-      background-color: rgba(#fff, .3)
+      background-color: rgba(#fff, 0.3)
     &:hover
       background-color: var(--c-green)
     &:hover .header__social-icon
@@ -270,10 +276,11 @@
       display: none
 
   &__button
-    font-size: clamp(12px, calc(12px + (16 - 12) * ((100vw - 1024px) / (1920 - 1024))), 16px)
+    font-size: clamp(12px, calc(12px + (14 - 12) * ((100vw - 768px) / (1920 - 768))), 14px)
     outline: 1px solid transparent
     font-weight: 700
-    padding: 0 2rem
+    padding: 0 1.5rem
+    min-height: 50px
     @media (max-width: 1330px)
       padding: 0.7rem 1rem
       min-height: initial

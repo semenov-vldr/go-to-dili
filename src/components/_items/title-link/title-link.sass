@@ -9,7 +9,17 @@
     @extend .font-s-2
     font-family: 'Artico-ExtraCond', sans-serif
   a
-    @extend .font-s-15
+    font-size: 14px
+    font-family: 'Ubuntu', sans-serif
     color: var(--c-green)
     align-self: flex-end
+    letter-spacing: initial
+    text-transform: uppercase
+    &:hover
+      color: var(--c-black)
+
+  .arrow-nav__next
+    margin-left: 16px
+    fill: red
+    stroke: red
 

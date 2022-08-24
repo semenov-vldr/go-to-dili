@@ -40,11 +40,14 @@
     padding: 25px
     background-color: #fff
     & > *:first-child, h4
-      transition: $transition
       font-size: clamp(16px, calc(16px + (24 - 16) * ((100vw - 1024px) / (1920 - 1024))), 24px)
       font-weight: 500
     .tour-card__text
       font-size: clamp(14px, calc(14px + (16 - 14) * ((100vw - 1024px) / (1920 - 1024))), 16px)
+      display: -webkit-box
+      -webkit-line-clamp: 3
+      -webkit-box-orient: vertical
+      overflow: hidden
     @media (max-width: 768px)
       gap: 15px
       padding: 25px 18px 18px

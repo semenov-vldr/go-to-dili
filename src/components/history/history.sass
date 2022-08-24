@@ -18,7 +18,6 @@
   &__arrows
     display: flex
     justify-content: flex-end
-    padding-right: 65px
     margin-bottom: 40px
 
   &-years-line
@@ -38,6 +37,7 @@
 
 
   &-years-line__item
+    font-family: 'Artico-ExtraCond', sans-serif
     position: relative
     margin-top: 30px
     font-size: clamp(30px, calc(30px + (60 - 30) * ((100vw - 1024px) / (1920 - 1024))), 60px)
@@ -84,6 +84,7 @@
       grid-auto-rows: auto
       margin-top: 45px
 
+
   &__image-wrapper
     grid-column: span 4
     overflow: hidden
@@ -103,6 +104,7 @@
       width: 100%
 
   &-info__content
+    position: relative
     grid-column: 5 / span 6
     padding-left: 30px
     @media (max-width: 1200px)
@@ -110,6 +112,18 @@
     @media (max-width: 768px)
       grid-column: initial
       padding-left: 0
+
+    &::after
+      content: ""
+      position: absolute
+      background-image: url("/assets/img/history/history-decor-slide.svg")
+      width: 500px
+      height: 234px
+      background-repeat: no-repeat
+      background-position: center
+      background-size: 500px 234px
+      left: 0
+      top: 0
 
   &-info__title
     font-size: clamp(20px, calc(20px + (30 - 20) * ((100vw - 1024px) / (1920 - 1024))), 30px)
@@ -121,6 +135,14 @@
     margin-bottom: 40px
     line-height: 1.6
   &-info__link
-    color: #8CB110
     font-size: 14px
     text-transform: uppercase
+    white-space: nowrap
+    font-weight: 700
+    color: var(--c-green)
+    &:hover
+      color: var(--c-black)
+    & svg
+      margin-left: 7px
+      fill: currentColor
+      stroke: currentColor
