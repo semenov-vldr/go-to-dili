@@ -2,7 +2,7 @@
   border-radius: 16px
   overflow: hidden
   background-color: #fff
-  height: 550px
+  height: 100%
   &:hover
     filter: $drop-shadow
   &:hover .event-card__title
@@ -12,6 +12,7 @@
     flex-direction: column
     border-radius: 16px
     overflow: hidden
+    height: 100%
 
   &__image-wrapper
     overflow: hidden
@@ -27,12 +28,17 @@
     gap: 25px
     padding: 25px
     background-color: #fff
+    flex-grow: 1
     & > *:first-child, h4
       font-size: clamp(16px, calc(16px + (24 - 16) * ((100vw - 1024px) / (1920 - 1024))), 24px)
       font-weight: 500
     & > p, span
       @extend .font-s-9
       color: rgba($black, 0.75)
+      display: -webkit-box
+      -webkit-line-clamp: 3
+      -webkit-box-orient: vertical
+      overflow: hidden
     & > *:last-child
       @extend .font-s-11
       color: rgba($black, 0.5)

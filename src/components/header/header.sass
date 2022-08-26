@@ -18,7 +18,7 @@
     fill: var(--c-black)
   &.scrolled .header__social-link:hover
     background-color: rgba(#fff, 0.3)
-  &.scrolled .promo-discount
+  &.w-bg-color.scrolled .promo-discount
     background-color: var(--c-black)
   &.scrolled .header__button
     background-color: rgba(#fff, 0.3)
@@ -145,22 +145,18 @@
       width: 100%
       display: flex
       &:first-child
-        border-top-left-radius: 12px
-        border-top-right-radius: 12px
+        border-radius: 12px 12px 0 0
         padding-top: 12px
       &:last-child
-        border-bottom-left-radius: 12px
-        border-bottom-right-radius: 12px
+        border-radius: 0 0 12px 12px
         padding-bottom: 12px
       @media (max-width: 1000px)
         background-color: transparent
         &:first-child
-          border-top-left-radius: 0
-          border-top-right-radius: 0
+          border-radius: 0
           padding-top: 0
         &:last-child
-          border-bottom-left-radius: 0
-          border-bottom-right-radius: 0
+          border-radius: 0
           padding-bottom: 0
 
 

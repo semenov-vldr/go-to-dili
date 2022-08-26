@@ -40,7 +40,7 @@ main
   @media (max-width: 1200px)
     padding: 0 50px
   @media (max-width: 768px)
-    padding: 0 20px
+    padding: 20px
 
 .hidden
   display: none
@@ -72,7 +72,7 @@ h2
 //  transition: $transition
 
 .button
-  @extend .font-s-14
+  font-size: 14px
   transition: $transition
   display: inline-flex
   align-items: center
@@ -88,4 +88,19 @@ h2
   font-weight: 500
   &:hover
     opacity: 0.9
+
+.decor-bg-top,
+.decor-bg-bottom
+  position: relative
+  object-fit: contain
+  width: 100%
+  height: auto
+
+.decor-bg-top
+  top: 5px
+.decor-bg-bottom
+  bottom: 5px
+
+.swiper-slide
+  height: auto
 

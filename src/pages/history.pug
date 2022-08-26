@@ -1,13 +1,17 @@
 extends ../layouts/main
 
 block variables
-  - var title = "Что делать в городе?"
+  - var title = "История Дилижана"
   - var pageClass = ''
   - var activePage = 'index'
 
 block content
   section
     include ../components/history/history
+    img.decor-bg-bottom(src='/assets/img/decor-bg-bottom-4.svg' alt='img')
+
     include ../components/about-people/about-people
+
+    img.decor-bg-top(src='/assets/img/decor-bg-top-4.svg' alt='img')
     include ../components/feedback/feedback
 

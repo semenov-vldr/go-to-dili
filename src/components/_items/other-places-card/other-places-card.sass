@@ -1,0 +1,52 @@
+.other-places-card
+  overflow: hidden
+  background-color: #fff
+  height: 100%
+  &:hover
+    filter: $drop-shadow
+  &:hover .event-card__title
+    color: var(--c-green)
+  &__body
+    display: flex
+    flex-direction: column
+    border-radius: 16px
+    overflow: hidden
+    height: 100%
+
+  &__image-wrapper
+    overflow: hidden
+    aspect-ratio: 26 / 15
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+
+  &__text-content
+    display: flex
+    flex-direction: column
+    gap: 25px
+    padding: 25px
+    background-color: #fff
+    flex-grow: 1
+    & > *:first-child, h4
+      font-size: clamp(18px, calc(16px + (24 - 18) * ((100vw - 1024px) / (1920 - 1024))), 24px)
+      font-weight: 500
+    & p, span
+      @extend .font-s-9
+      color: rgba($black, 0.75)
+      display: -webkit-box
+      -webkit-line-clamp: 3
+      -webkit-box-orient: vertical
+      overflow: hidden
+    & > *:last-child, .other-places-card__link
+      font-size: 14px
+      color: var(--c-green)
+      display: flex
+      gap: 10px
+      align-items: center
+      text-transform: uppercase
+      font-weight: 700
+      margin-top: 20px
+      @media(max-width: 768px)
+        margin-top: 0
+

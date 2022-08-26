@@ -23,10 +23,11 @@
     grid-column: 6 / span 7
     align-self: center
     padding: 0 50px
-    background-size: 500px
+    background-size: 50%
     background-position: top right
     background-repeat: no-repeat
     @media (max-width: 768px)
+      background-size: 0
       grid-column: auto
       padding: 0 0
     &__title
@@ -90,6 +91,7 @@
       align-self: end
       justify-self: end
       color: var(--c-green)
+      font-size: 14px
       @media (max-width: 1000px)
         font-size: 12px
         grid-column: 2 / span 1

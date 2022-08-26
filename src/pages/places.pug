@@ -1,0 +1,14 @@
+extends ../layouts/main
+
+block variables
+  - var title = "Ключевые окрестности города"
+  - var pageClass = ''
+  - var activePage = 'index'
+
+block content
+  section
+    img.decor-bg-top(src='/assets/img/decor-bg-top-2.svg' alt='decor')
+    include ../components/places/places
+
+    include ../components/feedback/feedback
+

@@ -1,6 +1,11 @@
 .tours
   .container.tours__container
-    include ../_items/title-link/title-link
+    .title-link
+      h2 Знакомство с Дилижаном
+      a(href='') Смотреть все туры
+        svg.arrow-nav__next(width="18" height="16" fill="#8CB110" stroke="#8CB110")
+          use(href='./assets/img/sprite.svg#arrow-nav-small')
+
     .tours__list
       .swiper-wrapper
         include ../_items/tour-card/tour-card-w-content

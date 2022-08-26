@@ -5,19 +5,13 @@
     background-color: var(--c-light-green)
     padding-bottom: 40px
 
-
-  &__decor-top
-    position: relative
-    object-fit: contain
-    width: 100%
-    height: auto
-    bottom: -5px
-
   &__header
     display: grid
     grid-template-columns: 1fr 1fr
     justify-content: space-between
     margin-bottom: clamp(35px, calc(35px + (50 - 35) * ((100vw - 1024px) / (1920 - 1024))), 50px)
+    @media (max-width: 768px)
+      grid-template-columns: 1fr
   &__nav
     align-self: end
     transform: translateY(100%)

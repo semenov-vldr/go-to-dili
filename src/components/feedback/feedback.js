@@ -77,9 +77,12 @@ const onPhonePaste = (evt) => {
 // });
 
 const form = document.querySelector('.feedback__form');
-const inputName = form.querySelector('#name');
-const inputPhone = form.querySelector('#phone');
-const inputEmail = form.querySelector('#email');
+
+if (form) {
+
+  const inputName = form.querySelector('#name');
+  const inputPhone = form.querySelector('#phone');
+  const inputEmail = form.querySelector('#email');
 
 // Ввод в поле ИМЯ только русские буквы
 // inputName.addEventListener('input', function () {
@@ -93,54 +96,58 @@ const inputEmail = form.querySelector('#email');
 
 
 // Сообщение об ошибки валидации
-const nameError = form.querySelector('#name ~ span');
-const nameErrorMessage = 'Вы ввели неверное имя';
-const phoneError = form.querySelector('#phone ~ span');
-const phoneErrorMessage = 'Вы ввели неверный номер';
+  const nameError = form.querySelector('#name ~ span');
+  const nameErrorMessage = 'Вы ввели неверное имя';
+  const phoneError = form.querySelector('#phone ~ span');
+  const phoneErrorMessage = 'Вы ввели неверный номер';
 
 
 
-function showError(input, error, message) {
-  if ( !input.checkValidity() ) {
-    error.textContent = message;
-  }
-  else  error.textContent = '';
-  if (!input.value) error.textContent = '';
-};
+  function showError(input, error, message) {
+    if ( !input.checkValidity() ) {
+      error.textContent = message;
+    }
+    else  error.textContent = '';
+    if (!input.value) error.textContent = '';
+  };
 
-inputName.addEventListener('input', () => showError(inputName, nameError, nameErrorMessage));
-inputPhone.addEventListener('input', () => showError(inputPhone, phoneError, phoneErrorMessage));
+  inputName.addEventListener('input', () => showError(inputName, nameError, nameErrorMessage));
+  inputPhone.addEventListener('input', () => showError(inputPhone, phoneError, phoneErrorMessage));
 
 
 // --------pop-up--------------
-const ButtonForm = form.querySelector('.feedback-form__button');
-const popup = document.querySelector('.feedback__popup');
-const popupContent = popup.querySelector('.popup__content');
-const closeButton = popup.querySelector('.popup__close');
+  const ButtonForm = form.querySelector('.feedback-form__button');
+  const popup = document.querySelector('.feedback__popup');
+  const popupContent = popup.querySelector('.popup__content');
+  const closeButton = popup.querySelector('.popup__close');
 
-const isPressedEscapeKey = (evt) => evt.key === 'Escape';
+  const isPressedEscapeKey = (evt) => evt.key === 'Escape';
 
-const closePopup = () => {
-  popup.classList.remove('js-popup-active');
+  const closePopup = () => {
+    popup.classList.remove('js-popup-active');
+  }
+
+  function onDocumentEscKeydown(evt) {
+    if (isPressedEscapeKey(evt)) closePopup();
+  };
+
+  function onDocumentClick(evt) {
+    const click = evt.composedPath().includes(popupContent);
+    if (!click) closePopup();
+  };
+
+  function submitForm(evt) {
+    evt.preventDefault();
+    popup.classList.add('js-popup-active');
+    form.reset();
+  };
+
+
+  form.addEventListener('submit', submitForm);
+  closeButton.addEventListener('click', closePopup);
+  document.addEventListener('click', onDocumentClick);
+  document.addEventListener('keydown', onDocumentEscKeydown);
+
 }
 
-function onDocumentEscKeydown(evt) {
-  if (isPressedEscapeKey(evt)) closePopup();
-};
 
-function onDocumentClick(evt) {
-  const click = evt.composedPath().includes(popupContent);
-  if (!click) closePopup();
-};
-
-function submitForm(evt) {
-  evt.preventDefault();
-  popup.classList.add('js-popup-active');
-  form.reset();
-};
-
-
-form.addEventListener('submit', submitForm);
-closeButton.addEventListener('click', closePopup);
-document.addEventListener('click', onDocumentClick);
-document.addEventListener('keydown', onDocumentEscKeydown);

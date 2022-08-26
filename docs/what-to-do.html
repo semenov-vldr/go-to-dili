@@ -59,13 +59,13 @@
                   <svg class="header__link-icon" width="10" height="6" fill="white">
                     <use href="./assets/img/sprite.svg#arrow-select"></use>
                   </svg></a>
-                <ul class="header-select">
-                  <li class="header__nav-list-item"><a class="header-select__item" href="#">Техут</a></li>
-                  <li class="header__nav-list-item"><a class="header-select__item" href="#">Село Агарцин</a></li>
-                  <li class="header__nav-list-item"><a class="header-select__item" href="#">Село Гош</a></li>
-                  <li class="header__nav-list-item"><a class="header-select__item" href="#">Село Агавнаванк</a></li>
-                  <li class="header__nav-list-item"><a class="header-select__item" href="#">Ховк</a></li>
-                  <li class="header__nav-list-item"><a class="header-select__item" href="#">Хачардзан</a></li>
+                <ul class="header__sub-nav">
+                  <li class="header__sub-nav-item"><a class="header__sub-nav-link" href="#">Техут</a></li>
+                  <li class="header__sub-nav-item"><a class="header__sub-nav-link" href="#">Село Агарцин</a></li>
+                  <li class="header__sub-nav-item"><a class="header__sub-nav-link" href="#">Село Гош</a></li>
+                  <li class="header__sub-nav-item"><a class="header__sub-nav-link" href="#">Село Агавнаванк</a></li>
+                  <li class="header__sub-nav-item"><a class="header__sub-nav-link" href="#">Ховк</a></li>
+                  <li class="header__sub-nav-item"><a class="header__sub-nav-link" href="#">Хачардзан</a></li>
                 </ul>
               </li>
               <li class="header__nav-list-item"><a class="header__link" href="/">История</a></li>
@@ -156,9 +156,9 @@
                 </div>
               </div>
               <div class="map">
-                <div class="map__item" id="map"></div>
+                <div class="map__item" id="map-index"></div>
               </div>
-              <template id="balloon-template">
+              <template class="balloon-template">
                 <article class="balloon">
                   <div class="balloon__wrapper"><a class="balloon__close" href="##">&times;</a>
                     <div class="balloon__image-wrapper"><img class="balloon__image" src="./assets/img/map/01.jpg" alt=""></div>
@@ -194,9 +194,9 @@
                       <p class="new-events-item__text">Дилижан расположен на северо-востоке Армянского нагорья.</p>
                     </div></a></div>
               </div>
-            </div><img class="what-to-do__decor-bottom" src="/assets/img/decor-bg-bottom.svg" alt="decor">
+            </div>
           </div>
-          <div class="feedback"><img class="feedback__decor-top" src="/assets/img/decor-bg-top-3.svg" alt="img">
+          <div class="feedback">
             <div class="container feedback__container">
               <div class="feedback__col-left">
                 <div class="title-text">
@@ -231,7 +231,6 @@
                 </form>
               </div>
             </div>
-            <div class="feedback__decor-bottom"></div>
             <div class="feedback__popup popup">
               <div class="popup__body">
                 <div class="popup__content"><a class="popup__close" href="">&#10006;</a><img class="popup__icon" src="assets/img/check-popup.svg" alt="icon">
