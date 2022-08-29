@@ -1,0 +1,22 @@
+extends ../layouts/main
+
+block variables
+  - var title = "Ключевые окрестности города"
+  - var pageClass = ''
+  - var activePage = 'index'
+
+block content
+  section
+    img.decor-bg-top(src='/assets/img/decor-bg-top-2.svg' alt='decor')
+    include ../components/events-inner/events-inner-header/events-inner-header
+    include ../components/events-inner/events-inner-hero/events-inner-hero
+
+    .events(style="background-color: #F4F6E9")
+      .container
+        .events__list
+          .swiper-wrapper
+            include ../components/_items/event-card/event-card-w-content
+
+          .swiper-pagination
+
+    include ../components/feedback/feedback

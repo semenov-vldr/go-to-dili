@@ -1,10 +1,10 @@
 {
-  new Swiper('.other-places__list', {
+  new Swiper('.events-item-gallery__list', {
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
-      nextEl: '.other-places__next',
-      prevEl: '.other-places__prev',
+      nextEl: '.arrow-nav__next',
+      prevEl: '.arrow-nav__prev',
     },
 
     slidesPerView: 3,

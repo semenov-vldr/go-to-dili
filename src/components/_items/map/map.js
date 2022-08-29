@@ -26,16 +26,6 @@
     balloon.querySelector('.balloon__desc-text').textContent = desc;
     balloon.querySelector('.balloon__address-text').textContent = address;
 
-    const closeButton = balloon.querySelector('.balloon__close');
-    const ballonYmaps = document.querySelector('.ymaps-2-1-79-balloon');
-    if (ballonYmaps) {
-      console.log(ballonYmaps)
-      closeButton.addEventListener('click', () => {
-        ballonYmaps.style.display = "none";
-      })
-    }
-
-
     return balloon.outerHTML;
   };
 
@@ -62,11 +52,11 @@
                 .on('click', $.proxy(this.onCloseClick, this));
             },
 
-            // clear: function () {
-            //   this._$element.find('.balloon__close').off('click');
-            //
-            //   this.constructor.superclass.clear.call(this);
-            // },
+            clear: function () {
+              this._$element.find('.balloon__close').off('click');
+
+              this.constructor.superclass.clear.call(this);
+            },
             //
             // Закрывает балун при клике на крестик
             onCloseClick: function (evt) {
@@ -75,6 +65,11 @@
             },
 
           });
+
+          // Баллун в виде панели при мобильном разрешении экрана
+          if (window.matchMedia("(max-width: 580px)").matches) {
+            map.options.set({balloonPanelMaxMapArea:'Infinity'}) ;
+          }
 
           const {type, location, mark_name} = obj;
 
@@ -101,17 +96,9 @@
             // итоговый масштаб карты чуть меньше зоны видимости
             map.setZoom(map.getZoom() - 2);
 
-            // Баллун в виде панели при мобильном разрешении экрана
-            if (window.matchMedia("(max-width: 480px)").matches) {
-              map.options.set({balloonPanelMaxMapArea:'Infinity'}) ;
-            }
-
-
-
           }
         });
-      }
-      ;
+      };
     });
   };
 

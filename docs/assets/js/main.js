@@ -1,42 +1,4 @@
 
-new Swiper('.events__list', {
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-
-  slidesPerView: 3,
-
-  // Откл функционала, если слайдов меньше, чем нужно
-  watchOverflow: true,
-
-  // Отступ между слайдами
-  spaceBetween: 15,
-
-  // Активный слайд по центру
-  initialSlides: false,
-  // Стартовый слайд
-  initialSlide: 0,
-
-  // Брейк поинты (адаптив)
-  // Ширина экрана
-  breakpoints: {
-    320: {
-      slidesPerView: 1.1
-    },
-    480: {
-      slidesPerView: 1.5
-    },
-    768: {
-      slidesPerView: 2.5
-    },
-    1100: {
-      slidesPerView: 3
-    },
-  }
-
-});
-
 new Swiper('.about-people__list', {
   pagination: {
     el: '.swiper-pagination',
@@ -70,6 +32,44 @@ new Swiper('.about-people__list', {
     },
     1400: {
       slidesPerView: 4
+    },
+  }
+
+});
+
+new Swiper('.events__list', {
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+
+  slidesPerView: 3,
+
+  // Откл функционала, если слайдов меньше, чем нужно
+  watchOverflow: true,
+
+  // Отступ между слайдами
+  spaceBetween: 15,
+
+  // Активный слайд по центру
+  initialSlides: false,
+  // Стартовый слайд
+  initialSlide: 0,
+
+  // Брейк поинты (адаптив)
+  // Ширина экрана
+  breakpoints: {
+    320: {
+      slidesPerView: 1.1
+    },
+    480: {
+      slidesPerView: 1.5
+    },
+    768: {
+      slidesPerView: 2.5
+    },
+    1100: {
+      slidesPerView: 3
     },
   }
 
@@ -370,7 +370,6 @@ if ( history_block ) {
 }
 
 
-
 new Swiper('.places__list', {
   pagination: {
     el: '.swiper-pagination',
@@ -496,6 +495,50 @@ new Swiper('.tours__list', {
 
 
 
+
+
+{
+  new Swiper('.events-item-gallery__list', {
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+      nextEl: '.arrow-nav__next',
+      prevEl: '.arrow-nav__prev',
+    },
+
+    slidesPerView: 3,
+
+    // Откл функционала, если слайдов меньше, чем нужно
+    watchOverflow: true,
+
+    // Отступ между слайдами
+    spaceBetween: 15,
+
+    // Активный слайд по центру
+    initialSlides: false,
+    // Стартовый слайд
+    initialSlide: 0,
+
+    // Брейк поинты (адаптив)
+    // Ширина экрана
+    breakpoints: {
+      320: {
+        slidesPerView: 1.1
+      },
+      480: {
+        slidesPerView: 1.5
+      },
+      768: {
+        slidesPerView: 2.5
+      },
+      1100: {
+        slidesPerView: 3
+      },
+    }
+
+  });
+
+}
 
 /* Map Yandex */
 
@@ -695,16 +738,6 @@ const customJson = [
     balloon.querySelector('.balloon__desc-text').textContent = desc;
     balloon.querySelector('.balloon__address-text').textContent = address;
 
-    const closeButton = balloon.querySelector('.balloon__close');
-    const ballonYmaps = document.querySelector('.ymaps-2-1-79-balloon');
-    if (ballonYmaps) {
-      console.log(ballonYmaps)
-      closeButton.addEventListener('click', () => {
-        ballonYmaps.style.display = "none";
-      })
-    }
-
-
     return balloon.outerHTML;
   };
 
@@ -731,11 +764,11 @@ const customJson = [
                 .on('click', $.proxy(this.onCloseClick, this));
             },
 
-            // clear: function () {
-            //   this._$element.find('.balloon__close').off('click');
-            //
-            //   this.constructor.superclass.clear.call(this);
-            // },
+            clear: function () {
+              this._$element.find('.balloon__close').off('click');
+
+              this.constructor.superclass.clear.call(this);
+            },
             //
             // Закрывает балун при клике на крестик
             onCloseClick: function (evt) {
@@ -744,6 +777,11 @@ const customJson = [
             },
 
           });
+
+          // Баллун в виде панели при мобильном разрешении экрана
+          if (window.matchMedia("(max-width: 580px)").matches) {
+            map.options.set({balloonPanelMaxMapArea:'Infinity'}) ;
+          }
 
           const {type, location, mark_name} = obj;
 
@@ -770,17 +808,9 @@ const customJson = [
             // итоговый масштаб карты чуть меньше зоны видимости
             map.setZoom(map.getZoom() - 2);
 
-            // Баллун в виде панели при мобильном разрешении экрана
-            if (window.matchMedia("(max-width: 480px)").matches) {
-              map.options.set({balloonPanelMaxMapArea:'Infinity'}) ;
-            }
-
-
-
           }
         });
-      }
-      ;
+      };
     });
   };
 
@@ -830,8 +860,8 @@ const customJson = [
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
-      nextEl: '.arrow-nav__next',
-      prevEl: '.arrow-nav__prev',
+      nextEl: '.other-places__next',
+      prevEl: '.other-places__prev',
     },
 
     slidesPerView: 3,

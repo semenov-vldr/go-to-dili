@@ -1,0 +1,15 @@
+extends ../layouts/main
+
+block variables
+  - var title = "Блог"
+  - var pageClass = ''
+  - var activePage = 'index'
+
+block content
+  section
+    img.decor-bg-top(src='/assets/img/decor-bg-top-2.svg' alt='decor')
+    include ../components/events-item/events-item-header/events-item-header
+    include ../components/events-item/events-item-hero/events-item-hero
+
+
+    include ../components/feedback/feedback

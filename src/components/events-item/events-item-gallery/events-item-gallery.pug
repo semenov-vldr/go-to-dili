@@ -1,0 +1,29 @@
+.events-item-gallery
+  .container
+    .events-item-gallery__header
+      h2 Фотогалерея
+      .arrow-nav.events-item-gallery__nav
+        svg.arrow-nav__prev(width="32" height="29" fill="#565654" stroke="#565654" opacity="0.35")
+          use(href='./assets/img/sprite.svg#arrow-nav-prev')
+        svg.arrow-nav__next(width="32" height="29" fill="#565654" stroke="#565654" opacity="0.35")
+          use(href='./assets/img/sprite.svg#arrow-nav-next')
+
+    .events-item-gallery__list
+      .swiper-wrapper
+        .swiper-slide
+          a(href="./assets/img/events/04.jpg" data-fancybox="preview")
+            img.events-item-gallery__image(src="./assets/img/events/04.jpg" alt="Техут")
+        .swiper-slide
+          a(href="./assets/img/events/05.jpg" data-fancybox="preview")
+            img.events-item-gallery__image(src="./assets/img/events/05.jpg" alt="Техут")
+        .swiper-slide
+          a(href="./assets/img/events/06.jpg" data-fancybox="preview")
+            img.events-item-gallery__image(src="./assets/img/events/06.jpg" alt="Техут")
+        .swiper-slide
+          a(href="./assets/img/events/04.jpg" data-fancybox="preview")
+            img.events-item-gallery__image(src="./assets/img/events/04.jpg" alt="Техут")
+        .swiper-slide
+          a(href="./assets/img/events/05.jpg" data-fancybox="preview")
+            img.events-item-gallery__image(src="./assets/img/events/05.jpg" alt="Техут")
+
+      .swiper-pagination
