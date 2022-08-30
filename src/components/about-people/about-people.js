@@ -6,6 +6,8 @@ new Swiper('.about-people__list', {
 
   slidesPerView: 3,
 
+  centeredSlides: true,
+
   // Откл функционала, если слайдов меньше, чем нужно
   watchOverflow: true,
 

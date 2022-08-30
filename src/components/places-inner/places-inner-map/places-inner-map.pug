@@ -1,19 +1,20 @@
-.places-inner-map.map
-  .places-inner-map__container.container
-    h2 Расположение на карте
-    .places-inner-map__item#places-inner-map__item
+.places-inner-map
+  .container
+    .places-inner-map__wrapper.map
+      h2.places-inner-map__title Расположение на карте
+      .places-inner-map__item#places-inner-map__item
 
-    template.balloon-template
-      article.balloon
-        .balloon__wrapper
-          a(href="##").balloon__close &times;
-          .balloon__image-wrapper
-            img.balloon__image(src='./assets/img/map/01.jpg' alt='')
-          .balloon__content-text
-            p.balloon__title Dilijazz Restaurant
-            .balloon__desc
-              .balloon__desc-title Кухня:
-              .balloon__desc-text Американская
-            .balloon__address
-              img(src='./assets/img/map/ballon-location.svg' alt='')
-              .balloon__address-text 1/1 2nd St., T’eghut, Дилижан 3902 Армения
+      template.balloon-template
+        article.balloon
+          .balloon__wrapper
+            a(href="##").balloon__close &times;
+            .balloon__image-wrapper
+              img.balloon__image(src='./assets/img/map/01.jpg' alt='')
+            .balloon__content-text
+              p.balloon__title Dilijazz Restaurant
+              .balloon__desc
+                .balloon__desc-title Кухня:
+                .balloon__desc-text Американская
+              .balloon__address
+                img(src='./assets/img/map/ballon-location.svg' alt='')
+                .balloon__address-text 1/1 2nd St., T’eghut, Дилижан 3902 Армения

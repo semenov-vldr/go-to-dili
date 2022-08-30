@@ -17,11 +17,11 @@
   </head>
   <body>
     <div class="page">
-      <header class="header w-bg-color">
+      <header class="header header-index">
         <div class="promo-discount"><a class="promo-discount__link" href="/">Путешествуй по Дилижану со скидкой -20%</a><span class="promo-discount__close">&#10006;</span></div>
         <!--mobile menu-->
         <div class="header-mobile__wrapper">
-          <nav class="header-mobile"><a class="header-mobile__logo" href="/"><svg viewBox="0 0 86 99" fill="#8CB110">
+          <nav class="header-mobile"><a class="header-mobile__logo" href="/"><svg viewBox="0 0 86 99">
 <path d="M0.437343 97.7087L0 48.3482L4.00169 48.2748C9.67257 48.1794 14.3157 49.1779 17.9238 51.2777C21.5318 53.3775 24.1413 56.285 25.7376 59.9927C27.0934 63.069 27.6765 66.483 27.4797 70.2422C27.3339 73.6122 26.605 77.0262 25.3003 80.499C23.3104 85.4769 20.4312 89.6178 16.6482 92.9144C12.8652 96.2109 8.76872 97.8335 4.35885 97.7821L0.430054 97.7087H0.437343ZM8.14187 56.6227L8.43343 88.7C10.3723 87.819 12.1508 86.3799 13.7763 84.3756C15.4018 82.3712 16.7211 80.0805 17.7415 77.4888C18.711 74.9557 19.265 72.4154 19.418 69.8751C19.5128 67.3861 19.1483 65.1908 18.3247 63.2819C16.6773 59.5228 13.2806 57.2982 8.14916 56.6153L8.14187 56.6227Z" fill="white"/>
 <path d="M31.2133 48.6924L39.2822 48.9861L37.1028 97.9794L28.9609 97.6123L31.2133 48.6924Z" fill="white"/>
 <path d="M42.1165 47.5918L50.1855 47.6652L49.821 90.6528L63.6338 90.8731V99.0007L41.6719 98.7804L42.1092 47.5918H42.1165Z" fill="white"/>
@@ -71,7 +71,7 @@
               <li class="header__nav-list-item"><a class="header__link" href="/history.html">История</a></li>
               <li class="header__nav-list-item"><a class="header__link" href="/blog.html">Блог</a></li>
             </ul>
-          </nav><a class="header__logo" href="/"><svg viewBox="0 0 86 99" fill="#8CB110">
+          </nav><a class="header__logo" href="/"><svg viewBox="0 0 86 99">
 <path d="M0.437343 97.7087L0 48.3482L4.00169 48.2748C9.67257 48.1794 14.3157 49.1779 17.9238 51.2777C21.5318 53.3775 24.1413 56.285 25.7376 59.9927C27.0934 63.069 27.6765 66.483 27.4797 70.2422C27.3339 73.6122 26.605 77.0262 25.3003 80.499C23.3104 85.4769 20.4312 89.6178 16.6482 92.9144C12.8652 96.2109 8.76872 97.8335 4.35885 97.7821L0.430054 97.7087H0.437343ZM8.14187 56.6227L8.43343 88.7C10.3723 87.819 12.1508 86.3799 13.7763 84.3756C15.4018 82.3712 16.7211 80.0805 17.7415 77.4888C18.711 74.9557 19.265 72.4154 19.418 69.8751C19.5128 67.3861 19.1483 65.1908 18.3247 63.2819C16.6773 59.5228 13.2806 57.2982 8.14916 56.6153L8.14187 56.6227Z" fill="white"/>
 <path d="M31.2133 48.6924L39.2822 48.9861L37.1028 97.9794L28.9609 97.6123L31.2133 48.6924Z" fill="white"/>
 <path d="M42.1165 47.5918L50.1855 47.6652L49.821 90.6528L63.6338 90.8731V99.0007L41.6719 98.7804L42.1092 47.5918H42.1165Z" fill="white"/>
@@ -283,10 +283,10 @@
                 <h2>Ключевые окрестности города</h2>
                 <div class="places__nav">
                   <div class="arrow-nav">
-                    <svg class="arrow-nav__prev" width="32" height="29" fill="#565654" stroke="#565654" opacity="0.35">
+                    <svg class="arrow-nav__prev">
                       <use href="./assets/img/sprite.svg#arrow-nav-prev"></use>
                     </svg>
-                    <svg class="arrow-nav__next" width="32" height="29" fill="#565654" stroke="#565654" opacity="0.35">
+                    <svg class="arrow-nav__next">
                       <use href="./assets/img/sprite.svg#arrow-nav-next"></use>
                     </svg>
                   </div>
@@ -294,6 +294,35 @@
               </div>
               <div class="places__list">
                 <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="place-card grid">
+                      <div class="place-card__image"><img src="./assets/img/05.jpg" alt="img"></div>
+                      <div class="place-card__content place-card-content" style="background-image: url('/assets/img/history/history-decor-slide.svg');">
+                        <h3 class="place-card-content__title">Техут</h3>
+                        <p class="place-card-content__subtitle">На перекрестке Дилижана и Иджевана</p>
+                        <p class="place-card-content__text">Техут – небольшое село в Тавушской области в нескольких километрах на северо-восток от Дилижана, расположенное на левом берегу реки Агстев.  Техутская община была основана в 1925 г. переселенцами из с. Джархеч (ныне Агарцин), а 5 ноября 1993 г. Техут стал самостоятельным селом, отделившись от Агарцина.</p>
+                        <div class="place-card-content__bottom"><img src="assets/img/address-decor.svg" alt="decor">
+                          <div class="place-card-content__values">
+                            <div class="place-card-content__value">
+                              <svg width="18" height="33" fill="#8CB110">
+                                <use href="assets/img/sprite.svg#icon-height"></use>
+                              </svg>
+                              <p class="place-card-content__value-text">Высота над уровнем моря:<b>1550 м.</b></p>
+                            </div>
+                            <div class="place-card-content__value">
+                              <svg width="18" height="37" fill="#CCDB9A">
+                                <use href="assets/img/sprite.svg#icon-temp"></use>
+                              </svg>
+                              <p class="place-card-content__value-text">Средняя температура летом:<b>+19, +25 C, зимой: -2, -7 C.</b></p>
+                            </div>
+                          </div><a class="place-card-content__link" href="##">Подробнее
+                            <svg width="14" height="14" fill="#8CB110" stroke="#8CB110">
+                              <use href="assets/img/sprite.svg#arrow-link"></use>
+                            </svg></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                   <div class="swiper-slide">
                     <div class="place-card grid">
                       <div class="place-card__image"><img src="./assets/img/05.jpg" alt="img"></div>
@@ -422,10 +451,10 @@
               <div class="history__nav">
                 <div class="history__arrows">
                   <div class="arrow-nav">
-                    <svg class="arrow-nav__prev" width="32" height="29" fill="#565654" stroke="#565654" opacity="0.35">
+                    <svg class="arrow-nav__prev">
                       <use href="./assets/img/sprite.svg#arrow-nav-prev"></use>
                     </svg>
-                    <svg class="arrow-nav__next" width="32" height="29" fill="#565654" stroke="#565654" opacity="0.35">
+                    <svg class="arrow-nav__next">
                       <use href="./assets/img/sprite.svg#arrow-nav-next"></use>
                     </svg>
                   </div>
@@ -613,7 +642,7 @@
         <div class="footer__top">
           <div class="footer__container footer__container--top"><a class="footer__logo" href="/">
               <!--svg(width='77' height='90' fill='#8CB110')-->
-              <!--  use(href='assets/img/sprite.svg#header-logo')--><svg viewBox="0 0 86 99" fill="#8CB110">
+              <!--  use(href='assets/img/sprite.svg#header-logo')--><svg viewBox="0 0 86 99">
 <path d="M0.437343 97.7087L0 48.3482L4.00169 48.2748C9.67257 48.1794 14.3157 49.1779 17.9238 51.2777C21.5318 53.3775 24.1413 56.285 25.7376 59.9927C27.0934 63.069 27.6765 66.483 27.4797 70.2422C27.3339 73.6122 26.605 77.0262 25.3003 80.499C23.3104 85.4769 20.4312 89.6178 16.6482 92.9144C12.8652 96.2109 8.76872 97.8335 4.35885 97.7821L0.430054 97.7087H0.437343ZM8.14187 56.6227L8.43343 88.7C10.3723 87.819 12.1508 86.3799 13.7763 84.3756C15.4018 82.3712 16.7211 80.0805 17.7415 77.4888C18.711 74.9557 19.265 72.4154 19.418 69.8751C19.5128 67.3861 19.1483 65.1908 18.3247 63.2819C16.6773 59.5228 13.2806 57.2982 8.14916 56.6153L8.14187 56.6227Z" fill="white"/>
 <path d="M31.2133 48.6924L39.2822 48.9861L37.1028 97.9794L28.9609 97.6123L31.2133 48.6924Z" fill="white"/>
 <path d="M42.1165 47.5918L50.1855 47.6652L49.821 90.6528L63.6338 90.8731V99.0007L41.6719 98.7804L42.1092 47.5918H42.1165Z" fill="white"/>

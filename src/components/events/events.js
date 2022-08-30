@@ -9,6 +9,8 @@ new Swiper('.events__list', {
   // Откл функционала, если слайдов меньше, чем нужно
   watchOverflow: true,
 
+  centeredSlides: true,
+
   // Отступ между слайдами
   spaceBetween: 15,
 

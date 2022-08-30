@@ -3,9 +3,13 @@
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
+    },
+    navigation: {
       nextEl: '.arrow-nav__next',
       prevEl: '.arrow-nav__prev',
     },
+
+    uniqueNavElements: true,
 
     slidesPerView: 3,
 

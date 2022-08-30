@@ -1,0 +1,37 @@
+.blog-header
+  background-color: var(--c-light-green)
+  &__title
+    font-size: clamp(30px, calc(30px + (60 - 30) * ((100vw - 1024px) / (1920 - 1024))), 60px)
+    font-weight: 500
+
+  &__nav
+    display: flex
+    align-items: center
+    flex-wrap: wrap
+    gap: 20px
+    padding-top: 40px
+    @media (max-width: 768px)
+      gap: 15px
+      padding-top: 25px
+
+  &__nav-item
+    display: flex
+    align-items: center
+    gap: 12px
+    border-radius: 25px / 50%
+    color: #D8DAD1
+    border: 1px solid currentColor
+    height: 46px
+    cursor: pointer
+    padding: 14px 28px
+    font-size: 14px
+    font-weight: 500
+    &:hover
+      color: var(--c-black)
+      border-color: var(--c-green)
+    &.blog-active
+      background-color: var(--c-green)
+      color: #fff
+      border-color: transparent
+    @media (max-width: 768px)
+      padding: 8px 20px

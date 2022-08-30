@@ -1,18 +1,21 @@
 {
-  new Swiper('.other-places__list', {
+  new Swiper('.tour-item__slider', {
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
     },
 
     navigation:  {
-      nextEl: '.other-places__next',
-      prevEl: '.other-places__prev',
+      nextEl: '.arrow-nav__next',
+      prevEl: '.arrow-nav__prev',
     },
 
     uniqueNavElements: true,
 
-    slidesPerView: 3,
+    //slidesPerView: 1,
+    slidesPerView: 'auto',
+    // Бесконечная прокрутка
+    loop: true,
 
     // Откл функционала, если слайдов меньше, чем нужно
     watchOverflow: true,
@@ -27,20 +30,17 @@
 
     // Брейк поинты (адаптив)
     // Ширина экрана
-    breakpoints: {
-      320: {
-        slidesPerView: 1.1
-      },
-      480: {
-        slidesPerView: 1.5
-      },
-      768: {
-        slidesPerView: 2.5
-      },
-      1100: {
-        slidesPerView: 3
-      },
-    }
+    // breakpoints: {
+    //   320: {
+    //     slidesPerView: 1.1
+    //   },
+    //   480: {
+    //     slidesPerView: 1.2
+    //   },
+    //   1100: {
+    //     slidesPerView: 1.2
+    //   },
+    // }
 
   });
 

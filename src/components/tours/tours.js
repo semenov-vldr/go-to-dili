@@ -12,6 +12,8 @@ new Swiper('.tours__list', {
   // Отступ между слайдами
   spaceBetween: 15,
 
+  centeredSlides: true,
+
   // Активный слайд по центру
   initialSlides: false,
   // Стартовый слайд

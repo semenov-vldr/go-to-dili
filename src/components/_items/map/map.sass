@@ -1,7 +1,6 @@
 .map
   width: 100%
   height: 670px
-  background-color: #fff
   border-radius: 16px 16px 0 0
   @media (max-width: 1200px)
     height: 570px
@@ -67,6 +66,9 @@
     font-size: 20px
     &:hover
       background-color: tomato
+    @media (max-width: 580px) // 480
+      display: none
+
 
   &__image-wrapper
     width: 100%
@@ -109,9 +111,12 @@
 
 
 [class*="copyrights-pane"],
-[class*="ymaps-2-1-79-float-button"],
-[class*="ymaps-2-1-79-balloon__close"]
+[class*="ymaps-2-1-79-float-button"]
   display: none !important
+
+[class*="ymaps-2-1-79-balloon__close"]
+  @media(min-width: 580px)
+    display: none !important
 
 
 [class*="ymaps-2-1-79-balloon__content"]

@@ -1,0 +1,66 @@
+.tour-item.grid
+  .tour-item__content
+    .breadcrumbs(style="background-color: #F4F6E9")
+      .breadcrumbs__container
+        a(href="").breadcrumbs__item Главная
+        a(href="").breadcrumbs__item Знакомство с Дилижаном
+
+    h1.tour-item__title Поход за грибами в Дилижанский лес
+    .tour-item__slider.swiper
+      .tour-item__nav
+        .arrow-nav
+          svg.arrow-nav__prev
+            use(href='./assets/img/sprite.svg#arrow-nav-prev')
+          svg.arrow-nav__next
+            use(href='./assets/img/sprite.svg#arrow-nav-next')
+
+      .swiper-wrapper
+        .swiper-slide
+          a(href="./assets/img/events/04.jpg" data-fancybox="preview")
+            img.tour-item__image(src="./assets/img/events/04.jpg" alt="Техут")
+        .swiper-slide
+          a(href="./assets/img/events/05.jpg" data-fancybox="preview")
+            img.tour-item__image(src="./assets/img/events/05.jpg" alt="Техут")
+        .swiper-slide
+          a(href="./assets/img/events/06.jpg" data-fancybox="preview")
+            img.tour-item__image(src="./assets/img/events/06.jpg" alt="Техут")
+        .swiper-slide
+          a(href="./assets/img/events/04.jpg" data-fancybox="preview")
+            img.tour-item__image(src="./assets/img/events/04.jpg" alt="Техут")
+        .swiper-slide
+          a(href="./assets/img/events/05.jpg" data-fancybox="preview")
+            img.tour-item__image(src="./assets/img/events/05.jpg" alt="Техут")
+
+      .swiper-pagination
+
+    .tour-item__advantages.tour-item-advantages
+      .tour-item-advantages__item
+        .tour-item-advantages__icon
+          svg(fill="#fff" width="20" height="18")
+            use(href='./assets/img/sprite.svg#home')
+        span.tour-item-advantages__text Проживание в деревянных домиках
+
+      .tour-item-advantages__item
+        .tour-item-advantages__icon
+          svg(fill="#fff" width="20" height="18")
+            use(href='./assets/img/sprite.svg#bus')
+        span.tour-item-advantages__text Добираемся на автобусе
+
+    .tour-item__parameters.tour-item-parameters
+      .tour-item-parameters__item
+        span Длительность:
+        span 8 дней
+      .tour-item-parameters__item
+        span Расстояние:
+        span 80 км
+
+    .tour-item__text
+      p Гастрономическая ярмарка, где каждый посетитель сможет попробовать национальные блюда различных регионов Армении. Это настоящий праздник для каждого ценителя вкусной еды и приятный способ познакомиться со страной поближе.
+      p В городском парке Дилижана завершился крупный гастрономический фестиваль в Армении GASTROFEST.
+      p Помимо гастрономической ярмарки проводились мастер-классы по приготовлению блюд, конкурсы и уроки национальных танцев от ансамбля Karin. Партнеры гастрофестиваля приготовили соревнование по Slackline – виду спорта, представляющему собой хождение по специальным стропам (линиям), которые натянуты между закрепленными объектами. У городского озера для гостей был доступен прокат каяков и SUP board.
+
+
+  .tour-item__map-wrapper
+    #tour-item__map
+
+

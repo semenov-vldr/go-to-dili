@@ -1,0 +1,12 @@
+extends ../layouts/main
+
+block variables
+  - var title = "Поход за грибами в Дилижанский лес"
+  - var pageClass = ''
+  - var activePage = 'index'
+
+block content
+  section
+    include ../components/tour-item/tour-item
+
+    include ../components/feedback/feedback
