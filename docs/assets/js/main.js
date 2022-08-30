@@ -743,16 +743,19 @@ new Swiper('.tours__list', {
       address: '1/1 2nd St., T’eghut, Дилижан 3902 Армения',
       location: [40.75326541732117, 44.88379503930662],
     },
-
     ];
 
 
-  // класс блока-обертки, внутри которого находится карта
-  let wrapperMapClass = '.places-inner-map__wrapper';
-  // класс блока с картой
-  let mapClass = '.places-inner-map__item';
-  // id карты
-  let mapId = 'places-inner-map__item';
+  const mapData = {
+    // класс блока-обертки, внутри которого находится карта
+    wrapperMapClass: '.places-inner-map__wrapper',
+    // класс блока с картой
+    mapClass: '.places-inner-map__item',
+    // id карты
+    mapId: 'places-inner-map__item',
+  };
+
+  const { wrapperMapClass, mapClass, mapId } = mapData;
 
 
 const wrapper = document.querySelector(wrapperMapClass);
@@ -786,7 +789,7 @@ if (wrapper) {
 
         arrObj.forEach(obj => {
 
-          const balloonLayout = ymaps.templateLayoutFactory.createClass(createBalloon(obj), {
+          const balloonLayout = ymaps.templateLayoutFactory.createClass (createBalloon(obj), {
 
             build: function () {
               this.constructor.superclass.build.call(this);
@@ -802,7 +805,7 @@ if (wrapper) {
 
               this.constructor.superclass.clear.call(this);
             },
-            //
+
             // Закрывает балун при клике на крестик
             onCloseClick: function (evt) {
               evt.preventDefault();
