@@ -44,15 +44,18 @@
     grid-column: 6 / span 7
     gap: 20px
     @media (max-width: 768px)
-      display: flex
-      flex-wrap: wrap
-      gap: 10px
-      justify-content: center
+      grid-template-columns: repeat(2, 1fr)
+      gap: 15px
+      //display: flex
+      //flex-wrap: nowrap
+      //gap: 10px
+      //overflow: hidden
+
 
   &__image-wrapper
     overflow: hidden
     height: 250px
-    grid-template-rows: 250px
+    border-radius: 16px
     @media (max-width: 1400px)
       height: 200px
     @media (max-width: 1100px)
@@ -60,9 +63,9 @@
     @media (max-width: 1000px)
       height: 200px
     @media (max-width: 768px)
-      height: 250px
-      width: 250px
-      flex: 0 0 250px
+      width: 100%
+      height: 100%
+      aspect-ratio: 1 / 1
 
     &:nth-child(1)
       grid-column: 1 / span 2
@@ -76,11 +79,38 @@
       grid-column: 4 / span 2
     &:nth-child(6)
       grid-column: 6 / span 2
+    @media (max-width: 768px)
+      &:nth-child(odd),
+      &:nth-child(even)
+        grid-column: initial
+      &:nth-child(5),
+      &:nth-child(6)
+        display: none
 
-    img
+    .js-share-slider
+      height: 100%
+      width: 100%
+
+    .swiper-slide
+      overflow: hidden
       width: 100%
       height: 100%
       border-radius: 16px
+      @media (max-width: 768px)
+        aspect-ratio: 1 / 1
+
+
+    img
+      display: block
+      width: 100%
+      height: 100%
       object-fit: cover
 
 
+
+
+  //.js-2_marquee-wrapper,
+  //.js-2_marquee
+  //  display: flex
+  //  flex-wrap: nowrap
+  //  gap: 10px

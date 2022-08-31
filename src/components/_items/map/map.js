@@ -64,6 +64,23 @@
               this.events.fire('userclose');
             },
 
+            // Используется для автопозиционирования
+            getShape: function () {
+              // if(!this._isElement(this._$element)) {
+              //   return balloonLayout.superclass.getShape.call(this);
+              // }
+              let position = this._$element.position();
+              let width = this._$element.offsetWidth;
+              let height = this._$element.offsetHeight;
+
+              return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
+                [position.left, position.top], [
+                  position.left + width,
+                  position.top + height
+                ]
+              ]));
+            },
+
           });
 
           // Баллун в виде панели при мобильном разрешении экрана

@@ -18,7 +18,10 @@
   <body>
     <div class="page">
       <header class="header">
-        <div class="promo-discount"><a class="promo-discount__link" href="/">Путешествуй по Дилижану со скидкой -20%</a><span class="promo-discount__close">&#10006;</span></div>
+        <div class="promo-discount"><a class="promo-discount__link" href="/">Путешествуй по Дилижану со скидкой -20%</a><span class="promo-discount__close">
+            <svg fill="#fff" width="9" height="9">
+              <use href="./assets/img/sprite.svg#cross"></use>
+            </svg></span></div>
         <!--mobile menu-->
         <div class="header-mobile__wrapper">
           <nav class="header-mobile"><a class="header-mobile__logo" href="/"><svg viewBox="0 0 86 99">
@@ -54,18 +57,18 @@
             <ul class="header__nav-row header__nav-row-2">
               <li class="header__nav-list-item"><a class="header__link" href="/">Туры</a></li>
               <li class="header__nav-list-item"><a class="header__link" href="/what-to-do.html">Что делать?</a></li>
-              <li class="header__nav-list-item"><a class="header__link" href="/event-inner.html">События</a></li>
+              <li class="header__nav-list-item"><a class="header__link" href="/events-inner.html">События</a></li>
               <li class="header__nav-list-item"><a class="header__link" href="/places.html">Окрестности
                   <svg class="header__link-icon" width="10" height="6" fill="white">
                     <use href="./assets/img/sprite.svg#arrow-select"></use>
                   </svg></a>
                 <ul class="header__sub-nav">
-                  <li class="header__sub-nav-item"><a class="header__sub-nav-link" href="#">Техут</a></li>
-                  <li class="header__sub-nav-item"><a class="header__sub-nav-link" href="#">Село Агарцин</a></li>
-                  <li class="header__sub-nav-item"><a class="header__sub-nav-link" href="#">Село Гош</a></li>
-                  <li class="header__sub-nav-item"><a class="header__sub-nav-link" href="#">Село Агавнаванк</a></li>
-                  <li class="header__sub-nav-item"><a class="header__sub-nav-link" href="#">Ховк</a></li>
-                  <li class="header__sub-nav-item"><a class="header__sub-nav-link" href="#">Хачардзан</a></li>
+                  <li class="header__sub-nav-item"><a class="header__sub-nav-link" href="/places-inner.html">Техут</a></li>
+                  <li class="header__sub-nav-item"><a class="header__sub-nav-link" href="/places-inner.html">Село Агарцин</a></li>
+                  <li class="header__sub-nav-item"><a class="header__sub-nav-link" href="/places-inner.html">Село Гош</a></li>
+                  <li class="header__sub-nav-item"><a class="header__sub-nav-link" href="/places-inner.html">Село Агавнаванк</a></li>
+                  <li class="header__sub-nav-item"><a class="header__sub-nav-link" href="/places-inner.html">Ховк</a></li>
+                  <li class="header__sub-nav-item"><a class="header__sub-nav-link" href="/places-inner.html">Хачардзан</a></li>
                 </ul>
               </li>
               <li class="header__nav-list-item"><a class="header__link" href="/history.html">История</a></li>
@@ -178,7 +181,27 @@
               </div>
             </div>
             <div class="tour-item__map-wrapper">
-              <div id="tour-item__map"></div>
+              <div class="tour-item__map" id="tour-item__map"></div>
+              <template class="balloon-template">
+                <article class="balloon">
+                  <div class="balloon__wrapper"><a class="balloon__close" href="##">
+                      <svg fill="#000" width="8" height="8">
+                        <use href="./assets/img/sprite.svg#cross"></use>
+                      </svg></a>
+                    <div class="balloon__image-wrapper"><img class="balloon__image" src="./assets/img/map/01.jpg" alt=""></div>
+                    <div class="balloon__content-text">
+                      <p class="balloon__title">Dilijazz Restaurant</p>
+                      <div class="balloon__desc">
+                        <div class="balloon__desc-title">Кухня:</div>
+                        <div class="balloon__desc-text">Американская</div>
+                      </div>
+                      <div class="balloon__address"><img src="./assets/img/map/ballon-location.svg" alt="">
+                        <div class="balloon__address-text">1/1 2nd St., T’eghut, Дилижан 3902 Армения</div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </template>
             </div>
           </div>
           <div class="feedback">
