@@ -241,7 +241,7 @@ function scrollHeader() {
   const logo = document.querySelector(".header__logo svg");
   const button = document.querySelector(".header__button");
   const icon_phone = document.querySelector(".header__phone svg");
-  if ( scrollY > 50) {
+  if ( scrollY > 1) {
     header.classList.add("scrolled");
     headerMobile.classList.add("scrolled");
     logo.classList.add("scrolled");
@@ -271,23 +271,6 @@ if (burger) {
   });
 }
 
-
-// select
-// const select = document.querySelector('.header-select');
-// const selectList = select.querySelector('.header-select__list');
-//
-// const accordion = (item) => {
-//   if (item.style.maxHeight){
-//     item.style.maxHeight = null;
-//   } else {
-//     item.style.maxHeight = item.scrollHeight + "px";
-//   }
-// };
-//
-// select.addEventListener("click",function () {
-//   accordion(selectList);
-//   this.classList.toggle("js-select-active");
-// });
 
 const subNavList = document.querySelectorAll('.header__sub-nav') // list sub-nav
 
@@ -413,57 +396,6 @@ new Swiper('.places__list', {
 });
 
 
-// const width = window.matchMedia("(max-width: 768px)").matches;
-//
-// if (width) {
-//
-//   $(window).load(function() {
-//
-//     $('.marquee').marquee({
-//       duration: 5000,
-//       gap: 0,
-//       delayBeforeStart: 0,
-//       direction: 'left',
-//       startVisible: true,
-//       duplicated: true,
-//     });
-//
-//   });
-//
-// }
-
-let swiperOptions = {
-  slidesPerView: 1,
-  loop: true,
-  // Смена прозрачности
-  effect: 'fade',
-  fadeEffect: {
-    // Параллельная смена прозрачности
-    crossFade: true,
-  }
-};
-
-const { slidesPerView, loop, effect, fadeEffect } = swiperOptions;
-
-
-new Swiper('.js-share-slider-1, .js-share-slider-5', {
-  autoplay: { delay: 1200 },
-  slidesPerView, loop, effect, fadeEffect,
-});
-
-new Swiper('.js-share-slider-2, .js-share-slider-4', {
-  autoplay: { delay: 1500 },
-  slidesPerView, loop, effect, fadeEffect,
-});
-
-new Swiper('.js-share-slider-3, .js-share-slider-6', {
-  autoplay: { delay: 1800 },
-  slidesPerView, loop, effect, fadeEffect,
-});
-
-
-
-
 /* Map Yandex */
 
 {
@@ -483,7 +415,7 @@ new Swiper('.js-share-slider-3, .js-share-slider-6', {
 
   const mapData = {
     // класс блока-обертки, внутри которого находится карта
-    wrapperMapClass: '.tour-item__map-wrapper',
+    wrapperMapClass: '.tour-item__map-sticky',
     // класс блока с картой
     mapClass: '.tour-item__map',
     // id карты
@@ -638,15 +570,17 @@ new Swiper('.js-share-slider-3, .js-share-slider-6', {
       clickable: true,
     },
 
-    navigation:  {
+    navigation: {
       nextEl: '.arrow-nav__next',
       prevEl: '.arrow-nav__prev',
     },
 
     uniqueNavElements: true,
 
-    //slidesPerView: 1,
+    centeredSlides: true,
+
     slidesPerView: 'auto',
+
     // Бесконечная прокрутка
     loop: true,
 
@@ -657,27 +591,79 @@ new Swiper('.js-share-slider-3, .js-share-slider-6', {
     spaceBetween: 15,
 
     // Активный слайд по центру
-    initialSlides: false,
+    initialSlides: true,
     // Стартовый слайд
     initialSlide: 0,
 
     // Брейк поинты (адаптив)
     // Ширина экрана
-    // breakpoints: {
-    //   320: {
-    //     slidesPerView: 1.1
-    //   },
-    //   480: {
-    //     slidesPerView: 1.2
-    //   },
-    //   1100: {
-    //     slidesPerView: 1.2
-    //   },
-    // }
+    breakpoints: {
+      320: {
+        slidesPerView: 1.2
+      },
+      400: {
+        slidesPerView: 'auto'
+      },
+    }
 
   });
 
 }
+
+// const width = window.matchMedia("(max-width: 768px)").matches;
+//
+// if (width) {
+//
+//   $(window).load(function() {
+//
+//     $('.marquee').marquee({
+//       duration: 5000,
+//       gap: 0,
+//       delayBeforeStart: 0,
+//       direction: 'left',
+//       startVisible: true,
+//       duplicated: true,
+//     });
+//
+//   });
+//
+// }
+
+let swiperOptions = {
+  slidesPerView: 1,
+  loop: true,
+  // Смена прозрачности
+  effect: 'fade',
+  fadeEffect: {
+    // Параллельная смена прозрачности
+    crossFade: true,
+  }
+};
+
+const { slidesPerView, loop, effect, fadeEffect } = swiperOptions;
+
+
+new Swiper('.js-share-slider-1, .js-share-slider-5', {
+  autoplay: { delay: 2000 },
+  slidesPerView, loop, effect, fadeEffect,
+});
+
+new Swiper('.js-share-slider-2, .js-share-slider-4', {
+  autoplay: { delay: 2200 },
+  slidesPerView, loop, effect, fadeEffect,
+});
+
+new Swiper('.js-share-slider-3, .js-share-slider-6', {
+  autoplay: { delay: 1800 },
+  slidesPerView, loop, effect, fadeEffect,
+});
+
+
+
+
+
+
+
 
 new Swiper('.tours__list', {
   pagination: {
@@ -718,10 +704,6 @@ new Swiper('.tours__list', {
   }
 
 });
-
-
-
-
 
 {
   new Swiper('.events-item-gallery__list', {
@@ -774,6 +756,7 @@ new Swiper('.tours__list', {
 
 {
 
+  // Контент для заполнения баллунов
   const Json = [
     {
       mark_name: "mark-hotel",
@@ -786,7 +769,7 @@ new Swiper('.tours__list', {
 
   ];
 
-
+ // Вводные данные для заполнения
   const mapData = {
     // класс блока-обертки, внутри которого находится карта
     wrapperMapClass: '.places-inner-map__wrapper',

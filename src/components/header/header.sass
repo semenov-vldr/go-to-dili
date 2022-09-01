@@ -14,7 +14,8 @@
     background-color: var(--c-green)
   &.header-index .promo-discount
     background-color: var(--c-green)
-  &.header-index &__logo svg
+  &.header-index &__logo svg,
+  &.header-index .header-mobile__logo svg
     fill: var(--c-green)
   &.scrolled
     position: fixed
@@ -242,6 +243,7 @@
     align-items: center
     @media (max-width: 1000px)
       flex-direction: column
+      gap: 60px
     @media (max-width: 400px)
       align-items: flex-start
 
@@ -303,6 +305,10 @@
     &__phone svg
       fill: #fff
 
+  &__lang-list
+    @media (max-width: 1000px)
+      opacity: 0
+
 // ----------mobile----------
 .header-mobile__wrapper
   display: none
@@ -315,19 +321,27 @@
       align-items: center
       justify-content: space-between
       height: 50px
-      &.js-active-menu .header-mobile__logo svg
-        fill: var(--c-black)
+      &.js-active-menu
+        position: relative
+        z-index: 1
+        background-color: var(--c-green)
+      &.js-active-menu .header-mobile__logo svg,
       &.scrolled .header-mobile__logo svg
         fill: var(--c-black)
+      &.js-active-menu .header-mobile__lang-list
+        visibility: visible
+      &.js-active-menu .promo-discount          // не срабатывает
+        display: none
 
       &__nav-right
         display: flex
         gap: 30px
 
       &__logo svg
+        //fill: var(--c-green)
         fill: var(--c-black)
         position: relative
-        z-index: 5
+        z-index: 1
         width: 44px
         height: 100%
 
@@ -340,8 +354,7 @@
         background-color: transparent
         border: none
         cursor: pointer
-        @media (min-width: 1000px)
-          display: none
+        visibility: hidden
 
 
       .header__burger-icon

@@ -11,6 +11,7 @@
   &__image
     //width: 160px
     height: 100%
+    min-width: 80px
     border-radius: 8px
     overflow: hidden
     aspect-ratio: 4 / 3
@@ -31,6 +32,8 @@
     transition: $transition
     font-size: clamp(15px, calc(15px + (20 - 15) * ((100vw - 1024px) / (1920 - 1024))), 20px)
     font-weight: 500
+    overflow-wrap: break-word
+
   &__text
     @media (max-width: 768px)
       display: none

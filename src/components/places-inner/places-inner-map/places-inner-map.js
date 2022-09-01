@@ -2,6 +2,7 @@
 
 {
 
+  // Контент для заполнения баллунов
   const Json = [
     {
       mark_name: "mark-hotel",
@@ -14,7 +15,7 @@
 
   ];
 
-
+ // Вводные данные для заполнения
   const mapData = {
     // класс блока-обертки, внутри которого находится карта
     wrapperMapClass: '.places-inner-map__wrapper',

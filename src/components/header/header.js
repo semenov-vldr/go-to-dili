@@ -6,7 +6,7 @@ function scrollHeader() {
   const logo = document.querySelector(".header__logo svg");
   const button = document.querySelector(".header__button");
   const icon_phone = document.querySelector(".header__phone svg");
-  if ( scrollY > 50) {
+  if ( scrollY > 1) {
     header.classList.add("scrolled");
     headerMobile.classList.add("scrolled");
     logo.classList.add("scrolled");
@@ -36,23 +36,6 @@ if (burger) {
   });
 }
 
-
-// select
-// const select = document.querySelector('.header-select');
-// const selectList = select.querySelector('.header-select__list');
-//
-// const accordion = (item) => {
-//   if (item.style.maxHeight){
-//     item.style.maxHeight = null;
-//   } else {
-//     item.style.maxHeight = item.scrollHeight + "px";
-//   }
-// };
-//
-// select.addEventListener("click",function () {
-//   accordion(selectList);
-//   this.classList.toggle("js-select-active");
-// });
 
 const subNavList = document.querySelectorAll('.header__sub-nav') // list sub-nav
 

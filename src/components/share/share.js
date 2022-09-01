@@ -32,12 +32,12 @@ const { slidesPerView, loop, effect, fadeEffect } = swiperOptions;
 
 
 new Swiper('.js-share-slider-1, .js-share-slider-5', {
-  autoplay: { delay: 1200 },
+  autoplay: { delay: 2000 },
   slidesPerView, loop, effect, fadeEffect,
 });
 
 new Swiper('.js-share-slider-2, .js-share-slider-4', {
-  autoplay: { delay: 1500 },
+  autoplay: { delay: 2200 },
   slidesPerView, loop, effect, fadeEffect,
 });
 

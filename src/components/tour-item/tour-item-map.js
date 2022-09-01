@@ -17,7 +17,7 @@
 
   const mapData = {
     // класс блока-обертки, внутри которого находится карта
-    wrapperMapClass: '.tour-item__map-wrapper',
+    wrapperMapClass: '.tour-item__map-sticky',
     // класс блока с картой
     mapClass: '.tour-item__map',
     // id карты

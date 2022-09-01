@@ -5,25 +5,40 @@
   &__content
     grid-column: span 6
     width: 100%
-    padding-left: 160px
+    display: grid
+    grid-template-columns: repeat(6, 1fr)
     @media (max-width: 1200px)
       grid-column: 1 / -1
       padding: 0 50px
     @media (max-width: 768px)
-      padding-left: 0
+      padding: 0 20px
+
+  .breadcrumbs
+    grid-column: 2 / span 4
+    @media (max-width: 1200px)
+      grid-column: 1 / -1
 
 
   &__title
-    grid-column: span 2
+    margin-bottom: 30px
+    grid-column: 2 / span 3
+    font-weight: 500
+    font-size: clamp(30px, calc(30px + (60 - 30) * ((100vw - 768px) / (1920 - 768))), 60px)
+    @media (max-width: 1200px)
+      grid-column: 1 / -1
 
   .swiper-wrapper
     height: 350px
+    margin-top: 20px
     @media (max-width: 768px)
       height: 180px
 
   &__slider
+    grid-column: 1 / -1
     width: 100%
     overflow: hidden
+    @media (max-width: 1200px)
+      grid-column: 1 / -1
 
     .tour-item__nav
       display: flex
@@ -34,21 +49,32 @@
     object-fit: cover
     border-radius: 16px
     aspect-ratio: 52 / 35
+    @media (max-width: 768px)
+      aspect-ratio: initial
+      border-radius: 10px
 
-  .swiper-slide-prev,
-  .swiper-slide-next
-    filter: contrast(0.1)
-    opacity: 0.1
+  .swiper-slide
+    width: auto
+    &-prev,
+    &-next
+      filter: contrast(0.2)
+      opacity: 0.2
+    @media (max-width: 768px)
+      filter: initial
+      opacity: 1
 
   .swiper-pagination
     @media (min-width: 1200px)
       display: none
 
   &-advantages
+    grid-column: 2 / span 4
     display: flex
     flex-wrap: wrap
     margin-top: 47px
     gap: 20px
+    @media (max-width: 1200px)
+      grid-column: 1 / -1
 
   &-advantages__item
     display: flex
@@ -61,7 +87,6 @@
     width: 250px
     @media (max-width: 768px)
       width: 210px
-
 
   &-advantages__icon
     display: flex
@@ -88,10 +113,13 @@
       font-size: 12px
 
   &-parameters
+    grid-column: 2 / span 4
     display: flex
     flex-direction: column
     gap: 10px
     margin-top: 18px
+    @media (max-width: 1200px)
+      grid-column: 1 / -1
 
   &-parameters__item
     display: flex
@@ -103,9 +131,12 @@
       color: var(--c-green)
 
   &__text
+    grid-column: 2 / span 5
     margin-top: 47px
     font-size: 18px
     line-height: 1.5
+    @media (max-width: 1200px)
+      grid-column: 1 / -1
     @media (max-width: 768px)
       margin-top: 30px
       font-size: 14px
@@ -118,27 +149,30 @@
 
 
   &__map-wrapper
-    //position: sticky
     grid-column: 7 / span 6
-    height: 978px
-    //top: 0
-    //bottom: 0
+    height: 100%
+    @media (max-width: 1200px)
+      grid-column: 1 / -1
+      padding: 0 50px
+      border-radius: 10px
+    @media (max-width: 768px)
+      padding: 0
+
+  &__map-sticky
+    position: sticky
+    top: 0
+    width: 100%
+    height: 900px
+    overflow: hidden
+    border-radius: 5px
     @media (max-width: 1400px)
       height: 750px
     @media (max-width: 1200px)
-      position: initial
-      grid-column: 1 / -1
-      padding: 0 50px
       height: 600px
-      border-radius: 10px
     @media (max-width: 768px)
       height: 400px
-      padding: 0
 
-  #tour-item__map
+  .tour-item__map
+    overflow: hidden
     width: 100%
     height: 100%
-    object-fit: cover
-    position: sticky
-    top: 0
-    bottom: 0

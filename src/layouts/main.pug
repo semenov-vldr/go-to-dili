@@ -15,8 +15,7 @@ html(lang="ru-RU")
     meta(name="keywords" content="")
 
     <!--favicon-->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/x-icon" sizes="16x16" href="/assets/img/favicon/favicon.ico">
     <!--favicon end-->
 
     link(rel="stylesheet" type='text/css' href="assets/css/libs.min.css")
@@ -31,7 +30,6 @@ html(lang="ru-RU")
     .page
       include ../components/header/header
       main
-        include ../components/_items/breadcrumbs/breadcrumbs
         block content
       include ../components/footer/footer
     script(src="assets/js/libs.min.js")

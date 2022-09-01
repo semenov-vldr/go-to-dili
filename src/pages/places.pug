@@ -6,6 +6,10 @@ block variables
   - var activePage = 'index'
 
 block content
+  .breadcrumbs(style="background-color: #fff")
+    .breadcrumbs__container.container
+      a(href="").breadcrumbs__item Главная
+      a(href="").breadcrumbs__item Знакомство с Дилижаном
   section
     img.decor-bg-top(src='/assets/img/decor-bg-top-2.svg' alt='decor')
     include ../components/places/places

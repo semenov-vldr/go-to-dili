@@ -5,15 +5,17 @@
       clickable: true,
     },
 
-    navigation:  {
+    navigation: {
       nextEl: '.arrow-nav__next',
       prevEl: '.arrow-nav__prev',
     },
 
     uniqueNavElements: true,
 
-    //slidesPerView: 1,
+    centeredSlides: true,
+
     slidesPerView: 'auto',
+
     // Бесконечная прокрутка
     loop: true,
 
@@ -24,23 +26,20 @@
     spaceBetween: 15,
 
     // Активный слайд по центру
-    initialSlides: false,
+    initialSlides: true,
     // Стартовый слайд
     initialSlide: 0,
 
     // Брейк поинты (адаптив)
     // Ширина экрана
-    // breakpoints: {
-    //   320: {
-    //     slidesPerView: 1.1
-    //   },
-    //   480: {
-    //     slidesPerView: 1.2
-    //   },
-    //   1100: {
-    //     slidesPerView: 1.2
-    //   },
-    // }
+    breakpoints: {
+      320: {
+        slidesPerView: 1.2
+      },
+      400: {
+        slidesPerView: 'auto'
+      },
+    }
 
   });
 
