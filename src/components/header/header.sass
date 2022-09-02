@@ -10,13 +10,21 @@
   &.header-index
     background-color: transparent
     position: absolute
-  &.header-index &__button
-    background-color: var(--c-green)
+  &.header-index .header__button
+    @media (min-width: 1000px)
+      background-color: var(--c-green)
   &.header-index .promo-discount
     background-color: var(--c-green)
-  &.header-index &__logo svg,
-  &.header-index .header-mobile__logo svg
+  &.header-index .header__logo svg,
+  &.header-index .header-mobile__logo svg,
+  &.header-index .header__phone--mobile svg,
+  &.header-index .header-mobile__phone svg
     fill: var(--c-green)
+  &.header-index .header__social-link:hover
+    background-color: var(--c-green)
+  &.scrolled .header-mobile__phone svg
+    fill: rgba(#fff, 0.25)
+
   &.scrolled
     position: fixed
     background-color: var(--c-green)
@@ -71,6 +79,8 @@
       overflow: auto
       &.js-active-menu
         left: 0
+      &.js-active-menu .header__phone svg
+        fill-opacity: 1
     @media (max-width: 400px)
       align-items: flex-start
 
@@ -148,7 +158,6 @@
       gap: 22px
       height: auto
 
-
     .header__sub-nav-item
       background-color: var(--c-light-green)
       width: 100%
@@ -185,7 +194,6 @@
       opacity: 0.8
       color: #fff
 
-
   &__nav-row-2
     font-size: clamp(13px, calc(13px + (17 - 13) * ((100vw - 1024px) / (1920 - 1024))), 17px)
     @media (max-width: 1000px)
@@ -202,7 +210,6 @@
         top: initial
         bottom: -35px
         background-color: rgba(#fff, 0.3)
-
 
   &__nav-contacts
     display: flex
@@ -262,7 +269,7 @@
     @media (max-width: 1000px)
       background-color: rgba(#fff, 0.3)
     &:hover
-      background-color: var(--c-green)
+      background-color: rgba(#fff, 0.3)
     &:hover .header__social-icon
       opacity: 1
 
@@ -300,7 +307,8 @@
       width: 100%
   @media (min-width: 1000px)
     &__phone svg.scrolled
-      fill: rgba(#fff, 0.5)
+      fill: #fff
+      fill-opacity: 0.5
   @media (max-width: 1000px)
     &__phone svg
       fill: #fff
@@ -329,16 +337,19 @@
       &.scrolled .header-mobile__logo svg
         fill: var(--c-black)
       &.js-active-menu .header-mobile__lang-list
-        visibility: visible
-      &.js-active-menu .promo-discount          // не срабатывает
+        display: block
+      &.js-active-menu .header-mobile__phone
         display: none
+
+      &__phone svg
+        fill: rgba(#fff, 0.25)
 
       &__nav-right
         display: flex
         gap: 30px
+        align-items: center
 
       &__logo svg
-        //fill: var(--c-green)
         fill: var(--c-black)
         position: relative
         z-index: 1
@@ -354,8 +365,7 @@
         background-color: transparent
         border: none
         cursor: pointer
-        visibility: hidden
-
+        display: none
 
       .header__burger-icon
         display: none
@@ -384,17 +394,26 @@
             top: 50%
             transform: scale(1) translateY(-50%)
           &.js-active-menu
-            width: 14px
+            width: 30px
+            height: 30px
             background-color: rgba(#fff, 0.15)
             border-radius: 50%
-            padding: 10px
             box-sizing: border-box
           &.js-active-menu span
             transform: scale(0) translateY(-50%)
+          &.js-active-menu::before,
+          &.js-active-menu::after
+            width: 50%
+            left: 0
+            right: 0
+            margin: 0 auto
           &.js-active-menu::before
             top: 50%
             transform: rotate(-45deg) translate(0px, -50%)
           &.js-active-menu::after
             bottom: 50%
             transform: rotate(45deg) translate(0px, 50%)
+
+
+
 

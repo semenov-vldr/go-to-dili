@@ -1,7 +1,8 @@
+
 extends ../layouts/main
 
 block variables
-  - var title = "Ключевые окрестности города"
+  - var title = "События"
   - var pageClass = ''
   - var activePage = 'index'
 
@@ -9,7 +10,7 @@ block content
   .breadcrumbs(style="background-color: #fff")
     .breadcrumbs__container.container
       a(href="").breadcrumbs__item Главная
-      a(href="").breadcrumbs__item Знакомство с Дилижаном
+      a(href="").breadcrumbs__item События
   section
     img.decor-bg-top(src='/assets/img/decor-bg-top-2.svg' alt='decor')
     include ../components/events-inner/events-inner-header/events-inner-header

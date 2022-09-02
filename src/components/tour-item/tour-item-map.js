@@ -55,23 +55,19 @@
     // Создание пустой коллекции геообъектов
     let geoObjects = new ymaps.GeoObjectCollection({});
 
-
     arrObj.forEach(obj => {
 
       const balloonLayout = ymaps.templateLayoutFactory.createClass (createBalloon(obj), {
 
         build: function () {
           this.constructor.superclass.build.call(this);
-
           this._$element = $('.balloon', this.getParentElement());
-
           this._$element.find('.balloon__close')
             .on('click', $.proxy(this.onCloseClick, this));
         },
 
         clear: function () {
           this._$element.find('.balloon__close').off('click');
-
           this.constructor.superclass.clear.call(this);
         },
 
@@ -91,10 +87,9 @@
           let height = this._$element.offsetHeight;
 
           return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
-            [position.left, position.top], [
-              position.left + width,
-              position.top + height
-            ]
+            [position.left, position.top],
+              [position.left + width,
+              position.top + height],
           ]));
         },
 
@@ -109,7 +104,7 @@
 
       // Создание кастомных меток и баллунов
       const placemark = new ymaps.Placemark(location, {
-        balloonContentBody: createBalloon(Json),
+        balloonContentBody: createBalloon(obj),
       }, {
         balloonLayout,
         hideIconOnBalloonOpen: false,

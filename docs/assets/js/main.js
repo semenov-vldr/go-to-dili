@@ -79,77 +79,79 @@ new Swiper('.events__list', {
 
 });
 
-const phoneInputs = document.querySelectorAll('input[data-tel-input]');
+{
 
-const getInputNumbersValue = (input) => {
-  return input.value.replace(/\D/g,"");
-};
+  const phoneInputs = document.querySelectorAll('input[data-tel-input]');
 
-const onPhoneInput = (evt) => {
-  const input = evt.target;
-  let inputNumbersValue = getInputNumbersValue(input);
-  let formattedInputValue = "";
-  let selectionStart = input.selectionStart;
+  const getInputNumbersValue = (input) => {
+    return input.value.replace(/\D/g, "");
+  };
 
-  if ( !inputNumbersValue ) input.value = "";
+  const onPhoneInput = (evt) => {
+    const input = evt.target;
+    let inputNumbersValue = getInputNumbersValue(input);
+    let formattedInputValue = "";
+    let selectionStart = input.selectionStart;
+
+    if (!inputNumbersValue) input.value = "";
 
 
-  if ( input.value.length != selectionStart ) {
-    if ( evt.data && /\D/g.test(evt.data) ) {
-      input.value = formattedInputValue;
-    }
-    return;
-  }
-
-  if ( ["7", "8", "9"].indexOf(inputNumbersValue[0]) > -1 ) {
-    // Российские номера
-    if (inputNumbersValue[0] == "9") inputNumbersValue = "7" + inputNumbersValue;
-    let firstSymbols = (inputNumbersValue[0] == "8") ? "8" : "+7";
-    formattedInputValue = firstSymbols + " ";
-
-    if (inputNumbersValue[0] == "8") {
-      phoneInputs[0].setAttribute("pattern", ".{17,}");
+    if (input.value.length != selectionStart) {
+      if (evt.data && /\D/g.test(evt.data)) {
+        input.value = formattedInputValue;
+      }
+      return;
     }
 
-    if (inputNumbersValue.length > 1) {
-      formattedInputValue += "(" + inputNumbersValue.slice(1, 4);
-    }
+    if (["7", "8", "9"].indexOf(inputNumbersValue[0]) > -1) {
+      // Российские номера
+      if (inputNumbersValue[0] == "9") inputNumbersValue = "7" + inputNumbersValue;
+      let firstSymbols = (inputNumbersValue[0] == "8") ? "8" : "+7";
+      formattedInputValue = firstSymbols + " ";
 
-    if (inputNumbersValue.length >= 5) {
-      formattedInputValue += ") " + inputNumbersValue.slice(4, 7);
-    }
+      if (inputNumbersValue[0] == "8") {
+        phoneInputs[0].setAttribute("pattern", ".{17,}");
+      }
 
-    if (inputNumbersValue.length >= 8) {
-      formattedInputValue += "-" + inputNumbersValue.slice(7, 9);
-    }
+      if (inputNumbersValue.length > 1) {
+        formattedInputValue += "(" + inputNumbersValue.slice(1, 4);
+      }
 
-    if (inputNumbersValue.length >= 10) {
-      formattedInputValue += "-" + inputNumbersValue.slice(9, 11);
-    }
+      if (inputNumbersValue.length >= 5) {
+        formattedInputValue += ") " + inputNumbersValue.slice(4, 7);
+      }
+
+      if (inputNumbersValue.length >= 8) {
+        formattedInputValue += "-" + inputNumbersValue.slice(7, 9);
+      }
+
+      if (inputNumbersValue.length >= 10) {
+        formattedInputValue += "-" + inputNumbersValue.slice(9, 11);
+      }
 
 // Не российские номера
-  } else formattedInputValue = "+" + inputNumbersValue;
-  input.value = formattedInputValue;
-};
+    } else formattedInputValue = "+" + inputNumbersValue;
+    input.value = formattedInputValue;
+  };
 
 // Стирание первого символа
-const onPhoneKeyDown = (evt) => {
-  const input = evt.target;
-  if (evt.keyCode == 8 && getInputNumbersValue(input).length == 1) {
-    input.value = "";
-  }
-};
+  const onPhoneKeyDown = (evt) => {
+    const input = evt.target;
+    if (evt.keyCode == 8 && getInputNumbersValue(input).length == 1) {
+      input.value = "";
+    }
+  };
 
 // Вставка цифр в любое место
-const onPhonePaste = (evt) => {
-  const pasted = evt.clipboardData || window.clipboardData;
-  const input = evt.target;
-  const inputNumbersValue = getInputNumbersValue(input);
-  if (pasted) {
-    const pastedText = pasted.getData("Text");
-    if ( /\D/g.test(pastedText) ) input.value = inputNumbersValue;
-  }
-};
+  const onPhonePaste = (evt) => {
+    const pasted = evt.clipboardData || window.clipboardData;
+    const input = evt.target;
+    const inputNumbersValue = getInputNumbersValue(input);
+    if (pasted) {
+      const pastedText = pasted.getData("Text");
+      if (/\D/g.test(pastedText)) input.value = inputNumbersValue;
+    }
+  };
 
 // phoneInputs.forEach(input => {
 //   input.addEventListener('input', onPhoneInput);
@@ -157,13 +159,13 @@ const onPhonePaste = (evt) => {
 //   input.addEventListener("paste", onPhonePaste);
 // });
 
-const form = document.querySelector('.feedback__form');
+  const form = document.querySelector('.feedback__form');
 
-if (form) {
+  if (form) {
 
-  const inputName = form.querySelector('#name');
-  const inputPhone = form.querySelector('#phone');
-  const inputEmail = form.querySelector('#email');
+    const inputName = form.querySelector('#name');
+    const inputPhone = form.querySelector('#phone');
+    const inputEmail = form.querySelector('#email');
 
 // Ввод в поле ИМЯ только русские буквы
 // inputName.addEventListener('input', function () {
@@ -177,61 +179,59 @@ if (form) {
 
 
 // Сообщение об ошибки валидации
-  const nameError = form.querySelector('#name ~ span');
-  const nameErrorMessage = 'Вы ввели неверное имя';
-  const phoneError = form.querySelector('#phone ~ span');
-  const phoneErrorMessage = 'Вы ввели неверный номер';
+    const nameError = form.querySelector('#name ~ span');
+    const nameErrorMessage = 'Вы ввели неверное имя';
+    const phoneError = form.querySelector('#phone ~ span');
+    const phoneErrorMessage = 'Вы ввели неверный номер';
 
 
+    function showError(input, error, message) {
+      if (!input.checkValidity()) {
+        error.textContent = message;
+      } else error.textContent = '';
+      if (!input.value) error.textContent = '';
+    };
 
-  function showError(input, error, message) {
-    if ( !input.checkValidity() ) {
-      error.textContent = message;
-    }
-    else  error.textContent = '';
-    if (!input.value) error.textContent = '';
-  };
-
-  inputName.addEventListener('input', () => showError(inputName, nameError, nameErrorMessage));
-  inputPhone.addEventListener('input', () => showError(inputPhone, phoneError, phoneErrorMessage));
+    inputName.addEventListener('input', () => showError(inputName, nameError, nameErrorMessage));
+    inputPhone.addEventListener('input', () => showError(inputPhone, phoneError, phoneErrorMessage));
 
 
 // --------pop-up--------------
-  const ButtonForm = form.querySelector('.feedback-form__button');
-  const popup = document.querySelector('.feedback__popup');
-  const popupContent = popup.querySelector('.popup__content');
-  const closeButton = popup.querySelector('.popup__close');
+    const popup = document.querySelector('.feedback__popup');
+    const popupContent = popup.querySelector('.popup__content');
+    const closeButton = popup.querySelector('.popup__close');
 
-  const isPressedEscapeKey = (evt) => evt.key === 'Escape';
+    const isPressedEscapeKey = (evt) => evt.key === 'Escape';
 
-  const closePopup = () => {
-    popup.classList.remove('js-popup-active');
+    const closePopup = () => {
+      popup.classList.remove('js-popup-active');
+    }
+
+    function onDocumentEscKeydown(evt) {
+      if (isPressedEscapeKey(evt)) closePopup();
+    };
+
+    function onDocumentClick(evt) {
+      const click = evt.composedPath().includes(popupContent);
+      if (!click) closePopup();
+    };
+
+    function submitForm(evt) {
+      evt.preventDefault();
+      popup.classList.add('js-popup-active');
+      form.reset();
+    };
+
+
+    form.addEventListener('submit', submitForm);
+    closeButton.addEventListener('click', closePopup);
+    document.addEventListener('click', onDocumentClick);
+    document.addEventListener('keydown', onDocumentEscKeydown);
+
   }
 
-  function onDocumentEscKeydown(evt) {
-    if (isPressedEscapeKey(evt)) closePopup();
-  };
-
-  function onDocumentClick(evt) {
-    const click = evt.composedPath().includes(popupContent);
-    if (!click) closePopup();
-  };
-
-  function submitForm(evt) {
-    evt.preventDefault();
-    popup.classList.add('js-popup-active');
-    form.reset();
-  };
-
-
-  form.addEventListener('submit', submitForm);
-  closeButton.addEventListener('click', closePopup);
-  document.addEventListener('click', onDocumentClick);
-  document.addEventListener('keydown', onDocumentEscKeydown);
 
 }
-
-
 
 window.addEventListener("scroll", scrollHeader);
 
@@ -297,6 +297,45 @@ function accordion (item) {
 
 
 
+new Swiper('.places__list', {
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '.arrow-nav__next',
+    prevEl: '.arrow-nav__prev',
+  },
+
+  slidesPerView: 3,
+
+  centeredSlides: true,
+
+  // Откл функционала, если слайдов меньше, чем нужно
+  watchOverflow: true,
+
+  // Отступ между слайдами
+  spaceBetween: 15,
+
+  // Активный слайд по центру
+  initialSlides: false,
+  // Стартовый слайд
+  initialSlide: 0,
+
+  // Брейк поинты (адаптив)
+  // Ширина экрана
+  breakpoints: {
+    320: {
+      slidesPerView: 1.1
+    },
+    768: {
+      slidesPerView: 1
+    },
+  }
+
+});
+
+
 const history_block = document.querySelector('.history');
 
 if ( history_block ) {
@@ -357,25 +396,81 @@ if ( history_block ) {
 }
 
 
-new Swiper('.places__list', {
+// const width = window.matchMedia("(max-width: 768px)").matches;
+//
+// if (width) {
+//
+//   $(window).load(function() {
+//
+//     $('.marquee').marquee({
+//       duration: 5000,
+//       gap: 0,
+//       delayBeforeStart: 0,
+//       direction: 'left',
+//       startVisible: true,
+//       duplicated: true,
+//     });
+//
+//   });
+//
+// }
+
+let swiperOptions = {
+  slidesPerView: 1,
+  loop: true,
+  // Смена прозрачности
+  effect: 'fade',
+  fadeEffect: {
+    // Параллельная смена прозрачности
+    crossFade: true,
+  }
+};
+
+const { slidesPerView, loop, effect, fadeEffect } = swiperOptions;
+
+const swiperOptionsList = Object.keys(swiperOptions).join(', ');
+console.log(swiperOptionsList)
+console.log(typeof swiperOptionsList)
+
+let swiperOptions1 = Object.assign({autoplay: { delay: 2000 },}, swiperOptions);
+
+new Swiper('.js-share-slider-1, .js-share-slider-5', swiperOptions1);
+
+// new Swiper('.js-share-slider-1, .js-share-slider-5', {
+//   autoplay: { delay: 2000 },
+//   //slidesPerView, loop, effect, fadeEffect,
+// });
+
+new Swiper('.js-share-slider-1, .js-share-slider-5', swiperOptions1);
+
+new Swiper('.js-share-slider-2, .js-share-slider-4', {
+  autoplay: { delay: 2200 },
+  slidesPerView, loop, effect, fadeEffect,
+});
+
+new Swiper('.js-share-slider-3, .js-share-slider-6', {
+  autoplay: { delay: 1800 },
+  slidesPerView, loop, effect, fadeEffect,
+});
+
+
+
+
+new Swiper('.tours__list', {
   pagination: {
     el: '.swiper-pagination',
     clickable: true,
   },
-  navigation: {
-    nextEl: '.arrow-nav__next',
-    prevEl: '.arrow-nav__prev',
-  },
 
   slidesPerView: 3,
-
-  centeredSlides: true,
 
   // Откл функционала, если слайдов меньше, чем нужно
   watchOverflow: true,
 
   // Отступ между слайдами
   spaceBetween: 15,
+
+  centeredSlides: true,
 
   // Активный слайд по центру
   initialSlides: false,
@@ -388,13 +483,18 @@ new Swiper('.places__list', {
     320: {
       slidesPerView: 1.1
     },
+    480: {
+      slidesPerView: 2.2
+    },
     768: {
-      slidesPerView: 1
+      slidesPerView: 3.2
+    },
+    1400: {
+      slidesPerView: 4
     },
   }
 
 });
-
 
 /* Map Yandex */
 
@@ -453,23 +553,19 @@ new Swiper('.places__list', {
     // Создание пустой коллекции геообъектов
     let geoObjects = new ymaps.GeoObjectCollection({});
 
-
     arrObj.forEach(obj => {
 
       const balloonLayout = ymaps.templateLayoutFactory.createClass (createBalloon(obj), {
 
         build: function () {
           this.constructor.superclass.build.call(this);
-
           this._$element = $('.balloon', this.getParentElement());
-
           this._$element.find('.balloon__close')
             .on('click', $.proxy(this.onCloseClick, this));
         },
 
         clear: function () {
           this._$element.find('.balloon__close').off('click');
-
           this.constructor.superclass.clear.call(this);
         },
 
@@ -489,10 +585,9 @@ new Swiper('.places__list', {
           let height = this._$element.offsetHeight;
 
           return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
-            [position.left, position.top], [
-              position.left + width,
-              position.top + height
-            ]
+            [position.left, position.top],
+              [position.left + width,
+              position.top + height],
           ]));
         },
 
@@ -507,7 +602,7 @@ new Swiper('.places__list', {
 
       // Создание кастомных меток и баллунов
       const placemark = new ymaps.Placemark(location, {
-        balloonContentBody: createBalloon(Json),
+        balloonContentBody: createBalloon(obj),
       }, {
         balloonLayout,
         hideIconOnBalloonOpen: false,
@@ -610,100 +705,9 @@ new Swiper('.places__list', {
 
 }
 
-// const width = window.matchMedia("(max-width: 768px)").matches;
-//
-// if (width) {
-//
-//   $(window).load(function() {
-//
-//     $('.marquee').marquee({
-//       duration: 5000,
-//       gap: 0,
-//       delayBeforeStart: 0,
-//       direction: 'left',
-//       startVisible: true,
-//       duplicated: true,
-//     });
-//
-//   });
-//
-// }
-
-let swiperOptions = {
-  slidesPerView: 1,
-  loop: true,
-  // Смена прозрачности
-  effect: 'fade',
-  fadeEffect: {
-    // Параллельная смена прозрачности
-    crossFade: true,
-  }
-};
-
-const { slidesPerView, loop, effect, fadeEffect } = swiperOptions;
-
-
-new Swiper('.js-share-slider-1, .js-share-slider-5', {
-  autoplay: { delay: 2000 },
-  slidesPerView, loop, effect, fadeEffect,
-});
-
-new Swiper('.js-share-slider-2, .js-share-slider-4', {
-  autoplay: { delay: 2200 },
-  slidesPerView, loop, effect, fadeEffect,
-});
-
-new Swiper('.js-share-slider-3, .js-share-slider-6', {
-  autoplay: { delay: 1800 },
-  slidesPerView, loop, effect, fadeEffect,
-});
 
 
 
-
-
-
-
-
-new Swiper('.tours__list', {
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-
-  slidesPerView: 3,
-
-  // Откл функционала, если слайдов меньше, чем нужно
-  watchOverflow: true,
-
-  // Отступ между слайдами
-  spaceBetween: 15,
-
-  centeredSlides: true,
-
-  // Активный слайд по центру
-  initialSlides: false,
-  // Стартовый слайд
-  initialSlide: 0,
-
-  // Брейк поинты (адаптив)
-  // Ширина экрана
-  breakpoints: {
-    320: {
-      slidesPerView: 1.1
-    },
-    480: {
-      slidesPerView: 2.2
-    },
-    768: {
-      slidesPerView: 3.2
-    },
-    1400: {
-      slidesPerView: 4
-    },
-  }
-
-});
 
 {
   new Swiper('.events-item-gallery__list', {
@@ -805,7 +809,7 @@ if (wrapper) {
     return balloon.outerHTML;
   };
 
-// Функция отрисовки меток на карте
+  // Функция отрисовки меток на карте
   const renderMark = (arrObj) => {
     // Создание пустой коллекции геообъектов
     let geoObjects = new ymaps.GeoObjectCollection({});
@@ -817,16 +821,13 @@ if (wrapper) {
 
             build: function () {
               this.constructor.superclass.build.call(this);
-
               this._$element = $('.balloon', this.getParentElement());
-
               this._$element.find('.balloon__close')
                 .on('click', $.proxy(this.onCloseClick, this));
             },
 
             clear: function () {
               this._$element.find('.balloon__close').off('click');
-
               this.constructor.superclass.clear.call(this);
             },
 
@@ -846,10 +847,9 @@ if (wrapper) {
               let height = this._$element.offsetHeight;
 
               return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
-                [position.left, position.top], [
-                  position.left + width,
-                  position.top + height
-                ]
+                [position.left, position.top],
+                  [position.left + width,
+                  position.top + height]
               ]));
             },
 
@@ -864,7 +864,7 @@ if (wrapper) {
 
             // Создание кастомных меток и баллунов
             const placemark = new ymaps.Placemark(location, {
-              balloonContentBody: createBalloon(Json),
+              balloonContentBody: createBalloon(obj),
             }, {
               balloonLayout,
               hideIconOnBalloonOpen: false,
@@ -884,9 +884,7 @@ if (wrapper) {
             // итоговый масштаб карты чуть меньше зоны видимости
             //map.setZoom(map.getZoom() - 5);
 
-
         });
-
   };
 
 let map;
@@ -925,6 +923,7 @@ const customJson = [
   {
     type: "eat",
     mark_name: "mark-eat",
+    mark_hover_name: "mark-eat-black",
     photo_url: "./assets/img/map/01.jpg",
     title: "Dilijazz Restaurant 1",
     desc: 'Средиземноморская, Американска, Европейская',
@@ -936,6 +935,7 @@ const customJson = [
   {
     type: "eat",
     mark_name: "mark-eat",
+    mark_hover_name: "mark-eat-black",
     photo_url: "./assets/img/map/01.jpg",
     title: "Dilijazz Restaurant 2",
     desc: 'Средиземноморская, Европейская',
@@ -947,6 +947,7 @@ const customJson = [
   {
     type: "hotel",
     mark_name: "mark-hotel",
+    mark_hover_name: "mark-hotel-black",
     photo_url: "./assets/img/map/01.jpg",
     title: "Hilton",
     desc: 'Описание отеля',
@@ -957,6 +958,7 @@ const customJson = [
   {
     type: "hotel",
     mark_name: "mark-hotel",
+    mark_hover_name: "mark-hotel-black",
     photo_url: "./assets/img/map/01.jpg",
     title: "Mriya",
     desc: 'Описание отеля',
@@ -967,7 +969,8 @@ const customJson = [
   // Route
   {
     type: "route",
-    mark_name: "mark-hotel",
+    mark_name: "mark-route",
+    mark_hover_name: "mark-route-black",
     photo_url: "./assets/img/map/01.jpg",
     title: "Маршрут 1",
     desc: 'По лесу',
@@ -977,7 +980,8 @@ const customJson = [
 
   {
     type: "route",
-    mark_name: "mark-hotel",
+    mark_name: "mark-route",
+    mark_hover_name: "mark-route-black",
     photo_url: "./assets/img/map/01.jpg",
     title: "Маршрут 2",
     desc: 'В горы',
@@ -988,7 +992,8 @@ const customJson = [
   // Place
   {
     type: "place",
-    mark_name: "mark-hotel",
+    mark_name: "mark-place",
+    mark_hover_name: "mark-place-black",
     photo_url: "./assets/img/map/01.jpg",
     title: "Место 1",
     desc: 'Клуб',
@@ -998,7 +1003,8 @@ const customJson = [
 
   {
     type: "place",
-    mark_name: "mark-hotel",
+    mark_name: "mark-place",
+    mark_hover_name: "mark-place-black",
     photo_url: "./assets/img/map/01.jpg",
     title: "Место 2",
     desc: 'Площадь',
@@ -1010,7 +1016,8 @@ const customJson = [
   // Event
   {
     type: "event",
-    mark_name: "mark-hotel",
+    mark_name: "mark-event",
+    mark_hover_name: "mark-event-black",
     photo_url: "./assets/img/map/01.jpg",
     title: "Событие 1",
     desc: 'Праздник',
@@ -1020,7 +1027,8 @@ const customJson = [
 
   {
     type: "event",
-    mark_name: "mark-hotel",
+    mark_name: "mark-event",
+    mark_hover_name: "mark-event-black",
     photo_url: "./assets/img/map/01.jpg",
     title: "Событие 2",
     desc: 'Новый год',
@@ -1124,7 +1132,7 @@ const customJson = [
             map.options.set({balloonPanelMaxMapArea:'Infinity'}) ;
           }
 
-          const {type, location, mark_name} = obj;
+          const {type, location, mark_name, mark_hover_name} = obj;
 
           if (type === dataType) {
 
@@ -1139,6 +1147,15 @@ const customJson = [
               iconImageSize: [49, 59],
               iconImageOffset: [0, -60],
             });
+
+            // смена иконки при hover
+            placemark.events.add('mouseenter', (evt) => {
+              evt.get('target').options.set('iconImageHref', `./assets/img/map/${mark_hover_name}.svg`)
+            });
+            placemark.events.add('mouseleave', (evt) => {
+              evt.get('target').options.set('iconImageHref', `./assets/img/map/${mark_name}.svg`)
+            });
+
 
             // Добавление метки в коллекцию
             geoObjects.add(placemark);

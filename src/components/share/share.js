@@ -30,11 +30,20 @@ let swiperOptions = {
 
 const { slidesPerView, loop, effect, fadeEffect } = swiperOptions;
 
+const swiperOptionsList = Object.keys(swiperOptions).join(', ');
+console.log(swiperOptionsList)
+console.log(typeof swiperOptionsList)
 
-new Swiper('.js-share-slider-1, .js-share-slider-5', {
-  autoplay: { delay: 2000 },
-  slidesPerView, loop, effect, fadeEffect,
-});
+let swiperOptions1 = Object.assign({autoplay: { delay: 2000 },}, swiperOptions);
+
+new Swiper('.js-share-slider-1, .js-share-slider-5', swiperOptions1);
+
+// new Swiper('.js-share-slider-1, .js-share-slider-5', {
+//   autoplay: { delay: 2000 },
+//   //slidesPerView, loop, effect, fadeEffect,
+// });
+
+new Swiper('.js-share-slider-1, .js-share-slider-5', swiperOptions1);
 
 new Swiper('.js-share-slider-2, .js-share-slider-4', {
   autoplay: { delay: 2200 },

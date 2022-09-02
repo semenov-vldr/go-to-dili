@@ -10,7 +10,7 @@
       form.feedback__form.feedback-form(method='POST' action='https://25.javascript.pages.academy/keksobooking' enctype="multipart/form-data" autocomplete="off")
 
         .feedback-form__input-container
-          input#name(type='text' placeholder=" " name="name" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete='off' required )
+          input#name(placeholder=" " name="name" pattern="^[A-Za-zА-Яа-яЁё\\s]+$" autocomplete='off' maxlength='40' required )
           label(for='name') Имя*
           span.feedback-form__error
         .feedback-form__input-container
@@ -20,12 +20,12 @@
           span.feedback-form__error
 
         .feedback-form__input-container
-          input#email(type='email' name="email" placeholder=" ")
+          input#email(type='email' name="email" maxlength='40' pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})" placeholder=" ")
           label(for='phone') E-mail*
           span.feedback-form__error
 
         .feedback-form__input-container
-          input(placeholder=" " name="message" required)
+          input(placeholder=" " name="message" maxlength='100')
           label(for='email') Сообщение
 
         .feedback-form__sending

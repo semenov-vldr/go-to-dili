@@ -1,0 +1,53 @@
+extends ../layouts/main
+
+block variables
+  - var title = "Фестиваль GASTROFEST"
+  - var pageClass = ''
+  - var activePage = 'index'
+
+block content
+  .breadcrumbs(style="background-color: ##F4F6E9")
+    .breadcrumbs__container.container
+      a(href="").breadcrumbs__item Главная
+      a(href="").breadcrumbs__item Знакомство с Дилижаном
+  section
+    img.decor-bg-top(src='/assets/img/decor-bg-top-2.svg' alt='decor')
+    include ../components/events-item/events-item-header/events-item-header
+
+    a.events-item-hero.container.grid(href="#modal" data-fancybox)
+      .events-item-hero__container
+        figure.events-item-hero__image
+          img(src="./assets/img/08.jpg" alt="")
+          figcaption Фото с фестиваля или  любая его подпись
+        .events-item-hero__content
+          p.events-item-hero__text Гастрономическая ярмарка, где каждый посетитель сможет попробовать национальные блюда различных регионов Армении. Это настоящий праздник для каждого ценителя вкусной еды и приятный способ познакомиться со страной поближе.
+          p.events-item-hero__text В городском парке Дилижана завершился крупный гастрономический фестиваль в Армении GASTROFEST.
+          p.events-item-hero__text Более 20 участников – представителей ресторанов, кафе, винных домов, производители натуральных продуктов и напитков из разных регионов Армении, представили гостям свою продукцию. Участники фестиваля подготовили для гостей наборы блюд и напитков, которыми славится их регион. Также они поделились своими кулинарными традициями и секретами собственной авторской концепции.
+          p.events-item-hero__text Помимо гастрономической ярмарки проводились мастер-классы по приготовлению блюд, конкурсы и уроки национальных танцев от ансамбля Karin. Партнеры гастрофестиваля приготовили соревнование по Slackline – виду спорта, представляющему собой хождение по специальным стропам (линиям), которые натянуты между закрепленными объектами. У городского озера для гостей был доступен прокат каяков и SUP board.
+          p.events-item-hero__text Каждый фестивальный день сопровождался концертами живой музыки от армянских музыкантов и групп, среди них Miqayel Voskanyan with Tarup trio, Tmbata Orchestra, Tiezerk Band, Aveluk, Rozental, Hayk Karoyi, Nick Ter-Hovhannisyan, Dave Geodakyan, Arman Peshtmaljyan и Serjo и др.
+
+
+    .events-item-hero.container#modal(style="display:none; width: 50%;")
+      .events-item-hero__container
+        figure.events-item-hero__image(style="max-width: 600px; aspect-ratio: 4 / 3")
+          img(src="./assets/img/08.jpg" alt="")
+          figcaption Фото с фестиваля или  любая его подпись
+        .events-item-hero__content
+          p.events-item-hero__text Гастрономическая ярмарка, где каждый посетитель сможет попробовать национальные блюда различных регионов Армении. Это настоящий праздник для каждого ценителя вкусной еды и приятный способ познакомиться со страной поближе.
+          p.events-item-hero__text В городском парке Дилижана завершился крупный гастрономический фестиваль в Армении GASTROFEST.
+          p.events-item-hero__text Помимо гастрономической ярмарки проводились мастер-классы по приготовлению блюд, конкурсы и уроки национальных танцев от ансамбля Karin. Партнеры гастрофестиваля приготовили соревнование по Slackline – виду спорта, представляющему собой хождение по специальным стропам (линиям), которые натянуты между закрепленными объектами. У городского озера для гостей был доступен прокат каяков и SUP board.
+
+          ul
+            li Помимо гастрономической ярмарки проводились мастер-классы по приготовлению блюд, конкурсы и уроки национальных танцев от ансамбля Karin.
+            li Помимо гастрономической ярмарки проводились мастер-классы по приготовлению блюд, конкурсы и уроки национальных танцев от ансамбля Karin.
+            li Помимо гастрономической ярмарки проводились мастер-классы по приготовлению блюд, конкурсы и уроки национальных танцев от ансамбля Karin.
+
+
+          p.events-item-hero__text Каждый фестивальный день сопровождался концертами живой музыки от армянских музыкантов и групп, среди них Miqayel Voskanyan with Tarup trio, Tmbata Orchestra, Tiezerk Band, Aveluk, Rozental, Hayk Karoyi, Nick Ter-Hovhannisyan, Dave Geodakyan, Arman Peshtmaljyan и Serjo и др.
+
+
+
+
+
+
+    include ../components/feedback/feedback

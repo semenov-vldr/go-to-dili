@@ -88,7 +88,7 @@
             map.options.set({balloonPanelMaxMapArea:'Infinity'}) ;
           }
 
-          const {type, location, mark_name} = obj;
+          const {type, location, mark_name, mark_hover_name} = obj;
 
           if (type === dataType) {
 
@@ -103,6 +103,15 @@
               iconImageSize: [49, 59],
               iconImageOffset: [0, -60],
             });
+
+            // смена иконки при hover
+            placemark.events.add('mouseenter', (evt) => {
+              evt.get('target').options.set('iconImageHref', `./assets/img/map/${mark_hover_name}.svg`)
+            });
+            placemark.events.add('mouseleave', (evt) => {
+              evt.get('target').options.set('iconImageHref', `./assets/img/map/${mark_name}.svg`)
+            });
+
 
             // Добавление метки в коллекцию
             geoObjects.add(placemark);

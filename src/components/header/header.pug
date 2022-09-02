@@ -6,8 +6,9 @@ header.header
       a.header-mobile__logo(href='/')
         include ../../img/logo.svg
       a.header-mobile__phone(href='tel:+78522560000')
-        svg(width="34" height="34" fill="#8CB110")
-          use(href='assets/img/sprite.svg#phone-mobile')
+        svg(viewBox="0 0 34 34" width="34" height="34")
+          circle(cx="17" cy="17" r="17")
+          path(d="M12.3687 9.62079L9.94252 13.8167C9.88637 13.9139 9.86063 14.0258 9.86859 14.1378C9.87656 14.2498 9.91787 14.3569 9.98722 14.4452L17.857 24.4607C17.9264 24.549 18.0206 24.6144 18.1276 24.6487C18.2346 24.6829 18.3493 24.6844 18.4571 24.6528L23.1078 23.288C23.196 23.2621 23.2765 23.215 23.3423 23.1509C23.4081 23.0867 23.4572 23.0074 23.4853 22.9198C23.5133 22.8323 23.5195 22.7392 23.5033 22.6488C23.487 22.5583 23.4489 22.4732 23.3921 22.4009L21.2589 19.6873C21.1859 19.5947 21.0855 19.5273 20.9721 19.4948C20.8587 19.4623 20.7379 19.4662 20.6269 19.5061L18.2186 20.3695L14.049 15.0617L15.4564 12.9259C15.5214 12.8274 15.5539 12.711 15.5491 12.5931C15.5443 12.4752 15.5026 12.3618 15.4298 12.2689L13.2968 9.55424C13.2399 9.48225 13.1663 9.42525 13.0823 9.38823C12.9984 9.35121 12.9066 9.33529 12.8151 9.34186C12.7236 9.34842 12.6351 9.37727 12.5573 9.42589C12.4795 9.4745 12.4147 9.54142 12.3687 9.62079Z" fill="white")
       .header-mobile__nav-right
         select.header-mobile__lang-list
           option En
@@ -29,7 +30,7 @@ header.header
 
       ul.header__nav-row.header__nav-row-2
         li.header__nav-list-item
-          a.header__link(href='/') Туры
+          a.header__link(href='/tour-item.html') Туры
         li.header__nav-list-item
           a.header__link(href='/what-to-do.html') Что делать?
         li.header__nav-list-item
@@ -61,7 +62,7 @@ header.header
 
     nav.header__nav.header__nav-contacts
       a.header__phone(href='tel:+78522560000')
-        svg(width='17' height='20' fill='#8CB110')
+        svg(width='17' height='20' fill='#fff' fill-opacity="0.5")
           use(href='assets/img/sprite.svg#header-phone')
         span +7 852 256 00 00
       a.header__phone--mobile(href='tel:+78522560000')

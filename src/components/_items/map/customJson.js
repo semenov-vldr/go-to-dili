@@ -3,6 +3,7 @@ const customJson = [
   {
     type: "eat",
     mark_name: "mark-eat",
+    mark_hover_name: "mark-eat-black",
     photo_url: "./assets/img/map/01.jpg",
     title: "Dilijazz Restaurant 1",
     desc: 'Средиземноморская, Американска, Европейская',
@@ -14,6 +15,7 @@ const customJson = [
   {
     type: "eat",
     mark_name: "mark-eat",
+    mark_hover_name: "mark-eat-black",
     photo_url: "./assets/img/map/01.jpg",
     title: "Dilijazz Restaurant 2",
     desc: 'Средиземноморская, Европейская',
@@ -25,6 +27,7 @@ const customJson = [
   {
     type: "hotel",
     mark_name: "mark-hotel",
+    mark_hover_name: "mark-hotel-black",
     photo_url: "./assets/img/map/01.jpg",
     title: "Hilton",
     desc: 'Описание отеля',
@@ -35,6 +38,7 @@ const customJson = [
   {
     type: "hotel",
     mark_name: "mark-hotel",
+    mark_hover_name: "mark-hotel-black",
     photo_url: "./assets/img/map/01.jpg",
     title: "Mriya",
     desc: 'Описание отеля',
@@ -45,7 +49,8 @@ const customJson = [
   // Route
   {
     type: "route",
-    mark_name: "mark-hotel",
+    mark_name: "mark-route",
+    mark_hover_name: "mark-route-black",
     photo_url: "./assets/img/map/01.jpg",
     title: "Маршрут 1",
     desc: 'По лесу',
@@ -55,7 +60,8 @@ const customJson = [
 
   {
     type: "route",
-    mark_name: "mark-hotel",
+    mark_name: "mark-route",
+    mark_hover_name: "mark-route-black",
     photo_url: "./assets/img/map/01.jpg",
     title: "Маршрут 2",
     desc: 'В горы',
@@ -66,7 +72,8 @@ const customJson = [
   // Place
   {
     type: "place",
-    mark_name: "mark-hotel",
+    mark_name: "mark-place",
+    mark_hover_name: "mark-place-black",
     photo_url: "./assets/img/map/01.jpg",
     title: "Место 1",
     desc: 'Клуб',
@@ -76,7 +83,8 @@ const customJson = [
 
   {
     type: "place",
-    mark_name: "mark-hotel",
+    mark_name: "mark-place",
+    mark_hover_name: "mark-place-black",
     photo_url: "./assets/img/map/01.jpg",
     title: "Место 2",
     desc: 'Площадь',
@@ -88,7 +96,8 @@ const customJson = [
   // Event
   {
     type: "event",
-    mark_name: "mark-hotel",
+    mark_name: "mark-event",
+    mark_hover_name: "mark-event-black",
     photo_url: "./assets/img/map/01.jpg",
     title: "Событие 1",
     desc: 'Праздник',
@@ -98,7 +107,8 @@ const customJson = [
 
   {
     type: "event",
-    mark_name: "mark-hotel",
+    mark_name: "mark-event",
+    mark_hover_name: "mark-event-black",
     photo_url: "./assets/img/map/01.jpg",
     title: "Событие 2",
     desc: 'Новый год',

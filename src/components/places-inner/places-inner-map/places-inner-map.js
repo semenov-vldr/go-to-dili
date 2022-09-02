@@ -51,7 +51,7 @@ if (wrapper) {
     return balloon.outerHTML;
   };
 
-// Функция отрисовки меток на карте
+  // Функция отрисовки меток на карте
   const renderMark = (arrObj) => {
     // Создание пустой коллекции геообъектов
     let geoObjects = new ymaps.GeoObjectCollection({});
@@ -63,16 +63,13 @@ if (wrapper) {
 
             build: function () {
               this.constructor.superclass.build.call(this);
-
               this._$element = $('.balloon', this.getParentElement());
-
               this._$element.find('.balloon__close')
                 .on('click', $.proxy(this.onCloseClick, this));
             },
 
             clear: function () {
               this._$element.find('.balloon__close').off('click');
-
               this.constructor.superclass.clear.call(this);
             },
 
@@ -92,10 +89,9 @@ if (wrapper) {
               let height = this._$element.offsetHeight;
 
               return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
-                [position.left, position.top], [
-                  position.left + width,
-                  position.top + height
-                ]
+                [position.left, position.top],
+                  [position.left + width,
+                  position.top + height]
               ]));
             },
 
@@ -110,7 +106,7 @@ if (wrapper) {
 
             // Создание кастомных меток и баллунов
             const placemark = new ymaps.Placemark(location, {
-              balloonContentBody: createBalloon(Json),
+              balloonContentBody: createBalloon(obj),
             }, {
               balloonLayout,
               hideIconOnBalloonOpen: false,
@@ -130,9 +126,7 @@ if (wrapper) {
             // итоговый масштаб карты чуть меньше зоны видимости
             //map.setZoom(map.getZoom() - 5);
 
-
         });
-
   };
 
 let map;

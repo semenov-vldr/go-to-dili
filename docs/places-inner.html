@@ -6,8 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE = edge"><![endif]-->
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="keywords" content=""><!--favicon-->
-<link rel="icon" type="image/x-icon" sizes="16x16" href="/assets/img/favicon/favicon.ico">
-<!--favicon end-->
+    <link rel="icon" type="image/x-icon" sizes="16x16" href="/assets/img/favicon/favicon.ico"><!--favicon end-->
     <link rel="stylesheet" type="text/css" href="assets/css/libs.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/main.css"><!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script><![endif]-->
@@ -84,7 +83,7 @@
 </svg>
 </a>
           <nav class="header__nav header__nav-contacts"><a class="header__phone" href="tel:+78522560000">
-              <svg width="17" height="20" fill="#8CB110">
+              <svg width="17" height="20" fill="#fff" fill-opacity="0.5">
                 <use href="assets/img/sprite.svg#header-phone"></use>
               </svg><span>+7 852 256 00 00</span></a><a class="header__phone--mobile" href="tel:+78522560000">
               <svg width="34" height="34" fill="#8CB110">
@@ -280,7 +279,7 @@
               <div class="feedback__col-right">
                 <form class="feedback__form feedback-form" method="POST" action="https://25.javascript.pages.academy/keksobooking" enctype="multipart/form-data" autocomplete="off">
                   <div class="feedback-form__input-container">
-                    <input id="name" type="text" placeholder=" " name="name" pattern="^[A-Za-zА-Яа-яЁёs]+$" autocomplete="off" required>
+                    <input id="name" placeholder=" " name="name" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off" maxlength="40" required>
                     <label for="name">Имя*</label><span class="feedback-form__error"></span>
                   </div>
                   <div class="feedback-form__input-container">
@@ -288,11 +287,11 @@
                     <label for="phone">Телефон*</label><span class="feedback-form__error"></span>
                   </div>
                   <div class="feedback-form__input-container">
-                    <input id="email" type="email" name="email" placeholder=" ">
+                    <input id="email" type="email" name="email" maxlength="40" pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})" placeholder=" ">
                     <label for="phone">E-mail*</label><span class="feedback-form__error"></span>
                   </div>
                   <div class="feedback-form__input-container">
-                    <input placeholder=" " name="message" required>
+                    <input placeholder=" " name="message" maxlength="100">
                     <label for="email">Сообщение</label>
                   </div>
                   <div class="feedback-form__sending">
