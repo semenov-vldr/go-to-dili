@@ -31,8 +31,6 @@ let swiperOptions = {
 const { slidesPerView, loop, effect, fadeEffect } = swiperOptions;
 
 const swiperOptionsList = Object.keys(swiperOptions).join(', ');
-console.log(swiperOptionsList)
-console.log(typeof swiperOptionsList)
 
 let swiperOptions1 = Object.assign({autoplay: { delay: 2000 },}, swiperOptions);
 
