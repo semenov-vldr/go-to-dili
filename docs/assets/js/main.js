@@ -396,63 +396,33 @@ new Swiper('.places__list', {
 });
 
 
-// const width = window.matchMedia("(max-width: 768px)").matches;
-//
-// if (width) {
-//
-//   $(window).load(function() {
-//
-//     $('.marquee').marquee({
-//       duration: 5000,
-//       gap: 0,
-//       delayBeforeStart: 0,
-//       direction: 'left',
-//       startVisible: true,
-//       duplicated: true,
-//     });
-//
-//   });
-//
-// }
+{
 
-let swiperOptions = {
-  slidesPerView: 1,
-  loop: true,
-  // Смена прозрачности
-  effect: 'fade',
-  fadeEffect: {
-    // Параллельная смена прозрачности
-    crossFade: true,
-  }
-};
-
-const { slidesPerView, loop, effect, fadeEffect } = swiperOptions;
-
-const swiperOptionsList = Object.keys(swiperOptions).join(', ');
-
-let swiperOptions1 = Object.assign({autoplay: { delay: 2000 },}, swiperOptions);
-
-new Swiper('.js-share-slider-1, .js-share-slider-5', swiperOptions1);
-
-// new Swiper('.js-share-slider-1, .js-share-slider-5', {
-//   autoplay: { delay: 2000 },
-//   //slidesPerView, loop, effect, fadeEffect,
-// });
-
-new Swiper('.js-share-slider-1, .js-share-slider-5', swiperOptions1);
-
-new Swiper('.js-share-slider-2, .js-share-slider-4', {
-  autoplay: { delay: 2200 },
-  slidesPerView, loop, effect, fadeEffect,
-});
-
-new Swiper('.js-share-slider-3, .js-share-slider-6', {
-  autoplay: { delay: 1800 },
-  slidesPerView, loop, effect, fadeEffect,
-});
+  let baseOptions = {
+    slidesPerView: 1,
+    loop: true,
+    // Смена прозрачности
+    effect: 'fade',
+    fadeEffect: {
+      // Параллельная смена прозрачности
+      crossFade: true,
+    }
+  };
 
 
+  const swiperOptions = ( delayValue ) => {
+    return Object.assign({autoplay: { delay: delayValue },}, baseOptions);
+  };
 
+
+  new Swiper('.js-share-slider-1, .js-share-slider-5', swiperOptions( 2000 ));
+
+  new Swiper('.js-share-slider-2, .js-share-slider-4', swiperOptions( 2200 ));
+
+  new Swiper('.js-share-slider-3, .js-share-slider-6', swiperOptions( 1800 ));
+
+
+}
 
 /* Map Yandex */
 
@@ -785,173 +755,173 @@ const customJson = [
 /* Map Yandex */
 
 {
-// блок "Что делать в городе?"
-  const whatToDo = document.querySelector('.what-to-do');
+  // блок "Что делать в городе?"
+    const whatToDo = document.querySelector('.what-to-do');
 
-  let map__item;
-  let balloonTemplate;
-  let navItems;
+    let map__item;
+    let balloonTemplate;
+    let navItems;
 
-  if (whatToDo) {
-    map__item = whatToDo.querySelector('.map__item');
-// Шаблон для клонирования
-    balloonTemplate = whatToDo.querySelector('.balloon-template').content.querySelector('.balloon');
-// Список элементов навигации
-    navItems = whatToDo.querySelectorAll('.what-to-do-nav__item');
-  }
-
-
-// Создание и заполнение данными баллуна
-  const createBalloon = ({photo_url, title, desc, address}) => {
-    const balloon = balloonTemplate.cloneNode(true);
-
-    balloon.querySelector('.balloon__image').rsc = photo_url;
-    balloon.querySelector('.balloon__title').textContent = title;
-    balloon.querySelector('.balloon__desc-text').textContent = desc;
-    balloon.querySelector('.balloon__address-text').textContent = address;
-
-    return balloon.outerHTML;
-  };
+    if (whatToDo) {
+      map__item = whatToDo.querySelector('.map__item');
+  // Шаблон для клонирования
+      balloonTemplate = whatToDo.querySelector('.balloon-template').content.querySelector('.balloon');
+  // Список элементов навигации
+      navItems = whatToDo.querySelectorAll('.what-to-do-nav__item');
+    }
 
 
-// Функция отрисовки меток на карте
-  const renderMark = (navElems, arrObj) => {
-    // Создание пустой коллекции геообъектов
-    let geoObjects = new ymaps.GeoObjectCollection({});
+  // Создание и заполнение данными баллуна
+    const createBalloon = ({photo_url, title, desc, address}) => {
+      const balloon = balloonTemplate.cloneNode(true);
 
-    navElems.forEach(item => {
-      if (item.classList.contains('js-active-mark')) {
-        const dataType = item.dataset.type;
+      balloon.querySelector('.balloon__image').rsc = photo_url;
+      balloon.querySelector('.balloon__title').textContent = title;
+      balloon.querySelector('.balloon__desc-text').textContent = desc;
+      balloon.querySelector('.balloon__address-text').textContent = address;
 
-        arrObj.forEach(obj => {
+      return balloon.outerHTML;
+    };
 
-          const balloonLayout = ymaps.templateLayoutFactory.createClass(createBalloon(obj), {
 
-            build: function () {
-              this.constructor.superclass.build.call(this);
+  // Функция отрисовки меток на карте
+    const renderMark = (navElems, arrObj) => {
+      // Создание пустой коллекции геообъектов
+      let geoObjects = new ymaps.GeoObjectCollection({});
 
-              this._$element = $('.balloon', this.getParentElement());
+      navElems.forEach(item => {
+        if (item.classList.contains('js-active-mark')) {
+          const dataType = item.dataset.type;
 
-              this._$element.find('.balloon__close')
-                .on('click', $.proxy(this.onCloseClick, this));
-            },
+          arrObj.forEach(obj => {
 
-            clear: function () {
-              this._$element.find('.balloon__close').off('click');
+            const balloonLayout = ymaps.templateLayoutFactory.createClass(createBalloon(obj), {
 
-              this.constructor.superclass.clear.call(this);
-            },
-            //
-            // Закрывает балун при клике на крестик
-            onCloseClick: function (evt) {
-              evt.preventDefault();
-              this.events.fire('userclose');
-            },
+              build: function () {
+                this.constructor.superclass.build.call(this);
 
-            // Используется для автопозиционирования
-            getShape: function () {
-              // if(!this._isElement(this._$element)) {
-              //   return balloonLayout.superclass.getShape.call(this);
-              // }
-              let position = this._$element.position();
-              let width = this._$element.offsetWidth;
-              let height = this._$element.offsetHeight;
+                this._$element = $('.balloon', this.getParentElement());
 
-              return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
-                [position.left, position.top], [
-                  position.left + width,
-                  position.top + height
-                ]
-              ]));
-            },
+                this._$element.find('.balloon__close')
+                  .on('click', $.proxy(this.onCloseClick, this));
+              },
 
+              clear: function () {
+                this._$element.find('.balloon__close').off('click');
+
+                this.constructor.superclass.clear.call(this);
+              },
+              //
+              // Закрывает балун при клике на крестик
+              onCloseClick: function (evt) {
+                evt.preventDefault();
+                this.events.fire('userclose');
+              },
+
+              // Используется для автопозиционирования
+              getShape: function () {
+                // if(!this._isElement(this._$element)) {
+                //   return balloonLayout.superclass.getShape.call(this);
+                // }
+                let position = this._$element.position();
+                let width = this._$element.offsetWidth;
+                let height = this._$element.offsetHeight;
+
+                return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
+                  [position.left, position.top], [
+                    position.left + width,
+                    position.top + height
+                  ]
+                ]));
+              },
+
+            });
+
+            // Баллун в виде панели при мобильном разрешении экрана
+            if (window.matchMedia("(max-width: 580px)").matches) {
+              map.options.set({balloonPanelMaxMapArea:'Infinity'}) ;
+            }
+
+            const {type, location, mark_name, mark_hover_name} = obj;
+
+            if (type === dataType) {
+
+              // Создание кастомных меток и баллунов
+              const placemark = new ymaps.Placemark(location, {
+                balloonContentBody: createBalloon(obj),
+              }, {
+                balloonLayout,
+                hideIconOnBalloonOpen: false,
+                iconLayout: 'default#image',
+                iconImageHref: `./assets/img/map/${mark_name}.svg`,
+                iconImageSize: [49, 59],
+                iconImageOffset: [0, -60],
+              });
+
+              // смена иконки при hover
+              placemark.events.add('mouseenter', (evt) => {
+                evt.get('target').options.set('iconImageHref', `./assets/img/map/${mark_hover_name}.svg`)
+              });
+              placemark.events.add('mouseleave', (evt) => {
+                evt.get('target').options.set('iconImageHref', `./assets/img/map/${mark_name}.svg`)
+              });
+
+
+              // Добавление метки в коллекцию
+              geoObjects.add(placemark);
+              // Добавление коллекции на карту
+              map.geoObjects.add(geoObjects);
+              // Установка масштаба для видимости всей коллекции
+              map.setBounds(geoObjects.getBounds());
+              // итоговый масштаб карты чуть меньше зоны видимости
+              map.setZoom(map.getZoom() - 2);
+
+            }
+          });
+        };
+      });
+    };
+
+    let map;
+
+    if (map__item) {
+
+      ymaps.ready(init);
+
+      // Инициализация карты
+      function init() {
+        map = new ymaps.Map("map-index", {
+            center: [40.74521099740435, 44.868688838134744],
+            zoom: 13,
+            controls: ['routeButtonControl'],
+          },
+
+          { //ограничения области просмотра карты
+            restrictMapArea: [
+              [39.874858480470486, 42.27403199633786],
+              [41.82876820666636, 47.54746949633786]
+            ]
           });
 
-          // Баллун в виде панели при мобильном разрешении экрана
-          if (window.matchMedia("(max-width: 580px)").matches) {
-            map.options.set({balloonPanelMaxMapArea:'Infinity'}) ;
-          }
+        navItems.forEach((navItem) => {
 
-          const {type, location, mark_name, mark_hover_name} = obj;
-
-          if (type === dataType) {
-
-            // Создание кастомных меток и баллунов
-            const placemark = new ymaps.Placemark(location, {
-              balloonContentBody: createBalloon(obj),
-            }, {
-              balloonLayout,
-              hideIconOnBalloonOpen: false,
-              iconLayout: 'default#image',
-              iconImageHref: `./assets/img/map/${mark_name}.svg`,
-              iconImageSize: [49, 59],
-              iconImageOffset: [0, -60],
-            });
-
-            // смена иконки при hover
-            placemark.events.add('mouseenter', (evt) => {
-              evt.get('target').options.set('iconImageHref', `./assets/img/map/${mark_hover_name}.svg`)
-            });
-            placemark.events.add('mouseleave', (evt) => {
-              evt.get('target').options.set('iconImageHref', `./assets/img/map/${mark_name}.svg`)
-            });
-
-
-            // Добавление метки в коллекцию
-            geoObjects.add(placemark);
-            // Добавление коллекции на карту
-            map.geoObjects.add(geoObjects);
-            // Установка масштаба для видимости всей коллекции
-            map.setBounds(geoObjects.getBounds());
-            // итоговый масштаб карты чуть меньше зоны видимости
-            map.setZoom(map.getZoom() - 2);
-
-          }
-        });
-      };
-    });
-  };
-
-  let map;
-
-  if (map__item) {
-
-    ymaps.ready(init);
-
-    // Инициализация карты
-    function init() {
-      map = new ymaps.Map("map-index", {
-          center: [40.74521099740435, 44.868688838134744],
-          zoom: 13,
-          controls: ['routeButtonControl'],
-        },
-
-        { //ограничения области просмотра карты
-          restrictMapArea: [
-            [39.874858480470486, 42.27403199633786],
-            [41.82876820666636, 47.54746949633786]
-          ]
-        });
-
-      navItems.forEach((navItem) => {
-
-        renderMark(navItems, customJson);
-
-        navItem.addEventListener('click', () => {
-          map.geoObjects.removeAll();
-          navItems.forEach(item => item.classList.remove('js-active-mark'));
-          navItem.classList.add('js-active-mark');
           renderMark(navItems, customJson);
-        })
-      });
 
-      let clusterer = new ymaps.Clusterer({});
-      map.geoObjects.add(clusterer);
+          navItem.addEventListener('click', () => {
+            map.geoObjects.removeAll();
+            navItems.forEach(item => item.classList.remove('js-active-mark'));
+            navItem.classList.add('js-active-mark');
+            renderMark(navItems, customJson);
+          })
+        });
 
-    };
+        let clusterer = new ymaps.Clusterer({});
+        map.geoObjects.add(clusterer);
+
+      };
+    }
+
   }
-
-}
 
 {
   new Swiper('.other-places__list', {
@@ -1012,140 +982,141 @@ function createMapMark ( { wrapperMapClass, mapClass, mapId }, Json ) {
 
   const wrapper = document.querySelector(wrapperMapClass);
 
-let mapItem;
-let balloonTemplate;
+  let mapItem;
+  let balloonTemplate;
 
-if (wrapper) {
-    // Шаблон для клонирования
-    balloonTemplate = document.querySelector('.balloon-template').content.querySelector('.balloon');
-    mapItem = wrapper.querySelector(mapClass);
-}
+  if (wrapper) {
+      // Шаблон для клонирования
+      balloonTemplate = document.querySelector('.balloon-template').content.querySelector('.balloon');
+      mapItem = wrapper.querySelector(mapClass);
+  }
 
-  // Создание и заполнение данными баллуна
-  const createBalloon = ( { photo_url, title, desc, address } ) => {
-    const balloon = balloonTemplate.cloneNode(true);
+    // Создание и заполнение данными баллуна
+    const createBalloon = ( { photo_url, title, desc, address } ) => {
+      const balloon = balloonTemplate.cloneNode(true);
 
-    balloon.querySelector('.balloon__image').rsc = photo_url;
-    balloon.querySelector('.balloon__title').textContent = title;
-    balloon.querySelector('.balloon__desc-text').textContent = desc;
-    balloon.querySelector('.balloon__address-text').textContent = address;
+      balloon.querySelector('.balloon__image').rsc = photo_url;
+      balloon.querySelector('.balloon__title').textContent = title;
+      balloon.querySelector('.balloon__desc-text').textContent = desc;
+      balloon.querySelector('.balloon__address-text').textContent = address;
 
-    return balloon.outerHTML;
-  };
+      return balloon.outerHTML;
+    };
 
-  // Функция отрисовки меток на карте
-  const renderMark = (arrObj) => {
-    // Создание пустой коллекции геообъектов
-    let geoObjects = new ymaps.GeoObjectCollection({});
+    // Функция отрисовки меток на карте
+    const renderMark = (arrObj) => {
+      // Создание пустой коллекции геообъектов
+      let geoObjects = new ymaps.GeoObjectCollection();
 
 
-        arrObj.forEach(obj => {
+          arrObj.forEach(obj => {
 
-          const balloonLayout = ymaps.templateLayoutFactory.createClass (createBalloon(obj), {
+            const balloonLayout = ymaps.templateLayoutFactory.createClass (createBalloon(obj), {
 
-            build: function () {
-              this.constructor.superclass.build.call(this);
-              this._$element = $('.balloon', this.getParentElement());
-              this._$element.find('.balloon__close')
-                .on('click', $.proxy(this.onCloseClick, this));
-            },
+              build: function () {
+                this.constructor.superclass.build.call(this);
+                this._$element = $('.balloon', this.getParentElement());
+                this._$element.find('.balloon__close')
+                  .on('click', $.proxy(this.onCloseClick, this));
+              },
 
-            clear: function () {
-              this._$element.find('.balloon__close').off('click');
-              this.constructor.superclass.clear.call(this);
-            },
+              clear: function () {
+                this._$element.find('.balloon__close').off('click');
+                this.constructor.superclass.clear.call(this);
+              },
 
-            // Закрывает балун при клике на крестик
-            onCloseClick: function (evt) {
-              evt.preventDefault();
-              this.events.fire('userclose');
-            },
+              // Закрывает балун при клике на крестик
+              onCloseClick: function (evt) {
+                evt.preventDefault();
+                this.events.fire('userclose');
+              },
 
-            // Используется для автопозиционирования
-            getShape: function () {
-              // if(!this._isElement(this._$element)) {
-              //   return balloonLayout.superclass.getShape.call(this);
-              // }
-              let position = this._$element.position();
-              let width = this._$element.offsetWidth;
-              let height = this._$element.offsetHeight;
+              // Используется для автопозиционирования
+              getShape: function () {
+                // if(!this._isElement(this._$element)) {
+                //   return balloonLayout.superclass.getShape.call(this);
+                // }
+                let position = this._$element.position();
+                let width = this._$element.offsetWidth;
+                let height = this._$element.offsetHeight;
 
-              return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
-                [position.left, position.top],
-                  [position.left + width,
-                  position.top + height]
-              ]));
-            },
+                return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
+                  [position.left, position.top],
+                    [position.left + width,
+                    position.top + height]
+                ]));
+              },
+
+            });
+
+            // Баллун в виде панели при мобильном разрешении экрана
+            if (window.matchMedia("(max-width: 580px)").matches) {
+              map.options.set({balloonPanelMaxMapArea:'Infinity'}) ;
+            }
+
+            const {location, mark_name, mark_hover_name} = obj;
+
+              // Создание кастомных меток и баллунов
+              const placemark = new ymaps.Placemark(location, {
+                balloonContentBody: createBalloon(obj),
+              }, {
+                balloonLayout,
+                hideIconOnBalloonOpen: false,
+                iconLayout: 'default#image',
+                iconImageHref: `./assets/img/map/${mark_name}.svg`,
+                iconImageSize: [49, 59],
+                iconImageOffset: [0, -60],
+              });
+
+              // смена иконки при hover
+              placemark.events.add('mouseenter', (evt) => {
+                evt.get('target').options.set('iconImageHref', `./assets/img/map/${mark_hover_name}.svg`)
+              });
+              placemark.events.add('mouseleave', (evt) => {
+                evt.get('target').options.set('iconImageHref', `./assets/img/map/${mark_name}.svg`)
+              });
+
+              // Добавление метки в коллекцию
+              geoObjects.add(placemark);
+              // Добавление коллекции на карту
+              map.geoObjects.add(geoObjects);
+              // Установка масштаба для видимости всей коллекции
+              map.setBounds(geoObjects.getBounds());
+
+              // итоговый масштаб карты чуть меньше зоны видимости
+              map.setZoom(map.getZoom() - 5);
 
           });
+    };
 
-          // Баллун в виде панели при мобильном разрешении экрана
-          if (window.matchMedia("(max-width: 580px)").matches) {
-            map.options.set({balloonPanelMaxMapArea:'Infinity'}) ;
-          }
+  let map;
 
-          const {location, mark_name, mark_hover_name} = obj;
+  if ( mapItem ) {
 
-            // Создание кастомных меток и баллунов
-            const placemark = new ymaps.Placemark(location, {
-              balloonContentBody: createBalloon(obj),
-            }, {
-              balloonLayout,
-              hideIconOnBalloonOpen: false,
-              iconLayout: 'default#image',
-              iconImageHref: `./assets/img/map/${mark_name}.svg`,
-              iconImageSize: [49, 59],
-              iconImageOffset: [0, -60],
-            });
+    ymaps.ready(init);
 
-            // смена иконки при hover
-            placemark.events.add('mouseenter', (evt) => {
-              evt.get('target').options.set('iconImageHref', `./assets/img/map/${mark_hover_name}.svg`)
-            });
-            placemark.events.add('mouseleave', (evt) => {
-              evt.get('target').options.set('iconImageHref', `./assets/img/map/${mark_name}.svg`)
-            });
+    // Инициализация карты
+    function init() {
+      map = new ymaps.Map(mapId, {
+          center: [40.74521099740435, 44.868688838134744],
+          zoom: 13,
+          controls: ['routeButtonControl'],
+        },
 
-            // Добавление метки в коллекцию
-            geoObjects.add(placemark);
-            // Добавление коллекции на карту
-            map.geoObjects.add(geoObjects);
-            // Установка масштаба для видимости всей коллекции
-            //map.setBounds(geoObjects.getBounds());
-
-            // итоговый масштаб карты чуть меньше зоны видимости
-            //map.setZoom(map.getZoom() - 5);
-
+        { //ограничения области просмотра карты
+          restrictMapArea: [
+            [39.874858480470486,42.27403199633786],
+            [41.82876820666636,47.54746949633786]
+          ]
         });
+
+        renderMark(Json);
+
+      let clusterer = new ymaps.Clusterer();
+      map.geoObjects.add(clusterer);
+
+    };
   };
 
-let map;
-
-if ( mapItem ) {
-
-  ymaps.ready(init);
-
-  // Инициализация карты
-  function init() {
-    map = new ymaps.Map(mapId, {
-        center: [40.74521099740435, 44.868688838134744],
-        zoom: 13,
-        controls: ['routeButtonControl'],
-      },
-
-      { //ограничения области просмотра карты
-        restrictMapArea: [
-          [39.874858480470486,42.27403199633786],
-          [41.82876820666636,47.54746949633786]
-        ]
-      });
-
-      renderMark(Json);
-
-    let clusterer = new ymaps.Clusterer({});
-    map.geoObjects.add(clusterer);
-
-  };
 }
 
-}
