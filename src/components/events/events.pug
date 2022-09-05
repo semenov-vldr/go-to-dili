@@ -1,8 +1,13 @@
 .events
   .container
-    include ../_items/title-link/title-link
+    .title-link
+      h2 События
+      a(href='/events-inner.html') Смотреть события
+        svg.title-link__icon(width="18" height="16" fill="#8CB110" stroke="#8CB110")
+          use(href='./assets/img/sprite.svg#arrow-nav-small')
     .events__list
       .swiper-wrapper
+        include ../_items/event-card/event-card-w-content
         include ../_items/event-card/event-card-w-content
 
       .swiper-pagination

@@ -2,8 +2,14 @@
   background-color: var(--c-light-green)
   padding-bottom: 100px
   padding-top: 130px
+  @media (max-width: 768px)
+    padding-top: 80px
+    padding-bottom: 50px
 
   &__nav
     display: flex
     justify-content: flex-end
     margin-bottom: 40px
+
+  &__list
+    overflow: hidden

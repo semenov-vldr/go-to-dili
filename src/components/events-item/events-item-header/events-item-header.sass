@@ -3,10 +3,34 @@
 
   &__title
     margin-bottom: 50px
+    grid-column: span 7
     @media (max-width: 768px)
       margin-bottom: 34px
+      grid-column: span 10
+      @media (max-width: 1400px)
+        grid-column: 1 / -1
+
+  &__bottom
+    grid-column: span 7
+    display: flex
+    justify-content: space-between
+    align-items: center
+    @media (max-width: 1400px)
+      grid-column: span 10
+    @media (max-width: 1400px)
+      grid-column: 1 / -1
 
   &__date
     color: rgba($black, 0.6)
     svg
       fill: #C4C8B7
+
+  &__link
+    color: var(--c-green)
+    padding: 10px 20px
+    border: 1px solid currentColor
+    border-radius: 20px
+    display: inline-block
+    text-transform: uppercase
+    font-weight: 500
+    font-size: 14px

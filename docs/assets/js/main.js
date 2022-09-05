@@ -15,6 +15,8 @@ new Swiper('.about-people__list', {
   // Отступ между слайдами
   spaceBetween: 15,
 
+  loop: true,
+
   // Активный слайд по центру
   initialSlides: false,
   // Стартовый слайд
@@ -24,16 +26,17 @@ new Swiper('.about-people__list', {
   // Ширина экрана
   breakpoints: {
     320: {
-      slidesPerView: 1.1
+      slidesPerView: 1.1,
     },
     480: {
-      slidesPerView: 2.2
+      slidesPerView: 2.2,
     },
     768: {
-      slidesPerView: 3.2
+      slidesPerView: 3.2,
     },
     1400: {
-      slidesPerView: 4
+      slidesPerView: 4,
+      centeredSlides: false,
     },
   }
 
@@ -55,8 +58,10 @@ new Swiper('.events__list', {
   // Отступ между слайдами
   spaceBetween: 15,
 
+  loop: true,
+
   // Активный слайд по центру
-  initialSlides: false,
+  initialSlides: true,
   // Стартовый слайд
   initialSlide: 0,
 
@@ -64,16 +69,17 @@ new Swiper('.events__list', {
   // Ширина экрана
   breakpoints: {
     320: {
-      slidesPerView: 1.1
+      slidesPerView: 1.1,
     },
     480: {
-      slidesPerView: 1.5
+      slidesPerView: 1.5,
     },
     768: {
-      slidesPerView: 2.5
+      slidesPerView: 2.5,
     },
     1100: {
-      slidesPerView: 3
+      slidesPerView: 3,
+      centeredSlides: false,
     },
   }
 
@@ -275,20 +281,21 @@ if (burger) {
 const subNavList = document.querySelectorAll('.header__sub-nav') // list sub-nav
 
 subNavList.forEach(subNav => {
-  let parrent = subNav.parentElement; // .header__nav-list-item
-  parrent.addEventListener('click', function () {
+  const parrent = subNav.parentElement; // .header__nav-list-item
+    parrent.addEventListener('click', function () {
     this.classList.toggle("js-select-active");
     accordion(subNav);
   });
-})
-
+  if (window.innerWidth < 1000) {
+    const navLink = parrent.querySelector('.header__link');
+    navLink.addEventListener('click', (evt) => {
+      evt.preventDefault();
+    });
+  };
+});
 
 function accordion (item) {
-  if (item.style.maxHeight){
-    item.style.maxHeight = null;
-  } else {
-    item.style.maxHeight = item.scrollHeight + "px";
-  }
+  item.style.maxHeight ? null : item.scrollHeight + "px";
 };
 
 
@@ -424,6 +431,54 @@ new Swiper('.places__list', {
 
 }
 
+
+
+
+
+new Swiper('.tours__list', {
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+
+  slidesPerView: 4,
+
+  // Откл функционала, если слайдов меньше, чем нужно
+  watchOverflow: true,
+
+  centeredSlides: true,
+
+  // Отступ между слайдами
+  spaceBetween: 15,
+
+  // Активный слайд по центру
+  initialSlides: true,
+  // Стартовый слайд
+  initialSlide: 0,
+
+  loop: true,
+
+  // Брейк поинты (адаптив)
+  // Ширина экрана
+  breakpoints: {
+    320: {
+      slidesPerView: 1.1,
+    },
+    480: {
+      slidesPerView: 2.2,
+    },
+    768: {
+      slidesPerView: 3.2,
+    },
+    1400: {
+      slidesPerView: 4,
+      initialSlide: 1,
+      centeredSlides: false,
+    },
+  }
+
+});
+
 /* Map Yandex */
 
 {
@@ -501,50 +556,6 @@ new Swiper('.places__list', {
   });
 
 }
-
-new Swiper('.tours__list', {
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-
-  slidesPerView: 3,
-
-  // Откл функционала, если слайдов меньше, чем нужно
-  watchOverflow: true,
-
-  // Отступ между слайдами
-  spaceBetween: 15,
-
-  centeredSlides: true,
-
-  // Активный слайд по центру
-  initialSlides: false,
-  // Стартовый слайд
-  initialSlide: 0,
-
-  // Брейк поинты (адаптив)
-  // Ширина экрана
-  breakpoints: {
-    320: {
-      slidesPerView: 1.1
-    },
-    480: {
-      slidesPerView: 2.2
-    },
-    768: {
-      slidesPerView: 3.2
-    },
-    1400: {
-      slidesPerView: 4
-    },
-  }
-
-});
-
-
-
-
 
 {
   new Swiper('.events-item-gallery__list', {
@@ -939,6 +950,8 @@ const customJson = [
 
     slidesPerView: 3,
 
+    centeredSlides: true,
+
     // Откл функционала, если слайдов меньше, чем нужно
     watchOverflow: true,
 
@@ -963,7 +976,8 @@ const customJson = [
         slidesPerView: 2.5
       },
       1100: {
-        slidesPerView: 3
+        slidesPerView: 3,
+        centeredSlides: false,
       },
     }
 

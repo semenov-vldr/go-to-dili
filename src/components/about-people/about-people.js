@@ -14,6 +14,8 @@ new Swiper('.about-people__list', {
   // Отступ между слайдами
   spaceBetween: 15,
 
+  loop: true,
+
   // Активный слайд по центру
   initialSlides: false,
   // Стартовый слайд
@@ -23,16 +25,17 @@ new Swiper('.about-people__list', {
   // Ширина экрана
   breakpoints: {
     320: {
-      slidesPerView: 1.1
+      slidesPerView: 1.1,
     },
     480: {
-      slidesPerView: 2.2
+      slidesPerView: 2.2,
     },
     768: {
-      slidesPerView: 3.2
+      slidesPerView: 3.2,
     },
     1400: {
-      slidesPerView: 4
+      slidesPerView: 4,
+      centeredSlides: false,
     },
   }
 

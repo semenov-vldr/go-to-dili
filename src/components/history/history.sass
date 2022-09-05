@@ -20,20 +20,10 @@
     justify-content: flex-end
     margin-bottom: 40px
 
-  //&-years-line
-  //  height: 2px
-  //  padding: 0 85px
-  //  background: repeating-linear-gradient(to right,#D8DAD1 0,#D8DAD1 8px,transparent 8px,transparent 12px)
-  //  scroll-snap-align: start
-  //  @media (max-width: 1000px)
-  //    padding: 0 0
-
   &-years-line__items
     position: relative
     display: flex
     justify-content: space-between
-    //column-gap: 120px
-    //scroll-snap-align: start
 
     &::before
       position: absolute
@@ -99,6 +89,7 @@
     overflow: hidden
     border-radius: 16px
     filter: saturate(0%)
+    aspect-ratio: 52 / 35
     img
       width: 100%
       height: 100%

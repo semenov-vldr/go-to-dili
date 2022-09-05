@@ -4,35 +4,39 @@ new Swiper('.tours__list', {
     clickable: true,
   },
 
-  slidesPerView: 3,
+  slidesPerView: 4,
 
   // Откл функционала, если слайдов меньше, чем нужно
   watchOverflow: true,
 
+  centeredSlides: true,
+
   // Отступ между слайдами
   spaceBetween: 15,
 
-  centeredSlides: true,
-
   // Активный слайд по центру
-  initialSlides: false,
+  initialSlides: true,
   // Стартовый слайд
   initialSlide: 0,
+
+  loop: true,
 
   // Брейк поинты (адаптив)
   // Ширина экрана
   breakpoints: {
     320: {
-      slidesPerView: 1.1
+      slidesPerView: 1.1,
     },
     480: {
-      slidesPerView: 2.2
+      slidesPerView: 2.2,
     },
     768: {
-      slidesPerView: 3.2
+      slidesPerView: 3.2,
     },
     1400: {
-      slidesPerView: 4
+      slidesPerView: 4,
+      initialSlide: 1,
+      centeredSlides: false,
     },
   }
 
