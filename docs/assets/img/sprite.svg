@@ -32,7 +32,7 @@
   </symbol>
 
   <!-- icon-bus-->
-  <symbol id="bus" width="20" height="18" viewBox="0 0 20 18" fill="white">
+  <symbol id="bus" viewBox="0 0 20 18">
     <g clip-path="url(#clip0_320_21729)">
       <path d="M1.65746 5.17505H0V8.21255H1.65746V5.17505Z"/>
       <path d="M20.0012 5.17505H18.3438V8.21255H20.0012V5.17505Z"/>

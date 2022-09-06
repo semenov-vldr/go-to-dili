@@ -1,56 +1,51 @@
 .tour-item
   background-color: var(--c-light-green)
-  @media (max-width: 768px)
-    padding: 0 20px
-  &__content
-    grid-column: span 6
+  &__conteiner
+    padding: 0 0 180px
     width: 100%
-    display: grid
-    grid-template-columns: repeat(6, 1fr)
+    grid-template-areas: 'bc map''title map''nav map''slider map''advantages map''parameters map''text map'
     @media (max-width: 1200px)
-      grid-column: 1 / -1
-      padding: 0 50px
+      padding: 0 50px 150px
+      grid-template-columns: 1fr
+      grid-template-areas: 'bc''title''map''slider''advantages''parameters''text'
     @media (max-width: 768px)
-      padding: 0
+      padding: 0 20px 130px
+
 
   .breadcrumbs
+    grid-area: bc
     grid-column: 2 / span 4
     @media (max-width: 1200px)
       grid-column: 1 / -1
 
-
   &__title
+    grid-area: title
     margin-bottom: 30px
-    grid-column: 2 / span 3
+    grid-column: 2 / span 4
     font-weight: 500
     font-size: clamp(30px, calc(30px + (60 - 30) * ((100vw - 768px) / (1920 - 768))), 60px)
     @media (max-width: 1200px)
       grid-column: 1 / -1
 
-  .swiper-wrapper
-    height: auto
-    margin-top: 20px
-
-  &__slider
-    grid-column: 1 / -1
-    width: 100%
-    overflow: hidden
-
-  .tour-item__nav
+  &__nav
+    grid-area: nav
     display: flex
     justify-content: end
     grid-column: 2 / span 4
+    @media (max-width: 1200px)
+      display: none
 
-  &__image
-    height: 100%
+  &__slider
+    grid-area: slider
+    grid-column: 1 / span 6
     width: 100%
-    object-fit: cover
-    border-radius: 16px
-    aspect-ratio: 52 / 35
-    cursor: pointer
-    @media (max-width: 768px)
-      aspect-ratio: initial
-      border-radius: 10px
+    overflow: hidden
+    @media (max-width: 1200px)
+      grid-column: 1 / -1
+
+    .swiper-wrapper
+      height: auto
+      margin-top: 20px
 
   .swiper-slide
     display: flex
@@ -73,11 +68,23 @@
       filter: initial
       opacity: 1
 
+  &__image
+    height: 100%
+    width: 100%
+    object-fit: cover
+    border-radius: 16px
+    aspect-ratio: 52 / 35
+    cursor: pointer
+    @media (max-width: 768px)
+      aspect-ratio: initial
+      border-radius: 10px
+
   .swiper-pagination
     @media (min-width: 1200px)
       display: none
 
   &-advantages
+    grid-area: advantages
     grid-column: 2 / span 4
     display: flex
     flex-wrap: wrap
@@ -85,6 +92,9 @@
     gap: 20px
     @media (max-width: 1200px)
       grid-column: 1 / -1
+      margin-top: 20px
+    @media (max-width: 768px)
+      margin-top: 10px
 
   &-advantages__item
     display: flex
@@ -96,6 +106,7 @@
     width: 250px
     @media (max-width: 768px)
       width: 210px
+      padding: 15px
 
   &-advantages__icon
     display: flex
@@ -108,10 +119,10 @@
     @media (max-width: 768px)
       width: 32px
       height: 32px
-      padding: 7px
+      padding: 8px
       & svg
-        width: 14px
-        height: 14px
+        width: 16px
+        height: 14.5px
 
   &-advantages__text
     color: rgba($black, 0.5)
@@ -121,6 +132,7 @@
       font-size: 12px
 
   &-parameters
+    grid-area: parameters
     grid-column: 2 / span 4
     display: flex
     flex-direction: column
@@ -139,6 +151,7 @@
       color: var(--c-green)
 
   &__text
+    grid-area: text
     grid-column: 2 / span 5
     margin-top: 47px
     font-size: 18px
@@ -146,7 +159,7 @@
     @media (max-width: 1200px)
       grid-column: 1 / -1
     @media (max-width: 768px)
-      margin-top: 30px
+      margin-top: 10px
       font-size: 14px
 
   &__text p
@@ -159,13 +172,11 @@
 
   // ----map------
   &__map-wrapper
-    grid-column: 7 / span 6
+    grid-area: map
+    grid-column: 7 / -1
     height: 100%
     @media (max-width: 1200px)
       grid-column: 1 / -1
-      padding: 0 50px
-    @media (max-width: 768px)
-      padding: 0
 
   &__map-sticky
     position: sticky
@@ -178,8 +189,10 @@
       height: 750px
     @media (max-width: 1200px)
       height: 600px
+      position: initial
+      border-radius: 5px
     @media (max-width: 768px)
-      height: 400px
+      height: 470px
 
   .tour-item__map
     overflow: hidden

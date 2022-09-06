@@ -1,5 +1,5 @@
-.tour-item.grid
-  .tour-item__content
+.tour-item
+  .tour-item__conteiner.grid
 
     .breadcrumbs(style="background-color: #F4F6E9")
       .breadcrumbs__container
@@ -7,14 +7,15 @@
         a(href="").breadcrumbs__item Знакомство с Дилижаном
 
     h1.tour-item__title Поход за грибами в Дилижанский лес
+
     .tour-item__nav
       .arrow-nav
         svg.arrow-nav__prev
           use(href='./assets/img/sprite.svg#arrow-nav-prev')
         svg.arrow-nav__next
           use(href='./assets/img/sprite.svg#arrow-nav-next')
-    .tour-item__slider
 
+    .tour-item__slider
       .swiper-wrapper
         .swiper-slide
           a(href="./assets/img/events/04.jpg" data-fancybox="preview")
@@ -60,10 +61,9 @@
       p В городском парке Дилижана завершился крупный гастрономический фестиваль в Армении GASTROFEST.
       p Помимо гастрономической ярмарки проводились мастер-классы по приготовлению блюд, конкурсы и уроки национальных танцев от ансамбля Karin. Партнеры гастрофестиваля приготовили соревнование по Slackline – виду спорта, представляющему собой хождение по специальным стропам (линиям), которые натянуты между закрепленными объектами. У городского озера для гостей был доступен прокат каяков и SUP board.
 
-  .tour-item__map-wrapper
-    .tour-item__map-sticky
-      .tour-item__map#tour-item__map
+    .tour-item__map-wrapper
+      .tour-item__map-sticky
+        .tour-item__map#tour-item__map
 
-  include ../_items/balloon-template/balloon-template
-
+      include ../_items/balloon-template/balloon-template
 

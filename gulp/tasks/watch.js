@@ -32,7 +32,7 @@ module.exports = function () {
     );
     $.gulp.watch($.path.src + "/json/*.json", $.gulp.series("script:json:dev"));
     $.gulp.watch(
-      [$.path.src + "/components/**/*.js", $.path.src + "/components/index.js"],
+      [$.path.src + "/components/**/*.js", $.path.src + "/components/index.js", $.path.src + "/scripts/**/*.js"],
       $.gulp.series("script:dev")
     );
   });

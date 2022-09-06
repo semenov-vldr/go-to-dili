@@ -124,8 +124,8 @@
       </header>
       <main>
         <section>
-          <div class="tour-item grid">
-            <div class="tour-item__content">
+          <div class="tour-item">
+            <div class="tour-item__conteiner grid">
               <div class="breadcrumbs" style="background-color: #F4F6E9">
                 <div class="breadcrumbs__container"><a class="breadcrumbs__item" href="/">Главная</a><a class="breadcrumbs__item" href="">Знакомство с Дилижаном</a></div>
               </div>
@@ -175,32 +175,32 @@
                 <p>В городском парке Дилижана завершился крупный гастрономический фестиваль в Армении GASTROFEST.</p>
                 <p>Помимо гастрономической ярмарки проводились мастер-классы по приготовлению блюд, конкурсы и уроки национальных танцев от ансамбля Karin. Партнеры гастрофестиваля приготовили соревнование по Slackline – виду спорта, представляющему собой хождение по специальным стропам (линиям), которые натянуты между закрепленными объектами. У городского озера для гостей был доступен прокат каяков и SUP board.</p>
               </div>
-            </div>
-            <div class="tour-item__map-wrapper">
-              <div class="tour-item__map-sticky">
-                <div class="tour-item__map" id="tour-item__map"></div>
+              <div class="tour-item__map-wrapper">
+                <div class="tour-item__map-sticky">
+                  <div class="tour-item__map" id="tour-item__map"></div>
+                </div>
+                <template class="balloon-template">
+                  <article class="balloon">
+                    <div class="balloon__wrapper"><a class="balloon__close" href="##">
+                        <svg fill="#000" width="8" height="8">
+                          <use href="./assets/img/sprite.svg#cross"></use>
+                        </svg></a>
+                      <div class="balloon__image-wrapper"><img class="balloon__image" src="./assets/img/map/01.jpg" alt=""></div>
+                      <div class="balloon__content-text">
+                        <p class="balloon__title">Dilijazz Restaurant</p>
+                        <div class="balloon__desc">
+                          <div class="balloon__desc-title">Кухня:</div>
+                          <div class="balloon__desc-text">Американская</div>
+                        </div>
+                        <div class="balloon__address"><img src="./assets/img/map/ballon-location.svg" alt="">
+                          <div class="balloon__address-text">1/1 2nd St., T’eghut, Дилижан 3902 Армения</div>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </template>
               </div>
             </div>
-            <template class="balloon-template">
-              <article class="balloon">
-                <div class="balloon__wrapper"><a class="balloon__close" href="##">
-                    <svg fill="#000" width="8" height="8">
-                      <use href="./assets/img/sprite.svg#cross"></use>
-                    </svg></a>
-                  <div class="balloon__image-wrapper"><img class="balloon__image" src="./assets/img/map/01.jpg" alt=""></div>
-                  <div class="balloon__content-text">
-                    <p class="balloon__title">Dilijazz Restaurant</p>
-                    <div class="balloon__desc">
-                      <div class="balloon__desc-title">Кухня:</div>
-                      <div class="balloon__desc-text">Американская</div>
-                    </div>
-                    <div class="balloon__address"><img src="./assets/img/map/ballon-location.svg" alt="">
-                      <div class="balloon__address-text">1/1 2nd St., T’eghut, Дилижан 3902 Армения</div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-            </template>
           </div>
           <div class="feedback">
             <div class="container feedback__container">

@@ -56,9 +56,9 @@ function createMapMark ( { wrapperMapClass, mapClass, mapId }, Json ) {
                 // if(!this._isElement(this._$element)) {
                 //   return balloonLayout.superclass.getShape.call(this);
                 // }
-                let position = this._$element.position();
-                let width = this._$element.offsetWidth;
-                let height = this._$element.offsetHeight;
+                const position = this._$element.position();
+                const width = this._$element.offsetWidth;
+                const height = this._$element.offsetHeight;
 
                 return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
                   [position.left, position.top],
@@ -74,7 +74,7 @@ function createMapMark ( { wrapperMapClass, mapClass, mapId }, Json ) {
               map.options.set({balloonPanelMaxMapArea:'Infinity'}) ;
             }
 
-            const {location, mark_name, mark_hover_name} = obj;
+            const { location, mark_name, mark_hover_name } = obj;
 
               // Создание кастомных меток и баллунов
               const placemark = new ymaps.Placemark(location, {
@@ -102,7 +102,6 @@ function createMapMark ( { wrapperMapClass, mapClass, mapId }, Json ) {
               map.geoObjects.add(geoObjects);
               // Установка масштаба для видимости всей коллекции
               map.setBounds(geoObjects.getBounds());
-
               // итоговый масштаб карты чуть меньше зоны видимости
               map.setZoom(map.getZoom() - 5);
 
