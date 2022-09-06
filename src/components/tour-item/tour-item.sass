@@ -11,7 +11,7 @@
       grid-column: 1 / -1
       padding: 0 50px
     @media (max-width: 768px)
-      padding: 0 20px
+      padding: 0
 
   .breadcrumbs
     grid-column: 2 / span 4
@@ -28,33 +28,43 @@
       grid-column: 1 / -1
 
   .swiper-wrapper
-    height: 350px
+    height: auto
     margin-top: 20px
-    @media (max-width: 768px)
-      height: 180px
 
   &__slider
     grid-column: 1 / -1
     width: 100%
     overflow: hidden
-    @media (max-width: 1200px)
-      grid-column: 1 / -1
 
-    .tour-item__nav
-      display: flex
-      justify-content: end
+  .tour-item__nav
+    display: flex
+    justify-content: end
+    grid-column: 2 / span 4
 
   &__image
     height: 100%
+    width: 100%
     object-fit: cover
     border-radius: 16px
     aspect-ratio: 52 / 35
+    cursor: pointer
     @media (max-width: 768px)
       aspect-ratio: initial
       border-radius: 10px
 
   .swiper-slide
-    width: auto
+    display: flex
+    a
+      position: relative
+      display: flex
+      @extend .flex-center
+    a::after
+      @extend .hover-image
+      display: none
+    a:hover::after
+      display: flex
+      @media (max-width: 768px)
+        display: none
     &-prev,
     &-next
       filter: contrast(0.2)
@@ -78,8 +88,7 @@
 
   &-advantages__item
     display: flex
-    align-items: center
-    justify-content: center
+    @extend .flex-center
     gap: 16px
     background-color: #fff
     border-radius: 16px
@@ -90,8 +99,7 @@
 
   &-advantages__icon
     display: flex
-    align-items: center
-    justify-content: center
+    @extend .flex-center
     width: 40px
     height: 40px
     background-color: var(--c-green)
@@ -148,13 +156,14 @@
     margin-bottom: 14px
 
 
+
+  // ----map------
   &__map-wrapper
     grid-column: 7 / span 6
     height: 100%
     @media (max-width: 1200px)
       grid-column: 1 / -1
       padding: 0 50px
-      border-radius: 10px
     @media (max-width: 768px)
       padding: 0
 
@@ -164,7 +173,7 @@
     width: 100%
     height: 900px
     overflow: hidden
-    border-radius: 5px
+    border-radius: 0 0 5px 5px
     @media (max-width: 1400px)
       height: 750px
     @media (max-width: 1200px)

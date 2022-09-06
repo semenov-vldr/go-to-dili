@@ -13,14 +13,17 @@
 
     slidesPerView: 3,
 
+    // Бесконечная прокрутка
+    loop: true,
+
     // Откл функционала, если слайдов меньше, чем нужно
     watchOverflow: true,
+
+    centeredSlides: true,
 
     // Отступ между слайдами
     spaceBetween: 15,
 
-    // Активный слайд по центру
-    initialSlides: false,
     // Стартовый слайд
     initialSlide: 0,
 

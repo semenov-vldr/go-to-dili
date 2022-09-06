@@ -11,22 +11,13 @@
     },
 
     uniqueNavElements: true,
-
     centeredSlides: true,
-
-    slidesPerView: 'auto',
-
-    // Бесконечная прокрутка
+    // slidesPerView: 1,
     loop: true,
-
     // Откл функционала, если слайдов меньше, чем нужно
     watchOverflow: true,
-
     // Отступ между слайдами
     spaceBetween: 15,
-
-    // Активный слайд по центру
-    initialSlides: true,
     // Стартовый слайд
     initialSlide: 0,
 
@@ -34,10 +25,10 @@
     // Ширина экрана
     breakpoints: {
       320: {
-        slidesPerView: 1.2
+        slidesPerView: 1.3,
       },
-      400: {
-        slidesPerView: 'auto'
+      768: {
+        slidesPerView: 1.5,
       },
     }
 

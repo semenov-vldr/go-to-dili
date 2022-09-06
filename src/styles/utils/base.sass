@@ -6,8 +6,7 @@ html
   background-color: #fff
   color: var(--c-black)
 
-body.js-lock-scroll
-  overflow: hidden
+
 
 
 main
@@ -16,7 +15,7 @@ main
 
 .page
   min-height: 100%
-  overflow: hidden
+  //overflow: hidden
   display: -webkit-box
   display: -ms-flexbox
   display: flex
@@ -24,6 +23,8 @@ main
   -webkit-box-direction: normal
   -ms-flex-direction: column
   flex-direction: column
+  &.js-lock-scroll
+    position: fixed
 
 main
   position: relative
@@ -44,6 +45,26 @@ main
 
 .hidden
   display: none
+
+.flex-center
+  align-items: center
+  justify-content: center
+
+// Зеленый круг при hover на картинке
+.hover-image
+  @extend .flex-center
+  position: absolute
+  content: "\002B"
+  text-align: center
+  font-size: 40px
+  font-weight: 300
+  color: #fff
+  width: 78px
+  height: 78px
+  background-color: rgba($green, 0.8)
+  border-radius: 50%
+  cursor: pointer
+
 
 .grid
   display: grid

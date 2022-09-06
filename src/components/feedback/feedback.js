@@ -24,11 +24,11 @@
 
     if (["7", "8", "9"].indexOf(inputNumbersValue[0]) > -1) {
       // Российские номера
-      if (inputNumbersValue[0] == "9") inputNumbersValue = "7" + inputNumbersValue;
-      let firstSymbols = (inputNumbersValue[0] == "8") ? "8" : "+7";
+      if (inputNumbersValue[0] === "9") inputNumbersValue = "7" + inputNumbersValue;
+      let firstSymbols = (inputNumbersValue[0] === "8") ? "8" : "+7";
       formattedInputValue = firstSymbols + " ";
 
-      if (inputNumbersValue[0] == "8") {
+      if (inputNumbersValue[0] === "8") {
         phoneInputs[0].setAttribute("pattern", ".{17,}");
       }
 
@@ -56,7 +56,7 @@
 // Стирание первого символа
   const onPhoneKeyDown = (evt) => {
     const input = evt.target;
-    if (evt.keyCode == 8 && getInputNumbersValue(input).length == 1) {
+    if (evt.keyCode === 8 && getInputNumbersValue(input).length === 1) {
       input.value = "";
     }
   };
@@ -97,18 +97,26 @@
 // });
 
 
-// Сообщение об ошибки валидации
+    // Сообщение об ошибки валидации
     const nameError = form.querySelector('#name ~ span');
     const nameErrorMessage = 'Вы ввели неверное имя';
     const phoneError = form.querySelector('#phone ~ span');
     const phoneErrorMessage = 'Вы ввели неверный номер';
+    const submitButton = form.querySelector('.feedback-form__button');
 
 
     function showError(input, error, message) {
       if (!input.checkValidity()) {
         error.textContent = message;
-      } else error.textContent = '';
-      if (!input.value) error.textContent = '';
+        submitButton.disabled = true;
+      } else {
+        error.textContent = '';
+        submitButton.disabled = false;
+      };
+      if (!input.value) {
+        error.textContent = '';
+        submitButton.disabled = false;
+      };
     };
 
     inputName.addEventListener('input', () => showError(inputName, nameError, nameErrorMessage));
@@ -116,6 +124,7 @@
 
 
 // --------pop-up--------------
+    const page = document.querySelector('.page');
     const popup = document.querySelector('.feedback__popup');
     const popupContent = popup.querySelector('.popup__content');
     const closeButton = popup.querySelector('.popup__close');
@@ -124,6 +133,7 @@
 
     const closePopup = () => {
       popup.classList.remove('js-popup-active');
+      page.classList.remove('js-lock-scroll');
     }
 
     function onDocumentEscKeydown(evt) {
@@ -138,6 +148,7 @@
     function submitForm(evt) {
       evt.preventDefault();
       popup.classList.add('js-popup-active');
+      page.classList.add('js-lock-scroll');
       form.reset();
     };
 

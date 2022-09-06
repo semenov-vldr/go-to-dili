@@ -121,6 +121,8 @@
       margin-top: 2rem
 
   &-form__button
+    &:disabled
+      background-color: #B8BAB0
     @media (max-width: 768px)
       width: 100%
 
@@ -133,7 +135,7 @@
     -webkit-appearance: none
     -moz-appearance: none
 
-  &-form__sending input[type="checkbox"]:checked + .feedback-form__checkbox
+  &-form__sending input[type="checkbox"]:checked + &-form__checkbox
     background-color: var(--c-green)
     border-color: var(--c-green)
     background-image: url("/assets/img/check.svg")
@@ -150,7 +152,7 @@
   &-form__sending label a
     color: var(--c-green)
 
-  &-form__sending .feedback-form__checkbox
+  &-form__sending &-form__checkbox
     position: absolute
     width: 17px
     height: 17px
@@ -167,6 +169,9 @@
       margin-left: 1em
 
 
+
+  // ---------Pop-up----------
+
   &__popup
     position: fixed
     background-color: rgba(#000, 0.5)
@@ -178,14 +183,12 @@
     overflow-y: auto
     overflow-x: hidden
     transition: all 0.5s ease 0s
-    opacity: 0
-    visibility: hidden
+    display: none
+    padding-top: 100px
+    overscroll-behavior: contain
     &.js-popup-active
-      opacity: 1
-      visibility: initial
+      display: block
 
-
-  // ---------Pop-up----------
   .popup
     &__body
       min-height: 100%
@@ -193,7 +196,6 @@
       align-items: center
       justify-content: center
       padding: 30px 10px
-
 
     &__content
       position: relative
@@ -214,7 +216,7 @@
       display: flex
       align-items: center
       justify-content: center
-      background-color: rgba(255, 255, 255, 0.4)
+      background-color: rgba(#fff, 0.4)
       border-radius: 50%
       width: 44px
       height: 44px
@@ -228,6 +230,8 @@
         font-size: 15px
         top: -35px
         right: 0
+      &:hover
+        background-color: rgba(#fff, 0.3)
 
 
     &__icon

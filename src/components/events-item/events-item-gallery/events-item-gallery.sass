@@ -1,38 +1,22 @@
 .events-item-gallery
   background-color: var(--c-light-green)
-
   padding: 130px 0
   @media (max-width: 768px)
     padding: 80px 0
 
   &__list .swiper-slide
-    position: relative
     display: flex
-    align-items: center
-    justify-content: center
+    @extend .flex-center
     margin-top: 35px
     &:hover
       filter: $drop-shadow
     & a
       display: flex
-      align-items: center
-      justify-content: center
+      @extend .flex-center
       position: relative
       &::after
-        position: absolute
-        content: "\002B"
-        align-items: center
-        justify-content: center
+        @extend .hover-image
         display: none
-        text-align: center
-        font-size: 40px
-        font-weight: 300
-        color: #fff
-        width: 78px
-        height: 78px
-        background-color: rgba($green, 0.8)
-        border-radius: 50%
-        cursor: pointer
       &:hover::after
         display: flex
         @media (max-width: 768px)
@@ -46,10 +30,11 @@
     object-fit: cover
     cursor: pointer
 
-
   &__nav
     display: flex
     justify-content: end
+    @media (max-width: 768px)
+      display: none
 
   .swiper-pagination
     display: none
