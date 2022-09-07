@@ -7,6 +7,12 @@ html
   color: var(--c-black)
 
 
+body
+  &.js-lock-scroll
+    position: fixed
+    width: 100%
+
+
 
 
 main
@@ -23,8 +29,6 @@ main
   -webkit-box-direction: normal
   -ms-flex-direction: column
   flex-direction: column
-  &.js-lock-scroll
-    position: fixed
 
 main
   position: relative
@@ -35,6 +39,7 @@ main
 
 .container
   max-width: 1600px
+  min-width: 280px
   padding: 0 160px
   margin: 0 auto
   box-sizing: content-box
@@ -70,6 +75,12 @@ main
   display: grid
   grid-template-columns: repeat(12, 1fr)
   grid-gap: 20px
+  &--1col
+    display: grid
+    grid-template-columns: 1fr
+    grid-gap: 150px
+    @media (max-width: 768px)
+      grid-gap: 60px
   &--4col
     display: grid
     grid-template-columns: repeat(4, 1fr)
@@ -78,6 +89,9 @@ main
     display: grid
     grid-template-columns: repeat(3, 1fr)
     grid-gap: 20px
+
+
+  
 
 // дата с иконкой
 .date
@@ -117,7 +131,7 @@ h2
   text-align: center
   text-transform: uppercase
   min-height: 56px
-  padding: 10px 34px
+  padding: 8px 34px
   border-radius: 100px
   background-color: var(--c-green)
   color: #fff

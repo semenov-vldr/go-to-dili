@@ -16,8 +16,6 @@ new Swiper('.events__list', {
 
   loop: true,
 
-  // Активный слайд по центру
-  initialSlides: true,
   // Стартовый слайд
   initialSlide: 0,
 
@@ -25,7 +23,7 @@ new Swiper('.events__list', {
   // Ширина экрана
   breakpoints: {
     320: {
-      slidesPerView: 1.1,
+      slidesPerView: 1.2,
     },
     480: {
       slidesPerView: 1.5,
@@ -35,7 +33,6 @@ new Swiper('.events__list', {
     },
     1100: {
       slidesPerView: 3,
-      centeredSlides: false,
     },
   }
 

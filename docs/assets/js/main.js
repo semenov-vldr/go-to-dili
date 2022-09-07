@@ -17,8 +17,6 @@ new Swiper('.about-people__list', {
 
   loop: true,
 
-  // Активный слайд по центру
-  initialSlides: false,
   // Стартовый слайд
   initialSlide: 0,
 
@@ -26,7 +24,7 @@ new Swiper('.about-people__list', {
   // Ширина экрана
   breakpoints: {
     320: {
-      slidesPerView: 1.1,
+      slidesPerView: 1.2,
     },
     480: {
       slidesPerView: 2.2,
@@ -60,8 +58,6 @@ new Swiper('.events__list', {
 
   loop: true,
 
-  // Активный слайд по центру
-  initialSlides: true,
   // Стартовый слайд
   initialSlide: 0,
 
@@ -69,7 +65,7 @@ new Swiper('.events__list', {
   // Ширина экрана
   breakpoints: {
     320: {
-      slidesPerView: 1.1,
+      slidesPerView: 1.2,
     },
     480: {
       slidesPerView: 1.5,
@@ -79,7 +75,6 @@ new Swiper('.events__list', {
     },
     1100: {
       slidesPerView: 3,
-      centeredSlides: false,
     },
   }
 
@@ -171,7 +166,6 @@ new Swiper('.events__list', {
 
     const inputName = form.querySelector('#name');
     const inputPhone = form.querySelector('#phone');
-    const inputEmail = form.querySelector('#email');
 
 // Ввод в поле ИМЯ только русские буквы
 // inputName.addEventListener('input', function () {
@@ -210,40 +204,49 @@ new Swiper('.events__list', {
     inputPhone.addEventListener('input', () => showError(inputPhone, phoneError, phoneErrorMessage));
 
 
-// --------pop-up--------------
-    const page = document.querySelector('.page');
-    const popup = document.querySelector('.feedback__popup');
-    const popupContent = popup.querySelector('.popup__content');
-    const closeButton = popup.querySelector('.popup__close');
+// --------pop-up-------------------------------------------
 
     const isPressedEscapeKey = (evt) => evt.key === 'Escape';
 
-    const closePopup = () => {
-      popup.classList.remove('js-popup-active');
-      page.classList.remove('js-lock-scroll');
+    function onDocumentEscKeydown(evt) {
+      if ( isPressedEscapeKey(evt) ) {
+        evt.preventDefault();
+        closePopup();
+      };
+    };
+
+    function onFreePlaceClick (item, evt) {
+      const content = item.querySelector('.popup__content');
+      const click = evt.composedPath().includes(content);
+      if (!click) closePopup();
     }
 
-    function onDocumentEscKeydown(evt) {
-      if (isPressedEscapeKey(evt)) closePopup();
-    };
-
-    function onDocumentClick(evt) {
-      const click = evt.composedPath().includes(popupContent);
-      if (!click) closePopup();
-    };
-
-    function submitForm(evt) {
-      evt.preventDefault();
-      popup.classList.add('js-popup-active');
-      page.classList.add('js-lock-scroll');
+    function closePopup() {
+      document.querySelector('.feedback__popup').remove();
+      document.removeEventListener('keydown', onDocumentEscKeydown);
+      document.removeEventListener('click', closePopup);
+      document.body.classList.remove('js-lock-scroll');
       form.reset();
     };
 
+    function showPopup () {
+      const popup = document.querySelector('#success').content.cloneNode(true);
+      const closeButton = popup.querySelector('.popup__close');
+      document.body.append(popup);
+      document.body.classList.add('js-lock-scroll')
+      document.addEventListener('keydown', onDocumentEscKeydown);
+      document.addEventListener('click', closePopup);
+      closeButton.addEventListener('click', closePopup);
+      document.addEventListener('click', () => onFreePlaceClick(popup));
+    };
 
-    form.addEventListener('submit', submitForm);
-    closeButton.addEventListener('click', closePopup);
-    document.addEventListener('click', onDocumentClick);
-    document.addEventListener('keydown', onDocumentEscKeydown);
+
+
+    form.addEventListener('submit', (evt) => {
+      evt.preventDefault();
+      showPopup();
+    });
+
 
   }
 
@@ -289,6 +292,7 @@ if (burger) {
 }
 
 
+// Accordion sub-nav
 const subNavList = document.querySelectorAll('.header__sub-nav') // list sub-nav
 
 subNavList.forEach(subNav => {
@@ -395,8 +399,8 @@ new Swiper('.places__list', {
   // Отступ между слайдами
   spaceBetween: 15,
 
-  // Активный слайд по центру
-  initialSlides: false,
+  loop: true,
+
   // Стартовый слайд
   initialSlide: 0,
 
@@ -404,10 +408,11 @@ new Swiper('.places__list', {
   // Ширина экрана
   breakpoints: {
     320: {
-      slidesPerView: 1.1
+      slidesPerView: 1.2
     },
     768: {
-      slidesPerView: 1
+      slidesPerView: 1,
+      centeredSlides: false,
     },
   }
 
@@ -441,54 +446,6 @@ new Swiper('.places__list', {
 
 
 }
-
-
-
-
-
-new Swiper('.tours__list', {
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-
-  slidesPerView: 4,
-
-  // Откл функционала, если слайдов меньше, чем нужно
-  watchOverflow: true,
-
-  centeredSlides: true,
-
-  // Отступ между слайдами
-  spaceBetween: 15,
-
-  // Активный слайд по центру
-  initialSlides: true,
-  // Стартовый слайд
-  initialSlide: 0,
-
-  loop: true,
-
-  // Брейк поинты (адаптив)
-  // Ширина экрана
-  breakpoints: {
-    320: {
-      slidesPerView: 1.1,
-    },
-    480: {
-      slidesPerView: 2.2,
-    },
-    768: {
-      slidesPerView: 3.2,
-    },
-    1400: {
-      slidesPerView: 4,
-      initialSlide: 1,
-      centeredSlides: false,
-    },
-  }
-
-});
 
 /* Map Yandex */
 
@@ -558,6 +515,51 @@ new Swiper('.tours__list', {
   });
 
 }
+
+new Swiper('.tours__list', {
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+
+  slidesPerView: 4,
+
+  // Откл функционала, если слайдов меньше, чем нужно
+  watchOverflow: true,
+
+  centeredSlides: true,
+
+  // Отступ между слайдами
+  spaceBetween: 15,
+
+  // Стартовый слайд
+  initialSlide: 0,
+
+  loop: true,
+
+  // Брейк поинты (адаптив)
+  // Ширина экрана
+  breakpoints: {
+    320: {
+      slidesPerView: 1.2,
+    },
+    480: {
+      slidesPerView: 2.2,
+    },
+    768: {
+      slidesPerView: 3.2,
+    },
+    1400: {
+      slidesPerView: 4,
+      centeredSlides: false,
+    },
+  }
+
+});
+
+
+
+
 
 {
   new Swiper('.events-item-gallery__list', {
@@ -772,164 +774,168 @@ const customJson = [
 
 {
   // блок "Что делать в городе?"
-    const whatToDo = document.querySelector('.what-to-do');
+  const whatToDo = document.querySelector('.what-to-do');
 
-    let map__item;
-    let balloonTemplate;
-    let navItems;
+  let map__item;
+  let balloonTemplate;
+  let navItems;
 
-    if (whatToDo) {
-      map__item = whatToDo.querySelector('.map__item');
-  // Шаблон для клонирования
-      balloonTemplate = whatToDo.querySelector('.balloon-template').content.querySelector('.balloon');
-  // Список элементов навигации
-      navItems = whatToDo.querySelectorAll('.what-to-do-nav__item');
-    }
+  if (whatToDo) {
+    map__item = whatToDo.querySelector('.map__item');
+    // Шаблон для клонирования
+    balloonTemplate = whatToDo.querySelector('.balloon-template').content.querySelector('.balloon');
+    // Список элементов навигации
+    navItems = whatToDo.querySelectorAll('.what-to-do-nav__item');
+  }
 
 
   // Создание и заполнение данными баллуна
-    const createBalloon = ({photo_url, title, desc, address}) => {
-      const balloon = balloonTemplate.cloneNode(true);
+  const createBalloon = ({photo_url, title, desc, address}) => {
+    const balloon = balloonTemplate.cloneNode(true);
 
-      balloon.querySelector('.balloon__image').rsc = photo_url;
-      balloon.querySelector('.balloon__title').textContent = title;
-      balloon.querySelector('.balloon__desc-text').textContent = desc;
-      balloon.querySelector('.balloon__address-text').textContent = address;
+    balloon.querySelector('.balloon__image').rsc = photo_url;
+    balloon.querySelector('.balloon__title').textContent = title;
+    balloon.querySelector('.balloon__desc-text').textContent = desc;
+    balloon.querySelector('.balloon__address-text').textContent = address;
 
-      return balloon.outerHTML;
-    };
+    return balloon.outerHTML;
+  };
 
 
   // Функция отрисовки меток на карте
-    const renderMark = (navElems, arrObj) => {
-      // Создание пустой коллекции геообъектов
-      let geoObjects = new ymaps.GeoObjectCollection({});
+  const renderMark = (navElems, arrObj) => {
+    // Создание пустой коллекции геообъектов
+    let geoObjects = new ymaps.GeoObjectCollection({});
 
-      navElems.forEach(item => {
-        if (item.classList.contains('js-active-mark')) {
-          const dataType = item.dataset.type;
+    navElems.forEach(item => {
+      if (item.classList.contains('js-active-mark')) {
+        const dataType = item.dataset.type;
 
-          arrObj.forEach(obj => {
+        arrObj.forEach(obj => {
 
-            const balloonLayout = ymaps.templateLayoutFactory.createClass(createBalloon(obj), {
+          const balloonLayout = ymaps.templateLayoutFactory.createClass(createBalloon(obj), {
 
-              build: function () {
-                this.constructor.superclass.build.call(this);
+            build: function () {
+              this.constructor.superclass.build.call(this);
 
-                this._$element = $('.balloon', this.getParentElement());
+              this._$element = $('.balloon', this.getParentElement());
 
-                this._$element.find('.balloon__close')
-                  .on('click', $.proxy(this.onCloseClick, this));
-              },
+              this._$element.find('.balloon__close')
+                .on('click', $.proxy(this.onCloseClick, this));
+            },
 
-              clear: function () {
-                this._$element.find('.balloon__close').off('click');
+            clear: function () {
+              this._$element.find('.balloon__close').off('click');
 
-                this.constructor.superclass.clear.call(this);
-              },
-              //
-              // Закрывает балун при клике на крестик
-              onCloseClick: function (evt) {
-                evt.preventDefault();
-                this.events.fire('userclose');
-              },
+              this.constructor.superclass.clear.call(this);
+            },
+            //
+            // Закрывает балун при клике на крестик
+            onCloseClick: function (evt) {
+              evt.preventDefault();
+              this.events.fire('userclose');
+            },
 
-              // Используется для автопозиционирования
-              getShape: function () {
-                // if(!this._isElement(this._$element)) {
-                //   return balloonLayout.superclass.getShape.call(this);
-                // }
-                let position = this._$element.position();
-                let width = this._$element.offsetWidth;
-                let height = this._$element.offsetHeight;
+            // Используется для автопозиционирования
+            getShape: function () {
+              // if(!this._isElement(this._$element)) {
+              //   return balloonLayout.superclass.getShape.call(this);
+              // }
+              let position = this._$element.position();
+              let width = this._$element.offsetWidth;
+              let height = this._$element.offsetHeight;
 
-                return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
-                  [position.left, position.top], [
-                    position.left + width,
-                    position.top + height
-                  ]
-                ]));
-              },
+              return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
+                [position.left, position.top], [
+                  position.left + width,
+                  position.top + height
+                ]
+              ]));
+            },
 
+          });
+
+          // Баллун в виде панели при мобильном разрешении экрана
+          if (window.matchMedia("(max-width: 580px)").matches) {
+            map.options.set({balloonPanelMaxMapArea:'Infinity'}) ;
+          }
+
+          const {type, location, mark_name, mark_hover_name} = obj;
+
+          if (type === dataType) {
+
+            // Создание кастомных меток и баллунов
+            const placemark = new ymaps.Placemark(location, {
+              balloonContentBody: createBalloon(obj),
+            }, {
+              balloonLayout,
+              hideIconOnBalloonOpen: false,
+              iconLayout: 'default#image',
+              iconImageHref: `./assets/img/map/${mark_name}.svg`,
+              iconImageSize: [49, 59],
+              iconImageOffset: [0, -60],
             });
 
-            // Баллун в виде панели при мобильном разрешении экрана
-            if (window.matchMedia("(max-width: 580px)").matches) {
-              map.options.set({balloonPanelMaxMapArea:'Infinity'}) ;
-            }
-
-            const {type, location, mark_name, mark_hover_name} = obj;
-
-            if (type === dataType) {
-
-              // Создание кастомных меток и баллунов
-              const placemark = new ymaps.Placemark(location, {
-                balloonContentBody: createBalloon(obj),
-              }, {
-                balloonLayout,
-                hideIconOnBalloonOpen: false,
-                iconLayout: 'default#image',
-                iconImageHref: `./assets/img/map/${mark_name}.svg`,
-                iconImageSize: [49, 59],
-                iconImageOffset: [0, -60],
-              });
-
-              // смена иконки при hover
-              placemark.events.add('mouseenter', (evt) => {
-                evt.get('target').options.set('iconImageHref', `./assets/img/map/${mark_hover_name}.svg`)
-              });
-              placemark.events.add('mouseleave', (evt) => {
-                evt.get('target').options.set('iconImageHref', `./assets/img/map/${mark_name}.svg`)
-              });
+            // смена иконки при hover
+            placemark.events.add('mouseenter', (evt) => {
+              evt.get('target').options.set('iconImageHref', `./assets/img/map/${mark_hover_name}.svg`)
+            });
+            placemark.events.add('mouseleave', (evt) => {
+              evt.get('target').options.set('iconImageHref', `./assets/img/map/${mark_name}.svg`)
+            });
 
 
-              // Добавление метки в коллекцию
-              geoObjects.add(placemark);
-              // Добавление коллекции на карту
-              map.geoObjects.add(geoObjects);
-              // Установка масштаба для видимости всей коллекции
-              map.setBounds(geoObjects.getBounds());
-              // итоговый масштаб карты чуть меньше зоны видимости
-              map.setZoom(map.getZoom() - 2);
+            // Добавление метки в коллекцию
+            geoObjects.add(placemark);
+            // Добавление коллекции на карту
+            map.geoObjects.add(geoObjects);
+            // Установка масштаба для видимости всей коллекции
+            map.setBounds(geoObjects.getBounds());
+            // итоговый масштаб карты чуть меньше зоны видимости
+            map.setZoom(map.getZoom() - 2);
 
-            }
-          });
-        };
-      });
-    };
-
-    let map;
-
-    if (map__item) {
-
-      ymaps.ready(init);
-
-      // Инициализация карты
-      function init() {
-        map = new ymaps.Map("map-index", {
-            center: [40.74521099740435, 44.868688838134744],
-            zoom: 13,
-            controls: ['routeButtonControl'],
-          },
-
-          { //ограничения области просмотра карты
-            restrictMapArea: [
-              [39.874858480470486, 42.27403199633786],
-              [41.82876820666636, 47.54746949633786]
-            ]
-          });
-
-        navItems.forEach((navItem) => {
-
-          renderMark(navItems, customJson);
-
-          navItem.addEventListener('click', () => {
-            map.geoObjects.removeAll();
-            navItems.forEach(item => item.classList.remove('js-active-mark'));
-            navItem.classList.add('js-active-mark');
-            renderMark(navItems, customJson);
-          })
+          }
         });
+      };
+    });
+  };
+
+  let map;
+
+  if (map__item) {
+
+    ymaps.ready(init);
+
+    // Инициализация карты
+    function init() {
+      map = new ymaps.Map("map-index", {
+          center: [40.74521099740435, 44.868688838134744],
+          zoom: 13,
+          controls: ['routeButtonControl'],
+        },
+
+        { //ограничения области просмотра карты
+          restrictMapArea: [
+            [39.874858480470486, 42.27403199633786],
+            [41.82876820666636, 47.54746949633786]
+          ]
+        });
+
+      navItems.forEach((navItem) => {
+
+        renderMark(navItems, customJson);
+
+        navItem.addEventListener('click', filterMark);
+
+        function filterMark() {
+          map.geoObjects.removeAll();
+          navItems.forEach(item => item.classList.remove('js-active-mark'));
+          navItem.classList.add('js-active-mark');
+          renderMark(navItems, customJson);
+          navItem.removeEventListener('click', filterMark);
+        };
+
+      });
 
         let clusterer = new ymaps.Clusterer({});
         map.geoObjects.add(clusterer);

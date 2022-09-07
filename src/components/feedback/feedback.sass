@@ -183,65 +183,65 @@
     overflow-y: auto
     overflow-x: hidden
     transition: all 0.5s ease 0s
-    display: none
+    //display: block
     padding-top: 100px
     overscroll-behavior: contain
-    &.js-popup-active
-      display: block
+    //&.js-popup-active
+    //  display: block
 
-  .popup
-    &__body
-      min-height: 100%
-      display: flex
-      align-items: center
-      justify-content: center
-      padding: 30px 10px
+.popup
+  &__body
+    min-height: 100%
+    display: flex
+    align-items: center
+    justify-content: center
+    padding: 30px 10px
 
-    &__content
-      position: relative
-      display: flex
-      align-items: center
-      justify-content: center
-      flex-direction: column
-      background-color: #fff
-      padding: 50px 70px
-      border-radius: 10px
-      max-width: 630px
-      text-align: center
-      z-index: 100
-      @media (max-width: 768px)
-        padding: 30px
+  &__content
+    position: relative
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
+    background-color: #fff
+    padding: 50px 70px
+    border-radius: 10px
+    max-width: 630px
+    text-align: center
+    z-index: 100
+    @media (max-width: 768px)
+      padding: 30px
 
-    &__close
-      display: flex
-      align-items: center
-      justify-content: center
-      background-color: rgba(#fff, 0.4)
-      border-radius: 50%
-      width: 44px
-      height: 44px
-      font-size: 20px
-      position: absolute
-      top: -45px
-      right: -35px
-      @media (max-width: 768px)
-        width: 30px
-        height: 30px
-        font-size: 15px
-        top: -35px
-        right: 0
-      &:hover
-        background-color: rgba(#fff, 0.3)
+  &__close
+    display: flex
+    align-items: center
+    justify-content: center
+    background-color: rgba(#fff, 0.4)
+    border-radius: 50%
+    width: 44px
+    height: 44px
+    font-size: 20px
+    position: absolute
+    top: -45px
+    right: -35px
+    @media (max-width: 768px)
+      width: 30px
+      height: 30px
+      font-size: 15px
+      top: -35px
+      right: 0
+    &:hover
+      background-color: rgba(#fff, 0.3)
 
 
-    &__icon
-      margin-bottom: 25px
+  &__icon
+    margin-bottom: 25px
 
-    &__title
-      font-size: clamp(18px, calc(18px + (34 - 18) * ((100vw - 1024px) / (1920 - 1024))), 34px)
-      font-family: 'Artico-ExtraCond', sans-serif
-      margin-bottom: 15px
+  &__title
+    font-size: clamp(18px, calc(18px + (34 - 18) * ((100vw - 1024px) / (1920 - 1024))), 34px)
+    font-family: 'Artico-ExtraCond', sans-serif
+    margin-bottom: 15px
 
-    &__text
-      font-size: clamp(14px, calc(14px + (22 - 14) * ((100vw - 1024px) / (1920 - 1024))), 22px)
-      color: rgba(#000, 0.45)
+  &__text
+    font-size: clamp(14px, calc(14px + (22 - 14) * ((100vw - 1024px) / (1920 - 1024))), 22px)
+    color: rgba(#000, 0.45)

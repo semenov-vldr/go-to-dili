@@ -11,6 +11,8 @@
     background-color: #fff
     padding: 30px 30px 40px
     border-radius: 16px
+    @media (max-width: 768px)
+      padding: 25px 20px 30px
 
   &__header
     display: flex
@@ -19,6 +21,8 @@
 
   &__date
     color: rgba($black, 0.5)
+    @media (max-width: 768px)
+      font-size: 14px
 
   &__button
     text-transform: uppercase
@@ -27,6 +31,8 @@
     border-radius: 20px
     padding: 10px 20px
     font-size: 12px
+    @media (max-width: 768px)
+      padding: 8px 15px
 
   &__title
     font-size: clamp(18px, calc(18px + (24 - 18) * ((100vw - 768px) / (1920 - 768))), 24px)

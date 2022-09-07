@@ -37,6 +37,7 @@ if (burger) {
 }
 
 
+// Accordion sub-nav
 const subNavList = document.querySelectorAll('.header__sub-nav') // list sub-nav
 
 subNavList.forEach(subNav => {

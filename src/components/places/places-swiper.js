@@ -18,8 +18,8 @@ new Swiper('.places__list', {
   // Отступ между слайдами
   spaceBetween: 15,
 
-  // Активный слайд по центру
-  initialSlides: false,
+  loop: true,
+
   // Стартовый слайд
   initialSlide: 0,
 
@@ -27,10 +27,11 @@ new Swiper('.places__list', {
   // Ширина экрана
   breakpoints: {
     320: {
-      slidesPerView: 1.1
+      slidesPerView: 1.2
     },
     768: {
-      slidesPerView: 1
+      slidesPerView: 1,
+      centeredSlides: false,
     },
   }
 

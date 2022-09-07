@@ -14,8 +14,6 @@ new Swiper('.tours__list', {
   // Отступ между слайдами
   spaceBetween: 15,
 
-  // Активный слайд по центру
-  initialSlides: true,
   // Стартовый слайд
   initialSlide: 0,
 
@@ -25,7 +23,7 @@ new Swiper('.tours__list', {
   // Ширина экрана
   breakpoints: {
     320: {
-      slidesPerView: 1.1,
+      slidesPerView: 1.2,
     },
     480: {
       slidesPerView: 2.2,
@@ -35,7 +33,6 @@ new Swiper('.tours__list', {
     },
     1400: {
       slidesPerView: 4,
-      initialSlide: 1,
       centeredSlides: false,
     },
   }

@@ -84,7 +84,6 @@
 
     const inputName = form.querySelector('#name');
     const inputPhone = form.querySelector('#phone');
-    const inputEmail = form.querySelector('#email');
 
 // Ввод в поле ИМЯ только русские буквы
 // inputName.addEventListener('input', function () {
@@ -123,40 +122,49 @@
     inputPhone.addEventListener('input', () => showError(inputPhone, phoneError, phoneErrorMessage));
 
 
-// --------pop-up--------------
-    const page = document.querySelector('.page');
-    const popup = document.querySelector('.feedback__popup');
-    const popupContent = popup.querySelector('.popup__content');
-    const closeButton = popup.querySelector('.popup__close');
+// --------pop-up-------------------------------------------
 
     const isPressedEscapeKey = (evt) => evt.key === 'Escape';
 
-    const closePopup = () => {
-      popup.classList.remove('js-popup-active');
-      page.classList.remove('js-lock-scroll');
+    function onDocumentEscKeydown(evt) {
+      if ( isPressedEscapeKey(evt) ) {
+        evt.preventDefault();
+        closePopup();
+      };
+    };
+
+    function onFreePlaceClick (item, evt) {
+      const content = item.querySelector('.popup__content');
+      const click = evt.composedPath().includes(content);
+      if (!click) closePopup();
     }
 
-    function onDocumentEscKeydown(evt) {
-      if (isPressedEscapeKey(evt)) closePopup();
-    };
-
-    function onDocumentClick(evt) {
-      const click = evt.composedPath().includes(popupContent);
-      if (!click) closePopup();
-    };
-
-    function submitForm(evt) {
-      evt.preventDefault();
-      popup.classList.add('js-popup-active');
-      page.classList.add('js-lock-scroll');
+    function closePopup() {
+      document.querySelector('.feedback__popup').remove();
+      document.removeEventListener('keydown', onDocumentEscKeydown);
+      document.removeEventListener('click', closePopup);
+      document.body.classList.remove('js-lock-scroll');
       form.reset();
     };
 
+    function showPopup () {
+      const popup = document.querySelector('#success').content.cloneNode(true);
+      const closeButton = popup.querySelector('.popup__close');
+      document.body.append(popup);
+      document.body.classList.add('js-lock-scroll')
+      document.addEventListener('keydown', onDocumentEscKeydown);
+      document.addEventListener('click', closePopup);
+      closeButton.addEventListener('click', closePopup);
+      document.addEventListener('click', () => onFreePlaceClick(popup));
+    };
 
-    form.addEventListener('submit', submitForm);
-    closeButton.addEventListener('click', closePopup);
-    document.addEventListener('click', onDocumentClick);
-    document.addEventListener('keydown', onDocumentEscKeydown);
+
+
+    form.addEventListener('submit', (evt) => {
+      evt.preventDefault();
+      showPopup();
+    });
+
 
   }
 
