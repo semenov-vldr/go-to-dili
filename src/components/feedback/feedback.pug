@@ -1,5 +1,4 @@
 .feedback
-
   .container.feedback__container
 
     .feedback__col-left
@@ -7,20 +6,20 @@
       img(src='/assets/img/form-decor.svg' alt='decor')
 
     .feedback__col-right
-      form.feedback__form.feedback-form(method='POST' action='https://25.javascript.pages.academy/keksobooking' enctype="multipart/form-data" autocomplete="off")
+      form.feedback__form.feedback-form(method='POST' action='https://vivazzi.pro/test-request/?par_1=foo&par_2=bar' enctype="multipart/form-data" autocomplete="off")
 
         .feedback-form__input-container
-          input#name(placeholder=" " name="name" pattern="^[A-Za-zА-Яа-яЁё\\s]+$" autocomplete='off' maxlength='40' requiredd )
+          input#name(placeholder=" " name="name" pattern="^[A-Za-zА-Яа-яЁё\\s]+$" autocomplete='off' maxlength='40' required )
           label(for='name') Имя*
           span.feedback-form__error
         .feedback-form__input-container
 
-          input#phone(type='tel' name='phone' placeholder=" " data-tel-input='' pattern='[0-9]+$' maxlength='15' minlength="10"  autocomplete='off' requiredd)
+          input#phone(type='tel' name='phone' value="89255536220" placeholder=" " data-tel-input='' pattern='[0-9]+$' maxlength='15'  autocomplete='off' required )
           label(for='phone') Телефон*
           span.feedback-form__error
 
         .feedback-form__input-container
-          input#email(type='email' name="email" maxlength='40' pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})" placeholder=" " requiredd)
+          input#email(type='email' name="email" maxlength='40' pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})" placeholder=" " required )
           label(for='email') E-mail*
           span.feedback-form__error
 
@@ -37,11 +36,23 @@
               | Нажав на кнопку, вы соглашаетесь на обработку
               a(href='') &#160;персональных данных
 
+  .feedback__decor-bottom
+
   template#success
-    .feedback__popup.popup
+    .feedback__popup.popup.success
       .popup__body
         .popup__content
           a.popup__close(href="") &#10006;
           img.popup__icon(src="assets/img/check-popup.svg", alt="icon")
           p.popup__title Ваша заявка успешно отправлена!
           p.popup__text В течении 24 часов мы с вами свяжемся
+
+  template#error
+    .feedback__popup.popup.error
+      .popup__body
+        .popup__content
+          a.popup__close(href="") &#10006;
+          img.popup__icon(src="assets/img/error-popup.svg", alt="icon")
+          p.popup__title Ошибка при отправки формы
+          p.popup__text Вам лучше перезвонить нам!
+          a(href="") +7 852 856 00 00

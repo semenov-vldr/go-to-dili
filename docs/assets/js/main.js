@@ -80,7 +80,6 @@ new Swiper('.events__list', {
 
 });
 
-{
 
   const phoneInputs = document.querySelectorAll('input[data-tel-input]');
 
@@ -160,12 +159,16 @@ new Swiper('.events__list', {
 //   input.addEventListener("paste", onPhonePaste);
 // });
 
+
   const form = document.querySelector('.feedback__form');
+
+  const inputName = form.querySelector('#name');
+  const inputPhone = form.querySelector('#phone');
+  const inputEmail = form.querySelector('#email');
+  const submitButton = form.querySelector('.feedback-form__button');
 
   if (form) {
 
-    const inputName = form.querySelector('#name');
-    const inputPhone = form.querySelector('#phone');
 
 // Ввод в поле ИМЯ только русские буквы
 // inputName.addEventListener('input', function () {
@@ -183,7 +186,8 @@ new Swiper('.events__list', {
     const nameErrorMessage = 'Вы ввели неверное имя';
     const phoneError = form.querySelector('#phone ~ span');
     const phoneErrorMessage = 'Вы ввели неверный номер';
-    const submitButton = form.querySelector('.feedback-form__button');
+    const EmailError = form.querySelector('#email ~ span');
+    const emailErrorMessage = 'Введите правильную почту';
 
 
     function showError(input, error, message) {
@@ -201,57 +205,176 @@ new Swiper('.events__list', {
     };
 
     inputName.addEventListener('input', () => showError(inputName, nameError, nameErrorMessage));
-    inputPhone.addEventListener('input', () => showError(inputPhone, phoneError, phoneErrorMessage));
-
-
-// --------pop-up-------------------------------------------
-
-    const isPressedEscapeKey = (evt) => evt.key === 'Escape';
-
-    function onDocumentEscKeydown(evt) {
-      if ( isPressedEscapeKey(evt) ) {
-        evt.preventDefault();
-        closePopup();
+    inputEmail.addEventListener('input', () => showError(inputEmail, EmailError, emailErrorMessage));
+    inputPhone.addEventListener('input', (evt) => {
+      showError(inputPhone, phoneError, phoneErrorMessage);
+      const numberLength = evt.target.value.length;
+      if (numberLength < 10 && numberLength > 0) {
+        phoneError.textContent = "Номер должен содержать не менее 10 цифр";
+      } else {
+        phoneError.textContent = '';
       };
-    };
-
-    function onFreePlaceClick (item, evt) {
-      const content = item.querySelector('.popup__content');
-      const click = evt.composedPath().includes(content);
-      if (!click) closePopup();
-    }
-
-    function closePopup() {
-      document.querySelector('.feedback__popup').remove();
-      document.removeEventListener('keydown', onDocumentEscKeydown);
-      document.removeEventListener('click', closePopup);
-      document.body.classList.remove('js-lock-scroll');
-      form.reset();
-    };
-
-    function showPopup () {
-      const popup = document.querySelector('#success').content.cloneNode(true);
-      const closeButton = popup.querySelector('.popup__close');
-      document.body.append(popup);
-      document.body.classList.add('js-lock-scroll')
-      document.addEventListener('keydown', onDocumentEscKeydown);
-      document.addEventListener('click', closePopup);
-      closeButton.addEventListener('click', closePopup);
-      document.addEventListener('click', () => onFreePlaceClick(popup));
-    };
-
-
-
-    form.addEventListener('submit', (evt) => {
-      evt.preventDefault();
-      showPopup();
     });
-
 
   }
 
 
+
+const API_URL = 'https://httpbin.org/post';
+
+// let html = document.documentElement;
+// let scrollY = window.scrollY;
+
+let popup;
+
+const isPressedEscapeKey = (evt) => evt.key === 'Escape';
+
+function onDocumentEscKeydown (evt) {
+  if ( isPressedEscapeKey(evt) ) {
+    evt.preventDefault();
+    closePopup();
+  };
+};
+
+// function onFreePlaceClick (item, evt) {
+//   const content = item.querySelector('.popup__content');
+//   const click = evt.composedPath().includes(content);
+//   if (!click) closePopup();
+// };
+
+function closePopup () {
+  document.querySelector('.feedback__popup').remove();
+  document.removeEventListener('keydown', onDocumentEscKeydown);
+  document.removeEventListener('click', closePopup);
+  document.body.classList.remove('js-lock-scroll');
+  form.reset();
+  //window.scrollTo(0, scrollY);
+  //html.style.top = "";
+};
+
+function showPopup () {
+  document.body.append(popup);
+  const closeButton = popup.querySelector('.popup__close');
+  document.body.classList.add('js-lock-scroll')
+  document.addEventListener('keydown', onDocumentEscKeydown);
+  document.addEventListener('click', closePopup);
+  //closeButton.addEventListener('click', closePopup);
+  //html.style.top = -scrollY + 'px';
+};
+
+function displayPopupSuccess () {
+  popup = document.querySelector('#success').content.cloneNode(true);
+  showPopup();
+};
+
+function displayPopupError () {
+  popup = document.querySelector('#error').content.cloneNode(true);
+  showPopup();
+};
+
+function blockSubmitButton () {
+  submitButton.disabled = true;
+  submitButton.textContent = 'Отправляю...';
+};
+
+function unblockSubmitButton () {
+  submitButton.disabled = false;
+  submitButton.textContent = 'Отправить заявку';
+};
+
+function sendDataForm (onSuccess, onError, body) {
+  fetch(API_URL,{
+      method: 'POST',
+      body,
+    },
+  ).then((responce) => {
+    responce.ok ? onSuccess() : onError();
+  }).catch(() => onError());
+};
+
+function setUserFormSubmit (onSuccess, onError) {
+
+  form.addEventListener('submit', (evt) => {
+    evt.preventDefault();
+
+    const isValid = form.checkValidity();
+
+    if (isValid) {
+      sendDataForm(() => {
+          blockSubmitButton();
+          onSuccess();
+        },
+        () => {
+          unblockSubmitButton();
+          onError();
+        },
+        new FormData(evt.target)
+      );
+    }
+  });
+};
+
+setUserFormSubmit ( displayPopupSuccess, displayPopupError );
+
+const history_block = document.querySelector('.history');
+
+if ( history_block ) {
+
+  const prev = history_block.querySelector('.arrow-nav__prev');
+  const next = history_block.querySelector('.arrow-nav__next');
+  const slides = history_block.querySelectorAll('.history-info-item');
+  const dots = history_block.querySelectorAll('.history-years-line__item'); // год(а) как кнопка
+
+  let index = 0;
+
+  const activeSlide = (num) => {
+    slides.forEach(slide => slide.classList.remove('js-history-active'));
+    slides[num].classList.add('js-history-active');
+  };
+
+  const activeDot = (num) => {
+    dots.forEach(dot => dot.classList.remove('js-history-active'));
+    dots[num].classList.add('js-history-active');
+  };
+
+  const currentSlide = (idx) => {
+    activeSlide(idx);
+    activeDot(idx);
+  };
+
+  const nextSlide = () => {
+    if (index == slides.length - 1) {
+      index = 0;
+      currentSlide(index);
+    } else {
+      index++;
+      currentSlide(index);
+    }
+  };
+
+  const prevSlide = () => {
+    if (index == 0) {
+      index = slides.length - 1
+      currentSlide(index);
+    } else {
+      index--;
+      currentSlide(index);
+    }
+  };
+
+  next.addEventListener("click", nextSlide);
+  prev.addEventListener("click", prevSlide);
+
+  dots.forEach((dot, indexDot) => {
+    dot.addEventListener("click", () => {
+      index = indexDot;
+      currentSlide(index);
+    });
+  });
+
+
 }
+
 
 window.addEventListener("scroll", scrollHeader);
 
@@ -317,66 +440,6 @@ function accordion (item) {
 
 
 
-
-
-const history_block = document.querySelector('.history');
-
-if ( history_block ) {
-
-  const prev = history_block.querySelector('.arrow-nav__prev');
-  const next = history_block.querySelector('.arrow-nav__next');
-  const slides = history_block.querySelectorAll('.history-info-item');
-  const dots = history_block.querySelectorAll('.history-years-line__item'); // год(а) как кнопка
-
-  let index = 0;
-
-  const activeSlide = (num) => {
-    slides.forEach(slide => slide.classList.remove('js-history-active'));
-    slides[num].classList.add('js-history-active');
-  };
-
-  const activeDot = (num) => {
-    dots.forEach(dot => dot.classList.remove('js-history-active'));
-    dots[num].classList.add('js-history-active');
-  };
-
-  const currentSlide = (idx) => {
-    activeSlide(idx);
-    activeDot(idx);
-  };
-
-  const nextSlide = () => {
-    if (index == slides.length - 1) {
-      index = 0;
-      currentSlide(index);
-    } else {
-      index++;
-      currentSlide(index);
-    }
-  };
-
-  const prevSlide = () => {
-    if (index == 0) {
-      index = slides.length - 1
-      currentSlide(index);
-    } else {
-      index--;
-      currentSlide(index);
-    }
-  };
-
-  next.addEventListener("click", nextSlide);
-  prev.addEventListener("click", prevSlide);
-
-  dots.forEach((dot, indexDot) => {
-    dot.addEventListener("click", () => {
-      index = indexDot;
-      currentSlide(index);
-    });
-  });
-
-
-}
 
 
 new Swiper('.places__list', {
@@ -447,6 +510,51 @@ new Swiper('.places__list', {
 
 }
 
+new Swiper('.tours__list', {
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+
+  slidesPerView: 4,
+
+  // Откл функционала, если слайдов меньше, чем нужно
+  watchOverflow: true,
+
+  centeredSlides: true,
+
+  // Отступ между слайдами
+  spaceBetween: 15,
+
+  // Стартовый слайд
+  initialSlide: 0,
+
+  loop: true,
+
+  // Брейк поинты (адаптив)
+  // Ширина экрана
+  breakpoints: {
+    320: {
+      slidesPerView: 1.2,
+    },
+    480: {
+      slidesPerView: 2.2,
+    },
+    768: {
+      slidesPerView: 3.2,
+    },
+    1400: {
+      slidesPerView: 4,
+      centeredSlides: false,
+    },
+  }
+
+});
+
+
+
+
+
 /* Map Yandex */
 
 {
@@ -515,51 +623,6 @@ new Swiper('.places__list', {
   });
 
 }
-
-new Swiper('.tours__list', {
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-
-  slidesPerView: 4,
-
-  // Откл функционала, если слайдов меньше, чем нужно
-  watchOverflow: true,
-
-  centeredSlides: true,
-
-  // Отступ между слайдами
-  spaceBetween: 15,
-
-  // Стартовый слайд
-  initialSlide: 0,
-
-  loop: true,
-
-  // Брейк поинты (адаптив)
-  // Ширина экрана
-  breakpoints: {
-    320: {
-      slidesPerView: 1.2,
-    },
-    480: {
-      slidesPerView: 2.2,
-    },
-    768: {
-      slidesPerView: 3.2,
-    },
-    1400: {
-      slidesPerView: 4,
-      centeredSlides: false,
-    },
-  }
-
-});
-
-
-
-
 
 {
   new Swiper('.events-item-gallery__list', {
@@ -925,15 +988,16 @@ const customJson = [
 
         renderMark(navItems, customJson);
 
-        navItem.addEventListener('click', filterMark);
-
         function filterMark() {
           map.geoObjects.removeAll();
           navItems.forEach(item => item.classList.remove('js-active-mark'));
           navItem.classList.add('js-active-mark');
           renderMark(navItems, customJson);
-          navItem.removeEventListener('click', filterMark);
+          //navItem.removeEventListener('click', filterMark);
         };
+
+        navItem.addEventListener('click', filterMark);
+
 
       });
 
@@ -960,6 +1024,8 @@ const customJson = [
     uniqueNavElements: true,
 
     slidesPerView: 3,
+
+    loop: true,
 
     centeredSlides: true,
 

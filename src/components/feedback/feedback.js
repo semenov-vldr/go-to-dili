@@ -1,4 +1,3 @@
-{
 
   const phoneInputs = document.querySelectorAll('input[data-tel-input]');
 
@@ -78,12 +77,16 @@
 //   input.addEventListener("paste", onPhonePaste);
 // });
 
+
   const form = document.querySelector('.feedback__form');
+
+  const inputName = form.querySelector('#name');
+  const inputPhone = form.querySelector('#phone');
+  const inputEmail = form.querySelector('#email');
+  const submitButton = form.querySelector('.feedback-form__button');
 
   if (form) {
 
-    const inputName = form.querySelector('#name');
-    const inputPhone = form.querySelector('#phone');
 
 // Ввод в поле ИМЯ только русские буквы
 // inputName.addEventListener('input', function () {
@@ -101,7 +104,8 @@
     const nameErrorMessage = 'Вы ввели неверное имя';
     const phoneError = form.querySelector('#phone ~ span');
     const phoneErrorMessage = 'Вы ввели неверный номер';
-    const submitButton = form.querySelector('.feedback-form__button');
+    const EmailError = form.querySelector('#email ~ span');
+    const emailErrorMessage = 'Введите правильную почту';
 
 
     function showError(input, error, message) {
@@ -119,54 +123,17 @@
     };
 
     inputName.addEventListener('input', () => showError(inputName, nameError, nameErrorMessage));
-    inputPhone.addEventListener('input', () => showError(inputPhone, phoneError, phoneErrorMessage));
-
-
-// --------pop-up-------------------------------------------
-
-    const isPressedEscapeKey = (evt) => evt.key === 'Escape';
-
-    function onDocumentEscKeydown(evt) {
-      if ( isPressedEscapeKey(evt) ) {
-        evt.preventDefault();
-        closePopup();
+    inputEmail.addEventListener('input', () => showError(inputEmail, EmailError, emailErrorMessage));
+    inputPhone.addEventListener('input', (evt) => {
+      showError(inputPhone, phoneError, phoneErrorMessage);
+      const numberLength = evt.target.value.length;
+      if (numberLength < 10 && numberLength > 0) {
+        phoneError.textContent = "Номер должен содержать не менее 10 цифр";
+      } else {
+        phoneError.textContent = '';
       };
-    };
-
-    function onFreePlaceClick (item, evt) {
-      const content = item.querySelector('.popup__content');
-      const click = evt.composedPath().includes(content);
-      if (!click) closePopup();
-    }
-
-    function closePopup() {
-      document.querySelector('.feedback__popup').remove();
-      document.removeEventListener('keydown', onDocumentEscKeydown);
-      document.removeEventListener('click', closePopup);
-      document.body.classList.remove('js-lock-scroll');
-      form.reset();
-    };
-
-    function showPopup () {
-      const popup = document.querySelector('#success').content.cloneNode(true);
-      const closeButton = popup.querySelector('.popup__close');
-      document.body.append(popup);
-      document.body.classList.add('js-lock-scroll')
-      document.addEventListener('keydown', onDocumentEscKeydown);
-      document.addEventListener('click', closePopup);
-      closeButton.addEventListener('click', closePopup);
-      document.addEventListener('click', () => onFreePlaceClick(popup));
-    };
-
-
-
-    form.addEventListener('submit', (evt) => {
-      evt.preventDefault();
-      showPopup();
     });
-
 
   }
 
 
-}

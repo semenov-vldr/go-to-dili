@@ -1,7 +1,7 @@
 .feedback
+  background-color: var(--c-light-green)
 
   &__decor-bottom
-    background-color: var(--c-light-green)
     background-image: url('/assets/img/feedback-decor-bottom.svg')
     background-size: 733px 170px
     background-repeat: repeat-x
@@ -245,3 +245,7 @@
   &__text
     font-size: clamp(14px, calc(14px + (22 - 14) * ((100vw - 1024px) / (1920 - 1024))), 22px)
     color: rgba(#000, 0.45)
+    & + p,
+    & + span,
+    & + a
+      margin-top: 15px

@@ -697,17 +697,17 @@
                 </div><img src="/assets/img/form-decor.svg" alt="decor">
               </div>
               <div class="feedback__col-right">
-                <form class="feedback__form feedback-form" method="POST" action="https://25.javascript.pages.academy/keksobooking" enctype="multipart/form-data" autocomplete="off">
+                <form class="feedback__form feedback-form" method="POST" action="https://vivazzi.pro/test-request/?par_1=foo&amp;par_2=bar" enctype="multipart/form-data" autocomplete="off">
                   <div class="feedback-form__input-container">
-                    <input id="name" placeholder=" " name="name" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off" maxlength="40" requiredd>
+                    <input id="name" placeholder=" " name="name" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off" maxlength="40" required>
                     <label for="name">Имя*</label><span class="feedback-form__error"></span>
                   </div>
                   <div class="feedback-form__input-container">
-                    <input id="phone" type="tel" name="phone" placeholder=" " data-tel-input="" pattern="[0-9]+$" maxlength="15" minlength="10" autocomplete="off" requiredd>
+                    <input id="phone" type="tel" name="phone" value="89255536220" placeholder=" " data-tel-input="" pattern="[0-9]+$" maxlength="15" autocomplete="off" required>
                     <label for="phone">Телефон*</label><span class="feedback-form__error"></span>
                   </div>
                   <div class="feedback-form__input-container">
-                    <input id="email" type="email" name="email" maxlength="40" pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})" placeholder=" " requiredd>
+                    <input id="email" type="email" name="email" maxlength="40" pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})" placeholder=" " required>
                     <label for="email">E-mail*</label><span class="feedback-form__error"></span>
                   </div>
                   <div class="feedback-form__input-container">
@@ -723,12 +723,23 @@
                 </form>
               </div>
             </div>
+            <div class="feedback__decor-bottom"></div>
             <template id="success">
-              <div class="feedback__popup popup">
+              <div class="feedback__popup popup success">
                 <div class="popup__body">
                   <div class="popup__content"><a class="popup__close" href="">&#10006;</a><img class="popup__icon" src="assets/img/check-popup.svg" alt="icon">
                     <p class="popup__title">Ваша заявка успешно отправлена!</p>
                     <p class="popup__text">В течении 24 часов мы с вами свяжемся</p>
+                  </div>
+                </div>
+              </div>
+            </template>
+            <template id="error">
+              <div class="feedback__popup popup error">
+                <div class="popup__body">
+                  <div class="popup__content"><a class="popup__close" href="">&#10006;</a><img class="popup__icon" src="assets/img/error-popup.svg" alt="icon">
+                    <p class="popup__title">Ошибка при отправки формы</p>
+                    <p class="popup__text">Вам лучше перезвонить нам!</p><a href="">+7 852 856 00 00</a>
                   </div>
                 </div>
               </div>

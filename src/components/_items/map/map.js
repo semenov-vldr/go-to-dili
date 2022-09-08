@@ -153,15 +153,16 @@
 
         renderMark(navItems, customJson);
 
-        navItem.addEventListener('click', filterMark);
-
         function filterMark() {
           map.geoObjects.removeAll();
           navItems.forEach(item => item.classList.remove('js-active-mark'));
           navItem.classList.add('js-active-mark');
           renderMark(navItems, customJson);
-          navItem.removeEventListener('click', filterMark);
+          //navItem.removeEventListener('click', filterMark);
         };
+
+        navItem.addEventListener('click', filterMark);
+
 
       });
 

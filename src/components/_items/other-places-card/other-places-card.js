@@ -14,6 +14,8 @@
 
     slidesPerView: 3,
 
+    loop: true,
+
     centeredSlides: true,
 
     // Откл функционала, если слайдов меньше, чем нужно
