@@ -29,7 +29,7 @@ new Swiper('.tours__list', {
       slidesPerView: 2.2,
     },
     768: {
-      slidesPerView: 3.2,
+      slidesPerView: 3,
     },
     1400: {
       slidesPerView: 4,

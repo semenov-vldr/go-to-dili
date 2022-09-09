@@ -24,7 +24,8 @@ function scrollHeader() {
 // burger
 const burger = document.querySelector('.header__burger-icon');
 const menu = document.querySelector('.header__container');
-const headerMobile = document.querySelector('.header-mobile');
+const headerMobile = document.querySelector('.header-mobile')
+const headerMobileWrapper = document.querySelector('.header-mobile__wrapper');
 const logo_mobile = document.querySelector('.header-mobile__logo');
 if (burger) {
   burger.addEventListener('click', () => {
@@ -33,6 +34,8 @@ if (burger) {
     headerMobile.classList.toggle('js-active-menu');
     menu.classList.toggle('js-active-menu');
     logo_mobile.classList.toggle('js-active-menu');
+    headerMobileWrapper.classList.toggle('js-active-menu');
+    promoDiscount.classList.toggle('js-active-menu');
   });
 }
 

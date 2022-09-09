@@ -384,7 +384,8 @@ function scrollHeader() {
 // burger
 const burger = document.querySelector('.header__burger-icon');
 const menu = document.querySelector('.header__container');
-const headerMobile = document.querySelector('.header-mobile');
+const headerMobile = document.querySelector('.header-mobile')
+const headerMobileWrapper = document.querySelector('.header-mobile__wrapper');
 const logo_mobile = document.querySelector('.header-mobile__logo');
 if (burger) {
   burger.addEventListener('click', () => {
@@ -393,6 +394,8 @@ if (burger) {
     headerMobile.classList.toggle('js-active-menu');
     menu.classList.toggle('js-active-menu');
     logo_mobile.classList.toggle('js-active-menu');
+    headerMobileWrapper.classList.toggle('js-active-menu');
+    promoDiscount.classList.toggle('js-active-menu');
   });
 }
 
@@ -422,46 +425,6 @@ function accordion (item) {
 
 
 
-
-
-new Swiper('.places__list', {
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-  navigation: {
-    nextEl: '.arrow-nav__next',
-    prevEl: '.arrow-nav__prev',
-  },
-
-  slidesPerView: 3,
-
-  centeredSlides: true,
-
-  // Откл функционала, если слайдов меньше, чем нужно
-  watchOverflow: true,
-
-  // Отступ между слайдами
-  spaceBetween: 15,
-
-  loop: true,
-
-  // Стартовый слайд
-  initialSlide: 0,
-
-  // Брейк поинты (адаптив)
-  // Ширина экрана
-  breakpoints: {
-    320: {
-      slidesPerView: 1.2
-    },
-    768: {
-      slidesPerView: 1,
-      centeredSlides: false,
-    },
-  }
-
-});
 
 
 const history_block = document.querySelector('.history');
@@ -524,6 +487,46 @@ if ( history_block ) {
 }
 
 
+new Swiper('.places__list', {
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '.arrow-nav__next',
+    prevEl: '.arrow-nav__prev',
+  },
+
+  slidesPerView: 3,
+
+  centeredSlides: true,
+
+  // Откл функционала, если слайдов меньше, чем нужно
+  watchOverflow: true,
+
+  // Отступ между слайдами
+  spaceBetween: 15,
+
+  loop: true,
+
+  // Стартовый слайд
+  initialSlide: 0,
+
+  // Брейк поинты (адаптив)
+  // Ширина экрана
+  breakpoints: {
+    320: {
+      slidesPerView: 1.2
+    },
+    768: {
+      slidesPerView: 1,
+      centeredSlides: false,
+    },
+  }
+
+});
+
+
 new Swiper('.tours__list', {
   pagination: {
     el: '.swiper-pagination',
@@ -555,7 +558,7 @@ new Swiper('.tours__list', {
       slidesPerView: 2.2,
     },
     768: {
-      slidesPerView: 3.2,
+      slidesPerView: 3,
     },
     1400: {
       slidesPerView: 4,
@@ -597,10 +600,6 @@ new Swiper('.tours__list', {
 
 
 }
-
-
-
-
 
 /* Map Yandex */
 
@@ -670,6 +669,10 @@ new Swiper('.tours__list', {
   });
 
 }
+
+
+
+
 
 {
   new Swiper('.events-item-gallery__list', {

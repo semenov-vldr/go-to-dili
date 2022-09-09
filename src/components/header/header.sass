@@ -27,6 +27,7 @@
 
   &.scrolled
     position: sticky
+    position: -webkit-sticky
     background-color: var(--c-green)
     z-index: 1001
     top: 0
@@ -40,6 +41,13 @@
     background-color: var(--c-black)
   &.scrolled .header__button
     background-color: rgba(#fff, 0.3)
+
+  &.js-active-menu .promo-discount
+    background-color: red
+    position: relative
+    z-index: 1
+    & *
+      display: none
 
   &__link
     white-space: nowrap
@@ -334,9 +342,10 @@
   padding: 7px 20px
   @media (max-width: 1000px)
     display: block
-    //position: relative
-    //z-index: 1
-    //background-color: var(--c-green)
+    &.js-active-menu
+      position: relative
+      z-index: 1
+      background-color: var(--c-green)
 
     .header-mobile
       display: flex
