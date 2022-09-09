@@ -40,6 +40,48 @@ new Swiper('.about-people__list', {
 
 });
 
+
+new Swiper('.about-people__list2', {
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+
+  slidesPerView: 3,
+
+  centeredSlides: true,
+
+  // Откл функционала, если слайдов меньше, чем нужно
+  watchOverflow: true,
+
+  // Отступ между слайдами
+  spaceBetween: 15,
+
+  loop: true,
+
+  // Стартовый слайд
+  initialSlide: 0,
+
+  // Брейк поинты (адаптив)
+  // Ширина экрана
+  breakpoints: {
+    320: {
+      slidesPerView: 1.2,
+    },
+    480: {
+      slidesPerView: 2.2,
+    },
+    768: {
+      slidesPerView: 3.2,
+    },
+    1400: {
+      slidesPerView: 4,
+      centeredSlides: false,
+    },
+  }
+
+});
+
 new Swiper('.events__list', {
   pagination: {
     el: '.swiper-pagination',
@@ -316,66 +358,6 @@ function setUserFormSubmit (onSuccess, onError) {
 
 setUserFormSubmit ( displayPopupSuccess, displayPopupError );
 
-const history_block = document.querySelector('.history');
-
-if ( history_block ) {
-
-  const prev = history_block.querySelector('.arrow-nav__prev');
-  const next = history_block.querySelector('.arrow-nav__next');
-  const slides = history_block.querySelectorAll('.history-info-item');
-  const dots = history_block.querySelectorAll('.history-years-line__item'); // год(а) как кнопка
-
-  let index = 0;
-
-  const activeSlide = (num) => {
-    slides.forEach(slide => slide.classList.remove('js-history-active'));
-    slides[num].classList.add('js-history-active');
-  };
-
-  const activeDot = (num) => {
-    dots.forEach(dot => dot.classList.remove('js-history-active'));
-    dots[num].classList.add('js-history-active');
-  };
-
-  const currentSlide = (idx) => {
-    activeSlide(idx);
-    activeDot(idx);
-  };
-
-  const nextSlide = () => {
-    if (index == slides.length - 1) {
-      index = 0;
-      currentSlide(index);
-    } else {
-      index++;
-      currentSlide(index);
-    }
-  };
-
-  const prevSlide = () => {
-    if (index == 0) {
-      index = slides.length - 1
-      currentSlide(index);
-    } else {
-      index--;
-      currentSlide(index);
-    }
-  };
-
-  next.addEventListener("click", nextSlide);
-  prev.addEventListener("click", prevSlide);
-
-  dots.forEach((dot, indexDot) => {
-    dot.addEventListener("click", () => {
-      index = indexDot;
-      currentSlide(index);
-    });
-  });
-
-
-}
-
-
 window.addEventListener("scroll", scrollHeader);
 
 function scrollHeader() {
@@ -482,33 +464,65 @@ new Swiper('.places__list', {
 });
 
 
-{
+const history_block = document.querySelector('.history');
 
-  let baseOptions = {
-    slidesPerView: 1,
-    loop: true,
-    // Смена прозрачности
-    effect: 'fade',
-    fadeEffect: {
-      // Параллельная смена прозрачности
-      crossFade: true,
+if ( history_block ) {
+
+  const prev = history_block.querySelector('.arrow-nav__prev');
+  const next = history_block.querySelector('.arrow-nav__next');
+  const slides = history_block.querySelectorAll('.history-info-item');
+  const dots = history_block.querySelectorAll('.history-years-line__item'); // год(а) как кнопка
+
+  let index = 0;
+
+  const activeSlide = (num) => {
+    slides.forEach(slide => slide.classList.remove('js-history-active'));
+    slides[num].classList.add('js-history-active');
+  };
+
+  const activeDot = (num) => {
+    dots.forEach(dot => dot.classList.remove('js-history-active'));
+    dots[num].classList.add('js-history-active');
+  };
+
+  const currentSlide = (idx) => {
+    activeSlide(idx);
+    activeDot(idx);
+  };
+
+  const nextSlide = () => {
+    if (index == slides.length - 1) {
+      index = 0;
+      currentSlide(index);
+    } else {
+      index++;
+      currentSlide(index);
     }
   };
 
-
-  const swiperOptions = ( delayValue ) => {
-    return Object.assign({autoplay: { delay: delayValue },}, baseOptions);
+  const prevSlide = () => {
+    if (index == 0) {
+      index = slides.length - 1
+      currentSlide(index);
+    } else {
+      index--;
+      currentSlide(index);
+    }
   };
 
+  next.addEventListener("click", nextSlide);
+  prev.addEventListener("click", prevSlide);
 
-  new Swiper('.js-share-slider-1, .js-share-slider-5', swiperOptions( 2000 ));
-
-  new Swiper('.js-share-slider-2, .js-share-slider-4', swiperOptions( 2200 ));
-
-  new Swiper('.js-share-slider-3, .js-share-slider-6', swiperOptions( 1800 ));
+  dots.forEach((dot, indexDot) => {
+    dot.addEventListener("click", () => {
+      index = indexDot;
+      currentSlide(index);
+    });
+  });
 
 
 }
+
 
 new Swiper('.tours__list', {
   pagination: {
@@ -550,6 +564,39 @@ new Swiper('.tours__list', {
   }
 
 });
+
+{
+
+  let baseOptions = {
+    slidesPerView: 1,
+    loop: true,
+    effect: 'fade',
+    fadeEffect: {
+      // Параллельная смена прозрачности
+      crossFade: true,
+    }
+  };
+
+
+  const swiperOptions = ( delayValue ) => {
+    return Object.assign({autoplay: { delay: delayValue },}, baseOptions);
+  };
+
+
+  new Swiper('.js-share-slider-1', swiperOptions( 8000 ));
+
+  new Swiper('.js-share-slider-2', swiperOptions( 14000 ));
+
+  new Swiper('.js-share-slider-3', swiperOptions( 12000 ));
+
+  new Swiper('.js-share-slider-4', swiperOptions( 16000 ));
+
+  new Swiper('.js-share-slider-5', swiperOptions( 10000 ));
+
+  new Swiper('.js-share-slider-6', swiperOptions( 15000 ));
+
+
+}
 
 
 
@@ -957,6 +1004,11 @@ const customJson = [
             // итоговый масштаб карты чуть меньше зоны видимости
             map.setZoom(map.getZoom() - 2);
 
+            // Запрет зума
+            map.behaviors.disable('scrollZoom');
+            map.behaviors.disable('dblClickZoom');
+            map.behaviors.disable('multiTouch');
+
           }
         });
       };
@@ -1175,6 +1227,10 @@ function createMapMark ( { wrapperMapClass, mapClass, mapId }, Json ) {
               map.setBounds(geoObjects.getBounds());
               // итоговый масштаб карты чуть меньше зоны видимости
               map.setZoom(map.getZoom() - 5);
+
+              map.behaviors.disable('scrollZoom');
+              map.behaviors.disable('dblClickZoom');
+              map.behaviors.disable('multiTouch');
 
           });
     };

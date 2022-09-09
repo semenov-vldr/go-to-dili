@@ -105,6 +105,10 @@ function createMapMark ( { wrapperMapClass, mapClass, mapId }, Json ) {
               // итоговый масштаб карты чуть меньше зоны видимости
               map.setZoom(map.getZoom() - 5);
 
+              map.behaviors.disable('scrollZoom');
+              map.behaviors.disable('dblClickZoom');
+              map.behaviors.disable('multiTouch');
+
           });
     };
 

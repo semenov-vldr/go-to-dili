@@ -9,7 +9,7 @@
   background-color: var(--c-green)
   &.header-index
     background-color: transparent
-    position: absolute
+    //position: absolute
   &.header-index .header__button
     @media (min-width: 1000px)
       background-color: var(--c-green)
@@ -26,9 +26,11 @@
     fill: rgba(#fff, 0.25)
 
   &.scrolled
-    position: fixed
+    position: sticky
     background-color: var(--c-green)
     z-index: 1001
+    top: 0
+    left: 0
   &.scrolled .header__logo svg,
   &.scrolled .header-mobile__logo svg
     fill: var(--c-black)
@@ -332,6 +334,9 @@
   padding: 7px 20px
   @media (max-width: 1000px)
     display: block
+    //position: relative
+    //z-index: 1
+    //background-color: var(--c-green)
 
     .header-mobile
       display: flex

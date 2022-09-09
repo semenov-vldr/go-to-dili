@@ -122,6 +122,11 @@
             // итоговый масштаб карты чуть меньше зоны видимости
             map.setZoom(map.getZoom() - 2);
 
+            // Запрет зума
+            map.behaviors.disable('scrollZoom');
+            map.behaviors.disable('dblClickZoom');
+            map.behaviors.disable('multiTouch');
+
           }
         });
       };

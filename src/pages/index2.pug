@@ -1,0 +1,31 @@
+extends ../layouts/main-index
+
+block variables
+  - var title = "Дилижан. Откроем вам душу города"
+  - var pageClass = ''
+  - var activePage = 'index'
+
+block content
+  section
+    include ../components/hero/hero
+    include ../components/about-project/about-project2
+
+    include ../components/what-to-do/what-to-do
+    //img.decor-bg-bottom(src='/assets/img/decor-bg-bottom.svg' alt='decor')
+
+    include ../components/events/events
+
+    //img.decor-bg-top(src='/assets/img/decor-bg-top-2.svg' alt='decor')
+    include ../components/places/places
+
+    include ../components/tours/tours
+    include ../components/history/history
+
+    include ../components/about-people/about-people2
+    //img.decor-bg-bottom(src='/assets/img/decor-bg-bottom-3.svg' alt='img')
+
+    include ../components/share/share2
+
+    //img.decor-bg-top(src='/assets/img/decor-bg-top-3.svg' alt='img')
+    include ../components/feedback/feedback
+
