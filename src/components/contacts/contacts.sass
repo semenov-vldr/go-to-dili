@@ -1,0 +1,42 @@
+.contacts
+  padding: 0 0 100px
+  &__container
+    display: flex
+    gap: 30px
+    justify-content: center
+
+  &__content
+    flex: 1 1 40%
+    display: flex
+    gap: 30px
+    flex-direction: column
+
+  &__title
+    @extend .font-s-2
+
+  &__list
+    display: flex
+    flex-direction: column
+    gap: 30px
+
+  &-item__title
+    display: block
+    margin-bottom: 20px
+    font-size: clamp(14px, calc(14px + (20 - 14) * ((100vw - 1024px) / (1920 - 1024))), 20px)
+    font-weight: 500
+
+  &__map-wrapper
+    flex: 1 1 60%
+    width: 100%
+    height: 400px
+
+  &__map
+    width: 100%
+    height: 100%
+    overflow: hidden
+
+  &__social
+    display: flex
+    gap: 10px
+    flex-wrap: wrap
+

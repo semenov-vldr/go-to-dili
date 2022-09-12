@@ -1,0 +1,102 @@
+.important-info
+  padding: 50px 0 100px
+  &__container
+    display: flex
+    justify-content: space-between
+    position: relative
+    @media (max-width: 1200px)
+      flex-direction: column
+
+  &__content
+    flex: 0 1 70%
+  &__title
+    @extend .font-s-2
+    margin-bottom: 30px
+
+  &__text
+    line-height: 1.5
+    font-size: clamp(18px, calc(18px + (24 - 18) * ((100vw - 1024px) / (1920 - 1024))), 24px)
+    margin-bottom: 20px
+
+  &__lists
+    margin-top: 80px
+    display: flex
+    flex-wrap: wrap
+    column-gap: 100px
+    justify-content: center
+    @media (max-width: 480px)
+      column-gap: 50px
+      row-gap: 30px
+      justify-content: start
+      padding-left: 20px
+
+  &__list
+    padding-left: 20px
+    display: flex
+    flex-direction: column
+    gap: 15px
+    font-size: clamp(14px, calc(14px + (20 - 14) * ((100vw - 1024px) / (1920 - 1024))), 20px)
+    @media (max-width: 768px)
+      padding-left: 0
+
+  &__list-1
+    .important-info__item
+      list-style-type: disc
+  &__list-2
+    .important-info__item
+      list-style-type: decimal
+
+  &__line
+    margin: 70px 0
+
+  &__images
+    display: flex
+    flex-wrap: wrap
+    gap: 20px
+
+  &__image-wrapper
+    flex: 0 1 30%
+    overflow: hidden
+    width: 100%
+    border-radius: 10px
+    @media (max-width: 768px)
+      flex: 0 1 45%
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+
+  &__nav
+    position: fixed
+    width: 200px
+    background-color: var(--c-light-green)
+    border-radius: 10px
+    padding: 20px
+    right: 160px
+    overflow-x: hidden
+    @media (max-width: 1200px)
+      left: 50px
+      right: 50px
+      top: 250px
+      width: max-content
+
+  &-nav__list
+    display: flex
+    flex-direction: column
+    gap: 20px
+    text-align: center
+    @media (max-width: 1200px)
+      flex-direction: row
+
+  &-nav__link
+    color: $black
+    font-size: 16px
+    font-weight: 400
+    line-height: 1.5
+    &:hover
+      text-decoration: underline
+
+
+
+
+

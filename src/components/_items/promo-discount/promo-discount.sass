@@ -12,7 +12,7 @@
     font-size: clamp(11px, calc(11px + (15 - 11) * ((100vw - 768px) / (1920 - 768))), 15px)
     color: #fff
     font-weight: 700
-    padding: 0 75px
+    padding: 0 40px
     text-align: center
     &:hover
       text-decoration: underline
@@ -34,3 +34,7 @@
   &:hover
     background-color: rgba(#fff, 0.5)
 
+.promo-discount.js-active-menu
+  z-index: 1
+  & *
+    display: none

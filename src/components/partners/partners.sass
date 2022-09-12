@@ -1,0 +1,35 @@
+.partners
+  padding: 50px 0
+  &__container
+    text-align: center
+
+  &__title
+    @extend .font-s-2
+    margin-bottom: 50px
+  &__list
+    display: flex
+    justify-content: center
+    flex-wrap: wrap
+    gap: 20px
+    @media (max-width: 768px)
+      gap: 10px
+  &__item
+    border-radius: 10px
+    padding: 20px
+    display: flex
+    height: auto
+    @extend .flex-center
+    flex: 0 1 30%
+    aspect-ratio: 2.5 / 1
+    background-color: $black
+    @media (max-width: 768px)
+      flex: 0 1 40%
+
+    span
+      font-size: clamp(14px, calc(14px + (24 - 14) * ((100vw - 768px) / (1920 - 768))), 24px)
+      font-weight: 500
+      color: #fff
+
+  &__button
+    margin-top: 60px
+

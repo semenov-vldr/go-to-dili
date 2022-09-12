@@ -1,0 +1,42 @@
+.contacts
+  .container.contacts__container
+    .contacts__content
+      h1.contacts__title Контакты
+      ul.contacts__list
+        li.contacts__item
+          span.contacts-item__title Почта
+          a.contacts__email(href='mailto:info@go2dili.com') info@go2dili.com
+        li.contacts__item.contacts-item
+          span.contacts-item__title Телефон
+          a(href='tel:+78528560000') +7 852 856 00 00
+        li
+          span.contacts-item__title Наш адрес
+          span.contacts__address
+            | 197882, г. Москва,
+            br
+            | пр. Чкаловский, д.87, лит.А, оф.420
+        li
+          span.contacts__working-hours
+            b Часы работы: &nbsp;
+          | с 09.00 до 18.00
+
+      ul.contacts__social.contacts-social
+        li
+          span
+          a.contacts-social-link(href='/')
+            svg(width="34" height="34" fill="#595959")
+              use(href='assets/img/sprite.svg#instagram')
+        li
+          a.contacts-social-link(href='/')
+            svg(width="34" height="34" fill="#595959")
+              use(href='assets/img/sprite.svg#vk')
+        li
+          a.contacts-social-link(href='/')
+            svg(width="34" height="34" fill="#595959")
+              use(href='assets/img/sprite.svg#facebook')
+
+    .contacts__map-wrapper
+      .contacts__map#contacts__map
+
+      include ../_items/balloon-template/balloon-template
+

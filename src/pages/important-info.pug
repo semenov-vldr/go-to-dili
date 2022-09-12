@@ -1,0 +1,19 @@
+extends ../layouts/main
+
+block variables
+  - var title = "Важная информация"
+  - var pageClass = ''
+  - var activePage = 'index'
+
+block content
+  .breadcrumbs
+    .breadcrumbs__container.container
+      a(href="/").breadcrumbs__item Главная
+      a(href="").breadcrumbs__item Важная информация
+  section
+    include ../components/important-info/important-info
+
+
+
+    include ../components/feedback/feedback
+

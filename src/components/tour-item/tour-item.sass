@@ -2,7 +2,9 @@
   background-color: var(--c-light-green)
   &__conteiner
     padding: 0 0 180px
-    width: 100%
+    //width: 100%
+    display: grid
+    grid-template-columns: repeat(12, 1fr)
     grid-template-areas: 'bc map''title map''nav map''slider map''advantages map''parameters map''text map'
     @media (max-width: 1200px)
       padding: 0 50px 150px
@@ -16,7 +18,7 @@
     grid-area: bc
     grid-column: 2 / span 4
     @media (max-width: 1200px)
-      grid-column: 1 / -1
+      grid-column: span 1
 
   &__title
     grid-area: title
@@ -25,7 +27,7 @@
     font-weight: 500
     font-size: clamp(30px, calc(30px + (60 - 30) * ((100vw - 768px) / (1920 - 768))), 60px)
     @media (max-width: 1200px)
-      grid-column: 1 / -1
+      grid-column: span 1
 
   &__nav
     grid-area: nav
@@ -41,8 +43,9 @@
     width: 100%
     overflow: hidden
     @media (max-width: 1200px)
-      grid-column: 1 / -1
+      grid-column: span 2
       overflow: initial
+      margin: 35px 0
 
     .swiper-wrapper
       height: auto
@@ -90,7 +93,7 @@
     margin-top: 47px
     gap: 20px
     @media (max-width: 1200px)
-      grid-column: 1 / -1
+      grid-column: span 1
       margin-top: 20px
     @media (max-width: 768px)
       margin-top: 10px
@@ -138,7 +141,7 @@
     gap: 10px
     margin-top: 18px
     @media (max-width: 1200px)
-      grid-column: 1 / -1
+      grid-column: span 1
 
   &-parameters__item
     display: flex
@@ -155,10 +158,12 @@
     margin-top: 47px
     font-size: 18px
     line-height: 1.5
+    padding-right: 60px
     @media (max-width: 1200px)
-      grid-column: 1 / -1
+      grid-column: span 1
+      padding-right: 0
     @media (max-width: 768px)
-      margin-top: 10px
+      margin-top: 30px
       font-size: 14px
 
   &__text p
@@ -175,7 +180,7 @@
     grid-column: 7 / -1
     height: 100%
     @media (max-width: 1200px)
-      grid-column: 1 / -1
+      grid-column: span 2
 
   &__map-sticky
     position: sticky

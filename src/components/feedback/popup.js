@@ -1,4 +1,4 @@
-const API_URL = 'https://httpbin.org/post';
+const API_URL = 'https://httpbin.org/post!';
 
 // let html = document.documentElement;
 // let scrollY = window.scrollY;
@@ -81,6 +81,7 @@ function setUserFormSubmit (onSuccess, onError) {
       sendDataForm(() => {
           blockSubmitButton();
           onSuccess();
+          unblockSubmitButton();
         },
         () => {
           unblockSubmitButton();

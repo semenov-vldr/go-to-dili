@@ -1,4 +1,39 @@
 
+/* Map Yandex */
+
+{
+
+  // Контент для заполнения баллунов
+  const Json = [
+    {
+      mark_name: "mark-logo",
+      mark_hover_name: "mark-hotel-black",
+      photo_url: "./assets/img/map/01.jpg",
+      title: "Техут",
+      desc: 'На перекрестке Дилижана и Иджевана',
+      address: '1/1 2nd St., T’eghut, Дилижан 3902 Армения',
+      location: [40.75326541732117, 44.88379503930662],
+    },
+
+  ];
+
+  // Вводные данные для заполнения
+  const mapData = {
+    // класс блока-обертки, внутри которого находится карта
+    wrapperMapClass: '.contacts__map-wrapper',
+    // класс блока с картой
+    mapClass: '.contacts__map',
+    // id карты
+    mapId: 'contacts__map',
+  };
+
+
+  createMapMark (mapData, Json)
+
+}
+
+
+
 new Swiper('.about-people__list', {
   pagination: {
     el: '.swiper-pagination',
@@ -262,7 +297,7 @@ new Swiper('.events__list', {
 
 
 
-const API_URL = 'https://httpbin.org/post';
+const API_URL = 'https://httpbin.org/post!';
 
 // let html = document.documentElement;
 // let scrollY = window.scrollY;
@@ -345,6 +380,7 @@ function setUserFormSubmit (onSuccess, onError) {
       sendDataForm(() => {
           blockSubmitButton();
           onSuccess();
+          unblockSubmitButton();
         },
         () => {
           unblockSubmitButton();
@@ -527,6 +563,39 @@ new Swiper('.places__list', {
 });
 
 
+{
+
+  let baseOptions = {
+    slidesPerView: 1,
+    loop: true,
+    effect: 'fade',
+    fadeEffect: {
+      // Параллельная смена прозрачности
+      crossFade: true,
+    }
+  };
+
+
+  const swiperOptions = ( delayValue ) => {
+    return Object.assign({autoplay: { delay: delayValue },}, baseOptions);
+  };
+
+
+  new Swiper('.js-share-slider-1', swiperOptions( 8000 ));
+
+  new Swiper('.js-share-slider-2', swiperOptions( 14000 ));
+
+  new Swiper('.js-share-slider-3', swiperOptions( 12000 ));
+
+  new Swiper('.js-share-slider-4', swiperOptions( 16000 ));
+
+  new Swiper('.js-share-slider-5', swiperOptions( 10000 ));
+
+  new Swiper('.js-share-slider-6', swiperOptions( 15000 ));
+
+
+}
+
 new Swiper('.tours__list', {
   pagination: {
     el: '.swiper-pagination',
@@ -567,39 +636,6 @@ new Swiper('.tours__list', {
   }
 
 });
-
-{
-
-  let baseOptions = {
-    slidesPerView: 1,
-    loop: true,
-    effect: 'fade',
-    fadeEffect: {
-      // Параллельная смена прозрачности
-      crossFade: true,
-    }
-  };
-
-
-  const swiperOptions = ( delayValue ) => {
-    return Object.assign({autoplay: { delay: delayValue },}, baseOptions);
-  };
-
-
-  new Swiper('.js-share-slider-1', swiperOptions( 8000 ));
-
-  new Swiper('.js-share-slider-2', swiperOptions( 14000 ));
-
-  new Swiper('.js-share-slider-3', swiperOptions( 12000 ));
-
-  new Swiper('.js-share-slider-4', swiperOptions( 16000 ));
-
-  new Swiper('.js-share-slider-5', swiperOptions( 10000 ));
-
-  new Swiper('.js-share-slider-6', swiperOptions( 15000 ));
-
-
-}
 
 /* Map Yandex */
 

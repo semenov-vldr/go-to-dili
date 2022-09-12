@@ -2,7 +2,7 @@
 <html lang="ru-RU">
   <head>
     <meta charset="utf-8">
-    <title>Что делать в городе?</title><!--[if IE]>
+    <title>Контакты</title><!--[if IE]>
     <meta http-equiv="X-UA-Compatible" content="IE = edge"><![endif]-->
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="keywords" content=""><!--favicon-->
@@ -129,42 +129,37 @@
         </div>
       </header>
       <main>
-        <div class="breadcrumbs" style="background-color: #F4F6E9">
-          <div class="breadcrumbs__container container"><a class="breadcrumbs__item" href="">Главная</a><a class="breadcrumbs__item" href="/">Что делать в городе?</a></div>
+        <div class="breadcrumbs" style="background-color: #fff">
+          <div class="breadcrumbs__container container"><a class="breadcrumbs__item" href="/">Главная</a><a class="breadcrumbs__item" href="">Контакты</a></div>
         </div>
         <section>
-          <div class="what-to-do">
-            <div class="container what-to-do__container">
-              <h2 class="what-to-do__title">Что делать в городе?</h2>
-              <div class="what-to-do__nav what-to-do-nav">
-                <div class="what-to-do-nav__item nav-item-eat" data-type="eat">
-                  <svg class="what-to-do-nav__icon" width="50" height="50" fill="#D8DAD1">
-                    <use href="assets/img/sprite.svg#eat"></use>
-                  </svg><span class="what-to-do-nav__name">Еда</span>
-                </div>
-                <div class="js-active-mark what-to-do-nav__item nav-item-hotel" data-type="hotel">
-                  <svg class="what-to-do-nav__icon" width="50" height="50" fill="#D8DAD1">
-                    <use href="assets/img/sprite.svg#hotel"></use>
-                  </svg><span class="what-to-do-nav__name">Отели</span>
-                </div>
-                <div class="what-to-do-nav__item nav-item-route" data-type="route">
-                  <svg class="what-to-do-nav__icon" width="50" height="50" fill="#D8DAD1">
-                    <use href="assets/img/sprite.svg#route"></use>
-                  </svg><span class="what-to-do-nav__name">Маршруты</span>
-                </div>
-                <div class="what-to-do-nav__item nav-item-place" data-type="place">
-                  <svg class="what-to-do-nav__icon" width="50" height="50" fill="#D8DAD1">
-                    <use href="assets/img/sprite.svg#place"></use>
-                  </svg><span class="what-to-do-nav__name">Места</span>
-                </div>
-                <div class="what-to-do-nav__item nav-item-event" data-type="event">
-                  <svg class="what-to-do-nav__icon" width="50" height="50" fill="#D8DAD1">
-                    <use href="assets/img/sprite.svg#event"></use>
-                  </svg><span class="what-to-do-nav__name">События</span>
-                </div>
+          <div class="contacts">
+            <div class="container contacts__container">
+              <div class="contacts__content">
+                <h1 class="contacts__title">Контакты</h1>
+                <ul class="contacts__list">
+                  <li class="contacts__item"><span class="contacts-item__title">Почта</span><a class="contacts__email" href="mailto:info@go2dili.com">info@go2dili.com</a></li>
+                  <li class="contacts__item contacts-item"><span class="contacts-item__title">Телефон</span><a href="tel:+78528560000">+7 852 856 00 00</a></li>
+                  <li><span class="contacts-item__title">Наш адрес</span><span class="contacts__address">197882, г. Москва,<br>пр. Чкаловский, д.87, лит.А, оф.420</span></li>
+                  <li><span class="contacts__working-hours"><b>Часы работы: &nbsp;</b></span>с 09.00 до 18.00</li>
+                </ul>
+                <ul class="contacts__social contacts-social">
+                  <li><span></span><a class="contacts-social-link" href="/">
+                      <svg width="34" height="34" fill="#595959">
+                        <use href="assets/img/sprite.svg#instagram"></use>
+                      </svg></a></li>
+                  <li><a class="contacts-social-link" href="/">
+                      <svg width="34" height="34" fill="#595959">
+                        <use href="assets/img/sprite.svg#vk"></use>
+                      </svg></a></li>
+                  <li><a class="contacts-social-link" href="/">
+                      <svg width="34" height="34" fill="#595959">
+                        <use href="assets/img/sprite.svg#facebook"></use>
+                      </svg></a></li>
+                </ul>
               </div>
-              <div class="map">
-                <div class="map__item" id="map-index"></div>
+              <div class="contacts__map-wrapper">
+                <div class="contacts__map" id="contacts__map"></div>
                 <template class="balloon-template">
                   <article class="balloon">
                     <div class="balloon__wrapper"><a class="balloon__close" href="##">
@@ -185,25 +180,6 @@
                     </div>
                   </article>
                 </template>
-              </div>
-              <div class="what-to-do__new-events new-events">
-                <h3 class="new-events__title">Блог</h3>
-                <div class="new-events__list grid--3col"><a class="new-events-item" href="/events-item.html">
-                    <div class="new-events-item__image"><img src="./assets/img/what-to-do/01.jpg" alt="image"></div>
-                    <div class="new-events-item__content">
-                      <p class="new-events-item__title">10 лучших ресторанов Дилижана</p>
-                      <p class="new-events-item__text">После насыщенного дня и осмотра достопримечательностей Дилижана</p>
-                    </div></a><a class="new-events-item" href="/">
-                    <div class="new-events-item__image"><img src="./assets/img/what-to-do/02.jpg" alt="image"></div>
-                    <div class="new-events-item__content">
-                      <p class="new-events-item__title">Искусство плюс вино — в Амфитеатре Дилижана</p>
-                      <p class="new-events-item__text">Организация Eventtоura организовала красочное мероприятие в самом</p>
-                    </div></a><a class="new-events-item" href="/">
-                    <div class="new-events-item__image"><img src="./assets/img/what-to-do/01.jpg" alt="image"></div>
-                    <div class="new-events-item__content">
-                      <p class="new-events-item__title">Достопримечательности Дилижана</p>
-                      <p class="new-events-item__text">Дилижан расположен на северо-востоке Армянского нагорья.</p>
-                    </div></a></div>
               </div>
             </div>
           </div>
