@@ -2,13 +2,11 @@
   padding: 50px 0 100px
   &__container
     display: flex
+    width: 80%
     justify-content: space-between
-    position: relative
-    @media (max-width: 1200px)
-      flex-direction: column
 
   &__content
-    flex: 0 1 70%
+    width: 70%
   &__title
     @extend .font-s-2
     margin-bottom: 30px
@@ -67,13 +65,16 @@
       object-fit: cover
 
   &__nav
-    position: fixed
-    width: 200px
+    position: sticky
+    position: -webkit-sticky
+    width: fit-content
+    height: fit-content
+    right: 160px
+    top: 180px
     background-color: var(--c-light-green)
     border-radius: 10px
     padding: 20px
-    right: 160px
-    overflow-x: hidden
+    overflow: auto
     @media (max-width: 1200px)
       left: 50px
       right: 50px
