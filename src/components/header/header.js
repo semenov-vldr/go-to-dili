@@ -43,6 +43,10 @@ if (burger) {
 // Accordion sub-nav
 const subNavList = document.querySelectorAll('.header__sub-nav') // list sub-nav
 
+function accordion (item) {
+  item.style.maxHeight ? null : item.scrollHeight + "px";
+};
+
 subNavList.forEach(subNav => {
   const parrent = subNav.parentElement; // .header__nav-list-item
     parrent.addEventListener('click', function () {
@@ -57,9 +61,6 @@ subNavList.forEach(subNav => {
   };
 });
 
-function accordion (item) {
-  item.style.maxHeight ? null : item.scrollHeight + "px";
-};
 
 
 
