@@ -1,5 +1,5 @@
 {
-  "name": "gulp-boilerplate",
+  "name": "Go2Dili",
   "version": "1.0.0",
   "description": "",
   "main": "gulpfile.js",
@@ -18,9 +18,10 @@
     "gulp-sourcemaps": "^2.6.5"
   },
   "scripts": {
-    "start": "gulp"
+    "start": "gulp",
+    "build": "gulp build"
   },
-  "author": "",
+  "author": "Semenov Vladimir",
   "license": "ISC",
   "dependencies": {
     "@fancyapps/ui": "^4.0.31"
