@@ -20,7 +20,7 @@ $.path.task.forEach((taskPath) => {
 });
 
 $.gulp.task(
-  "dev",
+  "build",
   $.gulp.series(
     "clean",
     $.gulp.parallel(
@@ -38,17 +38,9 @@ $.gulp.task(
   )
 );
 
-$.gulp.task(
-  "build",
-  $.gulp.series(
-    "clean"
-    // $.gulp.parallel(
 
-    // )
-  )
-);
 
 $.gulp.task(
   "default",
-  $.gulp.series("dev", $.gulp.parallel("watch", "server"))
+  $.gulp.series("build", $.gulp.parallel("watch", "server"))
 );

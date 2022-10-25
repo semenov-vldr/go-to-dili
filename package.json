@@ -19,7 +19,8 @@
     "gulp-sourcemaps": "^2.6.5"
   },
   "scripts": {
-    "start": "gulp"
+    "start": "gulp",
+    "build": "gulp build"
   },
   "author": "Semenov Vladimir",
   "license": "ISC",
