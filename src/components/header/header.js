@@ -1,3 +1,5 @@
+let previousPosition = window.scrollTop || document.documentElement.scrollTop;
+
 window.addEventListener("scroll", scrollHeader);
 
 function scrollHeader() {
@@ -6,19 +8,21 @@ function scrollHeader() {
   const logo = document.querySelector(".header__logo svg");
   const button = document.querySelector(".header__button");
   const icon_phone = document.querySelector(".header__phone svg");
-  if ( scrollY > 1) {
-    header.classList.add("scrolled");
-    headerMobile.classList.add("scrolled");
-    logo.classList.add("scrolled");
-    button.classList.add("scrolled");
-    icon_phone.classList.add("scrolled");
+
+  const elemsHeader = [header, headerMobile, logo, button, icon_phone];
+
+
+  let currentPosition = window.scrollTop || document.documentElement.scrollTop;
+
+  if ( previousPosition > currentPosition) {
+    elemsHeader.forEach(elem => elem.classList.add('scrolled'));
   } else {
-    header.classList.remove("scrolled");
-    headerMobile.classList.remove("scrolled");
-    logo.classList.remove("scrolled");
-    button.classList.remove("scrolled");
-    icon_phone.classList.remove("scrolled");
+    elemsHeader.forEach(elem => elem.classList.remove('scrolled'));
   }
+  previousPosition = currentPosition;
+
+  if (scrollY < 50) header.classList.remove('scrolled');
+
 };
 
 // burger

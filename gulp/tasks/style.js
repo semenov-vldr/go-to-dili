@@ -1,5 +1,5 @@
 const
-  sass = require('gulp-sass'),
+  sass = require('gulp-dart-sass'),
   autoprefixer = require('gulp-autoprefixer'),
   sourcemaps = require('gulp-sourcemaps'),
   concatCss = require('gulp-concat-css'),
@@ -25,6 +25,7 @@ const
               overrideBrowserslist:  ['last 10 versions']
         }))
         .pipe(sourcemaps.write())
+        .pipe(csso())
         .pipe($.gulp.dest($.path.assets + '/css/'))
         .pipe($.browserSync.reload({
           stream: true

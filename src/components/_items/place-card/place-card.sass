@@ -8,6 +8,7 @@
     gap: 25px
 
 
+
   &__image
     flex: 1 1 50%
     overflow: hidden
@@ -113,5 +114,8 @@
     flex-direction: row-reverse
     @media (max-width: 1000px)
       flex-direction: column
+  &.new
+    padding-top: clamp(50px, calc(50px + (100 - 50) * ((100vw - 768px) / (1920 - 768))), 100px)
+    padding-bottom: clamp(50px, calc(50px + (100 - 50) * ((100vw - 768px) / (1920 - 768))), 100px)
 
 

@@ -394,6 +394,8 @@ function setUserFormSubmit (onSuccess, onError) {
 
 setUserFormSubmit ( displayPopupSuccess, displayPopupError );
 
+let previousPosition = window.scrollTop || document.documentElement.scrollTop;
+
 window.addEventListener("scroll", scrollHeader);
 
 function scrollHeader() {
@@ -402,19 +404,21 @@ function scrollHeader() {
   const logo = document.querySelector(".header__logo svg");
   const button = document.querySelector(".header__button");
   const icon_phone = document.querySelector(".header__phone svg");
-  if ( scrollY > 1) {
-    header.classList.add("scrolled");
-    headerMobile.classList.add("scrolled");
-    logo.classList.add("scrolled");
-    button.classList.add("scrolled");
-    icon_phone.classList.add("scrolled");
+
+  const elemsHeader = [header, headerMobile, logo, button, icon_phone];
+
+
+  let currentPosition = window.scrollTop || document.documentElement.scrollTop;
+
+  if ( previousPosition > currentPosition) {
+    elemsHeader.forEach(elem => elem.classList.add('scrolled'));
   } else {
-    header.classList.remove("scrolled");
-    headerMobile.classList.remove("scrolled");
-    logo.classList.remove("scrolled");
-    button.classList.remove("scrolled");
-    icon_phone.classList.remove("scrolled");
+    elemsHeader.forEach(elem => elem.classList.remove('scrolled'));
   }
+  previousPosition = currentPosition;
+
+  if (scrollY < 50) header.classList.remove('scrolled');
+
 };
 
 // burger
@@ -564,39 +568,6 @@ new Swiper('.places__list', {
 });
 
 
-{
-
-  let baseOptions = {
-    slidesPerView: 1,
-    loop: true,
-    effect: 'fade',
-    fadeEffect: {
-      // Параллельная смена прозрачности
-      crossFade: true,
-    }
-  };
-
-
-  const swiperOptions = ( delayValue ) => {
-    return Object.assign({autoplay: { delay: delayValue },}, baseOptions);
-  };
-
-
-  new Swiper('.js-share-slider-1', swiperOptions( 8000 ));
-
-  new Swiper('.js-share-slider-2', swiperOptions( 14000 ));
-
-  new Swiper('.js-share-slider-3', swiperOptions( 12000 ));
-
-  new Swiper('.js-share-slider-4', swiperOptions( 16000 ));
-
-  new Swiper('.js-share-slider-5', swiperOptions( 10000 ));
-
-  new Swiper('.js-share-slider-6', swiperOptions( 15000 ));
-
-
-}
-
 /* Map Yandex */
 
 {
@@ -663,6 +634,39 @@ new Swiper('.places__list', {
     }
 
   });
+
+}
+
+{
+
+  let baseOptions = {
+    slidesPerView: 1,
+    loop: true,
+    effect: 'fade',
+    fadeEffect: {
+      // Параллельная смена прозрачности
+      crossFade: true,
+    }
+  };
+
+
+  const swiperOptions = ( delayValue ) => {
+    return Object.assign({autoplay: { delay: delayValue },}, baseOptions);
+  };
+
+
+  new Swiper('.js-share-slider-1', swiperOptions( 8000 ));
+
+  new Swiper('.js-share-slider-2', swiperOptions( 14000 ));
+
+  new Swiper('.js-share-slider-3', swiperOptions( 12000 ));
+
+  new Swiper('.js-share-slider-4', swiperOptions( 16000 ));
+
+  new Swiper('.js-share-slider-5', swiperOptions( 10000 ));
+
+  new Swiper('.js-share-slider-6', swiperOptions( 15000 ));
+
 
 }
 
