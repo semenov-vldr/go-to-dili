@@ -2,9 +2,11 @@
   .events,
   .places,
   .share
-    padding: 60px 0
-    @media (max-width: 768px)
-      padding: 30px 0
+    //padding: 60px 0
+    //@media (max-width: 768px)
+    //  padding: 30px 0
+    padding-top: clamp(50px, calc(50px + (100 - 50) * ((100vw - 768px) / (1920 - 768))), 100px)
+    padding-bottom: clamp(50px, calc(50px + (100 - 50) * ((100vw - 768px) / (1920 - 768))), 100px)
 
   .about-project
     margin-top: 0

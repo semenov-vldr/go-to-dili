@@ -1,8 +1,13 @@
 .events-inner-header
   background-color: var(--c-light-green)
+
+  &.new
+    padding-top: clamp(50px, calc(50px + (100 - 50) * ((100vw - 768px) / (1920 - 768))), 100px)
+
   &__title
     font-size: clamp(30px, calc(30px + (60 - 30) * ((100vw - 1024px) / (1920 - 1024))), 60px)
     font-weight: 500
+
 
   &__nav
     display: flex

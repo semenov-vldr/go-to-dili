@@ -3,8 +3,8 @@
 global.$ = {
   path: {
     task: require("./gulp/tasks.js"),
-    dist: "./docs",
-    assets: "./docs/assets",
+    dist: "./dist",
+    assets: "./dist/assets",
     src: "./src",
   },
   gulp: require("gulp"),
