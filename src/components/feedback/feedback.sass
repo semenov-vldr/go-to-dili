@@ -2,7 +2,7 @@
   background-color: var(--c-light-green)
 
   &__decor-bottom
-    background-image: url('/assets/img/feedback-decor-bottom.svg')
+    background-image: url('../img/feedback-decor-bottom.svg')
     background-size: 733px 170px
     background-repeat: repeat-x
     width: 100%
@@ -95,7 +95,7 @@
       position: absolute
       transition: all 200ms
       top: 12px
-      left: 0px
+      left: 0
 
     .feedback-form__error
       font-size: clamp(10px, calc(10px + (12 - 10) * ((100vw - 768px) / (1920 - 768))), 12px)
@@ -138,7 +138,7 @@
   &-form__sending input[type="checkbox"]:checked + &-form__checkbox
     background-color: var(--c-green)
     border-color: var(--c-green)
-    background-image: url("/assets/img/check.svg")
+    background-image: url("../img/check.svg")
     background-position: center
     background-repeat: no-repeat
 
@@ -183,11 +183,9 @@
     overflow-y: auto
     overflow-x: hidden
     transition: all 0.5s ease 0s
-    //display: block
     padding-top: 100px
     overscroll-behavior: contain
-    //&.js-popup-active
-    //  display: block
+
 
 .popup
   &__body
