@@ -61,15 +61,28 @@ header.header
       include ../../img/logo.svg
 
     nav.header__nav.header__nav-contacts
-      a.header__phone(href='tel:+78528560000')
-        svg(width='17' height='20' fill='#fff' fill-opacity="0.5")
-          use(href='./assets/img/sprite.svg#header-phone')
-        span +7 852 256 00 00
-      a.header__phone--mobile(href='tel:+78522560000')
-        svg(width="34" height="34" fill="#8CB110")
-          use(href='./assets/img/sprite.svg#phone-mobile')
+      .header__nav-contacts-items
+        a.header__phone(href='tel:+78528560000')
+          svg(width='17' height='20' fill='#fff' fill-opacity="0.5")
+            use(href='./assets/img/sprite.svg#header-phone')
+          span +7 852 256 00 00
+        a.header__email(href='mailto:info@go2dili.com')
+          svg(width='20' height='20' fill='#fff' fill-opacity="0.5")
+            use(href='./assets/img/sprite.svg#email')
+          span info@go2dili.com
+        a.header__phone--mobile(href='tel:+78522560000')
+          svg(width="34" height="34" fill="#8CB110")
+            use(href='./assets/img/sprite.svg#phone-mobile')
+
+
       .header__nav-right
-        ul.header__social
+
+        .header__weather(title="погода в Дилижане")
+          svg(width="48px" height="48px" fill="#fff")
+            use(href='./assets/img/sprite.svg#weather')
+          span.header__weather-temp
+
+        //ul.header__social
           li.header__social-item
             a.header__social-link(href='/')
               <svg class="header__social-icon" viewBox="0 0 30 30">

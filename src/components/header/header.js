@@ -15,13 +15,27 @@ function scrollHeader() {
   let currentPosition = window.scrollTop || document.documentElement.scrollTop;
 
   if ( previousPosition > currentPosition) {
-    elemsHeader.forEach(elem => elem.classList.add('scrolled'));
+    elemsHeader.forEach(elem => {
+      elem.classList.add('scrolled-bottom');
+      elem.classList.remove('scrolled-top');
+      elem.classList.add('scrolled');
+    });
   } else {
-    elemsHeader.forEach(elem => elem.classList.remove('scrolled'));
+    //elemsHeader.forEach(elem => elem.classList.remove('scrolled'));
+    elemsHeader.forEach(elem => {
+      elem.classList.remove('scrolled-bottom');
+      elem.classList.add('scrolled-top');
+    });
   }
   previousPosition = currentPosition;
 
-  if (scrollY < 50) header.classList.remove('scrolled');
+  if (scrollY < 1) {
+    elemsHeader.forEach(elem => {
+      elem.classList.remove('scrolled-bottom');
+      elem.classList.remove('scrolled-top');
+      elem.classList.remove('scrolled');
+    });
+  }
 
 };
 
