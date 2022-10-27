@@ -7,12 +7,19 @@ const API = `${location.protocol}//api.weatherstack.com/current?access_key=${KEY
 
 const fetchData = async () => {
   try{
-    const result = await fetch(API);
-    const data = await result.json();
-    const temp = `${data.current.temperature}°C`;
-    weatherTemp.textContent = temp;
+    const responce = await fetch(API);
+    if (responce.ok) {
+      const data = await responce.json();
+      const temp = `${data.current.temperature}°C`;
+      weatherTemp.textContent = temp;
+    } else {
+      weatherTemp.textContent = '-50°C';
+    }
+
   } catch (err) {
     console.log(err);
+    console.log('Ошибка запроса погоды')
+    weatherTemp.textContent = '-50°C';
   }
 
 }
