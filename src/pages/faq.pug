@@ -1,0 +1,21 @@
+extends ../layouts/main
+
+block variables
+  - var title = "FAQ"
+  - var pageClass = ''
+  - var activePage = 'index'
+
+block content
+  .breadcrumbs
+    .breadcrumbs__container.container
+      a(href="/").breadcrumbs__item Главная
+      a(href="").breadcrumbs__item FAQ
+  section
+    //include ../components/important-info/important-info
+
+    include ../components/faq/faq
+
+
+
+
+

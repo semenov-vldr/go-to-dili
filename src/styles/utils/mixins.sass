@@ -9,6 +9,10 @@
   object-position: center
 
 
+@mixin fontSize($min, $max)
+  font-size: clamp(#{$min}px, calc(#{$min}px + (#{$max} - #{$min}) * ((100vw - 768px) / (1920 - 768))), #{$max}px)
+
+
 
 // FONTS
 //@mixin font-face($font-family, $file-path, $weight: normal, $style: normal, $asset-pipeline: false )

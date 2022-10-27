@@ -1,0 +1,54 @@
+.accordion
+  margin-bottom: clamp(50px, calc(50px + (100 - 50) * ((100vw - 768px) / (1920 - 768))), 100px)
+
+  &__list
+    display: flex
+    flex-direction: column
+    background-color: $green
+    border-radius: 8px
+
+  &__item
+    padding: 12px
+    @media (max-width: 768px)
+      padding: 12px 10px
+    &.js-accordion-active .accordion__content
+      padding: 20px
+      max-height: 1000px
+      @media (max-width: 768px)
+        max-height: 500px
+        overflow: auto
+        &::-webkit-scrollbar
+          width: 0
+          height: 0
+    &.js-accordion-active .accordion__title,
+    &:hover .accordion__title
+      color: #fff
+
+  &__title
+    @include fontSize(14, 24)
+    position: relative
+    display: flex
+    align-items: center
+    justify-content: space-between
+    column-gap: 20px
+    padding: 20px
+    cursor: pointer
+    color: rgba(#fff, 0.6)
+    @media (max-width: 768px)
+      padding: 15px 0
+    & svg
+      transition: 0.3s ease
+      flex: 0 0 10px
+      fill: currentColor
+
+
+  &__content
+    @include fontSize(14, 16)
+    background-color: #fff
+    color: #323232
+    border-radius: 8px
+    max-height: 0
+    padding: 0 20px
+    overflow: hidden
+    transition: 0.3s ease
+
