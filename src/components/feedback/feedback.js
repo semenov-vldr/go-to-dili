@@ -80,12 +80,12 @@
 
   const form = document.querySelector('.feedback__form');
 
-  const inputName = form.querySelector('#name');
-  const inputPhone = form.querySelector('#phone');
-  const inputEmail = form.querySelector('#email');
-  const submitButton = form.querySelector('.feedback-form__button');
-
   if (form) {
+
+    const inputName = form.querySelector('#name');
+    const inputPhone = form.querySelector('#phone');
+    const inputEmail = form.querySelector('#email');
+    const submitButton = form.querySelector('.feedback-form__button');
 
 
 // Ввод в поле ИМЯ только русские буквы

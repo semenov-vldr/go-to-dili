@@ -257,12 +257,12 @@ new Swiper('.events__list', {
 
   const form = document.querySelector('.feedback__form');
 
-  const inputName = form.querySelector('#name');
-  const inputPhone = form.querySelector('#phone');
-  const inputEmail = form.querySelector('#email');
-  const submitButton = form.querySelector('.feedback-form__button');
-
   if (form) {
+
+    const inputName = form.querySelector('#name');
+    const inputPhone = form.querySelector('#phone');
+    const inputEmail = form.querySelector('#email');
+    const submitButton = form.querySelector('.feedback-form__button');
 
 
 // Ввод в поле ИМЯ только русские буквы
@@ -315,10 +315,7 @@ new Swiper('.events__list', {
 
 
 
-const API_URL = 'https://httpbin.org/post!';
-
-// let html = document.documentElement;
-// let scrollY = window.scrollY;
+const API_URL = 'https://httpbin.org/post';
 
 let popup;
 
@@ -331,11 +328,6 @@ function onDocumentEscKeydown (evt) {
   };
 };
 
-// function onFreePlaceClick (item, evt) {
-//   const content = item.querySelector('.popup__content');
-//   const click = evt.composedPath().includes(content);
-//   if (!click) closePopup();
-// };
 
 function closePopup () {
   document.querySelector('.feedback__popup').remove();
@@ -343,8 +335,6 @@ function closePopup () {
   document.removeEventListener('click', closePopup);
   document.body.classList.remove('js-lock-scroll');
   form.reset();
-  //window.scrollTo(0, scrollY);
-  //html.style.top = "";
 };
 
 function showPopup () {
@@ -353,8 +343,6 @@ function showPopup () {
   document.body.classList.add('js-lock-scroll')
   document.addEventListener('keydown', onDocumentEscKeydown);
   document.addEventListener('click', closePopup);
-  //closeButton.addEventListener('click', closePopup);
-  //html.style.top = -scrollY + 'px';
 };
 
 function displayPopupSuccess () {
@@ -389,6 +377,7 @@ function sendDataForm (onSuccess, onError, body) {
 
 function setUserFormSubmit (onSuccess, onError) {
 
+if (form) {
   form.addEventListener('submit', (evt) => {
     evt.preventDefault();
 
@@ -408,6 +397,7 @@ function setUserFormSubmit (onSuccess, onError) {
       );
     }
   });
+}
 };
 
 setUserFormSubmit ( displayPopupSuccess, displayPopupError );

@@ -1,11 +1,12 @@
 .accordion
-  margin-bottom: clamp(50px, calc(50px + (100 - 50) * ((100vw - 768px) / (1920 - 768))), 100px)
+  padding-bottom: clamp(50px, calc(50px + (100 - 50) * ((100vw - 768px) / (1920 - 768))), 100px)
 
   &__list
     display: flex
     flex-direction: column
     background-color: $green
     border-radius: 8px
+    margin-top: 50px
 
   &__item
     padding: 12px
@@ -20,9 +21,6 @@
         &::-webkit-scrollbar
           width: 0
           height: 0
-    &.js-accordion-active .accordion__title,
-    &:hover .accordion__title
-      color: #fff
 
   &__title
     @include fontSize(14, 24)
@@ -33,7 +31,7 @@
     column-gap: 20px
     padding: 20px
     cursor: pointer
-    color: rgba(#fff, 0.6)
+    color: #fff
     @media (max-width: 768px)
       padding: 15px 0
     & svg
@@ -51,4 +49,6 @@
     padding: 0 20px
     overflow: hidden
     transition: 0.3s ease
+
+
 
