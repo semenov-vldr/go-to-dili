@@ -3,7 +3,7 @@ const weatherTemp = header.querySelector('.header__weather-temp');
 
 const KEY = '8c0d97481931b1c092950c47648f9df4';
 const city = 'Dilijan';
-const API = `http://api.weatherstack.com/current?access_key=${KEY}&query=${city}`;
+const API = `${location.protocol}//api.weatherstack.com/current?access_key=${KEY}&query=${city}`;
 
 const fetchData = async () => {
   try{
