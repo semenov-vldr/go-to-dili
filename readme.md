@@ -1,6 +1,6 @@
 # Readme.md
 
-[Ссылка на проект](https://semenov-vldr.github.io/go-to-dili/)
+[Ссылка на проект (gh-pages)](https://semenov-vldr.github.io/go-to-dili/)
 
 # Установка
 
