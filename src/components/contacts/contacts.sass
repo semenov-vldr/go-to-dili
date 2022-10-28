@@ -4,12 +4,21 @@
     display: flex
     gap: 30px
     justify-content: center
+    @media (max-width: 768px)
+      flex-direction: column
+      align-items: center
 
   &__content
-    flex: 1 1 40%
+    width: 40%
     display: flex
     gap: 30px
     flex-direction: column
+    @media (max-width: 1200px)
+      width: 50%
+    @media (max-width: 768px)
+      width: 100%
+      align-items: center
+
 
   &__title
     @extend .font-s-2
@@ -18,6 +27,9 @@
     display: flex
     flex-direction: column
     gap: 30px
+    @media (max-width: 768px)
+      align-items: center
+      text-align: center
 
   &-item__title
     display: block
@@ -26,9 +38,12 @@
     font-weight: 500
 
   &__map-wrapper
-    flex: 1 1 60%
-    width: 100%
+    width: 60%
     height: 400px
+    @media (max-width: 1200px)
+      width: 50%
+    @media (max-width: 768px)
+      width: 100%
 
   &__map
     width: 100%
