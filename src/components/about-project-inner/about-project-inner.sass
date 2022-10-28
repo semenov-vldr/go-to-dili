@@ -1,5 +1,5 @@
 .about-project-inner
-  padding: 50px 0 100px
+  padding: 0 0 100px
 
   &__title
     @extend .font-s-2
@@ -14,9 +14,11 @@
   &__images
     margin-top: 60px
     display: flex
-    flex-wrap: wrap
     gap: 20px
     justify-content: center
+    @media (max-width: 768px)
+      flex-direction: column
+      align-items: center
 
   &__image-wrapper
     flex: 0 1 30%
@@ -29,3 +31,6 @@
       width: 100%
       height: 100%
       object-fit: cover
+    @media (max-width: 768px)
+      max-width: 400px
+
