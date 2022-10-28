@@ -61,6 +61,9 @@ header.header
       include ../../img/logo.svg
 
     nav.header__nav.header__nav-contacts
+      a.header__map(href="places.html")
+        svg(width="48px" height="48px" fill="#fff")
+          use(href='./assets/img/sprite.svg#header-map')
       .header__nav-contacts-items
         a.header__phone(href='tel:+78528560000')
           svg(width='17' height='20' fill='#fff' fill-opacity="0.5")
