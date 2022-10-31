@@ -12,28 +12,17 @@
   &.header-index .header__button
     @media (min-width: 1000px)
       background-color: var(--c-green)
-  &.header-index .promo-discount
-    background-color: var(--c-green)
   &.header-index .header__logo svg,
   &.header-index .header-mobile__logo svg,
   &.header-index .header__phone--mobile svg,
   &.header-index .header-mobile__phone svg
     fill: var(--c-green)
-  &.header-index .header__social-link:hover
+  &.header-index .header__social-link:hover,
+  &.header-index .promo-discount
     background-color: var(--c-green)
   &.scrolled .header-mobile__phone svg
     fill: rgba(#fff, 0.25)
 
-
-  &.scrolled-bottom,
-  &.scrolled-top
-    position: sticky
-    position: -webkit-sticky
-    z-index: 1001
-    top: 0
-    left: 0
-    background-color: #fff
-    color: var(--c-green)
 
   &.scrolled-top
     transform: translateY(-100%)
@@ -44,23 +33,21 @@
   &.scrolled
     position: sticky
     position: -webkit-sticky
-    //background-color: var(--c-green)
     z-index: 1001
     top: 0
     left: 0
     background-color: #fff
-    color: var(--c-green)
+    color: $black
   &.scrolled .header__nav-row-2::after
+    background-color: $black
+  &.scrolled .header__button,
+  &.scrolled .header__burger-icon span
     background-color: var(--c-green)
-  &.scrolled .header__button
-    background-color: $green
   &.scrolled .header__weather svg,
   &.scrolled .header__map svg
     fill: var(--c-green)
   &.scrolled .header__link:hover
    color: rgba($green, 0.8)
-  &.scrolled .header__burger-icon span
-    background-color: var(--c-green)
   &.scrolled .header-mobile__wrapper .header-mobile .header__burger-icon
     & span,
     &::before,
@@ -88,17 +75,10 @@
     fill: var(--c-green)
     fill-opacity: 1
 
-
-
-  //&.scrolled .header__logo svg,
-  //&.scrolled .header-mobile__logo svg
-  //  fill: var(--c-black)
   &.scrolled .header__social-link:hover
     background-color: rgba(#fff, 0.3)
   &.header-index.scrolled .promo-discount
     background-color: var(--c-black)
-  //&.scrolled .header__button
-    //background-color: rgba(#fff, 0.3)
 
   &__link
     white-space: nowrap
@@ -108,7 +88,7 @@
     align-items: flex-start
     justify-content: center
     width: 6%
-    transition: width 0.3s
+    //transition: width 0.3s
     svg
       fill: var(--c-black)
       width: 100%

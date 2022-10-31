@@ -13,16 +13,15 @@ const fetchData = async () => {
       const temp = `${data.current.temperature}°C`;
       weatherTemp.textContent = temp;
     } else {
-      weatherTemp.textContent = '-50°C';
+      weatherTemp.textContent = '25°C';
     }
 
   } catch (err) {
     console.log(err);
     console.log('Ошибка запроса погоды')
-    weatherTemp.textContent = '-50°C';
+    weatherTemp.textContent = '25°C';
   }
-
-}
+};
 
 fetchData()
 
