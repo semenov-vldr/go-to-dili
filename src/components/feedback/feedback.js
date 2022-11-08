@@ -14,7 +14,7 @@
     if (!inputNumbersValue) input.value = "";
 
 
-    if (input.value.length != selectionStart) {
+    if (input.value.length !== selectionStart) {
       if (evt.data && /\D/g.test(evt.data)) {
         input.value = formattedInputValue;
       }

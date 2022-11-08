@@ -22,7 +22,7 @@ function closePopup () {
 
 function showPopup () {
   document.body.append(popup);
-  const closeButton = popup.querySelector('.popup__close');
+  //const closeButton = popup.querySelector('.popup__close');
   document.body.classList.add('js-lock-scroll')
   document.addEventListener('keydown', onDocumentEscKeydown);
   document.addEventListener('click', closePopup);
@@ -38,14 +38,22 @@ function displayPopupError () {
   showPopup();
 };
 
+const submitButton = document.querySelector('.feedback-form__button');
+console.log(submitButton)
+
 function blockSubmitButton () {
-  submitButton.disabled = true;
-  submitButton.textContent = 'Отправляю...';
+  if (submitButton) {
+    submitButton.disabled = true;
+    submitButton.textContent = 'Отправляю...';
+  }
 };
 
 function unblockSubmitButton () {
-  submitButton.disabled = false;
-  submitButton.textContent = 'Отправить заявку';
+  if (submitButton) {
+    submitButton.disabled = false;
+    submitButton.textContent = 'Отправить заявку';
+  }
+
 };
 
 function sendDataForm (onSuccess, onError, body) {
