@@ -24,25 +24,20 @@ function scrollHeader() {
   } else {
     elemsHeader.forEach(elem => {
       elem.classList.remove('scrolled-bottom');
-      elem.classList.add('scrolled-top');
+      if (scrollY > 200) elem.classList.add('scrolled-top');
     });
   }
   previousPosition = currentPosition;
 
-  if (scrollY < 300) {
+  if (scrollY < 1) {
     elemsHeader.forEach(elem => {
       elem.classList.remove('scrolled-bottom');
       elem.classList.remove('scrolled-top');
       elem.classList.remove('scrolled');
     });
-    header.style.position = "fixed";
-    if (headerIndex) headerIndex.classList.remove('header-index');
   }
 
-  if (scrollY < 1)  {
-    header.style.position = "relative";
-    if (headerIndex) headerIndex.classList.add('header-index');
-  }
+
 };
 
 

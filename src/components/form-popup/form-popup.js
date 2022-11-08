@@ -1,10 +1,10 @@
 {
 
   const html = document.querySelector('html')
+  const main = document.querySelector('main')
 
   const formPopup = document.querySelector('.form-popup');
   const partnersButton = document.querySelector('.partners__button');
-
 
 
   if (formPopup) {
@@ -14,32 +14,28 @@
 
     function onDocumentClick () {
       document.body.addEventListener('click', (evt) => {
-        if (evt.target.classList.contains('form-popup')) {
-          formPopup.classList.remove('js-popup-active');
-          html.classList.remove('js-lock-scroll')
-        }
+        if (evt.target.classList.contains('form-popup')) closeFormPopup();
       })
     };
 
-    close.addEventListener('click', () => {
-      formPopup.classList.remove('js-popup-active')
-      html.classList.remove('js-lock-scroll')
+    function closeFormPopup () {
+      formPopup.classList.remove('js-popup-active');
+      html.classList.remove('js-lock-scroll');
+      main.style.zIndex = '100';
+    };
 
-    })
+    function openFormPopup () {
+      formPopup.classList.add('js-popup-active');
+      html.classList.add('js-lock-scroll');
+      onDocumentClick()
+      main.style.zIndex = '102';
+    };
 
-    form.addEventListener('submit', () => {
-      formPopup.classList.remove('js-popup-active')
-      html.classList.remove('js-lock-scroll')
-    })
 
+    close.addEventListener('click', closeFormPopup)
+    form.addEventListener('submit', closeFormPopup);
 
-    if (partnersButton) {
-      partnersButton.addEventListener('click', () => {
-        formPopup.classList.add('js-popup-active')
-        html.classList.add('js-lock-scroll')
-        onDocumentClick()
-      })
-    }
+    if (partnersButton) partnersButton.addEventListener('click', openFormPopup);
 
   }
 
