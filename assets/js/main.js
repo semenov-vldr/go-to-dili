@@ -191,7 +191,7 @@ new Swiper('.events__list', {
     if (!inputNumbersValue) input.value = "";
 
 
-    if (input.value.length !== selectionStart) {
+    if (input.value.length != selectionStart) {
       if (evt.data && /\D/g.test(evt.data)) {
         input.value = formattedInputValue;
       }
@@ -255,13 +255,14 @@ new Swiper('.events__list', {
 // });
 
 
-  const form = document.querySelector('.feedback__form');
+  const formList = document.querySelectorAll('.feedback__form');
 
-  if (form) {
+  if (formList) {
 
-    const inputName = form.querySelector('#name');
-    const inputPhone = form.querySelector('#phone');
-    const inputEmail = form.querySelector('#email');
+  formList.forEach(form => {
+    const inputName = form.querySelector('.input-name');
+    const inputPhone = form.querySelector('.input-phone');
+    const inputEmail = form.querySelector('.input-email');
     const submitButton = form.querySelector('.feedback-form__button');
 
 
@@ -277,11 +278,11 @@ new Swiper('.events__list', {
 
 
     // Сообщение об ошибки валидации
-    const nameError = form.querySelector('#name ~ span');
+    const nameError = form.querySelector('.input-name ~ span');
     const nameErrorMessage = 'Вы ввели неверное имя';
-    const phoneError = form.querySelector('#phone ~ span');
+    const phoneError = form.querySelector('.input-phone ~ span');
     const phoneErrorMessage = 'Вы ввели неверный номер';
-    const EmailError = form.querySelector('#email ~ span');
+    const EmailError = form.querySelector('.input-email ~ span');
     const emailErrorMessage = 'Введите правильную почту';
 
 
@@ -310,12 +311,15 @@ new Swiper('.events__list', {
         phoneError.textContent = '';
       };
     });
+  })
 
   }
 
 
 
 const API_URL = 'https://httpbin.org/post';
+
+const html = document.querySelector('html')
 
 let popup;
 
@@ -333,16 +337,16 @@ function closePopup () {
   document.querySelector('.feedback__popup').remove();
   document.removeEventListener('keydown', onDocumentEscKeydown);
   document.removeEventListener('click', closePopup);
-  document.body.classList.remove('js-lock-scroll');
+  html.classList.remove('js-lock-scroll')
   form.reset();
 };
 
 function showPopup () {
   document.body.append(popup);
   //const closeButton = popup.querySelector('.popup__close');
-  document.body.classList.add('js-lock-scroll')
   document.addEventListener('keydown', onDocumentEscKeydown);
   document.addEventListener('click', closePopup);
+  html.classList.add('js-lock-scroll')
 };
 
 function displayPopupSuccess () {
@@ -356,7 +360,6 @@ function displayPopupError () {
 };
 
 const submitButton = document.querySelector('.feedback-form__button');
-console.log(submitButton)
 
 function blockSubmitButton () {
   if (submitButton) {
@@ -385,7 +388,8 @@ function sendDataForm (onSuccess, onError, body) {
 
 function setUserFormSubmit (onSuccess, onError) {
 
-if (form) {
+if (formList) {
+formList.forEach(form => {
   form.addEventListener('submit', (evt) => {
     evt.preventDefault();
 
@@ -405,6 +409,7 @@ if (form) {
       );
     }
   });
+})
 }
 };
 
@@ -412,8 +417,12 @@ setUserFormSubmit ( displayPopupSuccess, displayPopupError );
 
 {
 
+  const html = document.querySelector('html')
+
   const formPopup = document.querySelector('.form-popup');
   const partnersButton = document.querySelector('.partners__button');
+
+
 
   if (formPopup) {
     const form = formPopup.querySelector('.feedback-form');
@@ -424,28 +433,31 @@ setUserFormSubmit ( displayPopupSuccess, displayPopupError );
       document.body.addEventListener('click', (evt) => {
         if (evt.target.classList.contains('form-popup')) {
           formPopup.classList.remove('js-popup-active');
+          html.classList.remove('js-lock-scroll')
         }
       })
     };
 
     close.addEventListener('click', () => {
       formPopup.classList.remove('js-popup-active')
-      //document.body.classList.remove('js-lock-scroll')
+      html.classList.remove('js-lock-scroll')
+
     })
 
     form.addEventListener('submit', () => {
       formPopup.classList.remove('js-popup-active')
-      //document.body.classList.remove('js-lock-scroll')
+      html.classList.remove('js-lock-scroll')
     })
 
 
     if (partnersButton) {
       partnersButton.addEventListener('click', () => {
         formPopup.classList.add('js-popup-active')
-        //document.body.classList.add('js-lock-scroll')
+        html.classList.add('js-lock-scroll')
         onDocumentClick()
       })
     }
+
   }
 
 
@@ -508,6 +520,7 @@ window.addEventListener("scroll", scrollHeader);
 
 function scrollHeader() {
   const header = document.querySelector(".header");
+  const headerIndex = document.querySelector(".header.header-main");
   const headerMobile = document.querySelector('.header-mobile');
   const logo = document.querySelector(".header__logo svg");
   const button = document.querySelector(".header__button");
@@ -525,7 +538,6 @@ function scrollHeader() {
       elem.classList.add('scrolled');
     });
   } else {
-    //elemsHeader.forEach(elem => elem.classList.remove('scrolled'));
     elemsHeader.forEach(elem => {
       elem.classList.remove('scrolled-bottom');
       elem.classList.add('scrolled-top');
@@ -533,15 +545,23 @@ function scrollHeader() {
   }
   previousPosition = currentPosition;
 
-  if (scrollY < 1) {
+  if (scrollY < 300) {
     elemsHeader.forEach(elem => {
       elem.classList.remove('scrolled-bottom');
       elem.classList.remove('scrolled-top');
       elem.classList.remove('scrolled');
     });
+    header.style.position = "fixed";
+    if (headerIndex) headerIndex.classList.remove('header-index');
   }
 
+  if (scrollY < 1)  {
+    header.style.position = "relative";
+    if (headerIndex) headerIndex.classList.add('header-index');
+  }
 };
+
+
 
 // burger
 const burger = document.querySelector('.header__burger-icon');
@@ -549,15 +569,12 @@ const menu = document.querySelector('.header__container');
 const headerMobile = document.querySelector('.header-mobile')
 const headerMobileWrapper = document.querySelector('.header-mobile__wrapper');
 const logo_mobile = document.querySelector('.header-mobile__logo');
+
+const elemsHeader = [burger, menu, headerMobile, headerMobileWrapper, logo_mobile];
+
 if (burger) {
   burger.addEventListener('click', () => {
-    document.body.classList.toggle('js-lock-scroll');
-    burger.classList.toggle('js-active-menu');
-    headerMobile.classList.toggle('js-active-menu');
-    menu.classList.toggle('js-active-menu');
-    logo_mobile.classList.toggle('js-active-menu');
-    headerMobileWrapper.classList.toggle('js-active-menu');
-    promoDiscount.classList.toggle('js-active-menu');
+    elemsHeader.forEach(elemHeader => elemHeader.classList.toggle('js-active-menu'))
   });
 }
 

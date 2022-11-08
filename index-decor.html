@@ -21,7 +21,7 @@
   </head>
   <body>
     <div class="page">
-      <header class="header header-index">
+      <header class="header header-main header-index">
         <div class="promo-discount"><a class="promo-discount__link" href="/">Путешествуй по Дилижану со скидкой -20%</a><span class="promo-discount__close">
             <svg fill="#fff" width="9" height="9">
               <use href="./assets/img/sprite.svg#cross"></use>
@@ -587,14 +587,14 @@
           <div class="about-people">
             <div class="container about-people__container">
               <div class="title-link">
-                <h2>О людях</h2><a href="">Подробнее о людях
+                <h2>О людях</h2><a href="about-people.html">Подробнее о людях
                   <svg class="title-link__icon" width="18" height="16" fill="#8CB110" stroke="#8CB110">
                     <use href="./assets/img/sprite.svg#arrow-nav-small"></use>
                   </svg></a>
               </div>
               <div class="about-people__list">
                 <div class="swiper-wrapper">
-                  <div class="swiper-slide"><a class="people-card" href="">
+                  <div class="swiper-slide"><a class="people-card" href="about-human.html">
                       <div class="people-card__wrapper">
                         <div class="people-card__image-wrapper"><img src="./assets/img/about-people/01.jpg" alt="photo"></div>
                         <div class="people-card__content">
@@ -602,7 +602,7 @@
                           <p class="people-card__position">Футболист и чемпион Армении</p>
                         </div>
                       </div></a></div>
-                  <div class="swiper-slide"><a class="people-card" href="">
+                  <div class="swiper-slide"><a class="people-card" href="about-human.html">
                       <div class="people-card__wrapper">
                         <div class="people-card__image-wrapper"><img src="./assets/img/about-people/02.jpg" alt="photo"></div>
                         <div class="people-card__content">
@@ -610,7 +610,7 @@
                           <p class="people-card__position">Мэр города Дилижан</p>
                         </div>
                       </div></a></div>
-                  <div class="swiper-slide"><a class="people-card" href="">
+                  <div class="swiper-slide"><a class="people-card" href="about-human.html">
                       <div class="people-card__wrapper">
                         <div class="people-card__image-wrapper"><img src="./assets/img/about-people/03.jpg" alt="photo"></div>
                         <div class="people-card__content">
@@ -618,7 +618,7 @@
                           <p class="people-card__position">Футболист и чемпион Армении</p>
                         </div>
                       </div></a></div>
-                  <div class="swiper-slide"><a class="people-card" href="">
+                  <div class="swiper-slide"><a class="people-card" href="about-human.html">
                       <div class="people-card__wrapper">
                         <div class="people-card__image-wrapper"><img src="./assets/img/about-people/04.jpg" alt="photo"></div>
                         <div class="people-card__content">
@@ -722,20 +722,20 @@
               <div class="feedback__col-right">
                 <form class="feedback__form feedback-form" method="POST" action="" enctype="multipart/form-data" autocomplete="off">
                   <div class="feedback-form__input-container">
-                    <input id="name" placeholder=" " name="name" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off" maxlength="40" required>
-                    <label for="name">Имя*</label><span class="feedback-form__error"></span>
+                    <input class="input-name" placeholder=" " name="name" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off" maxlength="40" required>
+                    <label>Имя*</label><span class="feedback-form__error"></span>
                   </div>
                   <div class="feedback-form__input-container">
-                    <input id="phone" type="tel" name="phone" placeholder=" " data-tel-input="" pattern="[0-9]+$" maxlength="15" autocomplete="off" required>
-                    <label for="phone">Телефон*</label><span class="feedback-form__error"></span>
+                    <input class="input-phone" type="tel" name="phone" placeholder=" " data-tel-input="" pattern="[0-9]+$" maxlength="15" autocomplete="off" required>
+                    <label>Телефон*</label><span class="feedback-form__error"></span>
                   </div>
                   <div class="feedback-form__input-container">
-                    <input id="email" type="email" name="email" maxlength="40" pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})" placeholder=" " required>
-                    <label for="email">E-mail*</label><span class="feedback-form__error"></span>
+                    <input class="input-email" type="email" name="email" maxlength="40" pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})" placeholder=" " required>
+                    <label>E-mail*</label><span class="feedback-form__error"></span>
                   </div>
                   <div class="feedback-form__input-container">
-                    <input id="message" placeholder=" " name="message" maxlength="100">
-                    <label for="message">Сообщение</label>
+                    <input class="input-message" placeholder=" " name="message" maxlength="100">
+                    <label>Сообщение</label>
                   </div>
                   <div class="feedback-form__sending">
                     <button class="button feedback-form__button" type="submit">Отправить&nbsp;заявку</button>

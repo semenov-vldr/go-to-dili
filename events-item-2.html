@@ -205,20 +205,20 @@
               <div class="feedback__col-right">
                 <form class="feedback__form feedback-form" method="POST" action="" enctype="multipart/form-data" autocomplete="off">
                   <div class="feedback-form__input-container">
-                    <input id="name" placeholder=" " name="name" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off" maxlength="40" required>
-                    <label for="name">Имя*</label><span class="feedback-form__error"></span>
+                    <input class="input-name" placeholder=" " name="name" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off" maxlength="40" required>
+                    <label>Имя*</label><span class="feedback-form__error"></span>
                   </div>
                   <div class="feedback-form__input-container">
-                    <input id="phone" type="tel" name="phone" placeholder=" " data-tel-input="" pattern="[0-9]+$" maxlength="15" autocomplete="off" required>
-                    <label for="phone">Телефон*</label><span class="feedback-form__error"></span>
+                    <input class="input-phone" type="tel" name="phone" placeholder=" " data-tel-input="" pattern="[0-9]+$" maxlength="15" autocomplete="off" required>
+                    <label>Телефон*</label><span class="feedback-form__error"></span>
                   </div>
                   <div class="feedback-form__input-container">
-                    <input id="email" type="email" name="email" maxlength="40" pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})" placeholder=" " required>
-                    <label for="email">E-mail*</label><span class="feedback-form__error"></span>
+                    <input class="input-email" type="email" name="email" maxlength="40" pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})" placeholder=" " required>
+                    <label>E-mail*</label><span class="feedback-form__error"></span>
                   </div>
                   <div class="feedback-form__input-container">
-                    <input id="message" placeholder=" " name="message" maxlength="100">
-                    <label for="message">Сообщение</label>
+                    <input class="input-message" placeholder=" " name="message" maxlength="100">
+                    <label>Сообщение</label>
                   </div>
                   <div class="feedback-form__sending">
                     <button class="button feedback-form__button" type="submit">Отправить&nbsp;заявку</button>
