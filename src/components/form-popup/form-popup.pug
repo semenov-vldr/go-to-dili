@@ -5,23 +5,23 @@
     form.feedback__form.feedback-form(method='POST' action='' enctype="multipart/form-data" autocomplete="off")
 
       .feedback-form__input-container
-        input#name(placeholder=" " name="name" pattern="^[A-Za-zА-Яа-яЁё\\s]+$" autocomplete='off' maxlength='40' required )
-        label(for='name') Имя*
+        input.input-name(placeholder=" " name="name" pattern="^[A-Za-zА-Яа-яЁё\\s]+$" autocomplete='off' maxlength='40' required )
+        label Имя*
         span.feedback-form__error
       .feedback-form__input-container
 
-        input#phone(type='tel' name='phone' placeholder=" " data-tel-input='' pattern='[0-9]+$' maxlength='15'  autocomplete='off' required )
-        label(for='phone') Телефон*
+        input.input-phone(type='tel' name='phone' placeholder=" " data-tel-input='' pattern='[0-9]+$' maxlength='15'  autocomplete='off' required )
+        label Телефон*
         span.feedback-form__error
 
       .feedback-form__input-container
-        input#email(type='email' name="email" maxlength='40' pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})" placeholder=" " required )
-        label(for='email') E-mail*
+        input.input-email(type='email' name="email" maxlength='40' pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})" placeholder=" " required )
+        label E-mail*
         span.feedback-form__error
 
       .feedback-form__input-container
-        input#message(placeholder=" " name="message" maxlength='100')
-        label(for='message') Сообщение
+        input.input-message(placeholder=" " name="message" maxlength='100')
+        label Сообщение
 
       .feedback-form__sending
         button.button.feedback-form__button(type='submit') Отправить&nbsp;заявку

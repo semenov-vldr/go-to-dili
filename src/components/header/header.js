@@ -4,6 +4,7 @@ window.addEventListener("scroll", scrollHeader);
 
 function scrollHeader() {
   const header = document.querySelector(".header");
+  const headerIndex = document.querySelector(".header.header-main");
   const headerMobile = document.querySelector('.header-mobile');
   const logo = document.querySelector(".header__logo svg");
   const button = document.querySelector(".header__button");
@@ -21,7 +22,6 @@ function scrollHeader() {
       elem.classList.add('scrolled');
     });
   } else {
-    //elemsHeader.forEach(elem => elem.classList.remove('scrolled'));
     elemsHeader.forEach(elem => {
       elem.classList.remove('scrolled-bottom');
       elem.classList.add('scrolled-top');
@@ -29,15 +29,23 @@ function scrollHeader() {
   }
   previousPosition = currentPosition;
 
-  if (scrollY < 1) {
+  if (scrollY < 300) {
     elemsHeader.forEach(elem => {
       elem.classList.remove('scrolled-bottom');
       elem.classList.remove('scrolled-top');
       elem.classList.remove('scrolled');
     });
+    header.style.position = "fixed";
+    if (headerIndex) headerIndex.classList.remove('header-index');
   }
 
+  if (scrollY < 1)  {
+    header.style.position = "relative";
+    if (headerIndex) headerIndex.classList.add('header-index');
+  }
 };
+
+
 
 // burger
 const burger = document.querySelector('.header__burger-icon');
@@ -45,15 +53,12 @@ const menu = document.querySelector('.header__container');
 const headerMobile = document.querySelector('.header-mobile')
 const headerMobileWrapper = document.querySelector('.header-mobile__wrapper');
 const logo_mobile = document.querySelector('.header-mobile__logo');
+
+const elemsHeader = [burger, menu, headerMobile, headerMobileWrapper, logo_mobile];
+
 if (burger) {
   burger.addEventListener('click', () => {
-    document.body.classList.toggle('js-lock-scroll');
-    burger.classList.toggle('js-active-menu');
-    headerMobile.classList.toggle('js-active-menu');
-    menu.classList.toggle('js-active-menu');
-    logo_mobile.classList.toggle('js-active-menu');
-    headerMobileWrapper.classList.toggle('js-active-menu');
-    promoDiscount.classList.toggle('js-active-menu');
+    elemsHeader.forEach(elemHeader => elemHeader.classList.toggle('js-active-menu'))
   });
 }
 

@@ -14,7 +14,7 @@
     if (!inputNumbersValue) input.value = "";
 
 
-    if (input.value.length !== selectionStart) {
+    if (input.value.length != selectionStart) {
       if (evt.data && /\D/g.test(evt.data)) {
         input.value = formattedInputValue;
       }
@@ -78,13 +78,14 @@
 // });
 
 
-  const form = document.querySelector('.feedback__form');
+  const formList = document.querySelectorAll('.feedback__form');
 
-  if (form) {
+  if (formList) {
 
-    const inputName = form.querySelector('#name');
-    const inputPhone = form.querySelector('#phone');
-    const inputEmail = form.querySelector('#email');
+  formList.forEach(form => {
+    const inputName = form.querySelector('.input-name');
+    const inputPhone = form.querySelector('.input-phone');
+    const inputEmail = form.querySelector('.input-email');
     const submitButton = form.querySelector('.feedback-form__button');
 
 
@@ -100,11 +101,11 @@
 
 
     // Сообщение об ошибки валидации
-    const nameError = form.querySelector('#name ~ span');
+    const nameError = form.querySelector('.input-name ~ span');
     const nameErrorMessage = 'Вы ввели неверное имя';
-    const phoneError = form.querySelector('#phone ~ span');
+    const phoneError = form.querySelector('.input-phone ~ span');
     const phoneErrorMessage = 'Вы ввели неверный номер';
-    const EmailError = form.querySelector('#email ~ span');
+    const EmailError = form.querySelector('.input-email ~ span');
     const emailErrorMessage = 'Введите правильную почту';
 
 
@@ -133,6 +134,7 @@
         phoneError.textContent = '';
       };
     });
+  })
 
   }
 

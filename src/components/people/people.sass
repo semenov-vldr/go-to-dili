@@ -1,0 +1,19 @@
+.people
+  background-color: #F4F6E9
+
+  &__title
+    text-align: center
+    font-size: clamp(30px, calc(30px + (60 - 30) * ((100vw - 768px) / (1920 - 768))), 60px)
+    margin-bottom: clamp(34px, calc(34px + (50 - 34) * ((100vw - 768px) / (1920 - 768))), 50px)
+
+  &__list
+    display: grid
+    grid-template-columns: repeat(4, 1fr)
+    gap: 20px
+    padding-bottom: 60px
+    @media (max-width: 1500px)
+      grid-template-columns: repeat(3, 1fr)
+    @media (max-width: 768px)
+      grid-template-columns: repeat(2, 1fr)
+    @media (max-width: 480px)
+      grid-template-columns: 1fr

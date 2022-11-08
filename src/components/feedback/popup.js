@@ -1,5 +1,7 @@
 const API_URL = 'https://httpbin.org/post';
 
+const html = document.querySelector('html')
+
 let popup;
 
 const isPressedEscapeKey = (evt) => evt.key === 'Escape';
@@ -16,16 +18,16 @@ function closePopup () {
   document.querySelector('.feedback__popup').remove();
   document.removeEventListener('keydown', onDocumentEscKeydown);
   document.removeEventListener('click', closePopup);
-  document.body.classList.remove('js-lock-scroll');
+  html.classList.remove('js-lock-scroll')
   form.reset();
 };
 
 function showPopup () {
   document.body.append(popup);
   //const closeButton = popup.querySelector('.popup__close');
-  document.body.classList.add('js-lock-scroll')
   document.addEventListener('keydown', onDocumentEscKeydown);
   document.addEventListener('click', closePopup);
+  html.classList.add('js-lock-scroll')
 };
 
 function displayPopupSuccess () {
@@ -39,7 +41,6 @@ function displayPopupError () {
 };
 
 const submitButton = document.querySelector('.feedback-form__button');
-console.log(submitButton)
 
 function blockSubmitButton () {
   if (submitButton) {
@@ -68,7 +69,8 @@ function sendDataForm (onSuccess, onError, body) {
 
 function setUserFormSubmit (onSuccess, onError) {
 
-if (form) {
+if (formList) {
+formList.forEach(form => {
   form.addEventListener('submit', (evt) => {
     evt.preventDefault();
 
@@ -88,6 +90,7 @@ if (form) {
       );
     }
   });
+})
 }
 };
 
