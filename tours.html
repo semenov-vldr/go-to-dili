@@ -2,7 +2,7 @@
 <html lang="ru-RU">
   <head>
     <meta charset="utf-8">
-    <title>Поход за грибами в Дилижанский лес</title><!--[if IE]>
+    <title>Туры</title><!--[if IE]>
     <meta http-equiv="X-UA-Compatible" content="IE = edge"><![endif]-->
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="keywords" content=""><!--favicon-->
@@ -150,141 +150,82 @@
         </div>
       </header>
       <main>
+        <div class="breadcrumbs" style="background-color: #F4F6E9">
+          <div class="breadcrumbs__container container"><a class="breadcrumbs__item" href="/">Главная</a><a class="breadcrumbs__item" href="">Туры</a></div>
+        </div>
         <section>
-          <div class="tour-item">
-            <div class="tour-item__conteiner">
-              <div class="breadcrumbs" style="background-color: #F4F6E9">
-                <div class="breadcrumbs__container"><a class="breadcrumbs__item" href="/">Главная</a><a class="breadcrumbs__item" href="">Знакомство с Дилижаном</a></div>
-              </div>
-              <h1 class="tour-item__title">Поход за грибами в Дилижанский лес</h1>
-              <div class="tour-item__nav">
-                <div class="arrow-nav">
-                  <svg class="arrow-nav__prev">
-                    <use href="./assets/img/sprite.svg#arrow-nav-prev"></use>
-                  </svg>
-                  <svg class="arrow-nav__next">
-                    <use href="./assets/img/sprite.svg#arrow-nav-next"></use>
-                  </svg>
-                </div>
-              </div>
-              <div class="tour-item__slider swiper">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide"><a href="./assets/img/events/04.jpg" data-fancybox="preview"><img class="tour-item__image" src="./assets/img/events/04.jpg" alt="Техут"></a></div>
-                  <div class="swiper-slide"><a href="./assets/img/events/05.jpg" data-fancybox="preview"><img class="tour-item__image" src="./assets/img/events/05.jpg" alt="Техут"></a></div>
-                  <div class="swiper-slide"><a href="./assets/img/events/06.jpg" data-fancybox="preview"><img class="tour-item__image" src="./assets/img/events/06.jpg" alt="Техут"></a></div>
-                  <div class="swiper-slide"><a href="./assets/img/events/04.jpg" data-fancybox="preview"><img class="tour-item__image" src="./assets/img/events/04.jpg" alt="Техут"></a></div>
-                  <div class="swiper-slide"><a href="./assets/img/events/05.jpg" data-fancybox="preview"><img class="tour-item__image" src="./assets/img/events/05.jpg" alt="Техут"></a></div>
-                </div>
-                <div class="swiper-pagination"></div>
-              </div>
-              <div class="tour-item__advantages tour-item-advantages">
-                <div class="tour-item-advantages__item">
-                  <div class="tour-item-advantages__icon">
-                    <svg fill="#fff" width="20" height="18">
-                      <use href="./assets/img/sprite.svg#home"></use>
-                    </svg>
-                  </div><span class="tour-item-advantages__text">Проживание в деревянных домиках</span>
-                </div>
-                <div class="tour-item-advantages__item">
-                  <div class="tour-item-advantages__icon">
-                    <svg fill="#fff" width="20" height="18">
-                      <use href="./assets/img/sprite.svg#bus"></use>
-                    </svg>
-                  </div><span class="tour-item-advantages__text">Добираемся на автобусе</span>
-                </div>
-              </div>
-              <div class="tour-item__parameters tour-item-parameters">
-                <div class="tour-item-parameters__item"><span>Длительность:</span><span>8 дней</span></div>
-                <div class="tour-item-parameters__item"><span>Расстояние:</span><span>80 км</span></div>
-              </div>
-              <div class="tour-item__text">
-                <p>Гастрономическая ярмарка, где каждый посетитель сможет попробовать национальные блюда различных регионов Армении. Это настоящий праздник для каждого ценителя вкусной еды и приятный способ познакомиться со страной поближе.</p>
-                <p>В городском парке Дилижана завершился крупный гастрономический фестиваль в Армении GASTROFEST.</p>
-                <p>Помимо гастрономической ярмарки проводились мастер-классы по приготовлению блюд, конкурсы и уроки национальных танцев от ансамбля Karin. Партнеры гастрофестиваля приготовили соревнование по Slackline – виду спорта, представляющему собой хождение по специальным стропам (линиям), которые натянуты между закрепленными объектами. У городского озера для гостей был доступен прокат каяков и SUP board.</p>
-              </div>
-              <div class="tour-item__map-wrapper">
-                <div class="tour-item__map-sticky">
-                  <div class="tour-item__map" id="tour-item__map"></div>
-                </div>
-                <template class="balloon-template">
-                  <article class="balloon">
-                    <div class="balloon__wrapper"><a class="balloon__close" href="##">
-                        <svg fill="#000" width="8" height="8">
-                          <use href="./assets/img/sprite.svg#cross"></use>
-                        </svg></a>
-                      <div class="balloon__image-wrapper"><img class="balloon__image" src="./assets/img/map/01.jpg" alt=""></div>
-                      <div class="balloon__content-text">
-                        <p class="balloon__title">Dilijazz Restaurant</p>
-                        <div class="balloon__desc">
-                          <div class="balloon__desc-title">Кухня:</div>
-                          <div class="balloon__desc-text">Американская</div>
-                        </div>
-                        <div class="balloon__address"><img src="./assets/img/map/ballon-location.svg" alt="">
-                          <div class="balloon__address-text">1/1 2nd St., T’eghut, Дилижан 3902 Армения</div>
-                        </div>
+          <div class="tours">
+            <div class="container">
+              <h1 class="tours__title">Туры</h1>
+              <ul class="tours__list">
+                <li class="tours__item"><a class="tour-card" href="/">
+                    <div class="tour-card__body">
+                      <div class="tour-card__image-wrapper"><img class="tour-card__image" src="./assets/img/events/01.jpg" alt="event-image">
+                        <div class="tour-card__icons"><img src="./assets/img/icon-card-decor.svg" alt="icon"><img src="./assets/img/icon-card-decor-02.svg" alt="icon"></div>
                       </div>
-                    </div>
-                  </article>
-                </template>
-              </div>
+                      <div class="tour-card__text-content">
+                        <h4 class="tour-card__title">Классический тур по Армении и Грузии</h4>
+                        <p class="tour-card__text">Великий шелковый путь не обходил средневековую Армению. Авторский тур Рубена Овсепяна, одного</p>
+                        <p class="tour-card__options"><span class="tour-card__option">Длительность:<b class="tour-card__options-value">10 дней</b></span><span class="tour-card__option">Расстояние:<b class="tour-card__options-value">528 км</b></span></p>
+                      </div>
+                    </div></a></li>
+                <li class="tours__item"><a class="tour-card" href="/">
+                    <div class="tour-card__body">
+                      <div class="tour-card__image-wrapper"><img class="tour-card__image" src="./assets/img/events/02.jpg" alt="event-image">
+                        <div class="tour-card__icons"><img src="./assets/img/icon-card-decor.svg" alt="icon"><img src="./assets/img/icon-card-decor-02.svg" alt="icon"></div>
+                      </div>
+                      <div class="tour-card__text-content">
+                        <h4 class="tour-card__title">Поход за грибами в Дилижанский лес и готовка с шефом</h4>
+                        <p class="tour-card__text">Великий шелковый путь не обходил средневековую Армению. Авторский тур Рубена Овсепяна, одного</p>
+                        <p class="tour-card__options"><span class="tour-card__option">Длительность:<b class="tour-card__options-value">8 дней</b></span><span class="tour-card__option">Расстояние:<b class="tour-card__options-value">80 км</b></span></p>
+                      </div>
+                    </div></a></li>
+                <li class="tours__item"><a class="tour-card" href="/">
+                    <div class="tour-card__body">
+                      <div class="tour-card__image-wrapper"><img class="tour-card__image" src="./assets/img/events/03.jpg" alt="event-image">
+                        <div class="tour-card__icons"><img src="./assets/img/icon-card-decor.svg" alt="icon"><img src="./assets/img/icon-card-decor-02.svg" alt="icon"></div>
+                      </div>
+                      <div class="tour-card__text-content">
+                        <h4 class="tour-card__title">Классический тур по Армении и Грузии</h4>
+                        <p class="tour-card__text">Великий шелковый путь не обходил средневековую Армению. Авторский тур Рубена Овсепяна, одного</p>
+                        <p class="tour-card__options"><span class="tour-card__option">Длительность:<b class="tour-card__options-value">10 дней</b></span><span class="tour-card__option">Расстояние:<b class="tour-card__options-value">528 км</b></span></p>
+                      </div>
+                    </div></a></li>
+                <li class="tours__item"><a class="tour-card" href="/">
+                    <div class="tour-card__body">
+                      <div class="tour-card__image-wrapper"><img class="tour-card__image" src="./assets/img/events/01.jpg" alt="event-image">
+                        <div class="tour-card__icons"><img src="./assets/img/icon-card-decor.svg" alt="icon"><img src="./assets/img/icon-card-decor-02.svg" alt="icon"></div>
+                      </div>
+                      <div class="tour-card__text-content">
+                        <h4 class="tour-card__title">Поход за грибами в Дилижанский лес и готовка с шефом</h4>
+                        <p class="tour-card__text">Великий шелковый путь не обходил средневековую Армению. Авторский тур Рубена Овсепяна, одного</p>
+                        <p class="tour-card__options"><span class="tour-card__option">Длительность:<b class="tour-card__options-value">8 дней</b></span><span class="tour-card__option">Расстояние:<b class="tour-card__options-value">80 км</b></span></p>
+                      </div>
+                    </div></a></li>
+                <li class="tours__item"><a class="tour-card" href="/">
+                    <div class="tour-card__body">
+                      <div class="tour-card__image-wrapper"><img class="tour-card__image" src="./assets/img/events/03.jpg" alt="event-image">
+                        <div class="tour-card__icons"><img src="./assets/img/icon-card-decor.svg" alt="icon"><img src="./assets/img/icon-card-decor-02.svg" alt="icon"></div>
+                      </div>
+                      <div class="tour-card__text-content">
+                        <h4 class="tour-card__title">Классический тур по Армении и Грузии</h4>
+                        <p class="tour-card__text">Великий шелковый путь не обходил средневековую Армению. Авторский тур Рубена Овсепяна, одного</p>
+                        <p class="tour-card__options"><span class="tour-card__option">Длительность:<b class="tour-card__options-value">10 дней</b></span><span class="tour-card__option">Расстояние:<b class="tour-card__options-value">528 км</b></span></p>
+                      </div>
+                    </div></a></li>
+                <li class="tours__item"><a class="tour-card" href="/">
+                    <div class="tour-card__body">
+                      <div class="tour-card__image-wrapper"><img class="tour-card__image" src="./assets/img/events/01.jpg" alt="event-image">
+                        <div class="tour-card__icons"><img src="./assets/img/icon-card-decor.svg" alt="icon"><img src="./assets/img/icon-card-decor-02.svg" alt="icon"></div>
+                      </div>
+                      <div class="tour-card__text-content">
+                        <h4 class="tour-card__title">Поход за грибами в Дилижанский лес и готовка с шефом</h4>
+                        <p class="tour-card__text">Великий шелковый путь не обходил средневековую Армению. Авторский тур Рубена Овсепяна, одного</p>
+                        <p class="tour-card__options"><span class="tour-card__option">Длительность:<b class="tour-card__options-value">8 дней</b></span><span class="tour-card__option">Расстояние:<b class="tour-card__options-value">80 км</b></span></p>
+                      </div>
+                    </div></a></li>
+              </ul>
             </div>
-          </div>
-          <div class="feedback">
-            <div class="container feedback__container">
-              <div class="feedback__col-left">
-                <div class="title-text">
-                  <h2>Остались вопросы?</h2>
-                  <p>Наши специалисты свяжутся с вами в самое ближайшее время</p>
-                </div><img src="./assets/img/form-decor.svg" alt="decor">
-              </div>
-              <div class="feedback__col-right">
-                <form class="feedback__form feedback-form" method="POST" action="" enctype="multipart/form-data" autocomplete="off">
-                  <div class="feedback-form__input-container">
-                    <input id="name" placeholder=" " name="name" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off" maxlength="40" required>
-                    <label for="name">Имя*</label><span class="feedback-form__error"></span>
-                  </div>
-                  <div class="feedback-form__input-container">
-                    <input id="phone" type="tel" name="phone" placeholder=" " data-tel-input="" pattern="[0-9]+$" maxlength="15" autocomplete="off" required>
-                    <label for="phone">Телефон*</label><span class="feedback-form__error"></span>
-                  </div>
-                  <div class="feedback-form__input-container">
-                    <input id="email" type="email" name="email" maxlength="40" pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})" placeholder=" " required>
-                    <label for="email">E-mail*</label><span class="feedback-form__error"></span>
-                  </div>
-                  <div class="feedback-form__input-container">
-                    <input id="message" placeholder=" " name="message" maxlength="100">
-                    <label for="message">Сообщение</label>
-                  </div>
-                  <div class="feedback-form__sending">
-                    <button class="button feedback-form__button" type="submit">Отправить&nbsp;заявку</button>
-                    <label>
-                      <input type="checkbox" checked><span class="feedback-form__checkbox"></span><span class="feedback-form__agreement">Нажав на кнопку, вы соглашаетесь на обработку<a href="">&#160;персональных данных</a></span>
-                    </label>
-                  </div>
-                </form>
-              </div>
-            </div>
-            <div class="feedback__decor-bottom"></div>
-            <template id="success">
-              <div class="feedback__popup popup success">
-                <div class="popup__body">
-                  <div class="popup__content"><a class="popup__close" href="">&#10006;</a><img class="popup__icon" src="./assets/img/check-popup.svg" alt="icon">
-                    <p class="popup__title">Ваша заявка успешно отправлена!</p>
-                    <p class="popup__text">В течении 24 часов мы с вами свяжемся</p>
-                  </div>
-                </div>
-              </div>
-            </template>
-            <template id="error">
-              <div class="feedback__popup popup error">
-                <div class="popup__body">
-                  <div class="popup__content"><a class="popup__close" href="">&#10006;</a><img class="popup__icon" src="./assets/img/error-popup.svg" alt="icon">
-                    <p class="popup__title">Ошибка при отправки формы</p>
-                    <p class="popup__text">Вам лучше перезвонить нам!</p><a href="">+7 852 856 00 00</a>
-                  </div>
-                </div>
-              </div>
-            </template>
           </div>
         </section>
       </main>

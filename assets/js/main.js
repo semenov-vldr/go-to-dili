@@ -191,7 +191,7 @@ new Swiper('.events__list', {
     if (!inputNumbersValue) input.value = "";
 
 
-    if (input.value.length != selectionStart) {
+    if (input.value.length !== selectionStart) {
       if (evt.data && /\D/g.test(evt.data)) {
         input.value = formattedInputValue;
       }
@@ -339,7 +339,7 @@ function closePopup () {
 
 function showPopup () {
   document.body.append(popup);
-  const closeButton = popup.querySelector('.popup__close');
+  //const closeButton = popup.querySelector('.popup__close');
   document.body.classList.add('js-lock-scroll')
   document.addEventListener('keydown', onDocumentEscKeydown);
   document.addEventListener('click', closePopup);
@@ -355,14 +355,22 @@ function displayPopupError () {
   showPopup();
 };
 
+const submitButton = document.querySelector('.feedback-form__button');
+console.log(submitButton)
+
 function blockSubmitButton () {
-  submitButton.disabled = true;
-  submitButton.textContent = 'Отправляю...';
+  if (submitButton) {
+    submitButton.disabled = true;
+    submitButton.textContent = 'Отправляю...';
+  }
 };
 
 function unblockSubmitButton () {
-  submitButton.disabled = false;
-  submitButton.textContent = 'Отправить заявку';
+  if (submitButton) {
+    submitButton.disabled = false;
+    submitButton.textContent = 'Отправить заявку';
+  }
+
 };
 
 function sendDataForm (onSuccess, onError, body) {
@@ -401,6 +409,50 @@ if (form) {
 };
 
 setUserFormSubmit ( displayPopupSuccess, displayPopupError );
+
+{
+
+  const formPopup = document.querySelector('.form-popup');
+  const partnersButton = document.querySelector('.partners__button');
+
+  if (formPopup) {
+    const form = formPopup.querySelector('.feedback-form');
+    const close = formPopup.querySelector('.form-popup__close');
+
+
+    function onDocumentClick () {
+      document.body.addEventListener('click', (evt) => {
+        if (evt.target.classList.contains('form-popup')) {
+          formPopup.classList.remove('js-popup-active');
+        }
+      })
+    };
+
+    close.addEventListener('click', () => {
+      formPopup.classList.remove('js-popup-active')
+      //document.body.classList.remove('js-lock-scroll')
+    })
+
+    form.addEventListener('submit', () => {
+      formPopup.classList.remove('js-popup-active')
+      //document.body.classList.remove('js-lock-scroll')
+    })
+
+
+    if (partnersButton) {
+      partnersButton.addEventListener('click', () => {
+        formPopup.classList.add('js-popup-active')
+        //document.body.classList.add('js-lock-scroll')
+        onDocumentClick()
+      })
+    }
+  }
+
+
+
+
+
+}
 
 const header = document.querySelector('.header');
 const weatherTemp = header.querySelector('.header__weather-temp');
