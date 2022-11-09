@@ -1,14 +1,25 @@
 let previousPosition = window.scrollTop || document.documentElement.scrollTop;
 
+//---- set padding main ---
+  function setPaddingMain () {
+    const main = document.querySelector('main');
+    const header = document.querySelector(".header");
+    main.style.paddingTop = `${header.offsetHeight}px`;
+  }
+  setPaddingMain();
+  window.addEventListener('resize', setPaddingMain);
+
+
+
+// ---- scrollHeader ------
 window.addEventListener("scroll", scrollHeader);
 
 function scrollHeader() {
   const header = document.querySelector(".header");
-  const headerIndex = document.querySelector(".header.header-main");
-  const headerMobile = document.querySelector('.header-mobile');
-  const logo = document.querySelector(".header__logo svg");
-  const button = document.querySelector(".header__button");
-  const icon_phone = document.querySelector(".header__phone svg");
+  const headerMobile = header.querySelector('.header-mobile');
+  const logo = header.querySelector(".header__logo svg");
+  const button = header.querySelector(".header__button");
+  const icon_phone = header.querySelector(".header__phone svg");
 
   const elemsHeader = [header, headerMobile, logo, button, icon_phone];
 
@@ -21,12 +32,14 @@ function scrollHeader() {
       elem.classList.remove('scrolled-top');
       elem.classList.add('scrolled');
     });
+
   } else {
     elemsHeader.forEach(elem => {
       elem.classList.remove('scrolled-bottom');
       if (scrollY > 200) elem.classList.add('scrolled-top');
     });
   }
+
   previousPosition = currentPosition;
 
   if (scrollY < 1) {
@@ -36,7 +49,6 @@ function scrollHeader() {
       elem.classList.remove('scrolled');
     });
   }
-
 
 };
 
@@ -54,8 +66,10 @@ const elemsHeader = [burger, menu, headerMobile, headerMobileWrapper, logo_mobil
 if (burger) {
   burger.addEventListener('click', () => {
     elemsHeader.forEach(elemHeader => elemHeader.classList.toggle('js-active-menu'))
-  });
+  })
 }
+
+
 
 
 // Accordion sub-nav

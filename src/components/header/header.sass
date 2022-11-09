@@ -29,49 +29,46 @@
     transform: translateY(0)
 
 
+
   &.scrolled
     position: fixed
     top: 0
     left: 0
     background-color: #fff
     color: $black
-  &.scrolled .header__nav-row-2::after
-    background-color: $black
-  &.scrolled .header__button,
-  &.scrolled .header__burger-icon span
-    background-color: var(--c-green)
-  &.scrolled .header__weather svg,
-  &.scrolled .header__map svg
-    fill: var(--c-green)
-  &.scrolled .header__link:hover
-   color: rgba($green, 0.8)
-  &.scrolled .header-mobile__wrapper .header-mobile .header__burger-icon
-    & span,
-    &::before,
-    &::after
+    & .header__nav-row-2::after,
+    &.header-index .promo-discount
+      background-color: $black
+    & .header__button,
+    & .header__burger-icon span
       background-color: var(--c-green)
-  &.scrolled .header__logo,
-  &.scrolled .header-mobile__logo
-    svg .goto
+    & .header__weather svg,
+    & .header__map svg
       fill: var(--c-green)
-    svg .dili
-      fill: var(--c-black)
-
-  &.scrolled .header__logo
-    width: 4%
-
-  &.scrolled .header-mobile__phone svg,
-  &.scrolled .header__phone--mobile svg
-    fill: $green
-  &.scrolled .header__email svg,
-  &.scrolled .header__nav-contacts .header__phone svg
-    fill: $green
-    fill-opacity: 1
-
-  &.scrolled .header__social-link:hover
-    background-color: rgba(#fff, 0.3)
-  &.header-index.scrolled .promo-discount
-    background-color: var(--c-black)
+    & .header__link:hover
+      color: rgba($green, 0.8)
+    & .header-mobile__wrapper .header-mobile .header__burger-icon
+      & span,
+      &::before,
+      &::after
+        background-color: var(--c-green)
+    & .header__logo,
+    & .header-mobile__logo
+      svg .goto
+        fill: var(--c-green)
+      svg .dili
+        fill: var(--c-black)
+    & .header__logo
+      width: 4%
+    & .header-mobile__phone svg,
+    & .header__phone--mobile svg
+      fill: $green
+    & .header__email svg,
+    & .header__nav-contacts .header__phone svg
+      fill: $green
+      fill-opacity: 1
+    & .header__social-link:hover
+      background-color: rgba(#fff, 0.3)
 
   &__link
     white-space: nowrap
