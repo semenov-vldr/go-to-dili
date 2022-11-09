@@ -65,10 +65,9 @@ const elemsHeader = [burger, menu, headerMobile, headerMobileWrapper, logo_mobil
 
 if (burger) {
   burger.addEventListener('click', () => {
-    elemsHeader.forEach(elemHeader => elemHeader.classList.toggle('js-active-menu'))
-
+    elemsHeader.forEach(elemHeader => elemHeader.classList.toggle('js-active-menu'));
     const promoDiscount = document.querySelector('.promo-discount');
-    if (promoDiscount) promoDiscount.classList.toggle('js-active-menu')
+    if (promoDiscount) promoDiscount.classList.toggle('js-active-menu');
   })
 }
 

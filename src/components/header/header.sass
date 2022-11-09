@@ -35,16 +35,23 @@
     top: 0
     left: 0
     background-color: #fff
-    color: $black
-    & .header__nav-row-2::after,
+    @media (min-width: 1000.1px)
+      color: $black
+      & .header__button,
+      & .header__burger-icon span
+        background-color: $green
+      & .header__weather svg,
+      & .header__map svg
+        fill: $green
+      & .header__nav-row-2::after
+        background-color: $black
+      & .header__nav-contacts .header__phone svg,
+      & .header__email svg
+        fill: $green
+        fill-opacity: 1
+
     &.header-index .promo-discount
       background-color: $black
-    & .header__button,
-    & .header__burger-icon span
-      background-color: var(--c-green)
-    & .header__weather svg,
-    & .header__map svg
-      fill: var(--c-green)
     & .header__link:hover
       color: rgba($green, 0.8)
     & .header-mobile__wrapper .header-mobile .header__burger-icon
@@ -52,8 +59,7 @@
       &::before,
       &::after
         background-color: var(--c-green)
-    & .header__logo,
-    & .header-mobile__logo
+    & .header__logo, .header-mobile__logo
       svg .goto
         fill: var(--c-green)
       svg .dili
@@ -63,10 +69,6 @@
     & .header-mobile__phone svg,
     & .header__phone--mobile svg
       fill: $green
-    & .header__email svg,
-    & .header__nav-contacts .header__phone svg
-      fill: $green
-      fill-opacity: 1
     & .header__social-link:hover
       background-color: rgba(#fff, 0.3)
 
@@ -112,7 +114,7 @@
       overscroll-behavior: contain
       &.js-active-menu
         left: 0
-      &.js-active-menu .header__phone svg
+      &.js-active-menu .header-mobile__phone svg
         fill-opacity: 1
     @media (max-width: 400px)
       align-items: flex-start
@@ -409,6 +411,14 @@
         display: block
       &.js-active-menu .header-mobile__phone
         display: none
+      &.js-active-menu .header-mobile__logo svg
+        & .goto
+          fill: #000
+        & .dili
+          fill: #fff
+
+      &.js-active-menu .header-mobile__phone svg
+        fill: #fff
 
       &__phone svg
         fill: rgba(#fff, 0.25)
