@@ -29,9 +29,6 @@ new Swiper('.events__list', {
       slidesPerView: 1.5,
     },
     768: {
-      slidesPerView: 2.5,
-    },
-    1100: {
       slidesPerView: 3,
     },
   }

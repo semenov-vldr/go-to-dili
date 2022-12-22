@@ -1,21 +1,15 @@
 extends ../layouts/main
 
 block variables
-  - var title = "FAQ"
+  - var title = "GoToDili — FAQ"
   - var pageClass = ''
   - var activePage = 'index'
 
 block content
-  .breadcrumbs(style="background-color:#F4F6E9")
+  .breadcrumbs
     .breadcrumbs__container.container
       a(href="/").breadcrumbs__item Главная
       a(href="").breadcrumbs__item FAQ
-  section(style="background-color:#F4F6E9")
-
+  section
     include ../components/faq/faq
     include ../components/feedback/feedback
-
-
-
-
-

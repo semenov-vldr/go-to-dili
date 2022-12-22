@@ -4,8 +4,6 @@ new Swiper('.about-people__list', {
     clickable: true,
   },
 
-  slidesPerView: 3,
-
   centeredSlides: true,
 
   // Откл функционала, если слайдов меньше, чем нужно
@@ -29,7 +27,7 @@ new Swiper('.about-people__list', {
       slidesPerView: 2.2,
     },
     768: {
-      slidesPerView: 3.2,
+      slidesPerView: 3,
     },
     1400: {
       slidesPerView: 4,

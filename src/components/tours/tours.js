@@ -4,8 +4,6 @@ new Swiper('.tours__list', {
     clickable: true,
   },
 
-  slidesPerView: 4,
-
   // Откл функционала, если слайдов меньше, чем нужно
   watchOverflow: true,
 
@@ -30,11 +28,7 @@ new Swiper('.tours__list', {
     },
     768: {
       slidesPerView: 3,
-    },
-    1400: {
-      slidesPerView: 4,
-      centeredSlides: false,
-    },
+    }
   }
 
 });

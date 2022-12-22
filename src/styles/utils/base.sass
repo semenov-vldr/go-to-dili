@@ -4,14 +4,11 @@ html
   scroll-behavior: smooth
   background-color: #fff
   color: var(--c-black)
-  &.js-lock-scroll
+  &.no-scroll
     overflow: hidden
 
 
 .page
-  //overflow: hidden
-  overflow: clip
-
   min-height: 100%
   display: -webkit-box
   display: -ms-flexbox
@@ -27,8 +24,6 @@ main
   flex: 1 1 auto
   -webkit-box-flex: 1
   -ms-flex: 1 1 auto
-  z-index: 100
-  //padding-top: 180px
 
 .container
   max-width: 1600px
@@ -36,10 +31,14 @@ main
   padding: 0 160px
   margin: 0 auto
   box-sizing: content-box
+  overflow: hidden
   @media (max-width: 1200px)
     padding: 0 50px
   @media (max-width: 768px)
     padding: 0 20px
+  &_style
+    &_green
+      //background-color: var(--c-light-green)
 
 .hidden
   display: none
@@ -112,19 +111,14 @@ h2
   @extend .font-s-2
   font-family: 'Artico-ExtraCond', sans-serif
 
-
-//a
-//  transition: $transition
-
 .button
-  font-size: 14px
+  font-size: clamp(12px, calc(12px + (14 - 12) * ((100vw - 768px) / (1920 - 768))), 14px)
   transition: $transition
   display: inline-flex
   @extend .flex-center
   text-align: center
   text-transform: uppercase
-  min-height: 56px
-  padding: 8px 34px
+  padding: 16px 24px
   border-radius: 100px
   background-color: var(--c-green)
   color: #fff
@@ -146,6 +140,10 @@ h2
   bottom: 5px
 
 // -------- Swiper -----------
+.swiper-container-initialized
+  @media (min-width: 1000px)
+    overflow: hidden
+
 .swiper-slide
   height: auto
 
@@ -156,7 +154,7 @@ h2
 .swiper-pagination-bullet
   width: 8px
   height: 8px
-  background-color: #D4D8C8
+  background-color: #434343
   transition: 0.4s ease-out
   &-active
     width: 24px

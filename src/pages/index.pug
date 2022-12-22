@@ -1,7 +1,7 @@
 extends ../layouts/main-index
 
 block variables
-  - var title = "Дилижан. Откроем вам душу города"
+  - var title = "GoToDili — Дилижан, откроем вам душу города"
   - var pageClass = ''
   - var activePage = 'index'
 
@@ -11,21 +11,20 @@ block content
     include ../components/about-project/about-project2
 
     include ../components/what-to-do/what-to-do
-    //img.decor-bg-bottom(src='/assets/img/decor-bg-bottom.svg' alt='decor')
+
+    include ../components/history/history
+
+    .container
+      .new-events
+        h2.new-events__title Блог
+        .new-events__list
+          include ../components/_items/new-event-item/new-event-item-w-content
 
     include ../components/events/events
 
-    //img.decor-bg-top(src='/assets/img/decor-bg-top-2.svg' alt='decor')
-    include ../components/places/places
-
-    include ../components/tours/tours-slider
-    include ../components/history/history
-
     include ../components/about-people/about-people
-    //img.decor-bg-bottom(src='/assets/img/decor-bg-bottom-3.svg' alt='img')
 
     include ../components/share/share
 
-    //img.decor-bg-top(src='/assets/img/decor-bg-top-3.svg' alt='img')
     include ../components/feedback/feedback
 

@@ -1,122 +1,112 @@
 header.header
   include ../_items/promo-discount/promo-discount
+
   //mobile menu
-  .header-mobile__wrapper
-    nav.header-mobile
-      a.header-mobile__logo(href='index.html')
+  .header__mobile-wrapper
+    nav.header__mobile
+      a.header__mobile-logo(href='index.html')
         include ../../img/logo.svg
-      a.header-mobile__phone(href='tel:+78528560000')
-        svg(viewBox="0 0 34 34" width="34" height="34")
-          circle(cx="17" cy="17" r="17")
-          path(d="M12.3687 9.62079L9.94252 13.8167C9.88637 13.9139 9.86063 14.0258 9.86859 14.1378C9.87656 14.2498 9.91787 14.3569 9.98722 14.4452L17.857 24.4607C17.9264 24.549 18.0206 24.6144 18.1276 24.6487C18.2346 24.6829 18.3493 24.6844 18.4571 24.6528L23.1078 23.288C23.196 23.2621 23.2765 23.215 23.3423 23.1509C23.4081 23.0867 23.4572 23.0074 23.4853 22.9198C23.5133 22.8323 23.5195 22.7392 23.5033 22.6488C23.487 22.5583 23.4489 22.4732 23.3921 22.4009L21.2589 19.6873C21.1859 19.5947 21.0855 19.5273 20.9721 19.4948C20.8587 19.4623 20.7379 19.4662 20.6269 19.5061L18.2186 20.3695L14.049 15.0617L15.4564 12.9259C15.5214 12.8274 15.5539 12.711 15.5491 12.5931C15.5443 12.4752 15.5026 12.3618 15.4298 12.2689L13.2968 9.55424C13.2399 9.48225 13.1663 9.42525 13.0823 9.38823C12.9984 9.35121 12.9066 9.33529 12.8151 9.34186C12.7236 9.34842 12.6351 9.37727 12.5573 9.42589C12.4795 9.4745 12.4147 9.54142 12.3687 9.62079Z" fill="white")
-      .header-mobile__nav-right
-        select.header-mobile__lang-list
-          option En
-          option Ru
-        .header__burger-icon
+      a.header__mobile-phone(href='tel:+78528560000')
+        include ../../img/phone-icon.svg
+      .header__mobile-nav-right
+        .header__mobile-burger.jsHeaderBurgerIcon
           span
 
   .header__container
-    nav.header__nav
-      ul.header__nav-row.header__nav-row-1
-        li.header__nav-list-item
-          a.header__link(href='about-project.html') О проекте
-        li.header__nav-list-item
-          a.header__link(href='partners.html') Для партнеров
-        li.header__nav-list-item
-          a.header__link(href='important-info.html') Важная информация
-        li.header__nav-list-item
-          a.header__link(href='contacts.html') Контакты
-
-      ul.header__nav-row.header__nav-row-2
-        li.header__nav-list-item
-          a.header__link(href='tours.html') Туры
-        li.header__nav-list-item
-          a.header__link(href='what-to-do.html') Что делать?
-        li.header__nav-list-item
-          a.header__link(href='events-inner.html') События
-        li.header__nav-list-item
-          a.header__link(href="places.html") Окрестности
-            svg.header__link-icon(width="10" height="6" fill="white")
-              use(href='./assets/img/sprite.svg#arrow-select')
-          ul.header__sub-nav
-            li.header__sub-nav-item
-              a.header__sub-nav-link(href="places-item.html") Техут
-            li.header__sub-nav-item
-              a.header__sub-nav-link(href="places-item.html") Село Агарцин
-            li.header__sub-nav-item
-              a.header__sub-nav-link(href="places-item.html") Село Гош
-            li.header__sub-nav-item
-              a.header__sub-nav-link(href="places-item.html") Село Агавнаванк
-            li.header__sub-nav-item
-              a.header__sub-nav-link(href="places-item.html") Ховк
-            li.header__sub-nav-item
-              a.header__sub-nav-link(href="places-item.html") Хачардзан
-        li.header__nav-list-item
-          a.header__link(href='history.html') История
-        li.header__nav-list-item
-          a.header__link(href='blog.html') Блог
-
     a.header__logo(href='index.html')
       include ../../img/logo.svg
 
-    nav.header__nav.header__nav-contacts
-      a.header__map(href="places.html")
-        svg(width="48px" height="48px" fill="#fff")
-          use(href='./assets/img/sprite.svg#header-map')
-      .header__nav-contacts-items
-        a.header__phone(href='tel:+78528560000')
-          svg(width='17' height='20' fill='#fff' fill-opacity="0.5")
-            use(href='./assets/img/sprite.svg#header-phone')
-          span +7 852 256 00 00
-        a.header__email(href='mailto:info@go2dili.com')
-          svg(width='20' height='20' fill='#fff' fill-opacity="0.5")
-            use(href='./assets/img/sprite.svg#email')
-          span info@go2dili.com
-        a.header__phone--mobile(href='tel:+78522560000')
-          svg(width="34" height="34" fill="#8CB110")
-            use(href='./assets/img/sprite.svg#phone-mobile')
+    nav.header__nav
+      //ul.header__nav-row.header__nav-row-1
 
+      ul.header__nav-row.header__nav-row-2
+        li.header__nav-list-item
+          a.header__link(href='tours.html') О городе
+            svg.header__link-icon(width="10" height="6" fill="white")
+              use(href='./assets/img/sprite.svg#arrow-select')
+          .header__sub-nav
+            .header__sub-nav-wrapper
+              .header__sub-nav-links-box
+                a.header__sub-nav-link(href="#") Город
+                a.header__sub-nav-link(href="#") История
+                a.header__sub-nav-link(href="#") Достопримечательности
+                a.header__sub-nav-link(href="#") Окрестности
+                a.header__sub-nav-link(href="#") Люди
+              .header__sub-nav-img-box
+                a.header__sub-nav-img-link(href="#")
+                  .header__sub-nav-img-text Какая-то ссылка важная
+                  img.header__sub-nav-img(src="https://ic.pics.livejournal.com/alexio_marziano/26796211/2300647/2300647_original.jpg")
+                a.header__sub-nav-img-link(href="#")
+                  .header__sub-nav-img-text Очень хорошее предложение по туризму с длинным названием
+                  img.header__sub-nav-img(src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/4e/61/74/monasteries-in-armenia.jpg?w=500&h=300&s=1")
+                a.header__sub-nav-img-link(href="#")
+                  .header__sub-nav-img-text А тут короткая ссылка
+                  img.header__sub-nav-img(src="https://phoenixtour.org/wp-content/uploads/2021/07/01-MEGHRI.jpg")
+        li.header__nav-list-item
+          a.header__link(href='what-to-do.html') Знакомство
+            svg.header__link-icon(width="10" height="6" fill="white")
+              use(href='./assets/img/sprite.svg#arrow-select')
+          .header__sub-nav
+            .header__sub-nav-wrapper
+              .header__sub-nav-links-box
+                a.header__sub-nav-link(href="#") Городской-тур
+                a.header__sub-nav-link(href="#") Хайкинг
+                a.header__sub-nav-link(href="#") Джиппинг
+                a.header__sub-nav-link(href="#") Экскурсии
+                a.header__sub-nav-link(href="#") Вкусы Дилижана
+                a.header__sub-nav-link(href="#") Полезная информация
+              .header__sub-nav-img-box
+                a.header__sub-nav-img-link(href="#")
+                  .header__sub-nav-img-text Какая-то ссылка важная
+                  img.header__sub-nav-img(src="https://ic.pics.livejournal.com/alexio_marziano/26796211/2300647/2300647_original.jpg")
+                a.header__sub-nav-img-link(href="#")
+                  .header__sub-nav-img-text Очень хорошее предложение по туризму с длинным названием
+                  img.header__sub-nav-img(src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/4e/61/74/monasteries-in-armenia.jpg?w=500&h=300&s=1")
+                a.header__sub-nav-img-link(href="#")
+                  .header__sub-nav-img-text А тут короткая ссылка
+                  img.header__sub-nav-img(src="https://phoenixtour.org/wp-content/uploads/2021/07/01-MEGHRI.jpg")
+        li.header__nav-list-item
+          a.header__link(href='events-inner.html') Спланируй поездку
+            svg.header__link-icon(width="10" height="6" fill="white")
+              use(href='./assets/img/sprite.svg#arrow-select')
+          .header__sub-nav
+            .header__sub-nav-wrapper
+              .header__sub-nav-links-box
+                a.header__sub-nav-link(href="#") Где остановиться
+                a.header__sub-nav-link(href="#") Где поесть
+                a.header__sub-nav-link(href="#") Доступный Дилижан
+                a.header__sub-nav-link(href="#") Календарь мероприятий
+                a.header__sub-nav-link(href="#") Досуг
+              .header__sub-nav-img-box
+                a.header__sub-nav-img-link(href="#")
+                  .header__sub-nav-img-text Какая-то ссылка важная
+                  img.header__sub-nav-img(src="https://ic.pics.livejournal.com/alexio_marziano/26796211/2300647/2300647_original.jpg")
+                a.header__sub-nav-img-link(href="#")
+                  .header__sub-nav-img-text Очень хорошее предложение по туризму с длинным названием
+                  img.header__sub-nav-img(src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/4e/61/74/monasteries-in-armenia.jpg?w=500&h=300&s=1")
+                a.header__sub-nav-img-link(href="#")
+                  .header__sub-nav-img-text А тут короткая ссылка
+                  img.header__sub-nav-img(src="https://phoenixtour.org/wp-content/uploads/2021/07/01-MEGHRI.jpg")
+        li.header__nav-list-item
+          a.header__link(href="places.html") События
+        li.header__nav-list-item
+          a.header__link(href='events-inner.html') О нас
 
-      .header__nav-right
+    nav.header__nav-contacts
+      .header__icons-box
+        a.header__icon(href="places.html")
+          include ../../img/icons/map.svg
+        a.header__icon(href="#")
+          include ../../img/icons/weather.svg
+        a.header__icon(href='mailto:info@go2dili.com')
+          include ../../img/icons/email.svg
+        a.header__icon(href='tel:+78528560000')
+          include ../../img/icons/phone.svg
+        a.header__icon(href="#")
+          include ../../img/icons/cart.svg
 
-        .header__weather(title="погода в Дилижане")
-          svg(width="48px" height="48px" fill="#fff")
-            use(href='./assets/img/sprite.svg#weather')
-          span.header__weather-temp
+      select.header__lang-list
+        option En
+        option Ru
 
-        //ul.header__social
-          li.header__social-item
-            a.header__social-link(href='/')
-              <svg class="header__social-icon" viewBox="0 0 30 30">
-              <g>
-              <path d="M21.878 12.1579C21.8702 11.5753 21.7612 10.9985 21.5557 10.4533C21.3775 9.99339 21.1053 9.57573 20.7566 9.22699C20.4079 8.87824 19.9902 8.60608 19.5303 8.42788C18.9921 8.22585 18.4235 8.11661 17.8488 8.10481C17.1088 8.07173 16.8742 8.0625 14.9957 8.0625C13.1172 8.0625 12.8765 8.0625 12.1419 8.10481C11.5674 8.1167 10.999 8.22594 10.4611 8.42788C10.0011 8.60595 9.58341 8.87807 9.23465 9.22683C8.88589 9.57559 8.61377 9.99331 8.4357 10.4533C8.23326 10.9911 8.12425 11.5595 8.11339 12.134C8.08031 12.8748 8.07031 13.1094 8.07031 14.9879C8.07031 16.8663 8.07031 17.1063 8.11339 17.8417C8.12493 18.4171 8.23339 18.9848 8.4357 19.524C8.61406 19.9839 8.88639 20.4014 9.23526 20.75C9.58414 21.0986 10.0019 21.3706 10.4619 21.5487C10.9983 21.7588 11.5668 21.8759 12.1426 21.8948C12.8834 21.9279 13.118 21.9379 14.9965 21.9379C16.8749 21.9379 17.1157 21.9379 17.8503 21.8948C18.425 21.8835 18.9937 21.7745 19.5319 21.5725C19.9916 21.3941 20.4092 21.1219 20.7579 20.7731C21.1066 20.4244 21.3788 20.0069 21.5572 19.5471C21.7595 19.0087 21.868 18.441 21.8795 17.8648C21.9126 17.1248 21.9226 16.8902 21.9226 15.011C21.9211 13.1325 21.9211 12.894 21.878 12.1579ZM14.9911 18.5402C13.0265 18.5402 11.4349 16.9487 11.4349 14.984C11.4349 13.0194 13.0265 11.4279 14.9911 11.4279C15.9342 11.4279 16.8388 11.8026 17.5057 12.4695C18.1726 13.1364 18.5472 14.0409 18.5472 14.984C18.5472 15.9272 18.1726 16.8317 17.5057 17.4986C16.8388 18.1655 15.9342 18.5402 14.9911 18.5402ZM18.6888 12.1256C18.5799 12.1257 18.472 12.1043 18.3713 12.0627C18.2707 12.021 18.1792 11.9599 18.1022 11.8829C18.0252 11.8059 17.9641 11.7145 17.9225 11.6138C17.8808 11.5131 17.8594 11.4053 17.8595 11.2963C17.8595 11.1875 17.881 11.0797 17.9226 10.9792C17.9643 10.8786 18.0253 10.7872 18.1023 10.7103C18.1793 10.6333 18.2706 10.5722 18.3712 10.5306C18.4718 10.4889 18.5795 10.4675 18.6884 10.4675C18.7972 10.4675 18.905 10.4889 19.0056 10.5306C19.1061 10.5722 19.1975 10.6333 19.2745 10.7103C19.3514 10.7872 19.4125 10.8786 19.4541 10.9792C19.4958 11.0797 19.5172 11.1875 19.5172 11.2963C19.5172 11.7548 19.1465 12.1256 18.6888 12.1256Z" fill="white"/>
-              <path d="M14.9897 17.2938C16.2655 17.2938 17.2997 16.2596 17.2997 14.9838C17.2997 13.7081 16.2655 12.6738 14.9897 12.6738C13.7139 12.6738 12.6797 13.7081 12.6797 14.9838C12.6797 16.2596 13.7139 17.2938 14.9897 17.2938Z" fill="white"/>
-              </g>
-              </svg>
-
-          li.header__social-item
-            a.header__social-link(href='/')
-              <svg class="header__social-icon" viewBox="0 0 30 30">
-                <g clip-path="url(#clip0_326_1702)">
-                  <path d="M16.3485 20.7693C10.4352 20.7693 7.06241 16.8712 6.92188 10.3848H9.88394C9.98124 15.1456 12.1649 17.1623 13.8946 17.5781V10.3848H16.6838V14.4908C18.3918 14.314 20.1862 12.443 20.7915 10.3848H23.5807C23.1158 12.9211 21.17 14.7922 19.7862 15.5614C21.17 16.1851 23.3862 17.8171 24.2294 20.7693H21.1591C20.4997 18.7943 18.8567 17.2662 16.6838 17.0583V20.7693H16.3485Z" fill="white"/>
-                </g>
-                <defs>
-                  <clipPath id="clip0_326_1702">
-                    <rect width="18.4614" height="18.4614" fill="white" transform="translate(5.76562 5.76953)"/>
-                  </clipPath>
-                </defs>
-              </svg>
-
-          li.header__social-item
-            a.header__social-link(href='/')
-              <svg class="header__social-icon" viewBox="0 0 30 30">
-              <g>
-              <path d="M13.883 21.8578H16.2375V15.6007H18.2063L18.5036 13.1664H16.2375V11.6064C16.2375 10.9036 16.4223 10.4236 17.3705 10.4236H18.5839V8.23784C18.375 8.21213 17.6598 8.14355 16.8241 8.14355C15.0723 8.14355 13.883 9.28355 13.883 11.3664V13.1664H11.9062V15.6007H13.883V21.8578Z" fill="#F7F7F7"/>
-              </g>
-              </svg>
-
-        select.header__lang-list
-          option En
-          option Ru
-        a.button.header__button(href='tours.html') Туры&nbsp;по&nbsp;Дилижану
+      a.button.header__button(href='tours.html') Узнай Дилижан

@@ -4,6 +4,7 @@
   align-items: center
   gap: 15px
   margin-bottom: 30px
+
   @media (max-width: 768px)
     flex-direction: column
     align-items: stretch
@@ -11,20 +12,19 @@
   &:first-child
     @extend .font-s-2
     font-family: 'Artico-ExtraCond', sans-serif
+
   a
     font-size: clamp(12px, calc(12px + (14 - 12) * ((100vw - 768px) / (1920 - 768))), 14px)
     font-family: 'Ubuntu', sans-serif
     color: var(--c-green)
-    align-self: flex-end
-    letter-spacing: initial
     text-transform: uppercase
     display: flex
     align-items: center
     &:hover
       color: var(--c-black)
-    &:hover .title-link__icon
-      fill: var(--c-black)
-      stroke: var(--c-black)
+      .title-link__icon
+        fill: var(--c-black)
+        stroke: var(--c-black)
 
     .title-link__icon
       margin-left: 16px

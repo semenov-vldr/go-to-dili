@@ -1,11 +1,8 @@
-.feedback
-  .container.feedback__container
+.container
+  .feedback
+    .feedback__container
 
-    .feedback__col-left
       include ../_items/title-text/title-text
-      img(src='./assets/img/form-decor.svg' alt='decor')
-
-    .feedback__col-right
       form.feedback__form.feedback-form(method='POST' action='' enctype="multipart/form-data" autocomplete="off")
 
         .feedback-form__input-container
@@ -36,23 +33,21 @@
               | Нажав на кнопку, вы соглашаетесь на обработку
               a(href='') &#160;персональных данных
 
-  .feedback__decor-bottom
+    template#success
+      .feedback__popup.popup.success
+        .popup__body
+          .popup__content
+            a.popup__close(href="") &#10006;
+            img.popup__icon(src="./assets/img/check-popup.svg", alt="icon")
+            p.popup__title Ваша заявка успешно отправлена!
+            p.popup__text В течении 24 часов мы с вами свяжемся
 
-  template#success
-    .feedback__popup.popup.success
-      .popup__body
-        .popup__content
-          a.popup__close(href="") &#10006;
-          img.popup__icon(src="./assets/img/check-popup.svg", alt="icon")
-          p.popup__title Ваша заявка успешно отправлена!
-          p.popup__text В течении 24 часов мы с вами свяжемся
-
-  template#error
-    .feedback__popup.popup.error
-      .popup__body
-        .popup__content
-          a.popup__close(href="") &#10006;
-          img.popup__icon(src="./assets/img/error-popup.svg", alt="icon")
-          p.popup__title Ошибка при отправки формы
-          p.popup__text Вам лучше перезвонить нам!
-          a(href="") +7 852 856 00 00
+    template#error
+      .feedback__popup.popup.error
+        .popup__body
+          .popup__content
+            a.popup__close(href="") &#10006;
+            img.popup__icon(src="./assets/img/error-popup.svg", alt="icon")
+            p.popup__title Ошибка при отправки формы
+            p.popup__text Вам лучше перезвонить нам!
+            a(href="") +7 852 856 00 00

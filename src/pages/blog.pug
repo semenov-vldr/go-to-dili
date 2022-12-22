@@ -1,19 +1,17 @@
 extends ../layouts/main
 
 block variables
-  - var title = "Блог"
+  - var title = "GoToDili — Блог"
   - var pageClass = ''
   - var activePage = 'index'
 
 block content
-  .breadcrumbs(style="background-color: #F4F6E9")
+  .breadcrumbs
     .breadcrumbs__container.container
       a(href="/").breadcrumbs__item Главная
       a(href="").breadcrumbs__item Знакомство с Дилижаном
   section
     include ../components/blog/blog-header/blog-header
     include ../components/blog/blog-hero/blog-hero
-
     include ../components/blog/blog-list/blog-list
-
     include ../components/feedback/feedback

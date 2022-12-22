@@ -2,17 +2,15 @@
 extends ../layouts/main
 
 block variables
-  - var title = "Контакты"
+  - var title = "GoToDili — Контакты"
   - var pageClass = ''
   - var activePage = 'index'
 
 block content
-  .breadcrumbs(style="background-color: #fff")
+  .breadcrumbs
     .breadcrumbs__container.container
       a(href="/").breadcrumbs__item Главная
       a(href="").breadcrumbs__item Контакты
   section
-
     include ../components/contacts/contacts
-
     include ../components/feedback/feedback

@@ -35,9 +35,11 @@ html(lang="ru-RU")
   body(class=pageClass)
     .page
       include ../components/header/header
+      include ../components/fixed-header-bar/fixed-header-bar
+
       main
         block content
-      include ../components/footer/footer
+      include ../components/footer/footer-v2
     script(src="assets/js/libs.min.js")
     script(src="assets/js/main.js" type="module")
     block script

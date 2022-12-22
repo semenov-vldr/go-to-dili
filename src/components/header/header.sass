@@ -1,34 +1,40 @@
 .header
   position: absolute
-  @extend .font-s-10
   width: 100%
   color: #fff
   transition: transform 0.4s ease
   z-index: 101
   user-select: none
-  background-color: var(--c-green)
   &.header-index
     background-color: transparent
-  &.header-index .header__button
-    @media (min-width: 1000px)
-      background-color: var(--c-green)
-  &.header-index .header__logo svg,
-  &.header-index .header-mobile__logo svg,
-  &.header-index .header__phone--mobile svg,
-  &.header-index .header-mobile__phone svg
-    fill: var(--c-green)
-  &.header-index .header__social-link:hover,
-  &.header-index .promo-discount
-    background-color: var(--c-green)
-  &.scrolled .header-mobile__phone svg
-    fill: rgba(#fff, 0.25)
+    .header__logo svg .dili,
+    .header-mobile__logo svg .dili,
+    .header__phone--mobile svg .dili,
+    .header-mobile__phone svg .dili
+      fill: var(--c-green)
+    .header__logo svg .goto,
+    .header-mobile__logo svg .goto,
+    .header__phone--mobile svg .goto,
+    .header-mobile__phone svg .goto
+      fill: #ffffff
+  &
+    .header__logo svg .dili,
+    .header-mobile__logo svg .dili,
+    .header__phone--mobile svg .dili,
+    .header-mobile__phone svg .dili
+      fill: var(--c-green)
+    .header__logo svg .goto,
+    .header-mobile__logo svg .goto,
+    .header__phone--mobile svg .goto,
+    .header-mobile__phone svg .goto
+      fill: $black
 
   &.scrolled-top
     transform: translateY(-100%)
+
   &.scrolled-bottom
     transform: translateY(0)
-
-
+    box-shadow: 0 0 5px rgba(0,0,0, .1)
 
   &.scrolled
     position: fixed
@@ -43,17 +49,11 @@
       & .header__weather svg,
       & .header__map svg
         fill: $green
-      & .header__nav-row-2::after
-        background-color: $black
       & .header__nav-contacts .header__phone svg,
       & .header__email svg
         fill: $green
         fill-opacity: 1
 
-    &.header-index .promo-discount
-      background-color: $black
-    & .header__link:hover
-      color: rgba($green, 0.8)
     & .header-mobile__wrapper .header-mobile .header__burger-icon
       & span,
       &::before,
@@ -64,8 +64,6 @@
         fill: var(--c-green)
       svg .dili
         fill: var(--c-black)
-    & .header__logo
-      width: 4%
     & .header-mobile__phone svg,
     & .header__phone--mobile svg
       fill: $green
@@ -74,219 +72,311 @@
 
   &__link
     white-space: nowrap
+    color: var(--c-black)
+    padding: 5px 10px
+    display: flex
+    align-items: center
+    @media(max-width: 1000px)
+      color: $black
+      width: 100%
+      text-align: center
+    @media(max-width: 992px)
+      display: block
+
+  &.header-main
+    .header__link
+      color: #ffffff
+
+  &.scrolled-bottom
+    .header__link
+      color: var(--c-black)
+
+  &.header-mobile_active
+    .header__link
+      color: var(--c-black)
+
+  &__link-icon
+    margin-left: 5px
+    margin-top: 5px
+    fill: var(--c-black)
+    @media(max-width: 1000px)
+      fill: var(--c-black)
+
+  &.header-main
+    .header__link-icon
+      fill: #ffffff
+
+  &.scrolled-bottom
+    .header__link-icon
+      fill: var(--c-black)
+
+  &.header-mobile_active
+    .header__link-icon
+      fill: var(--c-black)
 
   &__logo
     display: flex
     align-items: flex-start
     justify-content: center
-    width: 6%
-    //transition: width 0.3s
+    width: 65px
     svg
-      fill: var(--c-black)
       width: 100%
+    @media (max-width: 1344px)
+      width: 60px
     @media (max-width: 1000px)
       display: none
 
   &__container
     width: 100%
     padding: 1rem 7%
-    display: flex
-    justify-content: space-between
-    align-items: center
-    gap: 20px
+    display: grid
+    grid-template-columns: auto 1fr auto
+    grid-gap: 20px
+    place-content: center
+    place-items: center
     @media (max-width: 1600px)
       padding: 1rem 5%
     @media (max-width: 1200px)
       padding: 1rem
     @media (max-width: 1000px)
       position: fixed
-      flex-direction: column
-      justify-content: start
-      gap: 76px
       top: 0
       left: -100%
       width: 100%
       height: 100vh
-      background-color: var(--c-green)
-      padding: 120px 20px 30px
+      background-color: #ffffff
+      padding: 120px 20px 100px
       transition: left 0.3s ease 0s
-      overflow: auto
+      -webkit-overflow-scrolling: touch
+      overflow-y: auto
       overscroll-behavior: contain
-      &.js-active-menu
-        left: 0
-      &.js-active-menu .header-mobile__phone svg
-        fill-opacity: 1
-    @media (max-width: 400px)
-      align-items: flex-start
 
   &__nav
     display: flex
     flex-direction: column
-    width: 47%
     gap: 20px
-    position: relative
     align-items: flex-start
-    .header__link:hover
-      color: rgba(#fff, 0.8)
+    align-self: end
+    height: 100%
     @media (max-width: 1000px)
-      align-items: center
-      text-align: center
-      gap: 70px
-      width: auto
+      width: 100%
+    @media (max-width: 992px)
+      height: auto
     @media (max-width: 400px)
       text-align: left
       width: 100%
       align-items: flex-start
-    .header__link .header__link-icon
-      margin-left: 5px
-      transition: $transition
 
   &__nav-row
-    position: relative
     display: flex
-    gap: 2rem
-    @media (max-width: 1440px)
-      gap: 1rem
+    gap: 1rem
+    font-size: clamp(12px, calc(12px + (22 - 12) * ((100vw - 1024px) / (1920 - 1024))), 22px)
+    height: 100%
+    align-items: stretch
+    .header__link
+      position: relative
+    @media (max-width: 1344px)
+      gap: .5rem
     @media (max-width: 1000px)
       flex-direction: column
-      row-gap: 28px
-    &::after
-      content: ""
-      position: absolute
-
-  &__nav-row-1
-    font-size: clamp(12px, calc(12px + (16 - 12) * ((100vw - 1024px) / (1920 - 1024))), 16px)
-    font-weight: lighter
-    @media (max-width: 1000px)
-      font-size: 16px
-      &::after
-        width: 100%
-        background-color: rgba(#fff, 0.3)
-        height: 1px
-        bottom: -35px
-    @media (max-width: 400px)
       width: 100%
+      gap: 1rem
+      font-size: 18px
 
   &__nav-list-item
-    position: relative
-    @media (min-width: 1000px)
-      &:hover
-        >.header__sub-nav
-          display: flex
+    display: flex
+    font-weight: 500
+    align-items: stretch
+    &:hover
+      > a
+        opacity: .8
+      .header__sub-nav
+        display: block
     @media (max-width: 1000px)
-      &.js-select-active .header__sub-nav
-        display: flex
-      &.js-select-active .header__link-icon
-        transform: rotate(180deg)
+      position: relative
+      flex-direction: column
+      &:focus,
+      &:hover
+        z-index: 1
 
   &__sub-nav
     position: absolute
-    top: 100%
     left: 0
-    min-width: 170px
-    flex-direction: column
-    padding-top: 12px
+    right: 0
+    top: calc(100% - 1rem)
+    width: 100%
+    padding: 20px 14% 0
     display: none
     @media (max-width: 1000px)
-      position: relative
-      font-size: clamp(12px, calc(12px + (16 - 12) * ((100vw - 1024px) / (1920 - 1024))), 16px)
-      font-weight: lighter
-      min-width: initial
-      top: initial
-      left: initial
-      padding-top: initial
-      margin: 20px 0
-      gap: 22px
-      overflow: hidden
+      padding: 0
+      display: block
+      position: static
+      text-align: left
 
-    .header__sub-nav-item
-      background-color: var(--c-light-green)
-      width: 100%
+  &__sub-nav-wrapper
+    width: 100%
+    display: grid
+    grid-template-columns: auto 1fr
+    background-color: #ffffff
+    border-radius: 12px
+    overflow: hidden
+    box-shadow: 0 0 12px rgb(0 0 0 / .1)
+    align-items: stretch
+    @media (max-width: 1000px)
       display: flex
-      &:first-child
-        border-radius: 12px 12px 0 0
-        padding-top: 12px
-      &:last-child
-        border-radius: 0 0 12px 12px
-        padding-bottom: 12px
-      @media (max-width: 1000px)
-        background-color: transparent
-        &:first-child
-          border-radius: 0
-          padding-top: 0
-        &:last-child
-          border-radius: 0
-          padding-bottom: 0
+      flex-direction: column
+      justify-content: flex-start
+      overflow-y: scroll
+      box-shadow: none
+      border-radius: 0
 
+  &__sub-nav-links-box
+    display: flex
+    flex-direction: column
+    width: 350px
+    @media (max-width: 1200px)
+      width: 220px
+    @media (max-width: 1000px)
+      width: 100%
+      flex-shrink: 0
+      flex-direction: row
+      gap: 5px
+      flex-wrap: wrap
+      justify-content: center
+      margin-bottom: 10px
 
   &__sub-nav-link
     width: 100%
-    padding: 8px 20px
+    padding: 15px 30px
+    display: block
     color: $black
-    font-weight: normal
-    font-size: 0.9rem
-    opacity: 0.7
     &:hover
-      opacity: 1
+      color: $green
+    &:first-child
+      padding-top: 30px
+    &:last-child
+      padding-bottom: 30px
     @media (max-width: 1000px)
-      font-size: 1rem
-      padding: 0
-      font-weight: 400
-      opacity: 1
-      color: #fff
+      padding: 5px
+      font-size: .8rem
+      width: auto
+      font-weight: normal
+      &:first-child,
+      &:last-child
+        padding: 5px
 
-  &__nav-row-2
-    font-size: clamp(13px, calc(13px + (17 - 13) * ((100vw - 1024px) / (1920 - 1024))), 17px)
+  &__sub-nav-img-box
+    position: relative
+    padding: 30px
+    grid-gap: 12px
+    width: 100%
+    display: grid
+    grid-template-columns: repeat(auto-fit,minmax(150px, 1fr))
+    place-content: start
     @media (max-width: 1000px)
-      font-size: 16px
-      width: 100%
+      display: grid
+      grid-gap: 5px
+      grid-template-columns: 1fr 1fr 1fr
+      padding: 0
+
+  &__sub-nav-img-link
+    display: flex
+    align-items: flex-start
+    position: relative
+    height: 100%
+    max-height: 250px
+    color: #ffffff
+    border-radius: 12px
+    overflow: hidden
+    &:hover
+      .header__sub-nav-img
+        transform: scale(1.2)
     &::after
+      content: ''
+      position: absolute
       left: 0
-      right: 0
-      top: -10px
-      height: 1px
-      background-color: rgba(#fff, 0.1)
-      @media (max-width: 1000px)
-        width: 100%
-        top: initial
-        bottom: -35px
-        background-color: rgba(#fff, 0.3)
+      top: 0
+      width: 100%
+      height: 100%
+      background-color: rgb(0 0 0 / .3)
+    @media (max-width: 1000px)
+      border-radius: 5px
+      max-height: 100%
+
+  &__sub-nav-img-text
+    position: absolute
+    top: 15px
+    left: 15px
+    right: 15px
+    bottom: 15px
+    z-index: 1
+    @media (max-width: 1000px)
+      top: 5px
+      left: 5px
+      right: 5px
+      bottom: 5px
+      font-size: .8rem
+
+  &__sub-nav-img
+    position: relative
+    object-fit: cover
+    z-index: 0
+    height: 100%
+    width: 100%
+    transition: all .25s ease-in-out
+    transform: scale(1)
+    aspect-ratio: 1 / 1
 
   &__nav-contacts
     display: flex
     flex-direction: row
     flex-wrap: nowrap
-    column-gap: 25px
+    gap: 1rem
     justify-content: end
-    width: 47%
     align-items: center
     @media (max-width: 1000px)
       flex-direction: column
-      gap: 1.5rem
-      width: auto
-    @media (max-width: 400px)
-      align-items: flex-start
+      gap: 2rem
       width: 100%
+      order: -1
 
-  &__phone
+  &__icons-box
     display: flex
-    gap: 8px
-    align-items: center
-    justify-content: center
-    white-space: nowrap
-    font-size: clamp(16px, calc(16px + (18 - 16) * ((100vw - 1024px) / (1920 - 1024))), 18px)
-    font-weight: 500
-    @media (min-width: 1000px) and (max-width: 1400px)
-      display: none
-    &--mobile
-      display: none
-      gap: 5px
-      align-items: center
-      justify-content: center
-      @media (min-width: 1000px) and (max-width: 1400px)
-        display: flex
-      & svg
-        fill: rgba(#fff, 0.25)
+    flex-wrap: wrap
+    gap: 1rem
+    @media (max-width: 1344px)
+      gap: .5rem
+    @media (max-width: 1000px)
+      gap: 1rem
+
+  &__icon
+    display: flex
+    align-items: flex-start
+    width: 32px
+    height: 32px
+    &:hover
+      opacity: .8
+    svg
+      fill: var(--c-black)
+      width: 100%
+      height: 100%
+      @media (max-width: 1000px)
+        fill: $green
+
+  &.header-main
+    .header__icon
+      svg
+        fill: #ffffff
+
+  &.header-mobile_active
+    .header__icon
+      svg
+        fill: var(--c-green)
+
+  &.scrolled-bottom
+    .header__icon
+      svg
+        fill: var(--c-black)
 
   &__nav-right
     display: flex
@@ -299,199 +389,209 @@
       align-items: flex-start
       width: 100%
 
-  &__social
-    display: flex
-    gap: 1rem
-
-  &__social-link
-    width: 30px
-    height: 30px
-    display: flex
-    align-items: flex-start
-    border-radius: 100%
-    background-color: rgba(#fff, 0.2)
-    transition: none
-    @media (max-width: 1000px)
-      background-color: rgba(#fff, 0.3)
-    &:hover
-      background-color: rgba(#fff, 0.3)
-    &:hover .header__social-icon
-      opacity: 1
-
-  &__social-icon
-    opacity: .5
-    @media (max-width: 1000px)
-      opacity: 1
-
-  &__nav-contacts-items
-    display: flex
-    flex-direction: column
-    gap: 10px
-    align-items: center
-
-  &__email
-    display: flex
-    align-items: center
-    gap: 8px
-    @media (max-width: 1400px)
-      display: none
-    & svg
-      fill: rgba(#fff, 0.5)
-
-  &__weather
-    cursor: pointer
-    display: flex
-    flex-direction: column
-    align-items: center
-
   &__lang-list
-    color: inherit
-    appearance: none
     height: min-content
     background: transparent
     border: none
     cursor: pointer
     outline: none
+    color: var(--c-black)
+    &:hover
+      color: $green
     @media (max-width: 1000px)
       display: none
 
+  &.header-main
+    .header__lang-list
+      color: #ffffff
+
+  &.scrolled-bottom
+    .header__lang-list
+      color: var(--c-black)
+
   &__button
-    font-size: clamp(12px, calc(12px + (14 - 12) * ((100vw - 768px) / (1920 - 768))), 14px)
-    outline: 1px solid transparent
-    font-weight: 700
-    padding: 0 1.5rem
-    min-height: 50px
-    background-color: rgba(#fff, 0.3)
-    @media (max-width: 1330px)
-      padding: 0.7rem 1rem
-      min-height: initial
+    font-size: clamp(12px, calc(12px + (14 - 12) * ((100vw - 1024px) / (1920 - 768))), 14px)
+    white-space: nowrap
     @media (max-width: 1000px)
-      background-color: rgba(#fff, 0.3)
-      outline: none
-      min-height: 56px
-      padding: 10px 34px
-      font-size: 14px
-      width: 100%
-  @media (min-width: 1000px)
-    &__phone svg.scrolled
-      fill: #fff
-      fill-opacity: 0.5
-  @media (max-width: 1000px)
-    &__phone svg
-      fill: #fff
+      font-size: 16px
 
   &__lang-list
     @media (max-width: 1000px)
       opacity: 0
 
 // ----------mobile----------
-.header-mobile__wrapper
-  display: none
-  padding: 7px 20px
-  @media (max-width: 1000px)
-    display: block
-    &.js-active-menu
+.header-main
+  &.scrolled-bottom
+    .header__mobile-logo
+      svg
+        .dili
+          fill: var(--c-black)
+  .header__mobile-logo
+    svg
+      .goto
+        fill: var(--c-green)
+  &.header-mobile_active
+    .header__mobile-logo
+      svg
+        .dili
+          fill: var(--c-green)
+
+.header
+  &.scrolled-bottom
+    .header__mobile-logo
+      svg
+        .goto
+          fill: var(--c-green)
+        .dili
+          fill: var(--c-black)
+  &__mobile-logo
+    svg
       position: relative
       z-index: 1
-      background-color: var(--c-green)
+      width: 60px
+      height: 100%
+      .goto
+        fill: var(--c-black)
+      .dili
+        fill: var(--c-green)
 
-    .header-mobile
+  &.header-main
+    .header__mobile-logo
+      svg
+        .dili
+          fill: #ffffff
+
+  &.header-mobile_active
+    .header__mobile-logo
+      svg
+        .dili
+          fill: var(--c-green)
+
+  &.scrolled-bottom
+    .header__mobile-logo
+      svg
+        .dili
+          fill: var(--c-black)
+
+  &-mobile_active
+    position: relative
+    height: 100vh
+    display: flex
+    flex-direction: column
+
+    .header__mobile-logo svg
+      .goto
+        fill: var(--c-black)
+      .dili
+        fill: #ffffff
+
+    .header__mobile-phone
+      display: none
+
+    .header__container
       display: flex
-      align-items: center
-      justify-content: space-between
-      height: 50px
-      &.js-active-menu
-        position: relative
-        z-index: 1
-        background-color: var(--c-green)
-      &.js-active-menu .header-mobile__logo svg,
-      &.scrolled .header-mobile__logo svg
-        fill: var(--c-black)
-      &.js-active-menu .header-mobile__lang-list
-        display: block
-      &.js-active-menu .header-mobile__phone
-        display: none
-      &.js-active-menu .header-mobile__logo svg
-        & .goto
-          fill: #000
-        & .dili
-          fill: #fff
+      flex-direction: column
+      justify-content: flex-start
+      position: static
+      padding-top: 20px
+      height: 100%
 
-      &.js-active-menu .header-mobile__phone svg
-        fill: #fff
+    .header__mobile-burger
+      span
+        transform: scale(0) translateY(-50%)
+      &::before,
+      &::after
+        background-color: $black
+      &::before
+        top: 46%
+        transform: rotate(-45deg)
+      &::after
+        top: 46%
+        transform: rotate(45deg)
 
-      &__phone svg
-        fill: rgba(#fff, 0.25)
+  &__mobile-wrapper
+    display: none
+    padding: 7px 20px
+    position: relative
+    z-index: 1
+    @media (max-width: 1000px)
+      display: block
 
-      &__nav-right
-        display: flex
-        gap: 30px
-        align-items: center
+  &__mobile
+    display: flex
+    align-items: center
+    justify-content: space-between
+    position: relative
+    z-index: 1
 
-      &__logo svg
-        fill: var(--c-black)
-        position: relative
-        z-index: 1
-        width: 44px
-        height: 100%
+  &__mobile-nav-right
+    display: flex
+    gap: 30px
+    align-items: center
 
-      &__lang-list
-        position: relative
-        z-index: 5
-        color: inherit
-        appearance: none
-        height: min-content
-        background-color: transparent
-        border: none
-        cursor: pointer
-        display: none
+  &__mobile-burger
+    position: relative
+    z-index: 5
+    width: 30px
+    height: 20px
+    cursor: pointer
+    span
+      position: absolute
+      left: 0
+      height: 2px
+      width: 100%
+      background-color: var(--c-black)
+      transform-origin: center
+    &::before,
+    &::after
+      content: ""
+      position: absolute
+      left: 0
+      height: 2px
+      width: 100%
+      background-color: var(--c-black)
+      transform-origin: center
+    &::before
+      top: 0
+    &::after
+      bottom: 0
+    & span
+      top: 50%
+      transform: scale(1) translateY(-50%)
 
-      .header__burger-icon
-        display: none
-        @media (max-width: 1000px)
-          display: block
-          position: relative
-          z-index: 5
-          width: 30px
-          height: 14px
-          cursor: pointer
-          & span,
-          &::before,
-          &::after
-            content: ""
-            position: absolute
-            left: 0
-            height: 2px
-            width: 100%
-            background-color: #fff
-          &::before
-            top: 0
-          &::after
-            bottom: 0
-          & span
-            top: 50%
-            transform: scale(1) translateY(-50%)
-          &.js-active-menu
-            width: 30px
-            height: 30px
-            background-color: rgba(#fff, 0.15)
-            border-radius: 50%
-            box-sizing: border-box
-          &.js-active-menu span
-            transform: scale(0) translateY(-50%)
-          &.js-active-menu::before,
-          &.js-active-menu::after
-            width: 50%
-            left: 0
-            right: 0
-            margin: 0 auto
-          &.js-active-menu::before
-            top: 50%
-            transform: rotate(-45deg) translate(0px, -50%)
-          &.js-active-menu::after
-            bottom: 50%
-            transform: rotate(45deg) translate(0px, 50%)
+  &.header-main
+    .header__mobile-burger
+      span,
+      &::after,
+      &::before
+        background-color: #ffffff
 
+  &.scrolled-bottom
+    .header__mobile-burger
+      span,
+      &::after,
+      &::before
+        background-color: var(--c-black)
 
+  &.header-mobile_active
+    .header__mobile-burger
+      span,
+      &::after,
+      &::before
+        background-color: var(--c-black)
 
-
+  &__mobile-phone
+    display: flex
+    align-items: center
+    justify-content: center
+    background-color: $green
+    border-radius: 100%
+    width: 44px
+    height: 44px
+    svg
+      fill: #ffffff
+      width: 20px
+      height: 20px
+    svg
+      circle
+        fill: $green

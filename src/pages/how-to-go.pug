@@ -1,20 +1,14 @@
 extends ../layouts/main
 
 block variables
-  - var title = "Как добраться"
+  - var title = "GoToDili — Как добраться"
   - var pageClass = ''
   - var activePage = 'index'
 
 block content
-  .breadcrumbs(style="background-color:#F4F6E9")
+  .breadcrumbs
     .breadcrumbs__container.container
       a(href="/").breadcrumbs__item Главная
       a(href="").breadcrumbs__item Как добраться
-  section(style="background-color:#F4F6E9")
-
+  section
     include ../components/how-to-go/how-to-go
-
-
-
-
-

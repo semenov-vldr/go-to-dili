@@ -1,18 +1,17 @@
 .tour-card
   height: 100%
-  @media (max-width: 768px)
-    filter: $drop-shadow
   &:hover
-    filter: $drop-shadow
-  &:hover .tour-card__title,
-  &:hover .tour-card__options-value
-    color: var(--c-green)
+    .tour-card__title,
+    .tour-card__options-value
+      color: var(--c-green)
+
   &__body
     display: flex
     flex-direction: column
     border-radius: 16px
     overflow: hidden
     height: 100%
+    border: 2px solid #f1f1f1
     @media (max-width: 768px)
       border-radius: 10px
 
@@ -49,15 +48,17 @@
     & > *:first-child, h4
       font-size: clamp(16px, calc(16px + (24 - 16) * ((100vw - 1024px) / (1920 - 1024))), 24px)
       font-weight: 500
-    .tour-card__text
-      font-size: clamp(14px, calc(14px + (16 - 14) * ((100vw - 1024px) / (1920 - 1024))), 16px)
-      display: -webkit-box
-      -webkit-line-clamp: 3
-      -webkit-box-orient: vertical
-      overflow: hidden
-    @media (max-width: 768px)
-      gap: 15px
-      padding: 25px 18px 18px
+
+  &__text
+    font-size: clamp(14px, calc(14px + (16 - 14) * ((100vw - 1024px) / (1920 - 1024))), 16px)
+    display: -webkit-box
+    -webkit-line-clamp: 3
+    -webkit-box-orient: vertical
+    margin-top: auto
+    overflow: hidden
+  @media (max-width: 768px)
+    gap: 15px
+    padding: 25px 18px 18px
 
 
   &__options

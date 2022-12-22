@@ -3,45 +3,36 @@
   display: flex
   align-items: center
   justify-content: center
-  background-color: var(--c-black)
-  min-height: 40px
-  line-height: 1.2
-  letter-spacing: 0.06em
-  &#promo.js-active-menu
-    position: relative
-    z-index: 1
-    background-color: $green
-  &.js-active-menu *
-    display: none
-
-  .promo-discount__link, a
-    font-size: clamp(11px, calc(11px + (15 - 11) * ((100vw - 768px) / (1920 - 768))), 15px)
-    color: #fff
-    font-weight: 700
-    padding: 0 40px
+  height: 40px
+  font-size: clamp(12px, calc(12px + (16 - 12) * ((100vw - 768px) / (1920 - 768))), 16px)
+  font-weight: normal
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
+  z-index: 1
+  background-color: var(--c-green)
+  a
+    color: #ffffff
+    display: block
+    width: 100%
     text-align: center
     &:hover
-      text-decoration: underline
+      opacity: .9
 
 .promo-discount__close
-  font-size: 12px
-  right: 15px
   position: absolute
+  right: 15px
+  top: 50%
+  margin-top: -11px
   width: 22px
   height: 22px
-  background-color: rgba(#fff, 0.3)
+  background-color: rgba(#000000, 0.3)
   border-radius: 50%
-  font-weight: 400
   display: flex
   align-items: center
   justify-content: center
   cursor: pointer
   padding: 5px
-  &:hover
-    background-color: rgba(#fff, 0.5)
-
-.promo-discount.js-active-menu
   z-index: 1
-  background-color: var(--c-green)
-  & *
-    display: none
+  svg
+    fill: #ffffff
