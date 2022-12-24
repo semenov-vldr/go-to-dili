@@ -616,7 +616,7 @@ if ( history_block ) {
   };
 
   const nextSlide = () => {
-    if (index == slides.length - 1) {
+    if (index === slides.length - 1) {
       index = 0;
       currentSlide(index);
     } else {
@@ -626,7 +626,7 @@ if ( history_block ) {
   };
 
   const prevSlide = () => {
-    if (index == 0) {
+    if (index === 0) {
       index = slides.length - 1
       currentSlide(index);
     } else {
@@ -831,12 +831,12 @@ new Swiper('.tours__list', {
 
 
 const customJson = [
-  // Eat
+  // ----------------Eat----------------
   {
     type: "eat",
     mark_name: "mark-eat",
     mark_hover_name: "mark-eat-black",
-    photo_url: "./assets/img/map/01.jpg",
+    photo_url: "./assets/img/events/06.jpg",
     title: "Dilijazz Restaurant 1",
     desc: 'Средиземноморская, Американска, Европейская',
     address: '1/1 2nd St., T’eghut, Дилижан 3902 Армения',
@@ -855,7 +855,7 @@ const customJson = [
     location: [40.751999618091304, 44.87363867944334],
   },
 
-  // Hotel
+  // ----------------Hotel----------------
   {
     type: "hotel",
     mark_name: "mark-hotel",
@@ -878,7 +878,7 @@ const customJson = [
     location: [40.75217903445399,44.90439927539061],
   },
 
-  // Route
+  // ----------------Route----------------
   {
     type: "route",
     mark_name: "mark-route",
@@ -901,16 +901,16 @@ const customJson = [
     location: [40.73638417553341,44.86307759338689],
   },
 
-  // Place
+  // ----------------Place----------------
   {
     type: "place",
     mark_name: "mark-place",
     mark_hover_name: "mark-place-black",
-    photo_url: "./assets/img/map/01.jpg",
-    title: "Место 1",
-    desc: 'Клуб',
-    address: '1/1 2nd St., T’eghut, Дилижан 3902 Армения',
-    location: [40.749309792605956,44.91097111755681],
+    photo_url: "http://img.tourister.ru/files/2/4/6/3/1/6/1/7/original.jpeg",
+    title: "Городской парк и искусственное озеро",
+    desc: 'Описание',
+    address: 'Тавушская область, Дилижан, Армения',
+    location: [40.739400, 44.864129],
   },
 
   {
@@ -918,14 +918,91 @@ const customJson = [
     mark_name: "mark-place",
     mark_hover_name: "mark-place-black",
     photo_url: "./assets/img/map/01.jpg",
-    title: "Место 2",
-    desc: 'Площадь',
-    address: '1/1 2nd St., T’eghut, Дилижан 3902 Армения',
-    location: [40.749962534398996,44.90273137146308],
+    title: "Улица ремесленников и старый город",
+    desc: 'Описание',
+    address: 'Тавушская область, Дилижан, Армения',
+    location: [40.739496, 44.868773],
+  },
+
+  {
+    type: "place",
+    mark_name: "mark-place",
+    mark_hover_name: "mark-place-black",
+    photo_url: "./assets/img/map/01.jpg",
+    title: "Улочки Дилижана и возрождение традиций",
+    desc: 'Описание',
+    address: 'Тавушская область, Дилижан, Армения',
+    location: [40.746417, 44.875753],
+  },
+
+  {
+    type: "place",
+    mark_name: "mark-place",
+    mark_hover_name: "mark-place-black",
+    photo_url: "./assets/img/map/01.jpg",
+    title: "Центр города и советское наследие",
+    desc: 'Описание',
+    address: 'Тавушская область, Дилижан, Армения',
+    location: [40.742288, 44.871412],
+  },
+
+  {
+    type: "place",
+    mark_name: "mark-place",
+    mark_hover_name: "mark-place-black",
+    photo_url: "https://cdn-ynd-nav.technolab.com.ru/file/5cf7ebed1946a10018d636cc",
+    title: "Краеведческий музей и картинная галерея Дилижана",
+    desc: 'Описание',
+    address: 'Тавушская область, Дилижан, Армения',
+    location: [40.738754, 44.866963],
+  },
+
+  {
+    type: "place",
+    mark_name: "mark-place",
+    mark_hover_name: "mark-place-black",
+    photo_url: "https://images.squarespace-cdn.com/content/v1/54412118e4b03de3b6796773/1576578376596-KPRMFGC8326ZC9JOXATX/home.jpeg?format=1000w",
+    title: "Музей-мастерская Ашота Бабаяна",
+    desc: 'Описание',
+    address: 'Тавушская область, Дилижан, Армения',
+    location: [40.738754, 44.866963],
+  },
+
+  {
+    type: "place",
+    mark_name: "mark-place",
+    mark_hover_name: "mark-place-black",
+    photo_url: "./assets/img/map/01.jpg",
+    title: "BuduArt",
+    desc: 'Описание',
+    address: 'ул. Мясникяна, 34, Дилижан, Армения',
+    location: [40.738698, 44.866922],
+  },
+
+  {
+    type: "place",
+    mark_name: "mark-place",
+    mark_hover_name: "mark-place-black",
+    photo_url: "http://www.shincertificate.net/images/gallery/pages/2/9/original.jpg?_=3342777105",
+    title: "Экскурсия по Музею денег",
+    desc: 'Описание',
+    address: 'Тавушская область, Дилижан, Армения',
+    location: [40.748459, 44.865947],
+  },
+
+  {
+    type: "place",
+    mark_name: "mark-place",
+    mark_hover_name: "mark-place-black",
+    photo_url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/07/c1/56/09/dilijan-amphitheater.jpg?w=1200&h=-1&s=1",
+    title: "«Ротонда» и новый амфитеатр",
+    desc: 'Описание',
+    address: 'Тавушская область, Дилижан, Армения',
+    location: [40.743467, 44.870740],
   },
 
 
-  // Event
+  // -------Event----------------
   {
     type: "event",
     mark_name: "mark-event",
@@ -948,10 +1025,87 @@ const customJson = [
     location: [40.7778938307187,44.945475054324405],
   },
 
+
+  // Culture
+  {
+    type: "culture",
+    mark_name: "mark-monument",
+    mark_hover_name: "mark-monument-black",
+    photo_url: "./assets/img/map/01.jpg",
+    title: "Монумент в честь 50-летия Советской Армении",
+    desc: 'Описание',
+    address: 'Тбилисское шоссе/ул. Саят-Новы, Дилижан, Армения',
+    location: [40.741477, 44.867013],
+  },
+
+  {
+    type: "culture",
+    mark_name: "mark-monument",
+    mark_hover_name: "mark-monument-black",
+    photo_url: "./assets/img/map/01.jpg",
+    title: "Памятник героям фильма «Мимино»",
+    desc: 'Описание',
+    address: 'улица Эмма Цатурян, Дилижан, Армения',
+    location: [40.740352, 44.865363],
+  },
+
+  {
+    type: "culture",
+    mark_name: "mark-monument",
+    mark_hover_name: "mark-monument-black",
+    photo_url: "./assets/img/map/01.jpg",
+    title: "Памятник воинам ВОВ",
+    desc: 'Описание',
+    address: 'Тавушская область, Дилижан, Армения',
+    location: [40.737327, 44.850869],
+  },
+
+  {
+    type: "culture",
+    mark_name: "mark-monument",
+    mark_hover_name: "mark-monument-black",
+    photo_url: "./assets/img/map/01.jpg",
+    title: "«Армения» по подобию богини Анаит",
+    desc: 'Описание',
+    address: 'Тавушская область, Дилижан, Армения',
+    location: [40.737327, 44.830569],
+  },
+
+  {
+    type: "culture",
+    mark_name: "mark-monument",
+    mark_hover_name: "mark-monument-black",
+    photo_url: "./assets/img/map/01.jpg",
+    title: "«Ротонда» и новый амфитеатр",
+    desc: 'Описание',
+    address: 'Тавушская область, Дилижан, Армения',
+    location: [40.737327, 44.750569],
+  },
+
+  {
+    type: "culture",
+    mark_name: "mark-monument",
+    mark_hover_name: "mark-monument-black",
+    photo_url: "./assets/img/map/01.jpg",
+    title: "Родник Матинова",
+    desc: 'Описание',
+    address: 'Тавушская область, Дилижан, Армения',
+    location: [40.737327, 44.720569],
+  },
+
+  {
+    type: "culture",
+    mark_name: "mark-monument",
+    mark_hover_name: "mark-monument-black",
+    photo_url: "./assets/img/map/01.jpg",
+    title: "Царь леса",
+    desc: 'Описание',
+    address: 'Тавушская область, Дилижан, Армения',
+    location: [40.787327, 44.720569],
+  },
+
 ];
 
-
-// let json = JSON.stringify(customJson);
 
 
 /* Map Yandex */
@@ -977,7 +1131,7 @@ const customJson = [
   const createBalloon = ({photo_url, title, desc, address}) => {
     const balloon = balloonTemplate.cloneNode(true);
 
-    balloon.querySelector('.balloon__image').rsc = photo_url;
+    balloon.querySelector('.balloon__image').src = photo_url;
     balloon.querySelector('.balloon__title').textContent = title;
     balloon.querySelector('.balloon__desc-text').textContent = desc;
     balloon.querySelector('.balloon__address-text').textContent = address;
@@ -1022,9 +1176,7 @@ const customJson = [
 
             // Используется для автопозиционирования
             getShape: function () {
-              // if(!this._isElement(this._$element)) {
-              //   return balloonLayout.superclass.getShape.call(this);
-              // }
+
               let position = this._$element.position();
               let width = this._$element.offsetWidth;
               let height = this._$element.offsetHeight;
@@ -1119,11 +1271,9 @@ const customJson = [
           navItems.forEach(item => item.classList.remove('js-active-mark'));
           navItem.classList.add('js-active-mark');
           renderMark(navItems, customJson);
-          //navItem.removeEventListener('click', filterMark);
         };
 
         navItem.addEventListener('click', filterMark);
-
 
       });
 
@@ -1336,9 +1486,6 @@ function createMapMark ( { wrapperMapClass, mapClass, mapId }, Json ) {
 
               // Используется для автопозиционирования
               getShape: function () {
-                // if(!this._isElement(this._$element)) {
-                //   return balloonLayout.superclass.getShape.call(this);
-                // }
                 const position = this._$element.position();
                 const width = this._$element.offsetWidth;
                 const height = this._$element.offsetHeight;
