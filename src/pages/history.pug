@@ -11,18 +11,23 @@ block content
       a(href="/").breadcrumbs__item Главная
       a(href="").breadcrumbs__item История Дилижана
   section
-    include ../components/history/history-new
+    include ../components/history-inner/history-inner
 
-    .about-people.new
-      .container.about-people__container(style="background-color: #fff;")
-        .title-link
-          h2 О людях
-          a(href='') Подробнее о людях
-            svg.title-link__icon(width="18" height="16" fill="#8CB110" stroke="#8CB110")
-              use(href='./assets/img/sprite.svg#arrow-nav-small')
-        .about-people__list
-          .swiper-wrapper
-            include ../components/_items/people-card/people-card-w-content
-          .swiper-pagination
+
+
+
+    //include ../components/history/history-new
+
+    //.about-people.new
+    //  .container.about-people__container(style="background-color: #fff;")
+    //    .title-link
+    //      h2 О людях
+    //      a(href='') Подробнее о людях
+    //        svg.title-link__icon(width="18" height="16" fill="#8CB110" stroke="#8CB110")
+    //          use(href='./assets/img/sprite.svg#arrow-nav-small')
+    //    .about-people__list
+    //      .swiper-wrapper
+    //        include ../components/_items/people-card/people-card-w-content
+    //      .swiper-pagination
 
     include ../components/feedback/feedback

@@ -53,9 +53,6 @@ function createMapMark ( { wrapperMapClass, mapClass, mapId }, Json ) {
 
               // Используется для автопозиционирования
               getShape: function () {
-                // if(!this._isElement(this._$element)) {
-                //   return balloonLayout.superclass.getShape.call(this);
-                // }
                 const position = this._$element.position();
                 const width = this._$element.offsetWidth;
                 const height = this._$element.offsetHeight;

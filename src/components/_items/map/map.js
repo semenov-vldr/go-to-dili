@@ -21,7 +21,7 @@
   const createBalloon = ({photo_url, title, desc, address}) => {
     const balloon = balloonTemplate.cloneNode(true);
 
-    balloon.querySelector('.balloon__image').rsc = photo_url;
+    balloon.querySelector('.balloon__image').src = photo_url;
     balloon.querySelector('.balloon__title').textContent = title;
     balloon.querySelector('.balloon__desc-text').textContent = desc;
     balloon.querySelector('.balloon__address-text').textContent = address;
@@ -66,9 +66,7 @@
 
             // Используется для автопозиционирования
             getShape: function () {
-              // if(!this._isElement(this._$element)) {
-              //   return balloonLayout.superclass.getShape.call(this);
-              // }
+
               let position = this._$element.position();
               let width = this._$element.offsetWidth;
               let height = this._$element.offsetHeight;
@@ -163,11 +161,9 @@
           navItems.forEach(item => item.classList.remove('js-active-mark'));
           navItem.classList.add('js-active-mark');
           renderMark(navItems, customJson);
-          //navItem.removeEventListener('click', filterMark);
         };
 
         navItem.addEventListener('click', filterMark);
-
 
       });
 

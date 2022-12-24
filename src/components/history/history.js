@@ -25,7 +25,7 @@ if ( history_block ) {
   };
 
   const nextSlide = () => {
-    if (index == slides.length - 1) {
+    if (index === slides.length - 1) {
       index = 0;
       currentSlide(index);
     } else {
@@ -35,7 +35,7 @@ if ( history_block ) {
   };
 
   const prevSlide = () => {
-    if (index == 0) {
+    if (index === 0) {
       index = slides.length - 1
       currentSlide(index);
     } else {

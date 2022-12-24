@@ -1,0 +1,153 @@
+.page-inner
+  padding: 0 0 100px
+  &__container
+    display: flex
+    gap: 50px
+    width: 80%
+    overflow: initial
+    @media (max-width: 1000px)
+      flex-direction: column-reverse
+      margin: 0
+      overflow: hidden
+    @media (max-width: 768px)
+      width: auto
+
+
+  &__content
+    width: 70%
+    @media (max-width: 1000px)
+      width: 100%
+    h1
+      @extend .font-s-2
+      margin-bottom: 30px
+
+    h2
+      margin: 50px 0 30px
+      font-size: clamp(32px, calc(32px + (56 - 32) * ((100vw - 768px) / (1920 - 768))), 56px)
+      line-height: 1.3
+
+    p,
+    span,
+    blockquote
+      line-height: 1.5
+      font-size: clamp(18px, calc(18px + (24 - 18) * ((100vw - 768px) / (1920 - 768))), 24px)
+      margin-bottom: 20px
+      &.italic
+        font-style: italic
+    p + p:last-child
+      margin-bottom: 50px
+
+    blockquote > *
+      margin-top: 0
+
+
+    ul, ol
+      padding-left: 20px
+      display: flex
+      flex-direction: column
+      gap: 15px
+      font-size: clamp(18px, calc(18px + (24 - 18) * ((100vw - 1024px) / (1920 - 1024))), 24px)
+      &:not(:last-child)
+        margin-bottom: 30px
+
+    ul li
+      list-style-type: disc
+      &::marker
+        color: var(--c-green)
+
+    ol li
+      list-style-type: decimal
+
+    hr
+      margin: 70px 0
+      opacity: 0.2
+
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+      border-radius: 10px
+      max-height: 500px
+    img + *
+      margin-top: 50px
+
+  .fixed-nav
+    position: sticky
+    height: fit-content
+    top: 180px
+    background-color: var(--c-light-green)
+    border-radius: 10px
+    padding: 20px
+    border: 1px solid var(--c-green)
+    margin-left: auto
+    flex: 0 1 20%
+    @media (max-width: 1000px)
+      position: initial
+      margin-bottom: 50px
+      width: fit-content
+      @media (max-width: 480px)
+        padding: 10px
+
+    ul
+      display: flex
+      flex-direction: column
+      flex-wrap: wrap
+      gap: 20px
+      @media (max-width: 1000px)
+        flex-direction: row
+        flex-wrap: nowrap
+      @media (max-width: 480px)
+        gap: 10px 15px
+
+    a
+      position: relative
+      color: $black
+      font-size: 16px
+      font-weight: 400
+      line-height: 1.5
+      &:hover
+        text-decoration: underline
+
+
+  &__temperature
+    width: fit-content
+    background-color: var(--c-light-green)
+    border-radius: 10px
+    padding: 20px
+    border: 1px solid var(--c-green)
+    display: flex
+    align-items: center
+    gap: 8px
+    p, span
+      margin: 0
+    & + *
+      margin-top: 50px
+
+  &__temperature-content
+    display: flex
+    flex-direction: column
+    gap: 12px
+
+
+  &__info
+    width: fit-content
+    background-color: var(--c-light-green)
+    border-radius: 10px
+    padding: 20px
+    border: 1px solid var(--c-green)
+    & + *
+      margin-top: 50px
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -34,14 +34,18 @@
     font-family: 'Artico-ExtraCond', sans-serif
     position: relative
     margin-top: 30px
-    font-size: clamp(30px, calc(30px + (60 - 30) * ((100vw - 768px) / (1920 - 768))), 60px)
+    font-size: clamp(24px, calc(24px + (60 - 24) * ((100vw - 768px) / (1920 - 768))), 60px)
     font-weight: 500
     color: #D8DAD1
     cursor: pointer
+    line-height: 1
+    text-align: center
     &.js-history-active
       color: #8CB110
+    @media (max-width: 480px)
+      font-size: 18px
     @media (max-width: 400px)
-      font-size: 24px
+      font-size: 14px
     &::before
       position: absolute
       content: ""
@@ -52,8 +56,7 @@
       top: -30px
       left: 0
       right: 0
-      margin-left: auto
-      margin-right: auto
+      margin: 0 auto
       transform: translateY(-50%)
       transition: $transition
       @media (max-width: 1000px)
