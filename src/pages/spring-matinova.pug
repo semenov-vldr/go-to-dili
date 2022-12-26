@@ -1,0 +1,15 @@
+extends ../layouts/main
+
+block variables
+  - var title = "Родник Матинова"
+  - var pageClass = ''
+  - var activePage = 'index'
+
+block content
+  .breadcrumbs
+    .breadcrumbs__container.container
+      a(href="/").breadcrumbs__item Главная
+      a(href="").breadcrumbs__item Родник Матинова
+  section
+    include ../components/monuments/spring-matinova
+    include ../components/feedback/feedback

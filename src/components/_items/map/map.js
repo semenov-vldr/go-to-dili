@@ -18,13 +18,14 @@
 
 
   // Создание и заполнение данными баллуна
-  const createBalloon = ({photo_url, title, desc, address}) => {
+  const createBalloon = ({photo_src, title, desc, address, link}) => {
     const balloon = balloonTemplate.cloneNode(true);
 
-    balloon.querySelector('.balloon__image').src = photo_url;
+    balloon.querySelector('.balloon__image').src = photo_src;
     balloon.querySelector('.balloon__title').textContent = title;
     balloon.querySelector('.balloon__desc-text').textContent = desc;
     balloon.querySelector('.balloon__address-text').textContent = address;
+    balloon.querySelector('.balloon__button').href = link;
 
     return balloon.outerHTML;
   };
@@ -121,9 +122,9 @@
             map.setZoom(map.getZoom() - 2);
 
             // Запрет зума
-            map.behaviors.disable('scrollZoom');
-            map.behaviors.disable('dblClickZoom');
-            map.behaviors.disable('multiTouch');
+            // map.behaviors.disable('scrollZoom');
+            // map.behaviors.disable('dblClickZoom');
+            // map.behaviors.disable('multiTouch');
 
           }
         });
@@ -142,7 +143,7 @@
       map = new ymaps.Map("map-index", {
           center: [40.74521099740435, 44.868688838134744],
           zoom: 13,
-          controls: ['routeButtonControl'],
+          controls: [],
         },
 
         { //ограничения области просмотра карты

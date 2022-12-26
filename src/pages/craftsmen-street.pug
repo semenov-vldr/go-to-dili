@@ -1,0 +1,16 @@
+extends ../layouts/main
+
+block variables
+  - var title = "Улица ремесленников и старый город"
+  - var pageClass = ''
+  - var activePage = 'index'
+
+block content
+  .breadcrumbs
+    .breadcrumbs__container.container
+      a(href="/").breadcrumbs__item Главная
+      a(href="").breadcrumbs__item Улица ремесленников и старый город
+  section
+    include ../components/what-to-do/places/craftsmen-street
+    include ../components/feedback/feedback
+

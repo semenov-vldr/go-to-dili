@@ -207,6 +207,12 @@
   </symbol>
 
 
+  <symbol id="monument" viewBox="0 0 50 50">
+    <circle cx="25" cy="25" r="25"/>
+    <path d="M25 12L22.3333 16.3333V28.4667H27.6667V16.3333L25 12ZM17 31.9333V38H33V31.9333L30.3333 29.3333H19.6667L17 31.9333Z" fill="white"/>
+  </symbol>
+
+
 <!--SHARE-->
 
   <!--facebook-->

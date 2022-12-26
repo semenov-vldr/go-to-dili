@@ -1,0 +1,16 @@
+extends ../layouts/main
+
+block variables
+  - var title = "Улочки Дилижана и возрождение традиций"
+  - var pageClass = ''
+  - var activePage = 'index'
+
+block content
+  .breadcrumbs
+    .breadcrumbs__container.container
+      a(href="/").breadcrumbs__item Главная
+      a(href="").breadcrumbs__item Улочки Дилижана и возрождение традиций
+  section
+    include ../components/what-to-do/places/streets-of-dilijan
+    include ../components/feedback/feedback
+
