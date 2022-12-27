@@ -6,12 +6,8 @@
 
       .places__list
         .swiper-wrapper
-          .swiper-slide
-            include ../_items/place-card/place-card
-          .swiper-slide
-            include ../_items/place-card/place-card
-          .swiper-slide
-            include ../_items/place-card/place-card
+          include ../_items/place-card/place-card
+
 
         .swiper-pagination
 
@@ -47,5 +43,9 @@
             svg.what-to-do-nav__icon(width="50" height="50" fill='#D8DAD1')
               use(href='./assets/img/sprite.svg#monument')
             span.what-to-do-nav__name Культура
+          .what-to-do-nav__item.nav-item-event(data-type="suburb")
+            svg.what-to-do-nav__icon(width="50" height="50" fill='#D8DAD1')
+              use(href='./assets/img/sprite.svg#suburb')
+            span.what-to-do-nav__name Пригород
 
         include ../_items/map/map

@@ -4,24 +4,24 @@ const customJson = [
     type: "eat",
     mark_name: "mark-eat",
     mark_hover_name: "mark-eat-black",
-    photo_src: "./assets/img/events/06.jpg",
-    title: "Dilijazz Restaurant 1",
-    desc: 'Средиземноморская, Американска, Европейская',
-    address: '1/1 2nd St., T’eghut, Дилижан 3902 Армения',
-    location: [40.75826541732117, 44.88379503930662],
-    link: '',
+    photo_src: "https://only2weeks.ru/wp-content/uploads/2018/06/gde-poest-v-diligane_4.jpg",
+    title: "Ресторан Kchuch",
+    desc: 'Тепло домашнего очага и возрождение традиций',
+    address: 'ул. Мясникяна, 37/3, Дилижан, Армения',
+    location: [40.739334, 44.866747],
+    link: 'kchuch.html',
   },
 
   {
     type: "eat",
     mark_name: "mark-eat",
     mark_hover_name: "mark-eat-black",
-    photo_src: "./assets/img/map/01.jpg",
-    title: "Dilijazz Restaurant 2",
-    desc: 'Средиземноморская, Европейская',
-    address: '1/1 2nd St., T’eghut, Дилижан 3902 Армения',
-    location: [40.751999618091304, 44.87363867944334],
-    link: '',
+    photo_src: "https://avatars.mds.yandex.net/get-altay/5098556/2a00000181ddcd82b85c5d4149f3103cc7a9/XXXL",
+    title: "Ресторан TAVA",
+    desc: 'Все оттенки Дилижана в одном ресторане',
+    address: 'ул. Мясникяна, 37/4, Дилижан, Армения',
+    location: [40.739187, 44.866274],
+    link: 'tava.html',
   },
 
   // ----------------Hotel (Отели)----------------
@@ -294,6 +294,83 @@ const customJson = [
     location: [40.787327, 44.720569],
     link: 'king-of-the-forest.html',
   },
+
+
+
+  // ----------------Suburb (Пригород)----------------
+
+  {
+    type: "suburb",
+    mark_name: "mark-suburb",
+    mark_hover_name: "mark-suburb-black",
+    photo_src: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Gosh_Village%2C_Tavush_Province%2C_Armenia.jpg/1024px-Gosh_Village%2C_Tavush_Province%2C_Armenia.jpg",
+    title: "Гош",
+    desc: 'Описание',
+    address: 'село Гош, Тавушская область, Дилижан, Армения',
+    location: [40.729991, 45.000430],
+    link: 'gosh.html',
+  },
+
+  {
+    type: "suburb",
+    mark_name: "mark-suburb",
+    mark_hover_name: "mark-suburb-black",
+    photo_src: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Hovk_village_10.jpg/1280px-Hovk_village_10.jpg",
+    title: "Овк",
+    desc: 'Описание',
+    address: 'село Овк, Тавушская область, Дилижан, Армения',
+    location: [40.788140, 45.031108],
+    link: 'ovc.html',
+  },
+
+  {
+    type: "suburb",
+    mark_name: "mark-suburb",
+    mark_hover_name: "mark-suburb-black",
+    photo_src: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Gosh_Village%2C_Tavush_Province%2C_Armenia.jpg/1024px-Gosh_Village%2C_Tavush_Province%2C_Armenia.jpg",
+    title: "Агавнаванк",
+    desc: 'Описание',
+    address: 'село Агавнаванк, Тавушская область, Дилижан, Армения',
+    location: [40.721578, 45.094367],
+    link: 'aghavnavank.html',
+  },
+
+  {
+    type: "suburb",
+    mark_name: "mark-suburb",
+    mark_hover_name: "mark-suburb-black",
+    photo_src: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Haghartsin_Village.jpg",
+    title: "Агарцин",
+    desc: 'Описание',
+    address: 'село Овк, Тавушская область, Дилижан, Армения',
+    location: [40.777755, 44.972520],
+    link: 'haghartsin.html',
+  },
+
+  {
+    type: "suburb",
+    mark_name: "mark-suburb",
+    mark_hover_name: "mark-suburb-black",
+    photo_src: "https://www.info9.ge/images/stories/1280px-mtkvari-aragviconfluenceatmtskheta.jpg",
+    title: "Техут",
+    desc: 'Описание',
+    address: 'село Техут, Лорийская область, Дилижан, Армения',
+    location: [41.111263, 44.849675],
+    link: 'teghut.html',
+  },
+
+  {
+    type: "suburb",
+    mark_name: "mark-suburb",
+    mark_hover_name: "mark-suburb-black",
+    photo_src: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Khachardzan_village.jpg/1920px-Khachardzan_village.jpg",
+    title: "Хачардзан",
+    desc: 'Описание',
+    address: 'село Хачардзан, Тавушская область, Дилижан, Армения',
+    location: [40.717183, 45.052685],
+    link: 'khachardzan.html',
+  },
+
 
 ];
 
