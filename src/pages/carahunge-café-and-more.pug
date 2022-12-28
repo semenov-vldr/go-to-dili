@@ -1,0 +1,15 @@
+extends ../layouts/main
+
+block variables
+  - var title = "Carahunge Café and More"
+  - var pageClass = ''
+  - var activePage = 'index'
+
+block content
+  .breadcrumbs
+    .breadcrumbs__container.container
+      a(href="/").breadcrumbs__item Главная
+      a(href="").breadcrumbs__item Carahunge Café and More
+  section
+    include ../components/what-to-do/food/carahunge-café-and-more
+    include ../components/feedback/feedback

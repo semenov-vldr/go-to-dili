@@ -1,0 +1,15 @@
+extends ../layouts/main
+
+block variables
+  - var title = "VereV Rope Park"
+  - var pageClass = ''
+  - var activePage = 'index'
+
+block content
+  .breadcrumbs
+    .breadcrumbs__container.container
+      a(href="/").breadcrumbs__item Главная
+      a(href="").breadcrumbs__item VereV Rope Park
+  section
+    include ../components/what-to-do/other/verev-rope-park
+    include ../components/feedback/feedback
