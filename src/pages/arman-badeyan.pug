@@ -1,0 +1,29 @@
+extends ../layouts/main
+
+block variables
+  - var title = "GoToDili — Арман Бадеян"
+  - var pageClass = ''
+  - var activePage = 'index'
+
+block content
+  .breadcrumbs
+    .breadcrumbs__container.container
+      a(href="/").breadcrumbs__item Главная
+      a(href="about-people.html").breadcrumbs__item О людях
+      a(href="").breadcrumbs__item Арман Бадеян
+  section
+    include ../components/about-human/arman-badeyan
+
+    .about-people
+      .container.about-people__container
+        .title-link
+          h2 О других людях
+          a(href='about-people.html') Подробнее о людях
+            svg.title-link__icon(width="18" height="16" fill="#8CB110" stroke="#8CB110")
+              use(href='./assets/img/sprite.svg#arrow-nav-small')
+
+        .about-people__list
+          .swiper-wrapper
+            include ../components/_items/people-card/people-card-w-content
+
+          .swiper-pagination

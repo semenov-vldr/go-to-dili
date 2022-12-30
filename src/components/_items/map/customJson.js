@@ -574,6 +574,115 @@ const customJson = [
     link: 'uwc-dilijan.html',
   },
 
+  {
+    type: "other",
+    mark_name: "mark-monasteries",
+    mark_hover_name: "mark-monasteries-black",
+    photo_src: "https://avatars.mds.yandex.net/get-altay/5257938/2a0000017c6368129b37f33dc68cb3756cde/XXL",
+    title: "Центробанк и экскурсия в музей денег",
+    desc: 'Образовательно-исследовательский центр ЦБ Армении',
+    address: 'Тавушская область, Дилижан, Армения',
+    location: [40.743690, 44.865171],
+    link: 'money-museum.html',
+  },
+
+  {
+    type: "other",
+    mark_name: "mark-monasteries",
+    mark_hover_name: "mark-monasteries-black",
+    photo_src: "https://kartinkin.net/pics/uploads/posts/2022-08/1659507201_28-kartinkin-net-p-ozero-parz-armeniya-priroda-krasivo-foto-29.jpg",
+    title: "Озеро Парз",
+    desc: 'Жемчужина Дилижанского национального парка',
+    address: 'Тавушская область, Дилижан, Армения',
+    location: [40.752512, 44.961171],
+    link: 'lakes-of-dilijan-park.html',
+  },
+
+  {
+    type: "other",
+    mark_name: "mark-monasteries",
+    mark_hover_name: "mark-monasteries-black",
+    photo_src: "https://avatars.mds.yandex.net/get-altay/2433982/2a00000174b9c9dc5844da594d8c4ab0b5df/XXXL",
+    title: "Озеро Гош",
+    desc: 'Жемчужина Дилижанского национального парка',
+    address: 'Тавушская область, Дилижан, Армения',
+    location: [40.719981, 45.016059],
+    link: 'lakes-of-dilijan-park.html',
+  },
+
+  {
+    type: "other",
+    mark_name: "mark-monasteries",
+    mark_hover_name: "mark-monasteries-black",
+    photo_src: "https://hikearmenia.blob.core.windows.net/hikearmeniacontainer/images/default-source/images/img_20190710_162505-(1).jpg?sfvrsn=7e2a22f4_10",
+    title: "Пьяный лес",
+    desc: 'Идеальный хайкинг-маршрут для начинающих',
+    address: 'Тавушская область, Дилижан, Армения',
+    location: [40.73602232005918,44.880795836059555],
+    link: 'drunk-forest.html',
+  },
+
+  {
+    type: "other",
+    mark_name: "mark-monasteries",
+    mark_hover_name: "mark-monasteries-black",
+    photo_src: "https://avatars.mds.yandex.net/get-altay/5554141/2a000001840ee71ce3bb8282537315e9a8bd/XXXL",
+    title: "Информационный туристический центр",
+    desc: 'Выбери свой маршрут',
+    address: 'ул. Максима Горького, 15/2,Тавушская область, Дилижан, Армения',
+    location: [40.739265, 44.862566],
+    link: 'tourism-information-center.html',
+  },
+
+  {
+    type: "other",
+    mark_name: "mark-monasteries",
+    mark_hover_name: "mark-monasteries-black",
+    photo_src: "https://www.trip2.am/ussr/uploads/1551955462/1558704987/UWC_Dilijan_Main_building_4.jpg",
+    title: "Библиотека им. Газароса Агаяна",
+    desc: 'Традиции прошлого и большие надежды на будущее',
+    address: 'улица Мясникяна,Тавушская область, Дилижан, Армения',
+    location: [40.740533, 44.870874],
+    link: 'dilijan-library.html',
+  },
+
+  {
+    type: "other",
+    mark_name: "mark-monasteries",
+    mark_hover_name: "mark-monasteries-black",
+    photo_src: "https://core-pht-proxy.maps.yandex.ru/v1/photos/download?photo_id=9HBGp78yvGrynSXuDyq&image_size=X5L",
+    title: "Дилижанский национальный парк",
+    desc: 'Лесной храм Армении',
+    address: 'Тавушская область, Дилижан, Армения',
+    location: [40.745542, 44.922005],
+    link: 'national-park.html',
+  },
+
+  {
+    type: "other",
+    mark_name: "mark-monasteries",
+    mark_hover_name: "mark-monasteries-black",
+    photo_src: "https://avatars.mds.yandex.net/get-altay/6550540/2a00000184c341537d0cdd7f827364aee6f4/XXXL",
+    title: "Краеведческий музей – картинная галерея Дилижана",
+    desc: 'Айвазовский, Шишкин и доисторические артефакты под одной крышей',
+    address: 'ул. Мясникяна, 28, Тавушская область, Дилижан, Армения',
+    location: [40.738450, 44.866954],
+    link: 'picture-gallery.html',
+  },
+
+  {
+    type: "other",
+    mark_name: "mark-monasteries",
+    mark_hover_name: "mark-monasteries-black",
+    photo_src: "https://avatars.mds.yandex.net/get-altay/5102477/2a000001840ea8e889a7977542ec5432124e/XXXL",
+    title: "TUMO Dilijan",
+    desc: 'Окно в мир инноваций для детей Тавушской области',
+    address: 'ул. Мясникяна, 63, Тавушская область, Дилижан, Армения',
+    location: [40.743540, 44.872313],
+    link: 'tumo.html',
+  },
+
+
 ];
 
 

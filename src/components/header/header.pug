@@ -30,7 +30,7 @@ header.header
                 a.header__sub-nav-link(href="history.html") История
                 a.header__sub-nav-link(href="#") Достопримечательности
                 a.header__sub-nav-link(href="#") Окрестности
-                a.header__sub-nav-link(href="#") Люди
+                a.header__sub-nav-link(href="about-people.html") Люди
               .header__sub-nav-img-box
                 a.header__sub-nav-img-link(href="#")
                   .header__sub-nav-img-text Какая-то ссылка важная
@@ -72,7 +72,7 @@ header.header
             .header__sub-nav-wrapper
               .header__sub-nav-links-box
                 a.header__sub-nav-link(href="#") Где остановиться
-                a.header__sub-nav-link(href="#") Где поесть
+                a.header__sub-nav-link(href="where-to-eat.html") Где поесть
                 a.header__sub-nav-link(href="#") Доступный Дилижан
                 a.header__sub-nav-link(href="#") Календарь мероприятий
                 a.header__sub-nav-link(href="#") Досуг
@@ -104,8 +104,8 @@ header.header
         a.header__icon(href="#")
           include ../../img/icons/cart.svg
 
-      select.header__lang-list
-        option Ru
-        option En
+      select.header__lang-list(onchange="location = this.value")
+        option(value="/") Ru
+        option(value="/en/") En
 
       a.button.header__button(href='tours.html') Узнай Дилижан
