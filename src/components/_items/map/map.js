@@ -98,17 +98,17 @@
               balloonLayout,
               hideIconOnBalloonOpen: false,
               iconLayout: 'default#image',
-              iconImageHref: `./assets/img/map/${mark_name}.svg`,
+              iconImageHref: `/assets/img/map/${mark_name}.svg`,
               iconImageSize: [49, 59],
               iconImageOffset: [0, -60],
             });
 
             // смена иконки при hover
             placemark.events.add('mouseenter', (evt) => {
-              evt.get('target').options.set('iconImageHref', `./assets/img/map/${mark_hover_name}.svg`)
+              evt.get('target').options.set('iconImageHref', `/assets/img/map/${mark_hover_name}.svg`)
             });
             placemark.events.add('mouseleave', (evt) => {
-              evt.get('target').options.set('iconImageHref', `./assets/img/map/${mark_name}.svg`)
+              evt.get('target').options.set('iconImageHref', `/assets/img/map/${mark_name}.svg`)
             });
 
 

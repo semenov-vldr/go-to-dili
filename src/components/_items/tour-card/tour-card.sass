@@ -41,13 +41,17 @@
   &__text-content
     display: flex
     flex-direction: column
-    gap: 25px
+    gap: 15px
     padding: 25px
     background-color: #fff
     flex-grow: 1
-    & > *:first-child, h4
-      font-size: clamp(16px, calc(16px + (24 - 16) * ((100vw - 1024px) / (1920 - 1024))), 24px)
-      font-weight: 500
+    @media (max-width: 768px)
+      gap: 15px
+      padding: 25px 18px 18px
+
+  &__title
+    font-size: clamp(16px, calc(16px + (24 - 16) * ((100vw - 1024px) / (1920 - 1024))), 24px)
+    font-weight: 500
 
   &__text
     font-size: clamp(14px, calc(14px + (16 - 14) * ((100vw - 1024px) / (1920 - 1024))), 16px)
@@ -56,10 +60,6 @@
     -webkit-box-orient: vertical
     margin-top: auto
     overflow: hidden
-  @media (max-width: 768px)
-    gap: 15px
-    padding: 25px 18px 18px
-
 
   &__options
     display: flex
@@ -70,11 +70,19 @@
     @media (max-width: 768px)
       padding-top: 13px
 
-    & span, p
-      font-size: clamp(12px, calc(12px + (14 - 12) * ((100vw - 1024px) / (1920 - 1024))), 14px)
-      color: $black
-      b, .tour-card__options-value
-        font-size: clamp(14px, calc(14px + (16 - 14) * ((100vw - 1024px) / (1920 - 1024))), 16px)
-        color: rgba($black, 0.8)
-        margin-left: 15px
-        font-weight: 500
+  &__option
+    font-size: clamp(10px, calc(10px + (12 - 10) * ((100vw - 1024px) / (1920 - 1024))), 12px)
+    line-height: 1.3
+    &_style_secondary
+      font-weight: lighter
+      opacity: .5
+
+  &__text
+    font-size: clamp(12px, calc(12px + (14 - 12) * ((100vw - 1024px) / (1920 - 1024))), 14px)
+    line-height: 1.5
+    color: $black
+
+  &__options-value
+    font-size: clamp(14px, calc(14px + (16 - 14) * ((100vw - 1024px) / (1920 - 1024))), 16px)
+    margin-left: 5px
+    font-weight: 500

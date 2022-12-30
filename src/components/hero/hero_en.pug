@@ -1,0 +1,8 @@
+.hero(style="background-image: url('/assets/img/bg-video-holder.png');")
+  .container.hero__container
+    h1.hero__title Dilijan
+    span.hero-subtitle discover the city with us
+    button(data-src="/assets/video/hero-video.mp4" data-fancybox).button.hero__button Watch video
+
+  video.hero__video(preload='auto' autoplay muted loop playsinline)
+    source(src='/assets/video/hero-video.mp4' type='video/mp4')

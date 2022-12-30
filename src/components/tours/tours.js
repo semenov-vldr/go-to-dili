@@ -7,15 +7,11 @@ new Swiper('.tours__list', {
   // Откл функционала, если слайдов меньше, чем нужно
   watchOverflow: true,
 
-  centeredSlides: true,
-
   // Отступ между слайдами
   spaceBetween: 15,
 
   // Стартовый слайд
   initialSlide: 0,
-
-  loop: true,
 
   // Брейк поинты (адаптив)
   // Ширина экрана

@@ -2,17 +2,20 @@
   .feedback
     .feedback__container
 
-      include ../_items/title-text/title-text
+      .title-text
+        h2 Do you have any questions?
+        p Our specialists will contact you as soon as possible
+
       form.feedback__form.feedback-form(method='POST' action='' enctype="multipart/form-data" autocomplete="off")
 
         .feedback-form__input-container
           input.input-name(placeholder=" " name="name" pattern="^[A-Za-zА-Яа-яЁё\\s]+$" autocomplete='off' maxlength='40' required )
-          label Имя*
+          label Name*
           span.feedback-form__error
         .feedback-form__input-container
 
           input.input-phone(type='tel' name='phone' placeholder="" data-tel-input='' pattern='[0-9]+$' maxlength='15'  autocomplete='off' required )
-          label Телефон*
+          label Phone*
           span.feedback-form__error
 
         .feedback-form__input-container
@@ -22,32 +25,32 @@
 
         .feedback-form__input-container
           input.input-message(placeholder=" " name="message" maxlength='100')
-          label Сообщение
+          label Message
 
         .feedback-form__sending
-          button.button.feedback-form__button(type='submit') Отправить&nbsp;заявку
+          button.button.feedback-form__button(type='submit') Submit&nbsp;request
           label
             input(type='checkbox' checked)
             span.feedback-form__checkbox
             span.feedback-form__agreement
-              | Нажав на кнопку, вы соглашаетесь на обработку
-              a(href='') &#160;персональных данных
+              | By clicking on the button, you agree to the processing
+              a(href='#') &#160;personal data
 
     template#success
       .feedback__popup.popup.success
         .popup__body
           .popup__content
             a.popup__close(href="") &#10006;
-            img.popup__icon(src="./assets/img/check-popup.svg", alt="icon")
-            p.popup__title Ваша заявка успешно отправлена!
-            p.popup__text В течении 24 часов мы с вами свяжемся
+            img.popup__icon(src="/assets/img/check-popup.svg", alt="icon")
+            p.popup__title Your application has been successfully sent!
+            p.popup__text We will contact you within 24 hours
 
     template#error
       .feedback__popup.popup.error
         .popup__body
           .popup__content
             a.popup__close(href="") &#10006;
-            img.popup__icon(src="./assets/img/error-popup.svg", alt="icon")
-            p.popup__title Ошибка при отправки формы
-            p.popup__text Вам лучше перезвонить нам!
+            img.popup__icon(src="/assets/img/error-popup.svg", alt="icon")
+            p.popup__title Error submitting the form
+            p.popup__text You'd better call us!
             a(href="tel:+78528560000") +7 852 856 00 00

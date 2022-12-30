@@ -1,0 +1,27 @@
+extends ../../layouts/main-index_en
+
+block variables
+  - var title = "GoToDili — Dilijan, we will open the soul of the city to you"
+  - var pageClass = ''
+  - var activePage = 'index'
+
+block content
+  section.section-index2
+    include ../../components/hero/hero_en
+    include ../../components/about-project/about-project2_en
+    include ../../components/what-to-do/what-to-do_en
+    include ../../components/history/history_en
+    .container
+      .new-events
+        h2.new-events__title Blog
+        .new-events__list
+          include ../../components/_items/new-event-item/new-event-item-w-content
+
+    include ../../components/events/events
+
+    include ../../components/about-people/about-people
+
+    include ../../components/share/share
+
+    include ../../components/feedback/feedback
+

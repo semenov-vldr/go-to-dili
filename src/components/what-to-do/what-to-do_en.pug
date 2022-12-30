@@ -1,12 +1,12 @@
 .container
   .what-to-do
-    h2.what-to-do__title Что делать в городе?
+    h2.what-to-do__title What to do in the city?
 
     .what-to-do__container
 
       .places__list
         .swiper-wrapper
-          include ../_items/place-card/place-card
+          include ../_items/place-card/place-card_en
 
 
         .swiper-pagination
@@ -17,35 +17,36 @@
           .what-to-do-nav__item.nav-item-eat(data-type="eat")
             svg.what-to-do-nav__icon(width="50" height="50" fill='#D8DAD1')
               use(href='/assets/img/sprite.svg#eat')
-            span.what-to-do-nav__name Еда
+            span.what-to-do-nav__name Food
 
           .js-active-mark.what-to-do-nav__item.nav-item-hotel(data-type="hotel")
             svg.what-to-do-nav__icon(width="50" height="50" fill='#D8DAD1')
               use(href='/assets/img/sprite.svg#hotel')
-            span.what-to-do-nav__name Отели
+            span.what-to-do-nav__name Hotels
 
           .what-to-do-nav__item.nav-item-route(data-type="route")
             svg.what-to-do-nav__icon(width="50" height="50" fill='#D8DAD1')
               use(href='/assets/img/sprite.svg#route')
-            span.what-to-do-nav__name Маршруты
+            span.what-to-do-nav__name Directions
 
           .what-to-do-nav__item.nav-item-place(data-type="place")
             svg.what-to-do-nav__icon(width="50" height="50" fill='#D8DAD1')
               use(href='/assets/img/sprite.svg#place')
-            span.what-to-do-nav__name Места
+            span.what-to-do-nav__name PLaces
 
           .what-to-do-nav__item.nav-item-event(data-type="event")
             svg.what-to-do-nav__icon(width="50" height="50" fill='#D8DAD1')
               use(href='/assets/img/sprite.svg#event')
-            span.what-to-do-nav__name События
+            span.what-to-do-nav__name Events
 
           .what-to-do-nav__item.nav-item-event(data-type="culture")
             svg.what-to-do-nav__icon(width="50" height="50" fill='#D8DAD1')
               use(href='/assets/img/sprite.svg#monument')
-            span.what-to-do-nav__name Культура
+            span.what-to-do-nav__name Culture
+
           .what-to-do-nav__item.nav-item-event(data-type="suburb")
             svg.what-to-do-nav__icon(width="50" height="50" fill='#D8DAD1')
               use(href='/assets/img/sprite.svg#suburb')
-            span.what-to-do-nav__name Пригород
+            span.what-to-do-nav__name Suburb
 
-        include ../_items/map/map
+        include ../_items/map/map_en

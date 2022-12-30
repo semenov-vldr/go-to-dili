@@ -4,7 +4,7 @@ block variables
 - var activePage = activePage
 
 doctype html
-html(lang="ru-RU")
+html(lang="en")
   head
     meta(charset="utf-8")
     title #{title}
@@ -33,13 +33,14 @@ html(lang="ru-RU")
     <!-- Yandex map script -->
     script(src="https://api-maps.yandex.ru/2.1/?apikey=dad86943-dfef-45bd-9c5e-c404323cb093&lang=ru_RU" type="text/javascript")
   body(class=pageClass)
+
     .page
-      include ../components/header/header
-      include ../components/fixed-header-bar/fixed-header-bar
+      include ../components/header/header-index_en
+      include ../components/fixed-header-bar/fixed-header-bar_en
 
       main
         block content
-      include ../components/footer/footer-v2
+      include ../components/footer/footer-v2_en
     script(src="/assets/js/libs.min.js")
     script(src="/assets/js/main.js" type="module")
     block script

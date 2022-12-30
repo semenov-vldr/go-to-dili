@@ -1,0 +1,108 @@
+header.header.header-main.header-index
+  include ../_items/promo-discount/promo-discount_en
+
+  //mobile menu
+  .header__mobile-wrapper
+    nav.header__mobile
+      a.header__mobile-logo(href='/en/')
+        include ../../img/logo.svg
+      a.header__mobile-phone(href='tel:+78528560000')
+        include ../../img/phone-icon.svg
+      .header__mobile-nav-right
+        .header__mobile-burger.jsHeaderBurgerIcon
+          span
+
+  .header__container
+    a.header__logo(href='/en/')
+      include ../../img/logo.svg
+
+    nav.header__nav
+
+      ul.header__nav-row.header__nav-row-2
+        li.header__nav-list-item
+          a.header__link(href='/en/about-city.html') About city
+            svg.header__link-icon(width="10" height="6" fill="white")
+              use(href='/assets/img/sprite.svg#arrow-select')
+          .header__sub-nav
+            .header__sub-nav-wrapper
+              .header__sub-nav-links-box
+                a.header__sub-nav-link(href="/en/about-city/city.html") City
+                a.header__sub-nav-link(href="/en/about-city/history.html") History
+                a.header__sub-nav-link(href="/en/about-city/sights.html") Sights
+                a.header__sub-nav-link(href="/en/about-city/neighborhood.html") Neighborhood
+                a.header__sub-nav-link(href="/en/about-city/people.html") People
+              .header__sub-nav-img-box
+                a.header__sub-nav-img-link(href="/en/acquaintance/variant-1.html")
+                  .header__sub-nav-img-text Walking city tour
+                  img.header__sub-nav-img(src="/assets/img/tours/variant-1_tmb.jpg")
+                a.header__sub-nav-img-link(href="/en/acquaintance/variant-2.html")
+                  .header__sub-nav-img-text Visit Haghartsin Monastery, Lake Parz, Hike to the "Hidden Waterfall"
+                  img.header__sub-nav-img(src="/assets/img/tours/variant-2_tmb.jpg")
+                a.header__sub-nav-img-link(href="/en/acquaintance/variant-3.html")
+                  .header__sub-nav-img-text Visiting Goshavank monastery and jeeping to Gosh lake
+                  img.header__sub-nav-img(src="/assets/img/tours/variant-3_tmb.jpg")
+        li.header__nav-list-item
+          a.header__link(href='/en/acquaintance.html') Acquaintance
+            svg.header__link-icon(width="10" height="6" fill="white")
+              use(href='/assets/img/sprite.svg#arrow-select')
+          .header__sub-nav
+            .header__sub-nav-wrapper
+              .header__sub-nav-links-box
+                a.header__sub-nav-link(href="/en/acquaintance/city-tour.html") City Tour
+                a.header__sub-nav-link(href="/en/acquaintance/hiking.html") Hiking
+                a.header__sub-nav-link(href="/en/acquaintance/jeeping.html") Jeeping
+                a.header__sub-nav-link(href="/en/acquaintance/excursion.html") Excursion
+                a.header__sub-nav-link(href="/en/acquaintance/tastes-of-dilijan.html") Tastes of Dilijan
+                a.header__sub-nav-link(href="/en/acquaintance/helpful-information.html") Helpful information
+              .header__sub-nav-img-box
+                a.header__sub-nav-img-link(href="/en/acquaintance/variant-4.html")
+                  .header__sub-nav-img-text Visit Dilijan Community Center
+                  img.header__sub-nav-img(src="/assets/img/tours/variant-4_tmb.jpg")
+                a.header__sub-nav-img-link(href="/en/acquaintance/variant-5.html")
+                  .header__sub-nav-img-text Jeeping to Abejakar stone
+                  img.header__sub-nav-img(src="/assets/img/tours/variant-5_tmb.jpg")
+                a.header__sub-nav-img-link(href="/en/acquaintance/variant-6.html")
+                  .header__sub-nav-img-text Jeeping to Sartsapata mountains, Dimats and Shagot waterfall
+                  img.header__sub-nav-img(src="/assets/img/tours/variant-6_tmb.jpg")
+        li.header__nav-list-item
+          a.header__link(href='/en/plan-your-trip.html') Plan your trip
+            svg.header__link-icon(width="10" height="6" fill="white")
+              use(href='/assets/img/sprite.svg#arrow-select')
+          .header__sub-nav
+            .header__sub-nav-wrapper
+              .header__sub-nav-links-box
+                a.header__sub-nav-link(href="/en/plan-your-trip/where-to-stay.html") Where to stay
+                a.header__sub-nav-link(href="/en/plan-your-trip/where-to-eat.html") Where to eat
+                a.header__sub-nav-link(href="/en/plan-your-trip/affordable-dilijan.html") Affordable Dilijan
+                a.header__sub-nav-link(href="/en/plan-your-trip/events-calendar.html") Events calendar
+                a.header__sub-nav-link(href="/en/plan-your-trip/leisure.html") Leisure
+              .header__sub-nav-img-box
+                a.header__sub-nav-img-link(href="/en/acquaintance/variant-7.html")
+                  .header__sub-nav-img-text Excursion to Kari lake and Hovk village
+                  img.header__sub-nav-img(src="/assets/img/tours/variant-7_tmb.jpg")
+                a.header__sub-nav-img-link(href="/en/acquaintance/variant-8.html")
+                  .header__sub-nav-img-text Development of an individual hiking plan based on your personal wishes and possibilities
+                  img.header__sub-nav-img(src="/assets/img/tours/variant-8_tmb.jpg")
+        li.header__nav-list-item
+          a.header__link(href="/en/events.html") Events
+        li.header__nav-list-item
+          a.header__link(href='/en/about-us.html') About Us
+
+    nav.header__nav-contacts
+      .header__icons-box
+        a.header__icon(href="/en/places.html")
+          include ../../img/icons/map.svg
+        a.header__icon(href="/en/weather.pug")
+          include ../../img/icons/weather.svg
+        a.header__icon(href='mailto:info@go2dili.com')
+          include ../../img/icons/email.svg
+        a.header__icon(href='tel:+78528560000')
+          include ../../img/icons/phone.svg
+        a.header__icon(href="#")
+          include ../../img/icons/cart.svg
+
+      select(onchange="location = this.value;").header__lang-list
+        option(value="/en/") En
+        option(value="/") Ru
+
+      a.button.header__button(href='/en/acquaintance.html') Discover Dilijan
