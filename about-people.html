@@ -73,7 +73,7 @@
                   </svg></a>
                 <div class="header__sub-nav">
                   <div class="header__sub-nav-wrapper">
-                    <div class="header__sub-nav-links-box"><a class="header__sub-nav-link" href="about-city.html">Город</a><a class="header__sub-nav-link" href="history.html">История</a><a class="header__sub-nav-link" href="#">Достопримечательности</a><a class="header__sub-nav-link" href="#">Окрестности</a><a class="header__sub-nav-link" href="#">Люди</a></div>
+                    <div class="header__sub-nav-links-box"><a class="header__sub-nav-link" href="about-city.html">Город</a><a class="header__sub-nav-link" href="history.html">История</a><a class="header__sub-nav-link" href="#">Достопримечательности</a><a class="header__sub-nav-link" href="#">Окрестности</a><a class="header__sub-nav-link" href="about-people.html">Люди</a></div>
                     <div class="header__sub-nav-img-box"><a class="header__sub-nav-img-link" href="#">
                         <div class="header__sub-nav-img-text">Какая-то ссылка важная</div><img class="header__sub-nav-img" src="https://ic.pics.livejournal.com/alexio_marziano/26796211/2300647/2300647_original.jpg"></a><a class="header__sub-nav-img-link" href="#">
                         <div class="header__sub-nav-img-text">Очень хорошее предложение по туризму с длинным названием</div><img class="header__sub-nav-img" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/4e/61/74/monasteries-in-armenia.jpg?w=500&amp;h=300&amp;s=1"></a><a class="header__sub-nav-img-link" href="#">
@@ -101,7 +101,7 @@
                   </svg></a>
                 <div class="header__sub-nav">
                   <div class="header__sub-nav-wrapper">
-                    <div class="header__sub-nav-links-box"><a class="header__sub-nav-link" href="#">Где остановиться</a><a class="header__sub-nav-link" href="#">Где поесть</a><a class="header__sub-nav-link" href="#">Доступный Дилижан</a><a class="header__sub-nav-link" href="#">Календарь мероприятий</a><a class="header__sub-nav-link" href="#">Досуг</a></div>
+                    <div class="header__sub-nav-links-box"><a class="header__sub-nav-link" href="#">Где остановиться</a><a class="header__sub-nav-link" href="where-to-eat.html">Где поесть</a><a class="header__sub-nav-link" href="#">Доступный Дилижан</a><a class="header__sub-nav-link" href="#">Календарь мероприятий</a><a class="header__sub-nav-link" href="#">Досуг</a></div>
                     <div class="header__sub-nav-img-box"><a class="header__sub-nav-img-link" href="#">
                         <div class="header__sub-nav-img-text">Какая-то ссылка важная</div><img class="header__sub-nav-img" src="https://ic.pics.livejournal.com/alexio_marziano/26796211/2300647/2300647_original.jpg"></a><a class="header__sub-nav-img-link" href="#">
                         <div class="header__sub-nav-img-text">Очень хорошее предложение по туризму с длинным названием</div><img class="header__sub-nav-img" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/4e/61/74/monasteries-in-armenia.jpg?w=500&amp;h=300&amp;s=1"></a><a class="header__sub-nav-img-link" href="#">
@@ -173,9 +173,9 @@
 	<circle cx="67.2" cy="71.1" r="4.2"/>
 </svg>
 </a></div>
-            <select class="header__lang-list">
-              <option>Ru</option>
-              <option>En</option>
+            <select class="header__lang-list" onchange="location = this.value">
+              <option value="/">Ru</option>
+              <option value="/en/">En</option>
             </select><a class="button header__button" href="tours.html">Узнай Дилижан</a>
           </nav>
         </div>
@@ -189,58 +189,20 @@
           <div class="breadcrumbs__container container"><a class="breadcrumbs__item" href="/">Главная</a><a class="breadcrumbs__item" href="">О людях</a></div>
         </div>
         <section>
-          <div class="people">
+          <div class="article-grid">
             <div class="container">
-              <h1 class="people__title">О людях</h1>
-              <ul class="people__list">
-                <div class="people__item"><a class="people-card" href="about-human.html">
-                    <div class="people-card__wrapper">
-                      <div class="people-card__image-wrapper"><img src="./assets/img/about-people/01.jpg" alt="photo"></div>
-                      <div class="people-card__content">
-                        <p class="people-card__name">Сукиасян Варужан Гарсеванович</p>
-                        <p class="people-card__position">Футболист и чемпион Армении</p>
-                      </div>
-                    </div></a></div>
-                <div class="people__item"><a class="people-card" href="about-human.html">
-                    <div class="people-card__wrapper">
-                      <div class="people-card__image-wrapper"><img src="./assets/img/about-people/02.jpg" alt="photo"></div>
-                      <div class="people-card__content">
-                        <p class="people-card__name">Саркисян Армен Темурович</p>
-                        <p class="people-card__position">Мэр города Дилижан</p>
-                      </div>
-                    </div></a></div>
-                <div class="people__item"><a class="people-card" href="about-human.html">
-                    <div class="people-card__wrapper">
-                      <div class="people-card__image-wrapper"><img src="./assets/img/about-people/03.jpg" alt="photo"></div>
-                      <div class="people-card__content">
-                        <p class="people-card__name">Сукиасян Варужан Гарсеванович</p>
-                        <p class="people-card__position">Футболист и чемпион Армении</p>
-                      </div>
-                    </div></a></div>
-                <div class="people__item"><a class="people-card" href="about-human.html">
-                    <div class="people-card__wrapper">
-                      <div class="people-card__image-wrapper"><img src="./assets/img/about-people/04.jpg" alt="photo"></div>
-                      <div class="people-card__content">
-                        <p class="people-card__name">Саркисян Армен Темурович</p>
-                        <p class="people-card__position">Мэр города Дилижан</p>
-                      </div>
-                    </div></a></div>
-                <div class="people__item"><a class="people-card" href="about-human.html">
-                    <div class="people-card__wrapper">
-                      <div class="people-card__image-wrapper"><img src="./assets/img/about-people/02.jpg" alt="photo"></div>
-                      <div class="people-card__content">
-                        <p class="people-card__name">Саркисян Армен Темурович</p>
-                        <p class="people-card__position">Мэр города Дилижан</p>
-                      </div>
-                    </div></a></div>
-                <div class="people__item"><a class="people-card" href="about-human.html">
-                    <div class="people-card__wrapper">
-                      <div class="people-card__image-wrapper"><img src="./assets/img/about-people/03.jpg" alt="photo"></div>
-                      <div class="people-card__content">
-                        <p class="people-card__name">Сукиасян Варужан Гарсеванович</p>
-                        <p class="people-card__position">Футболист и чемпион Армении</p>
-                      </div>
-                    </div></a></div>
+              <h1>О людях</h1>
+              <ul class="article-grid__list">
+                <li><a class="article-grid__card-link" href="zhirayr-avanyan.html" style="background-image:url('https://sun9-46.userapi.com/impg/K9UuUMDZ9wWa5T4cGR9z46hO_Y2WEGEGUQsUOA/3bpJDzyROGQ.jpg?size=1080x1350&amp;quality=95&amp;sign=bc4b086112b86720881a25804976123c&amp;type=album');">
+                    <div class="article-grid__card-content"><span class="article-grid__card-title">Жирайр Аванян</span><span class="article-grid__card-subtitle">Основатель сети ресторанов Dolmama, владелец ImToon Dilijan.</span></div></a></li>
+                <li><a class="article-grid__card-link" href="inna-asryan.html" style="background-image:url('https://sun9-63.userapi.com/impg/KYoC4_rVxuO6IWDf1UqQX6cN59ADb8o0WANRLg/tPAxUiOwRVQ.jpg?size=1080x1350&amp;quality=95&amp;sign=e91d6f5e97f9e9314fc225417fc42ae2&amp;type=album');">
+                    <div class="article-grid__card-content"><span class="article-grid__card-title">Инна Асрян</span><span class="article-grid__card-subtitle">Основательница Darchin pastry and cafe</span></div></a></li>
+                <li><a class="article-grid__card-link" href="arman-badeyan.html" style="background-image:url('https://sun9-41.userapi.com/impg/K1QSO05gJrJ6MOJaFDyclHnRy7lvKm1s39pI5Q/NLipTHtWeHg.jpg?size=1080x1080&amp;quality=96&amp;sign=b379e314e0f2268b4274a1117595c0c1&amp;c_uniq_tag=_5eIxJNZbPqFyT-BdUfASNdkXgQIqd4ByfeECa731Ng&amp;type=album');">
+                    <div class="article-grid__card-content"><span class="article-grid__card-title">Арман Бадеян</span><span class="article-grid__card-subtitle">Художник, основатель мастерской и ювелирного бренда BuduArt</span></div></a></li>
+                <li><a class="article-grid__card-link" href="varda-avetisyan.html" style="background-image:url('https://avatars.dzeninfra.ru/get-zen_doc/2420191/pub_5eba9782cf3f022fdb270e33_5eba97a034fef71215127365/scale_2400');">
+                    <div class="article-grid__card-content"><span class="article-grid__card-title">Варда Аветисян</span><span class="article-grid__card-subtitle">Основательница VARDO Group LLC</span></div></a></li>
+                <li><a class="article-grid__card-link" href="ani-harutyunyan.html" style="background-image:url('https://sun9-81.userapi.com/impg/xC6XHScyyKLVwn-0oaOl-p7vFrpAlE8zd0SBKg/oMRZXVzXkU4.jpg?size=1080x1350&amp;quality=95&amp;sign=70b382dbc858dcab955278aa1e6996c7&amp;type=album');">
+                    <div class="article-grid__card-content"><span class="article-grid__card-title">Ани Арутюнян</span><span class="article-grid__card-subtitle">Основатель проектов Caffeine Coffee Roasters, Arm food lab и Ootelie</span></div></a></li>
               </ul>
             </div>
           </div>
