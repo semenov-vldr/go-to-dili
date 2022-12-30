@@ -1,0 +1,15 @@
+extends ../layouts/main
+
+block variables
+  - var title = "Окрестности"
+  - var pageClass = ''
+  - var activePage = 'index'
+
+block content
+  .breadcrumbs
+    .breadcrumbs__container.container
+      a(href="/").breadcrumbs__item Главная
+      a(href="").breadcrumbs__item Окрестности
+  section
+    include ../components/neighborhood/neighborhood
+    include ../components/feedback/feedback
