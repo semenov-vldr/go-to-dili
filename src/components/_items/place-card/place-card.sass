@@ -105,7 +105,12 @@
   @media (max-width: 1000px)
     padding-bottom: 80px
   .place-card
+    column-gap: 70px
     flex-direction: row
+    justify-content: space-between
+    .place-card__image,
+    .place-card__content
+      flex: 0 1 50%
     @media (max-width: 1000px)
       flex-direction: column
   .place-card:nth-child(even)
