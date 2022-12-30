@@ -1,5 +1,4 @@
 .about-human
-  background-color: var(--c-light-green)
 
   &__container
     grid-column: span 7
@@ -12,12 +11,13 @@
 
 
   &__title, h1
-    font-size: clamp(30px, calc(30px + (60 - 30) * ((100vw - 1024px) / (1920 - 1024))), 60px)
+    @include fontSize(30, 60)
     line-height: 1.2
     font-weight: 500
+    letter-spacing: 0.08em
 
   &__subtitle
-    font-size: clamp(18px, calc(18px + (30 - 18) * ((100vw - 1024px) / (1920 - 1024))), 30px)
+    @include fontSize(18, 30)
     line-height: 1.1
     margin-top: 6px
 
@@ -41,7 +41,7 @@
 
   &__text
     color: rgba($black, 0.75)
-    font-size: clamp(14px, calc(14px + (18 - 14) * ((100vw - 768px) / (1920 - 768))), 18px)
+    @include fontSize(14, 18)
     line-height: 1.5
     &:not(:last-child)
       margin-top: 14px

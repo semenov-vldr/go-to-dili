@@ -3,10 +3,10 @@ new Swiper('.places__list', {
     el: '.swiper-pagination',
     clickable: true,
   },
-  navigation: {
-    nextEl: '.arrow-nav__next',
-    prevEl: '.arrow-nav__prev',
-  },
+  // navigation: {
+  //   nextEl: '.arrow-nav__next',
+  //   prevEl: '.arrow-nav__prev',
+  // },
 
   slidesPerView: 3,
 

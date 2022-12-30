@@ -43,9 +43,21 @@
             svg.what-to-do-nav__icon(width="50" height="50" fill='#D8DAD1')
               use(href='/assets/img/sprite.svg#monument')
             span.what-to-do-nav__name Культура
+
           .what-to-do-nav__item.nav-item-event(data-type="suburb")
             svg.what-to-do-nav__icon(width="50" height="50" fill='#D8DAD1')
               use(href='/assets/img/sprite.svg#suburb')
             span.what-to-do-nav__name Пригород
+
+          .what-to-do-nav__item.nav-item-event(data-type="monasteries")
+            svg.what-to-do-nav__icon(width="50" height="50" fill='#D8DAD1')
+              use(href='./assets/img/sprite.svg#monastery')
+            span.what-to-do-nav__name Монастыри
+
+          .what-to-do-nav__item.nav-item-event(data-type="other")
+            svg.what-to-do-nav__icon(width="50" height="50" fill='#D8DAD1')
+              use(href='./assets/img/sprite.svg#monastery')
+            span.what-to-do-nav__name Разное
+
 
         include ../_items/map/map

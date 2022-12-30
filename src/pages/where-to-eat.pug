@@ -1,0 +1,20 @@
+extends ../layouts/main
+
+block variables
+  - var title = "Где поесть"
+  - var pageClass = ''
+  - var activePage = 'index'
+
+block content
+  .breadcrumbs
+    .breadcrumbs__container.container
+      a(href="/").breadcrumbs__item Главная
+      a(href="").breadcrumbs__item Где поесть
+  section
+    include ../components/where-to-eat/where-to-eat
+    include ../components/feedback/feedback
+
+
+
+
+

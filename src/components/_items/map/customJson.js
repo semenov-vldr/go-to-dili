@@ -24,6 +24,105 @@ const customJson = [
     link: 'tava.html',
   },
 
+  {
+    type: "eat",
+    mark_name: "mark-eat",
+    mark_hover_name: "mark-eat-black",
+    photo_src: "https://avatars.mds.yandex.net/get-altay/5538812/2a000001847711e89dc082d9cdf0eec7620b/XXXL",
+    title: "Papanino House",
+    desc: 'Винный ресторан в старинном квартале Дилижана',
+    address: 'ул. Калинина, 104, Дилижан, Армения',
+    location: [40.742120, 44.853316],
+    link: 'papanino-house.html',
+  },
+
+  {
+    type: "eat",
+    mark_name: "mark-eat",
+    mark_hover_name: "mark-eat-black",
+    photo_src: "https://avatars.mds.yandex.net/get-altay/5457654/2a0000017cc6d21ae842ffbc86ddd297c209/XXXL",
+    title: "Café #2",
+    desc: 'Городское кафе в самом сердце города',
+    address: 'ул. Максима Горького, 17/1, Дилижан, Армения',
+    location: [40.742120, 44.853316],
+    link: 'cafe№2.html',
+  },
+
+  {
+    type: "eat",
+    mark_name: "mark-eat",
+    mark_hover_name: "mark-eat-black",
+    photo_src: "http://img.tourister.ru/files/2/4/6/3/1/6/6/5/original.jpg",
+    title: "Im toon Dilijan",
+    desc: 'Для истинных ценителей красоты и спокойствия',
+    address: 'улица Степана Шаумяна, Дилижан, Армения',
+    location: [40.751802, 44.887693],
+    link: 'im-toon-dilijan.html',
+  },
+
+  {
+    type: "eat",
+    mark_name: "mark-eat",
+    mark_hover_name: "mark-eat-black",
+    photo_src: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/363935543.jpg?k=d45f0a0fbcf69622b38f1f1aad84061bf9a8cb89f47efd8809d4eedf9deae22d&o=&hp=1",
+    title: "Toon Armeni Guest house",
+    desc: 'Домашний уют и функциональность',
+    address: 'улица Камарина, 4, Дилижан, Армения',
+    location: [40.743096, 44.872861],
+    link: 'toon-armeni-guest-house.html',
+  },
+
+  {
+    type: "eat",
+    mark_name: "mark-eat",
+    mark_hover_name: "mark-eat-black",
+    photo_src: "https://avatars.mds.yandex.net/get-altay/5476645/2a0000017d6b5ed08dd200a4ecd98ef5761e/XXL",
+    title: "Darchin pastry and cafe",
+    desc: 'Эксклюзивные десерты в дружелюбной атмосфере',
+    address: 'ул. Калинина, 202, Дилижан, Армения',
+    location: [40.741137, 44.842463],
+    link: 'darchin-pastry-and-cafe.html',
+  },
+
+  {
+    type: "eat",
+    mark_name: "mark-eat",
+    mark_hover_name: "mark-eat-black",
+    photo_src: "https://avatars.mds.yandex.net/get-altay/1696029/2a0000016d361e2e63269fdec78bf1592696/XXXL",
+    title: "Carahunge Café and More",
+    desc: 'По следам армянского Стоунхенджа',
+    address: 'улица Калинина, 25, Дилижан, Армения',
+    location: [40.739785, 44.861051],
+    link: 'carahunge-café-and-more.html',
+  },
+
+  {
+    type: "eat",
+    mark_name: "mark-eat",
+    mark_hover_name: "mark-eat-black",
+    photo_src: "https://avatars.mds.yandex.net/get-altay/7979184/2a000001844c46a7525c291b8f2667170863/XXXL",
+    title: "Sovats Vozni cafe & garden",
+    desc: 'По следам армянского Стоунхенджа',
+    address: 'улица Мясникяна, Дилижан, Армения',
+    location: [40.738882, 44.865700],
+    link: 'sovats-vozni-cafe.html',
+  },
+
+  {
+    type: "eat",
+    mark_name: "mark-eat",
+    mark_hover_name: "mark-eat-black",
+    photo_src: "https://avatars.mds.yandex.net/get-altay/4544819/2a000001793a0034bb87d7c3f2c393d68a2a/XXXL",
+    title: "DiliJazz Hotel & Restaurant",
+    desc: 'В окружении гор и джаза',
+    address: '2-я улица, 1/1, село Техут, Тавушская область, Дилижан, Армения',
+    location: [40.778002, 44.926091],
+    link: 'dilijazz-hotel-&-restaurant.html',
+  },
+
+
+
+
   // ----------------Hotel (Отели)----------------
   {
     type: "hotel",
@@ -342,7 +441,7 @@ const customJson = [
     photo_src: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Haghartsin_Village.jpg",
     title: "Агарцин",
     desc: 'Описание',
-    address: 'село Овк, Тавушская область, Дилижан, Армения',
+    address: 'село Агарцин, Тавушская область, Дилижан, Армения',
     location: [40.777755, 44.972520],
     link: 'haghartsin.html',
   },
@@ -369,6 +468,218 @@ const customJson = [
     address: 'село Хачардзан, Тавушская область, Дилижан, Армения',
     location: [40.717183, 45.052685],
     link: 'khachardzan.html',
+  },
+
+
+
+
+  // ----------------monasteries (Монастыри)----------------
+
+  {
+    type: "monasteries",
+    mark_name: "mark-monasteries",
+    mark_hover_name: "mark-monasteries-black",
+    photo_src: "https://avatars.mds.yandex.net/get-altay/1363376/2a0000016509d0dfb956e5c007c4ea808bfc/XXXL",
+    title: "Монастырский комплекс Агарцин",
+    desc: 'Описание',
+    address: 'село Агарцин, Тавушская область, Дилижан, Армения',
+    location: [40.801993, 44.890569],
+    link: 'monastery-complex-haghartsin.html',
+  },
+
+  {
+    type: "monasteries",
+    mark_name: "mark-monasteries",
+    mark_hover_name: "mark-monasteries-black",
+    photo_src: "https://avatars.mds.yandex.net/get-altay/1363250/2a0000016509cde18c7d0fb9cca1fc564346/XXXL",
+    title: "Монастырский комплекс Гошаванк",
+    desc: 'Описание',
+    address: 'село Гош, Тавушская область, Дилижан, Армения',
+    location: [40.729927, 44.997540],
+    link: 'monastery-complex-goshavank.html',
+  },
+
+  {
+    type: "monasteries",
+    mark_name: "mark-monasteries",
+    mark_hover_name: "mark-monasteries-black",
+    photo_src: "https://avatars.mds.yandex.net/get-altay/7725442/2a000001833fb49bd7d9a3f6867cc492f76a/XXXL",
+    title: "Монастырский комплекс Джухтакванк",
+    desc: 'Описание',
+    address: 'Дилижанский национальный парк, Дилижан, Армения',
+    location: [40.757694, 44.802953],
+    link: 'monastery-complex-jukhtakvank.html',
+  },
+
+  {
+    type: "monasteries",
+    mark_name: "mark-monasteries",
+    mark_hover_name: "mark-monasteries-black",
+    photo_src: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Aghavnavank_Monastery_1.jpg/1280px-Aghavnavank_Monastery_1.jpg",
+    title: "Монастырский комплекс Агавнаванк",
+    desc: 'Описание',
+    address: 'Дилижанский национальный парк, Дилижан, Армения',
+    location: [40.724984, 45.107594],
+    link: 'monastery-complex-aghavnavank.html',
+  },
+
+  {
+    type: "monasteries",
+    mark_name: "mark-monasteries",
+    mark_hover_name: "mark-monasteries-black",
+    photo_src: "https://yerkirarmenia.ru/upload/iblock/950/9508a228d2b2d8776e4502acc99e3fc0.JPG",
+    title: "Монастырский комплекс Матосаванк",
+    desc: 'Описание',
+    address: 'Дилижанский национальный парк, Дилижан, Армения',
+    location: [40.750163, 44.803884],
+    link: 'monastery-complex-matosavank.html',
+  },
+
+
+  // ----------------other (Разное)----------------
+
+  {
+    type: "other",
+    mark_name: "mark-monasteries",
+    mark_hover_name: "mark-monasteries-black",
+    photo_src: "https://avatars.dzeninfra.ru/get-zen_doc/4797662/pub_639a0c848c167b2cb5cf42f5_639a0fdb40f4d07e3082fbc1/scale_2400",
+    title: "Улица Шарамбеяна",
+    desc: 'Узкие улочки, ажурные балконы, ремесленные лавки',
+    address: 'улица Шарамбеяна, Тавушская область, Дилижан, Армения',
+    location: [40.739496, 44.868773],
+    link: 'sharambeyan-street.html',
+  },
+
+  {
+    type: "other",
+    mark_name: "mark-monasteries",
+    mark_hover_name: "mark-monasteries-black",
+    photo_src: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/78/7c/dc/from-tree-to-tree.jpg?w=1200&h=1200&s=1",
+    title: "VereV Rope Park",
+    desc: 'Самый длинный веревочный парк Армении',
+    address: 'ул. Гетапня, 19/1, Дилижан, Армения',
+    location: [40.737670, 44.856036],
+    link: 'verev-rope-park.html',
+  },
+
+  {
+    type: "other",
+    mark_name: "mark-monasteries",
+    mark_hover_name: "mark-monasteries-black",
+    photo_src: "https://avatars.mds.yandex.net/get-altay/5488055/2a0000017f55593567472332900c96c88c11/XXXL",
+    title: "UWC Dilijan",
+    desc: 'Международная школа в сердце Дилижана',
+    address: 'ул. Гетапня, 7, Дилижан, Армения',
+    location: [40.739253, 44.833251],
+    link: 'uwc-dilijan.html',
+  },
+
+  {
+    type: "other",
+    mark_name: "mark-monasteries",
+    mark_hover_name: "mark-monasteries-black",
+    photo_src: "https://avatars.mds.yandex.net/get-altay/5257938/2a0000017c6368129b37f33dc68cb3756cde/XXL",
+    title: "Центробанк и экскурсия в музей денег",
+    desc: 'Образовательно-исследовательский центр ЦБ Армении',
+    address: 'Тавушская область, Дилижан, Армения',
+    location: [40.743690, 44.865171],
+    link: 'money-museum.html',
+  },
+
+  {
+    type: "other",
+    mark_name: "mark-monasteries",
+    mark_hover_name: "mark-monasteries-black",
+    photo_src: "https://kartinkin.net/pics/uploads/posts/2022-08/1659507201_28-kartinkin-net-p-ozero-parz-armeniya-priroda-krasivo-foto-29.jpg",
+    title: "Озеро Парз",
+    desc: 'Жемчужина Дилижанского национального парка',
+    address: 'Тавушская область, Дилижан, Армения',
+    location: [40.752512, 44.961171],
+    link: 'lakes-of-dilijan-park.html',
+  },
+
+  {
+    type: "other",
+    mark_name: "mark-monasteries",
+    mark_hover_name: "mark-monasteries-black",
+    photo_src: "https://avatars.mds.yandex.net/get-altay/2433982/2a00000174b9c9dc5844da594d8c4ab0b5df/XXXL",
+    title: "Озеро Гош",
+    desc: 'Жемчужина Дилижанского национального парка',
+    address: 'Тавушская область, Дилижан, Армения',
+    location: [40.719981, 45.016059],
+    link: 'lakes-of-dilijan-park.html',
+  },
+
+  {
+    type: "other",
+    mark_name: "mark-monasteries",
+    mark_hover_name: "mark-monasteries-black",
+    photo_src: "https://hikearmenia.blob.core.windows.net/hikearmeniacontainer/images/default-source/images/img_20190710_162505-(1).jpg?sfvrsn=7e2a22f4_10",
+    title: "Пьяный лес",
+    desc: 'Идеальный хайкинг-маршрут для начинающих',
+    address: 'Тавушская область, Дилижан, Армения',
+    location: [40.73602232005918,44.880795836059555],
+    link: 'drunk-forest.html',
+  },
+
+  {
+    type: "other",
+    mark_name: "mark-monasteries",
+    mark_hover_name: "mark-monasteries-black",
+    photo_src: "https://avatars.mds.yandex.net/get-altay/5554141/2a000001840ee71ce3bb8282537315e9a8bd/XXXL",
+    title: "Информационный туристический центр",
+    desc: 'Выбери свой маршрут',
+    address: 'ул. Максима Горького, 15/2,Тавушская область, Дилижан, Армения',
+    location: [40.739265, 44.862566],
+    link: 'tourism-information-center.html',
+  },
+
+  {
+    type: "other",
+    mark_name: "mark-monasteries",
+    mark_hover_name: "mark-monasteries-black",
+    photo_src: "https://www.trip2.am/ussr/uploads/1551955462/1558704987/UWC_Dilijan_Main_building_4.jpg",
+    title: "Библиотека им. Газароса Агаяна",
+    desc: 'Традиции прошлого и большие надежды на будущее',
+    address: 'улица Мясникяна,Тавушская область, Дилижан, Армения',
+    location: [40.740533, 44.870874],
+    link: 'dilijan-library.html',
+  },
+
+  {
+    type: "other",
+    mark_name: "mark-monasteries",
+    mark_hover_name: "mark-monasteries-black",
+    photo_src: "https://core-pht-proxy.maps.yandex.ru/v1/photos/download?photo_id=9HBGp78yvGrynSXuDyq&image_size=X5L",
+    title: "Дилижанский национальный парк",
+    desc: 'Лесной храм Армении',
+    address: 'Тавушская область, Дилижан, Армения',
+    location: [40.745542, 44.922005],
+    link: 'national-park.html',
+  },
+
+  {
+    type: "other",
+    mark_name: "mark-monasteries",
+    mark_hover_name: "mark-monasteries-black",
+    photo_src: "https://avatars.mds.yandex.net/get-altay/6550540/2a00000184c341537d0cdd7f827364aee6f4/XXXL",
+    title: "Краеведческий музей – картинная галерея Дилижана",
+    desc: 'Айвазовский, Шишкин и доисторические артефакты под одной крышей',
+    address: 'ул. Мясникяна, 28, Тавушская область, Дилижан, Армения',
+    location: [40.738450, 44.866954],
+    link: 'picture-gallery.html',
+  },
+
+  {
+    type: "other",
+    mark_name: "mark-monasteries",
+    mark_hover_name: "mark-monasteries-black",
+    photo_src: "https://avatars.mds.yandex.net/get-altay/5102477/2a000001840ea8e889a7977542ec5432124e/XXXL",
+    title: "TUMO Dilijan",
+    desc: 'Окно в мир инноваций для детей Тавушской области',
+    address: 'ул. Мясникяна, 63, Тавушская область, Дилижан, Армения',
+    location: [40.743540, 44.872313],
+    link: 'tumo.html',
   },
 
 
