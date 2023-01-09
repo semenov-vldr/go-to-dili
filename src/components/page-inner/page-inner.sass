@@ -8,7 +8,6 @@
     @media (max-width: 1000px)
       flex-direction: column-reverse
       margin: 0
-      //overflow: hidden
     @media (max-width: 768px)
       width: auto
 
@@ -16,7 +15,7 @@
   &__content
     width: 70%
     @media (max-width: 1000px)
-      width: 100%
+      width: auto
     h1
       margin-bottom: 30px
       @include fontSize(34, 70)
@@ -105,9 +104,11 @@
     @media (max-width: 1000px)
       margin-left: initial
       position: initial
-      width: fit-content
+      min-width: fit-content
+      width: 100%
       @media (max-width: 480px)
         padding: 10px
+
 
     ul
       display: flex
@@ -117,6 +118,7 @@
       @media (max-width: 1000px)
         flex-direction: row
         flex-wrap: nowrap
+        overflow: scroll
       @media (max-width: 480px)
         gap: 10px 15px
 
@@ -137,7 +139,7 @@
     padding: 20px
     border: 1px solid var(--c-green)
     display: flex
-    align-items: center
+    flex-direction: column
     gap: 8px
     p, span
       margin: 0
@@ -145,9 +147,24 @@
       margin-top: 50px
 
   &__temperature-content
+    position: relative
     display: flex
     flex-direction: column
     gap: 12px
+    padding-left: 40px
+    &::before
+      content: ""
+      position: absolute
+      top: 50%
+      left: 0
+      transform: translateY(-50%)
+      background-image: url('../img/icons/temperature.svg')
+      width: 18px
+      height: 37px
+      background-size: cover
+      background-position: center
+      background-repeat: no-repeat
+
 
 
   &__info
